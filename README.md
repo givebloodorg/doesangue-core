@@ -10,7 +10,9 @@ Para usar/participar, basta que cadastre na Plataforma como doador ou instituiç
 #### Doadores!
  O usuário cadastrado como doador deverá informar o seu tipo de sangue, idade, nacionalidade, localização\morada de modo a facilitar que as instituições achem o perfíl certo para o doador que precisam e assim entrar em contacto pessoalmente ou conectar-lo na plataforma.
 
-#### instituições!
 
+#### instituições!
+O usuário cadastrado como Instituição fornecerá os dados como Nome da Instituição, email, NIF (número de Identificação Fiscal), localização da Instituição em questão, contactos de telefone, possibilitando que os usuários (doadores) possam a conectar/contactar na rede ou mesmo pessoalmente.
 
 ### QUEM PODE USAR?
+Todo cidadão que sinta no dever de salvar vidas doando parte de seu sangue voluntariamente para instituições de saúde ou para pessoas especifícas.
