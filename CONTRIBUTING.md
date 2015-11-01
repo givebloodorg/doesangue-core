@@ -21,4 +21,4 @@ Uma vez que o projeto já dispõe de funcionalidades implementadas, recomendamos
 
 Caso queira discutir qualquer assunto que esteja relacionado ao DoeSangue com os outros desenvolvedores/contribuidores da plataforma, acesse nosso <a href="http://projetodoesangue.slack.com">Slack</a> e seja bem vindo.
 
-[]
+:radio_button: Adicionar novas regras.
