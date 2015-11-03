@@ -1,4 +1,6 @@
-<?php 
+<?php
+
+namespace DoeSangue\Status; 
 /**
 * @author José Cage
 * @package DoeSangue

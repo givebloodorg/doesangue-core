@@ -1,4 +1,6 @@
 <?php 
+
+namespace DoeSangue\Doador;
 // icnlude classe User
 include 'User.class.php';
 /**

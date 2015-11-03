@@ -1,4 +1,6 @@
 <?php 
+
+namespace DoeSangue\Usuario;
 /**
 * @author José Cage
 * @package DoeSangue
@@ -38,6 +40,10 @@
  		 $prepara = BD::conn()->prepare($sql);
  		 $executa = array($this->login, $this->email, $this->password);
  		 return $prepara->execute($executa);
+ 	}
+
+ 	public function testarClasse(){
+ 		return 'Classe User iniciada';
  	}
 
 
