@@ -6,10 +6,8 @@ php:
   - 7.0
   - hhvm
 
-  - DB=mysql
+script: phpunit test.php
 
-install:
-  - composer install
 
 notifications:
   email: "josejanuario7@gmail.com"
