@@ -6,8 +6,7 @@ php:
   - 7.0
   - hhvm
 
+befor-script:  
+  -install: composer install
+
 script: phpunit test.php
-
-
-notifications:
-  email: "josejanuario7@gmail.com"
