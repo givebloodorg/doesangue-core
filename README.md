@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/josecage/doesangue.me.svg)](https://travis-ci.org/josecage/doesangue.me)
+[![Build Status](https://travis-ci.org/JoseCage/doesangue.me.svg)](https://travis-ci.org/JoseCage/doesangue.me)
 
 # doesangue.me
 Plataforma online de procura de doadores e necessitados de sangue.
