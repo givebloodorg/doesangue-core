@@ -1,21 +1,52 @@
 {
-    "name": "mentedigital/doesangue",
-    "description": "Plataforma online de procura de doadores e necessitados de sangue.",
+    "name": "laravel/laravel",
+    "description": "The Laravel Framework.",
+    "keywords": ["framework", "laravel"],
     "license": "MIT",
-    "authors": [
-        {
-            "name": "JoseCage",
-            "email": "josejanuario7@gmail.com",
-            "homepage": "http://mentedigital.github.io/"
-        }
-    ],
-    "minimum-stability": "dev",
+    "type": "project",
     "require": {
-        "php": ">=5.5.0"
+        "php": ">=5.5.9",
+        "laravel/framework": "5.2.*",
+	"laravelcollective/html": "5.2.*"
+    },
+    "require-dev": {
+        "fzaninotto/faker": "~1.4",
+        "mockery/mockery": "0.9.*",
+        "phpunit/phpunit": "~4.0",
+        "symfony/css-selector": "2.8.*|3.0.*",
+        "symfony/dom-crawler": "2.8.*|3.0.*",
+	"laracasts/generators": "^1.1"
     },
     "autoload": {
-        "psr-0": {
-            "DoeSangue": "app/classes/"
+        "classmap": [
+            "database"
+        ],
+        "psr-4": {
+            "Doesangue\\": "app/"
         }
-}
+    },
+    "autoload-dev": {
+        "classmap": [
+            "tests/TestCase.php"
+        ]
+    },
+    "scripts": {
+        "post-root-package-install": [
+            "php -r \"copy('.env.example', '.env');\""
+        ],
+        "post-create-project-cmd": [
+            "php artisan key:generate"
+        ],
+        "post-install-cmd": [
+            "Illuminate\\Foundation\\ComposerScripts::postInstall",
+            "php artisan optimize"
+        ],
+        "post-update-cmd": [
+            "Illuminate\\Foundation\\ComposerScripts::postUpdate",
+            "php artisan optimize"
+        ]
+    },
+    "config": {
+        "preferred-install": "dist"
+    }
 }
