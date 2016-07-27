@@ -11,3 +11,6 @@ befor-script:
   -update: composer update
 
 script: composer --version
+
+notifications:
+  slack: mentedigital:duwI9LzVAI2ZgDbtie5vwpR7
