@@ -8,5 +8,6 @@ php:
 
 befor-script:  
   -install: composer install
+  -update: composer update
 
-script: phpunit test.php
+script: phpunit
