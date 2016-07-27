@@ -10,4 +10,4 @@ befor-script:
   -install: composer install
   -update: composer update
 
-script: phpunit
+script: composer --version
