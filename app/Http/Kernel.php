@@ -1,5 +1,10 @@
 <?php
 
+/*
+ * Todos Direitos Reservados.
+ *
+ * DoeSangue.me
+ */
 namespace Doesangue\Http;
 
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
@@ -44,10 +49,10 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $routeMiddleware = [
-        'auth' => \Doesangue\Http\Middleware\Authenticate::class,
+        'auth'       => \Doesangue\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
-        'can' => \Illuminate\Foundation\Http\Middleware\Authorize::class,
-        'guest' => \Doesangue\Http\Middleware\RedirectIfAuthenticated::class,
-        'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
+        'can'        => \Illuminate\Foundation\Http\Middleware\Authorize::class,
+        'guest'      => \Doesangue\Http\Middleware\RedirectIfAuthenticated::class,
+        'throttle'   => \Illuminate\Routing\Middleware\ThrottleRequests::class,
     ];
 }

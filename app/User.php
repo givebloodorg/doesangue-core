@@ -1,5 +1,10 @@
 <?php
 
+/*
+ * Todos Direitos Reservados.
+ *
+ * DoeSangue.me
+ */
 namespace Doesangue;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;

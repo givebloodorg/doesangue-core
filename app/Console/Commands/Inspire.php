@@ -1,5 +1,10 @@
 <?php
 
+/*
+ * Todos Direitos Reservados.
+ *
+ * DoeSangue.me
+ */
 namespace Doesangue\Console\Commands;
 
 use Illuminate\Console\Command;
@@ -28,6 +33,6 @@ class Inspire extends Command
      */
     public function handle()
     {
-        $this->comment(PHP_EOL.Inspiring::quote().PHP_EOL);
+        $this->comment(PHP_EOL . Inspiring::quote() . PHP_EOL);
     }
 }
