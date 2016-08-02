@@ -1,6 +1,6 @@
 preset: recommended
 
-risky: false
+risky: true
 
 linting: true
 
@@ -8,11 +8,9 @@ enabled:
   - long_array_syntax
   - strict
   - unalign_double_arrow
+  - align_double_arrow
+  - blank_line_after_namespace
+  - blank_line_after_opening_tag
 
 disabled:
-  - align_double_arrow
   - short_array_syntax
-
-finder:
-  exclude:
-    - "tests"
