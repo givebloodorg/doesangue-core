@@ -1,8 +1,7 @@
-<?php 
-require_once /*__DIR__*/ "app/classes/User.class.php";
+<?php
+
+require_once /*__DIR__*/ 'app/classes/User.class.php';
 
  use Usuario\User;
 
-  echo User::testarClasse();
-
- ?>
+ echo User::testarClasse();
