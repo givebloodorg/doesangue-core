@@ -1,5 +1,10 @@
 <?php
 
+/*
+ * Todos Direitos Reservados.
+ *
+ * DoeSangue.me
+ */
 namespace Doesangue\Jobs;
 
 use Illuminate\Bus\Queueable;

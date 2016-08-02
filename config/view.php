@@ -1,5 +1,11 @@
 <?php
 
+/*
+ * Todos Direitos Reservados.
+ *
+ * DoeSangue.me
+ */
+
 return [
 
     /*

@@ -1,5 +1,11 @@
 <?php
 
+/*
+ * Todos Direitos Reservados.
+ *
+ * DoeSangue.me
+ */
+
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder

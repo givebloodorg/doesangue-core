@@ -1,5 +1,10 @@
 <?php
 
+/*
+ * Todos Direitos Reservados.
+ *
+ * DoeSangue.me
+ */
 namespace Doesangue\Providers;
 
 use Illuminate\Contracts\Events\Dispatcher as DispatcherContract;
@@ -21,7 +26,8 @@ class EventServiceProvider extends ServiceProvider
     /**
      * Register any other events for your application.
      *
-     * @param  \Illuminate\Contracts\Events\Dispatcher  $events
+     * @param \Illuminate\Contracts\Events\Dispatcher $events
+     *
      * @return void
      */
     public function boot(DispatcherContract $events)
