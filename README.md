@@ -1,3 +1,5 @@
+[![Slack Status](https://projetodoesangue.herokuapp.com/badge.svg)](https://projetodoesangue.herokuapp.com)
+
 [![Build Status](https://travis-ci.org/JoseCage/doesangue.me.svg)](https://travis-ci.org/JoseCage/doesangue.me)
 
 # doesangue.me
