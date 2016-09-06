@@ -1,10 +1,10 @@
 <?php
 
 /*
- * Todos Direitos Reservados.
- *
  * DoeSangue.me
+ *   Projeto Filantrópico para pesquisa e conexão de doadores voluntários.
  */
+
 
 use Illuminate\Database\Seeder;
 

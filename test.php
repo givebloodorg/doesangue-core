@@ -1,10 +1,11 @@
 <?php 
 
 /*
- * Todos Direitos Reservados.
- *
  * DoeSangue.me
+ *   Projeto Filantrópico para pesquisa e conexão de doadores voluntários.
  */
+
+
 
 require_once /*__DIR__*/ 'core/classes/User.class.php';
 
