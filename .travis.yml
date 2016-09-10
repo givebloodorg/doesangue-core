@@ -1,16 +1,11 @@
 language: php
 php:
-  - 5.4
   - 5.5
   - 5.6
   - 7.0
-  - hhvm
 
-befor-script:  
-  -install: composer install
-  -update: composer update
-
-script: composer --version
+before_script: composer install
+script: composer dumpautoload
 
 notifications:
   slack: mentedigital:duwI9LzVAI2ZgDbtie5vwpR7
