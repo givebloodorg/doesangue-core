@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateDoadoresTable extends Migration
+class CreateCampanhasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,10 +12,8 @@ class CreateDoadoresTable extends Migration
      */
     public function up()
     {
-        Schema::create('doadores', function (Blueprint $table) {
+        Schema::create('campanhas', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nome', 70);
-            $table->string('biografia', 200);
             $table->timestamps();
         });
     }
@@ -27,6 +25,6 @@ class CreateDoadoresTable extends Migration
      */
     public function down()
     {
-        Schema::drop('doadores');
+        Schema::drop('campanhas');
     }
 }
