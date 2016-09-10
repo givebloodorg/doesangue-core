@@ -1,7 +1,13 @@
 <?php
 
-use Illuminate\Database\Schema\Blueprint;
+/*
+ * DoeSangue.me
+ *   Projeto Filantrópico para pesquisa e conexão de doadores voluntários.
+ */
+
+
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
 
 class CreateDoadoresTable extends Migration
 {
