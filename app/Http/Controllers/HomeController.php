@@ -1,9 +1,10 @@
 <?php
 
+/*
+ * DoeSangue.me
+ *   Projeto Filantrópico para pesquisa e conexão de doadores voluntários.
+ */
 namespace Doesangue\Http\Controllers;
-
-use Doesangue\Http\Requests;
-use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
