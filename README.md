@@ -1,4 +1,4 @@
-[![Slack Status](https://projetodoesangue.herokuapp.com/badge.svg)](https://projetodoesangue.herokuapp.com)
+[![Code Climate](https://codeclimate.com/github/JoseCage/sketchflow/badges/gpa.svg)](https://codeclimate.com/github/JoseCage/sketchflow)
 
 [![Build Status](https://travis-ci.org/JoseCage/doesangue.me.svg)](https://travis-ci.org/JoseCage/doesangue.me)
 

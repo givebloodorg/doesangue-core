@@ -4,8 +4,17 @@ php:
   - 5.6
   - 7.0
 
-before_script: composer install
+before_script: composer --version
 script: composer dumpautoload
 
 notifications:
   slack: mentedigital:duwI9LzVAI2ZgDbtie5vwpR7
+
+env:
+ - LARAVEL="5.2" DB=mysql
+
+install: composer install
+
+addons:
+    code_climate:
+        repo_token: 6fcdd1f279868765ad9b4944edc3e2f4668a4901ee87a78ecec010f39b38ed24
