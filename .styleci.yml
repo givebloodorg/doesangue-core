@@ -1,0 +1,19 @@
+preset: laravel
+
+enabled:
+  - "concat_with_spaces"
+  - "no_blank_lines_before_namespace"
+
+disabled:
+  - "blankline_after_open_tag"
+  - "concat_without_spaces"
+  - "no_blank_lines_after_class_opening"
+  - "remove_lines_between_uses"
+  - "single_blank_line_before_namespace"
+  - "whitespacy_lines"
+
+finder:
+  exclude:
+    - ".phpspec"
+    - "spec"
+    - "tests"
