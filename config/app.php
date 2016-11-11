@@ -155,6 +155,7 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
         Sven\ArtisanView\ArtisanViewServiceProvider::class,
+        Laracademy\Generators\GeneratorsServiceProvider::class,
 
         /*
          * Application Service Providers...
