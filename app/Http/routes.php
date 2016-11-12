@@ -19,9 +19,13 @@ Route::get('/home', 'HomeController@index');
 
 $api = app('Dingo\Api\Routing\Router');
 
-$api->version('v1', function ($api) {
-    $api->get('doadores', 'DoeSangue\Http\Controllers\DoadoresController@index');
-});
-$api->version('v1', function ($api) {
-    $api->get('doadores/{id}', 'DoeSangue\Http\Controllers\DoadoresController@show');
-});
+$api->version(
+    'v1', function ($api) {
+        $api->get('doadores', 'DoeSangue\Http\Controllers\DoadoresController@index');
+    }
+);
+$api->version(
+    'v1', function ($api) {
+        $api->get('doadores/{id}', 'DoeSangue\Http\Controllers\DoadoresController@show');
+    }
+);
