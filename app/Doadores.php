@@ -10,5 +10,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Doadores extends Model
 {
-    //
+    protected $table = "doadores";
 }
