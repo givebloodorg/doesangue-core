@@ -10,8 +10,8 @@ before_script:
   - composer require "squizlabs/php_codesniffer=*"
 script:
   - composer dumpautoload
-  - /vendor/bin/phpunit --coverage-clover tests/clover.xml
-  - /vendor/bin/phpcbf app
+  - vendor/bin/phpunit --coverage-clover tests/clover.xml
+  - vendor/bin/phpcbf app
 
 notifications:
   slack: mentedigital:duwI9LzVAI2ZgDbtie5vwpR7
