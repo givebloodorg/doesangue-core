@@ -1,17 +1,17 @@
 language: php
 php:
-  - 5.5
-  - 5.6
   - 7.0
 
 before_script:
+  - travis_retry composer self-update
+  - travis_retry composer install --no-interaction --prefer-source --dev
   - composer --version
-  - composer require "phpunit/phpunit"
-  - composer require "squizlabs/php_codesniffer=*"
+#  - pip install --user codecov
+
 script:
   - composer dumpautoload
-  - vendor/bin/phpunit --coverage-clover tests/clover.xml
-  - vendor/bin/phpcbf app
+  - vendor/bin/phpunit --coverage-clover=coverage.xml
+#  - codecov
 
 notifications:
   slack: mentedigital:duwI9LzVAI2ZgDbtie5vwpR7
@@ -19,9 +19,11 @@ notifications:
 env:
  - LARAVEL="5.2"
 
-
 install: composer install
 
 addons:
     code_climate:
         repo_token: 0cf44912ed4344a020d170ff41b89b3cadda2102e3c04f4e1316ce0d346e1268
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
