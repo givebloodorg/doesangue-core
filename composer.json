@@ -9,7 +9,8 @@
         "laravel/framework": "5.2.*",
 	"laravelcollective/html": "5.2.*",
         "sven/artisan-view": "^1.3",
-        "laracademy/generators": "^1.3"
+        "laracademy/generators": "^1.3",
+        "dingo/api": "1.0.x@dev"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

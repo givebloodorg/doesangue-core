@@ -114,8 +114,8 @@ return [
     |
     */
 
- //   'log' => env('APP_LOG', 'single'),
-     'log' => env('errorlog'),
+   'log' => env('APP_LOG', 'single'),
+//     'log' => env('errorlog'),
 
     /*
     |--------------------------------------------------------------------------
