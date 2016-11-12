@@ -4,7 +4,7 @@
  * DoeSangue.me
  *   Projeto Filantrópico para pesquisa e conexão de doadores voluntários.
  */
-namespace Doesangue\Providers;
+namespace DoeSangue\Providers;
 
 use Illuminate\Contracts\Auth\Access\Gate as GateContract;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
@@ -17,7 +17,7 @@ class AuthServiceProvider extends ServiceProvider
      * @var array
      */
     protected $policies = [
-        'Doesangue\Model' => 'Doesangue\Policies\ModelPolicy',
+        'DoeSangue\Model' => 'DoeSangue\Policies\ModelPolicy',
     ];
 
     /**

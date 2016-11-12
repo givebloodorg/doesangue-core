@@ -4,7 +4,7 @@
  * DoeSangue.me
  *   Projeto Filantrópico para pesquisa e conexão de doadores voluntários.
  */
-namespace Doesangue\Exceptions;
+namespace DoeSangue\Exceptions;
 
 use Exception;
 use Illuminate\Auth\Access\AuthorizationException;

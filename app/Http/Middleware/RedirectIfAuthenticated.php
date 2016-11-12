@@ -4,7 +4,7 @@
  * DoeSangue.me
  *   Projeto Filantrópico para pesquisa e conexão de doadores voluntários.
  */
-namespace Doesangue\Http\Middleware;
+namespace DoeSangue\Http\Middleware;
 
 use Closure;
 use Illuminate\Support\Facades\Auth;

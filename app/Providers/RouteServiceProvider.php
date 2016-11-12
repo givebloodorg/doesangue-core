@@ -4,7 +4,7 @@
  * DoeSangue.me
  *   Projeto Filantrópico para pesquisa e conexão de doadores voluntários.
  */
-namespace Doesangue\Providers;
+namespace DoeSangue\Providers;
 
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Routing\Router;
@@ -18,7 +18,7 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    protected $namespace = 'Doesangue\Http\Controllers';
+    protected $namespace = 'DoeSangue\Http\Controllers';
 
     /**
      * Define your route model bindings, pattern filters, etc.

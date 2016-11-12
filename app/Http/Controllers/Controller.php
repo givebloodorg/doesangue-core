@@ -4,7 +4,7 @@
  * DoeSangue.me
  *   Projeto Filantrópico para pesquisa e conexão de doadores voluntários.
  */
-namespace Doesangue\Http\Controllers;
+namespace DoeSangue\Http\Controllers;
 
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesResources;

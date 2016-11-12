@@ -4,9 +4,9 @@
  * DoeSangue.me
  *   Projeto Filantrópico para pesquisa e conexão de doadores voluntários.
  */
-namespace Doesangue\Http\Controllers\Auth;
+namespace DoeSangue\Http\Controllers\Auth;
 
-use Doesangue\Http\Controllers\Controller;
+use DoeSangue\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ResetsPasswords;
 
 class PasswordController extends Controller

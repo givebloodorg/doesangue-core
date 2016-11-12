@@ -24,19 +24,23 @@ $app = new Illuminate\Foundation\Application(
 
 $app->singleton(
     Illuminate\Contracts\Http\Kernel::class,
-    Doesangue\Http\Kernel::class
+    DoeSangue\Http\Kernel::class
 );
 
 $app->singleton(
     Illuminate\Contracts\Console\Kernel::class,
-    Doesangue\Console\Kernel::class
+    DoeSangue\Console\Kernel::class
 );
 
 $app->singleton(
     Illuminate\Contracts\Debug\ExceptionHandler::class,
-    Doesangue\Exceptions\Handler::class
+    DoeSangue\Exceptions\Handler::class
 );
 
+$app->singleton(Dingo\Api\Provider\LumenServiceProvider::class,
+  \Dingo\Api\Facade\API::class,
+  \Dingo\Api\Facade\Route::class
+);
 /*
 |--------------------------------------------------------------------------
 | Return The Application

@@ -4,7 +4,7 @@
  * DoeSangue.me
  *   Projeto Filantrópico para pesquisa e conexão de doadores voluntários.
  */
-namespace Doesangue\Jobs;
+namespace DoeSangue\Jobs;
 
 use Illuminate\Bus\Queueable;
 

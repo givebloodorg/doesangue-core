@@ -4,7 +4,7 @@
  * DoeSangue.me
  *   Projeto Filantrópico para pesquisa e conexão de doadores voluntários.
  */
-namespace Doesangue\Http\Controllers;
+namespace DoeSangue\Http\Controllers;
 
 class HomeController extends Controller
 {

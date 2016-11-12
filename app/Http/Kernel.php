@@ -4,7 +4,7 @@
  * DoeSangue.me
  *   Projeto Filantrópico para pesquisa e conexão de doadores voluntários.
  */
-namespace Doesangue\Http;
+namespace DoeSangue\Http;
 
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
@@ -28,11 +28,11 @@ class Kernel extends HttpKernel
      */
     protected $middlewareGroups = [
         'web' => [
-            \Doesangue\Http\Middleware\EncryptCookies::class,
+            \DoeSangue\Http\Middleware\EncryptCookies::class,
             \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
             \Illuminate\Session\Middleware\StartSession::class,
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
-            \Doesangue\Http\Middleware\VerifyCsrfToken::class,
+            \DoeSangue\Http\Middleware\VerifyCsrfToken::class,
         ],
 
         'api' => [
@@ -48,10 +48,10 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $routeMiddleware = [
-        'auth'       => \Doesangue\Http\Middleware\Authenticate::class,
+        'auth'       => \DoeSangue\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'can'        => \Illuminate\Foundation\Http\Middleware\Authorize::class,
-        'guest'      => \Doesangue\Http\Middleware\RedirectIfAuthenticated::class,
+        'guest'      => \DoeSangue\Http\Middleware\RedirectIfAuthenticated::class,
         'throttle'   => \Illuminate\Routing\Middleware\ThrottleRequests::class,
     ];
 }

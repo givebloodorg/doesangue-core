@@ -73,7 +73,7 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model'  => Doesangue\User::class,
+            'model'  => DoeSangue\User::class,
         ],
 
         // 'users' => [

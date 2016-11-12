@@ -1,6 +1,6 @@
 <?php
 
-namespace Doesangue\Http\Controllers;
+namespace DoeSangue\Http\Controllers;
 
 class PublicidadeController extends Controller
 {

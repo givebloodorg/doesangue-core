@@ -156,15 +156,16 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
         Sven\ArtisanView\ArtisanViewServiceProvider::class,
-        Laracademy\Generators\GeneratorsServiceProvider::class,
+//        Laracademy\Generators\GeneratorsServiceProvider::class,
+        Dingo\Api\Provider\LaravelServiceProvider::class,
 
         /*
          * Application Service Providers...
          */
-        Doesangue\Providers\AppServiceProvider::class,
-        Doesangue\Providers\AuthServiceProvider::class,
-        Doesangue\Providers\EventServiceProvider::class,
-        Doesangue\Providers\RouteServiceProvider::class,
+        DoeSangue\Providers\AppServiceProvider::class,
+        DoeSangue\Providers\AuthServiceProvider::class,
+        DoeSangue\Providers\EventServiceProvider::class,
+        DoeSangue\Providers\RouteServiceProvider::class,
 
     ],
 

@@ -7,7 +7,7 @@
 
 
 
-$factory->define(Doesangue\User::class, function (Faker\Generator $faker) {
+$factory->define(DoeSangue\User::class, function (Faker\Generator $faker) {
     return [
         'name'           => $faker->name,
         'email'          => $faker->safeEmail,
