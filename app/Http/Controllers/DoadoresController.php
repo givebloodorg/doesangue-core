@@ -10,12 +10,13 @@ use DoeSangue\Doadores;
 
 class DoadoresController extends Controller
 {
+    public function index()
+    {
+        return Doadores::all();
+    }
 
-  public function index(){
-    return Doadores::all();
-  }
-
-    public function show($id){
-      return Doadores::findOrFail($id);
+    public function show($id)
+    {
+        return Doadores::findOrFail($id);
     }
 }
