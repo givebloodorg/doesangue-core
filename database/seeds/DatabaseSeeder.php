@@ -17,8 +17,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-         $this->call('UsersSeeder');
-         $this->call('DoadoresSeeder');
-         $this->command->info('Dados criados com sucesso!');
+        $this->call('UsersSeeder');
+        $this->call('DoadoresSeeder');
+        $this->command->info('Dados criados com sucesso!');
     }
 }

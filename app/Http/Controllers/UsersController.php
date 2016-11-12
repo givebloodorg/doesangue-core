@@ -2,12 +2,15 @@
 
 namespace DoeSangue\Http\Controllers;
 
+<<<<<<< HEAD
 use Illuminate\Http\Request;
 
 use DoeSangue\Http\Requests;
 
 use DoeSangue\User;
 
+=======
+>>>>>>> development
 class UsersController extends Controller
 {
     /**
