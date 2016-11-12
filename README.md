@@ -1,6 +1,7 @@
 [![Code Climate](https://codeclimate.com/github/JoseCage/sketchflow/badges/gpa.svg)](https://codeclimate.com/github/JoseCage/sketchflow)
-
 [![Build Status](https://travis-ci.org/JoseCage/doesangue.me.svg)](https://travis-ci.org/JoseCage/doesangue.me)
+[![Test Coverage](https://codeclimate.com/github/JoseCage/doesangue.me/badges/coverage.svg)](https://codeclimate.com/github/JoseCage/doesangue.me/coverage)
+ [![Issue Count](https://codeclimate.com/github/JoseCage/doesangue.me/badges/issue_count.svg)](https://codeclimate.com/github/JoseCage/doesangue.me)
 
 # doesangue.me
 Plataforma online de procura de doadores e necessitados de sangue.

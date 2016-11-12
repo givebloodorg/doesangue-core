@@ -13,13 +13,14 @@ Route::get(
     }
 );
 
-Route::auth();
+// Route::auth();
 
 Route::get('/home', 'HomeController@index');
 
 // Rotas da API.
 $api = app('Dingo\Api\Routing\Router');
 
+// Doadoes
 $api->version(
     'v1', function ($api) {
         $api->get('doadores', 'DoeSangue\Http\Controllers\DoadoresController@index');
@@ -28,5 +29,18 @@ $api->version(
 $api->version(
     'v1', function ($api) {
         $api->get('doadores/{id}', 'DoeSangue\Http\Controllers\DoadoresController@show');
+    }
+);
+
+// Lista de Usuários
+$api->version(
+    'v1', function ($api) {
+        $api->get('usuarios', 'DoeSangue\Http\Controllers\UsersController@index');
+    }
+);
+// Listar dados de 1 usuário
+$api->version(
+    'v1', function ($api) {
+        $api->get('usuarios/{id}', 'DoeSangue\Http\Controllers\UsersController@show');
     }
 );
