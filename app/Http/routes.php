@@ -20,7 +20,7 @@ Route::get('/home', 'HomeController@index');
 // Rotas da API.
 $api = app('Dingo\Api\Routing\Router');
 
-// Doadoes
+// Doadores
 $api->version(
     'v1', function ($api) {
         $api->get('doadores', 'DoeSangue\Http\Controllers\DoadoresController@index');

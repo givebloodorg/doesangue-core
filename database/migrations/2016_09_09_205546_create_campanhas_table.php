@@ -17,10 +17,12 @@ class CreateCampanhasTable extends Migration
      */
     public function up()
     {
-        Schema::create('campanhas', function (Blueprint $table) {
-            $table->increments('id');
-            $table->timestamps();
-        });
+        Schema::create(
+            'campanhas', function (Blueprint $table) {
+                $table->increments('id');
+                $table->timestamps();
+            }
+        );
     }
 
     /**
