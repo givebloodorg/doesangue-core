@@ -14,7 +14,7 @@ class DoadoresSeeder extends Seeder
         $this->command->info('Doadores criados com sucesso!');
 
         DB::table('doadores')->delete();
-//        DB::table('doadores')->truncate();
+        //        DB::table('doadores')->truncate();
         DB::table('doadores')->insert(
             array(
             array('id' => '1', 'user_id' => '1'),
