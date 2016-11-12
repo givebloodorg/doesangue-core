@@ -13,8 +13,8 @@ class UsersSeeder extends Seeder
     {
         DB::table('users')->delete();
         DB::table('users')->truncate();
-        DB::table('users')->insert(array(
-          array('name' => 'José Cage', 'email' => 'josecage@doesangueapp.dev'),
-        ));
+        DB::table('users')->insert([
+          ['name' => 'José Cage', 'email' => 'josecage@doesangueapp.dev'],
+        ]);
     }
 }
