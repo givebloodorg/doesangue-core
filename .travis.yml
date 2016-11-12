@@ -12,6 +12,9 @@ notifications:
 
 env:
  - LARAVEL="5.2" DB=mysql
+ - DB_DATABASE=doesangue
+ - APP_KEY=base64:OVoZyOXnp/3czd3NbTKsIANK9OsezKl72vDNtO2k48o=
+ - APP_ENV=production
 
 install: composer install
 
