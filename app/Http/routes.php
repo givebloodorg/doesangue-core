@@ -17,6 +17,7 @@ Route::auth();
 
 Route::get('/home', 'HomeController@index');
 
+// Rotas da API.
 $api = app('Dingo\Api\Routing\Router');
 
 $api->version(
