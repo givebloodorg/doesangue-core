@@ -3,7 +3,6 @@
 namespace DoeSangue\Http\Controllers;
 
 use DoeSangue\User;
-use DoeSangue\User;
 
 class UsersController extends Controller
 {
