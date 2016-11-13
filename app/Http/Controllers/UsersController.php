@@ -2,10 +2,6 @@
 
 namespace DoeSangue\Http\Controllers;
 
-use Illuminate\Http\Request;
-
-use DoeSangue\Http\Requests;
-
 use DoeSangue\User;
 
 class UsersController extends Controller
@@ -23,15 +19,12 @@ class UsersController extends Controller
     }
 
     /**
-       *
-       *
-       * @method show
-       *
-       * @param  [type] $id [description]
-       *
-       * @return [type] [description]
+     * @method show
+     *
+     * @param  [type] $id [description]
+     *
+     * @return [type] [description]
      */
-
     public function show($id)
     {
         return User::findOrFail($id);
