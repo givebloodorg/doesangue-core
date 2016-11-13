@@ -3,12 +3,8 @@
 namespace DoeSangue\Http\Controllers;
 
 use DoeSangue\User;
-
-use Illuminate\Http\Request;
-
-use DoeSangue\Http\Requests;
-
 use DoeSangue\User;
+
 class UsersController extends Controller
 {
     /**
