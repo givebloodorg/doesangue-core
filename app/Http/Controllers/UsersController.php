@@ -4,6 +4,11 @@ namespace DoeSangue\Http\Controllers;
 
 use DoeSangue\User;
 
+use Illuminate\Http\Request;
+
+use DoeSangue\Http\Requests;
+
+use DoeSangue\User;
 class UsersController extends Controller
 {
     /**
@@ -21,9 +26,7 @@ class UsersController extends Controller
     /**
      * @method show
      *
-     * @param  [type] $id [description]
-     *
-     * @return [type] [description]
+     * @return array
      */
     public function show($id)
     {
