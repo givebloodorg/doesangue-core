@@ -4,7 +4,7 @@ namespace DoeSangue\Http\Controllers;
 
 use DoeSangue\User;
 
-class UsersController extends Controller
+class UserController extends Controller
 {
     /**
      * Listar todos Usuários cadastrados.
@@ -27,4 +27,5 @@ class UsersController extends Controller
     {
         return User::findOrFail($id);
     }
+
 }
