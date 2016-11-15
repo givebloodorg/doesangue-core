@@ -1,9 +1,5 @@
 <?php
 
-/*
- * DoeSangue.me
- *   Projeto Filantrópico para pesquisa e conexão de doadores voluntários.
- */
 namespace DoeSangue\Http\Middleware;
 
 use Illuminate\Cookie\Middleware\EncryptCookies as BaseEncrypter;

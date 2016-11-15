@@ -1,23 +1,21 @@
 <?php
 
-/*
- * DoeSangue.me
- *   Projeto Filantrópico para pesquisa e conexão de doadores voluntários.
- */
 namespace DoeSangue;
 
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
-    protected $table = 'users';
+    use Notifiable;
+
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'username', 'biografia', 'telefone', 'password',
+        'name', 'email', 'password',
     ];
 
     /**

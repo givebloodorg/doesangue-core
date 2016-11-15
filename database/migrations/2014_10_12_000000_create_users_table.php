@@ -1,13 +1,8 @@
 <?php
 
-/*
- * DoeSangue.me
- *   Projeto Filantrópico para pesquisa e conexão de doadores voluntários.
- */
-
-
-use Illuminate\Database\Migrations\Migration;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
 class CreateUsersTable extends Migration
 {
@@ -22,10 +17,9 @@ class CreateUsersTable extends Migration
             'users', function (Blueprint $table) {
                 $table->increments('id');
                 $table->string('name');
+                $table->string('username', 20);
+                $table->string('bio', 250);
                 $table->string('email')->unique();
-                $table->string('username')->unique();
-                $table->string('biografia', 200);
-                $table->number('telefone');
                 $table->string('password');
                 $table->rememberToken();
                 $table->timestamps();
@@ -40,6 +34,6 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        Schema::drop('users');
+        Schema::dropIfExists('users');
     }
 }

@@ -1,13 +1,8 @@
 <?php
 
-/*
- * DoeSangue.me
- *   Projeto Filantrópico para pesquisa e conexão de doadores voluntários.
- */
-
-
-use Illuminate\Database\Migrations\Migration;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
 class CreatePasswordResetsTable extends Migration
 {
@@ -22,7 +17,7 @@ class CreatePasswordResetsTable extends Migration
             'password_resets', function (Blueprint $table) {
                 $table->string('email')->index();
                 $table->string('token')->index();
-                $table->timestamp('created_at');
+                $table->timestamp('created_at')->nullable();
             }
         );
     }
@@ -34,6 +29,6 @@ class CreatePasswordResetsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('password_resets');
+        Schema::dropIfExists('password_resets');
     }
 }

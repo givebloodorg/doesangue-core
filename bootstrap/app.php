@@ -1,14 +1,18 @@
 <?php
 
 /*
- * DoeSangue.me
- *   Projeto Filantrópico para pesquisa e conexão de doadores voluntários.
- */
-
-
+|--------------------------------------------------------------------------
+| Create The Application
+|--------------------------------------------------------------------------
+|
+| The first thing we will do is create a new Laravel application instance
+| which serves as the "glue" for all the components of Laravel, and is
+| the IoC container for the system binding all of the various parts.
+|
+*/
 
 $app = new Illuminate\Foundation\Application(
-    realpath(__DIR__ . '/../')
+    realpath(__DIR__.'/../')
 );
 
 /*
@@ -37,10 +41,6 @@ $app->singleton(
     DoeSangue\Exceptions\Handler::class
 );
 
-$app->singleton(Dingo\Api\Provider\LumenServiceProvider::class,
-  \Dingo\Api\Facade\API::class,
-  \Dingo\Api\Facade\Route::class
-);
 /*
 |--------------------------------------------------------------------------
 | Return The Application

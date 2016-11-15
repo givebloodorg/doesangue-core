@@ -1,7 +1,8 @@
-/vendor
 /node_modules
 /public/storage
-Homestead.yaml
-Homestead.json
+/storage/*.key
+/vendor
+/.idea
+*lock
+*swp
 .env
-.swp
