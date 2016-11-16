@@ -5,7 +5,6 @@
  *   Projeto Filantrópico para pesquisa e conexão de doadores voluntários.
  */
 
-
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
@@ -13,8 +12,6 @@ class CreateDoadoresTable extends Migration
 {
     /**
      * Run the migrations.
-     *
-     * @return void
      */
     public function up()
     {
@@ -29,8 +26,6 @@ class CreateDoadoresTable extends Migration
 
     /**
      * Reverse the migrations.
-     *
-     * @return void
      */
     public function down()
     {

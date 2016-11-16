@@ -4,7 +4,7 @@ use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
-class TestUsuario extends TestCase
+class UsuarioTest extends TestCase
 {
     /**
      * A basic test example.
@@ -24,6 +24,5 @@ class TestUsuario extends TestCase
     {
       $usuario = factory(DoeSangue\User::class, 3)->make();
 
-       echo 'Usuários criados';
     }
 }

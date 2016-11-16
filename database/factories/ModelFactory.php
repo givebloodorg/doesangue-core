@@ -12,7 +12,7 @@
 */
 
 /**
- * @var \Illuminate\Database\Eloquent\Factory $factory 
+ * @var \Illuminate\Database\Eloquent\Factory $factory
 */
 $factory->define(
     DoeSangue\User::class, function (Faker\Generator $faker) {
@@ -26,3 +26,10 @@ $factory->define(
         ];
     }
 );
+
+
+$factory->define(DoeSangue\Doador::class, function (Faker\Generator $faker) {
+     return [
+       'user_id' => $faker->id,
+     ];
+});
