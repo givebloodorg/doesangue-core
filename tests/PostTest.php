@@ -7,16 +7,19 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
 class PostTest extends TestCase
 {
 
-    public function testListarPostWhere(){
+    public function testListarPostWhere()
+    {
 
-      $this->seeInDatabase('posts', [
-        'autor_id' => '1',
-      ]);
+      $this->seeInDatabase(
+          'posts', [
+          'id' => '1'
+          ]
+      );
     }
 
     public function testCriarPost()
     {
-      $post = factory(DoeSangue\Post::class, 4)->make();
+        $post = factory(DoeSangue\Post::class)->make();
     }
 
 }

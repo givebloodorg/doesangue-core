@@ -14,15 +14,17 @@ class UsuarioTest extends TestCase
 
     public function testListUsuarioWhere()
     {
-      $this->seeInDatabase('users', [
-        'email' => 'demo@doesangueapp.dev'
-      ]);
+        $this->seeInDatabase(
+            'users', [
+            'id' => '1'
+            ]
+        );
 
     }
 
     public function testCadastrarUsuario()
     {
-      $usuario = factory(DoeSangue\User::class, 3)->make();
+        $usuario = factory(DoeSangue\User::class, 3)->make();
 
     }
 }
