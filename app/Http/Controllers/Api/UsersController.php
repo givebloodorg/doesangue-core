@@ -8,10 +8,11 @@ use DoeSangue\User;
 
 class UsersController extends Controller
 {
-    public function index(){
+    public function index()
+    {
 
-      $usuarios = User::orderBy('name', 'id')->get();
+        $usuarios = User::orderBy('name', 'id')->get();
 
-       return response()->json($usuarios);
+        return response()->json($usuarios);
     }
 }

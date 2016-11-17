@@ -13,8 +13,15 @@ use Illuminate\Http\Request;
 |
 */
 
+Route::get(
+    '/', function () {
+        return response()->json();
+    }
+);
  // Grupo de rotas da API.
-Route::group(['middleware' => 'auth:api'], function(){
-  // Usuários
-  Route::get('usuarios', 'Api\UsersController@index');
-});
+Route::group(
+    ['middleware' => 'auth:api'], function () {
+        // Usuários
+        Route::get('usuarios', 'Api\UsersController@index');
+    }
+);
