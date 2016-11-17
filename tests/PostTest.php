@@ -9,7 +9,7 @@ class PostTest extends TestCase
 
     public function testListarPostWhere()
     {
-      $posts = DoeSangue\Post::all();
+        $posts = DoeSangue\Post::all();
     }
 
     public function testCriarPost()

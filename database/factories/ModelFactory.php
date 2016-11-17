@@ -54,7 +54,7 @@ $factory->define(
 $factory->define(
     DoeSangue\Campanha::class, function (Faker\Generator $faker) {
         return [
-        ''
+        'titulo' => $faker->title,
         ];
     }
 );

@@ -6,6 +6,12 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class UsuarioTest extends TestCase
 {
+
+    public function testCadastrarUsuario()
+    {
+        $usuario = factory(DoeSangue\User::class, 3)->make();
+
+    }
     /**
      * A basic test example.
      *
@@ -22,9 +28,4 @@ class UsuarioTest extends TestCase
 
     }
 
-    public function testCadastrarUsuario()
-    {
-        $usuario = factory(DoeSangue\User::class, 3)->make();
-
-    }
 }
