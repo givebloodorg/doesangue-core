@@ -18,8 +18,8 @@ class CreatePostsTable extends Migration
                 $table->text('conteudo');
                 $table->string('imagem');
                 $table->integer('autor_id');
-                $table->dateTimeTz('adicionado_em');
-                $table->timestampTz('atualizado_em');
+                $table->dateTimeTz('created_at');
+                $table->timestampTz('updated_at');
                 $table->softDeletes();
             }
         );

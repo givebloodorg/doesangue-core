@@ -44,10 +44,17 @@ $factory->define(
         return [
         'titulo' => $faker->title,
         'conteudo' => $faker->paragraph,
-        'imagem' => $faker->imageUrl($width = 640, $height = 480),
-        'autor_id' => function () {
-            return factory(DoeSangue\User::class)->create()->id;
-        }
+        'imagem' => $faker->imageUrl,
+        'autor_id' => $faker->randomDigit,
+        ];
+    }
+);
+
+// Factory Campanha
+$factory->define(
+    DoeSangue\Campanha::class, function (Faker\Generator $faker) {
+        return [
+        ''
         ];
     }
 );

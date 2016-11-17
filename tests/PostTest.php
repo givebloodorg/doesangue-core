@@ -9,17 +9,13 @@ class PostTest extends TestCase
 
     public function testListarPostWhere()
     {
-
-      $this->seeInDatabase(
-          'posts', [
-          'id' => '1'
-          ]
-      );
+      $posts = DoeSangue\Post::all();
     }
 
     public function testCriarPost()
     {
-        $post = factory(DoeSangue\Post::class)->make();
+        $post = factory(DoeSangue\Post::class)->create();
+
     }
 
 }

@@ -18,6 +18,8 @@ class CreateCampanhasTable extends Migration
         Schema::create(
             'campanhas', function (Blueprint $table) {
                 $table->increments('id');
+                $table->string('titulo');
+                $table->dateTimeTz('data_limite');
                 $table->timestamps();
             }
         );
