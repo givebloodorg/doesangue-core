@@ -22,6 +22,6 @@ Route::get(
 Route::group(
     ['middleware' => 'auth:api', 'namespace' => 'Api'], function () {
         // Usuários
-        Route::get('usuarios', 'UsersController@index');
+        Route::get('doadores', 'DoadoresController@index');
     }
 );

@@ -13,12 +13,13 @@
 
 Route::get('/', 'HomeController@index');
 
-Route::group([
-  'prefix' => 'perfil',
-  'middleware' => 'auth',
-], function () {
-  Route::get('/', 'UsersController@perfil');
-  Route::get('configuracoes', 'UsersController@configuracoes');
-});
+Route::group(
+    [
+    'prefix' => 'perfil',
+    'middleware' => 'auth',
+    ], function () {
+        Route::get('/', 'UsersController@perfil');
+    }
+);
 
 Auth::routes();
