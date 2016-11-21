@@ -20,8 +20,8 @@ Route::get(
 );
  // Grupo de rotas da API.
 Route::group(
-    ['middleware' => 'auth:api'], function () {
+    ['middleware' => 'auth:api', 'namespace' => 'Api'], function () {
         // Usuários
-        Route::get('usuarios', 'Api\UsersController@index');
+        Route::get('usuarios', 'UsersController@index');
     }
 );

@@ -3,13 +3,30 @@
 namespace DoeSangue\Http\Controllers;
 
 use Illuminate\Http\Request;
+use DoeSangue\Http\Controllers\Controller;
+use DoeSangue\User;
+use DoeSangue\Doador;
 
 class UsersController extends Controller
 {
-    private $mailer;
-
-    public function __construct(Mailer $mailer)
+    public function index()
     {
-        $this->mailer = $mailer;
+
+        $usuarios = User::orderBy('name', 'id')->get();
+
+        return response()->view('usuarios.index');
+    }
+
+    public function update()
+    {
+        $this->validate(
+            $request, [
+            'name' => 'required',
+            'email' => 'required',
+            'password' => 'required',
+            'username' => 'required',
+            'bio' => 'required',
+            ]
+        );
     }
 }

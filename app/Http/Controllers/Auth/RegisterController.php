@@ -3,6 +3,7 @@
 namespace DoeSangue\Http\Controllers\Auth;
 
 use DoeSangue\User;
+use DoeSangue\Doador;
 use DoeSangue\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -27,7 +28,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/perfil';
 
     /**
      * Create a new controller instance.
@@ -51,7 +52,8 @@ class RegisterController extends Controller
             $data, [
             'name' => 'required|max:255',
             'email' => 'required|email|max:255|unique:users',
-            'password' => 'required|min:6|confirmed',
+            'username' => 'required|max:20',
+            'password' => 'required|min:8|confirmed',
             ]
         );
     }
@@ -68,8 +70,16 @@ class RegisterController extends Controller
             [
             'name' => $data['name'],
             'email' => $data['email'],
+            'username' => $data['username'],
             'password' => bcrypt($data['password']),
             ]
         );
+    }
+
+    public function registarComoDoador(User $usuario)
+    {
+        $doador = new Doador;
+        $doador->user_id = $usuario->id;
+        $doador->save();
     }
 }

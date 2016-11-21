@@ -1,9 +1,8 @@
 <?php
 
-namespace DoeSangue\Http\Controllers\Api;
+namespace DoeSangue\Http\Controllers;
 
 use Illuminate\Http\Request;
-use DoeSangue\Http\Controllers\Controller;
 
 class CampanhaController extends Controller
 {
