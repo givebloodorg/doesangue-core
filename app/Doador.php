@@ -8,5 +8,5 @@ class Doador extends Model
 {
     protected $table = 'doadores';
 
-    protected $filliable = ['user_id', 'bio', ''];
+    protected $filliable = [ 'user_id', 'bio', '' ];
 }
