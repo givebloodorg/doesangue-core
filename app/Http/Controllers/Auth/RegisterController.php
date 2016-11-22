@@ -3,7 +3,6 @@
 namespace DoeSangue\Http\Controllers\Auth;
 
 use DoeSangue\User;
-use DoeSangue\Doador;
 use DoeSangue\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -77,5 +76,4 @@ class RegisterController extends Controller
 
         \Mail::to($user->email)->send(new BoasVindas($user));
     }
-
 }
