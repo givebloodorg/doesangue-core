@@ -5,7 +5,6 @@ namespace DoeSangue\Mail;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
-use Illuminate\Contracts\Queue\ShouldQueue;
 
 class BoasVindas extends Mailable
 {
@@ -13,6 +12,7 @@ class BoasVindas extends Mailable
 
 
     protected $user;
+
     /**
      * Create a new message instance.
      *
@@ -33,7 +33,7 @@ class BoasVindas extends Mailable
         return $this->view('email.boasvindas')
                     ->with([
                       'Nome' => $this->user->name,
-                      'UserName' => $this->user->username
+                      'UserName' => $this->user->username,
                   ]);
     }
 }
