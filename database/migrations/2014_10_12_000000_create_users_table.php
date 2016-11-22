@@ -15,7 +15,13 @@ class CreateUsersTable extends Migration
             'users', function (Blueprint $table) {
                 $table->increments('id');
                 $table->string('name');
+<<<<<<< 4da80d6577e9a5832dd03c1d377b4f411d154433
                 $table->string('username')->unique();
+||||||| merged common ancestors
+                $table->string('username', 20);
+=======
+                $table->string('username', 20)->unique();
+>>>>>>> Adicionando FoundationCSS para o frontend
                 $table->string('email')->unique();
                 $table->string('password');
                 $table->string('phone', 15)->nullable();

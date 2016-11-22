@@ -2,7 +2,9 @@
 
 namespace DoeSangue\Http\Controllers\Auth;
 
+
 use DoeSangue\Models\User;
+use DoeSangue\Doador;
 use DoeSangue\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;

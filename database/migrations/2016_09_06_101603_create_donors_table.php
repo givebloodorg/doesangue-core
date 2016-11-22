@@ -21,6 +21,7 @@ class CreateDonorsTable extends Migration
                 $table->increments('id');
                 $table->integer('user_id')->unsigned();
                 $table->integer('blood_type_id')->unsigned();
+                $table->string('bio', 250);
                 $table->timestamps();
             }
         );

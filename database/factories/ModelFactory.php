@@ -34,9 +34,15 @@ $factory->define(
 $factory->define(
     DoeSangue\Models\Donor::class, function (Faker\Generator $faker) {
         return [
+<<<<<<< 4da80d6577e9a5832dd03c1d377b4f411d154433
         'user_id' => $faker->randomDigit,
         'bio' => $faker->text($maxNbChars = 100),
         'blood_type_id' => $faker->randomDigit,
+||||||| merged common ancestors
+        'user_id' => $faker->id,
+=======
+        'user_id' => $faker->randomDigit,
+>>>>>>> Adicionando FoundationCSS para o frontend
         ];
     }
 );

@@ -2,16 +2,22 @@
 
 namespace DoeSangue\Http\Controllers;
 
+
 use DoeSangue\Http\Requests\UserProfileRequest;
 use DoeSangue\Models\User;
+use Illuminate\Http\Request;
+use DoeSangue\Http\Controllers\Controller;
+
 
 class UsersController extends Controller
 {
     public function index()
     {
+
         $users = User::orderBy('name', 'id')->get();
 
         return view('users.index', compact('users'));
+
     }
 
     public function update(UserProfileRequest $request, $id)
