@@ -7,15 +7,15 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
 class PostTest extends TestCase
 {
 
-    public function testListarPostWhere()
-    {
-        $posts = DoeSangue\Post::all();
-    }
-
     public function testCriarPost()
     {
-        $post = factory(DoeSangue\Post::class)->create();
+        $post = factory(DoeSangue\Post::class, 4)->make();
 
+    }
+
+    public function testListarPosts()
+    {
+        $posts = DoeSangue\Post::all();
     }
 
 }
