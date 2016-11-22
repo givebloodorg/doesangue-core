@@ -18,5 +18,5 @@ class Post extends Model
      *
      * @var array
      */
-    protected $filliable = ['titulo', 'conteudo', 'autor_id'];
+    protected $filliable = ['titulo', 'conteudo', 'imagem', 'autor_id'];
 }

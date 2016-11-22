@@ -33,7 +33,7 @@ $factory->define(
 $factory->define(
     DoeSangue\Doador::class, function (Faker\Generator $faker) {
         return [
-        'user_id' => $faker->id,
+        'user_id' => $faker->randomDigit,
         ];
     }
 );

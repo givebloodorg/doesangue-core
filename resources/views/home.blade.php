@@ -1,5 +1,6 @@
-@extends('layouts.app')
+@extends('layouts.dashboard')
+@section('pagina', 'Home')
 
-@section('content')
+@section('conteudo')
 <example></example>
 @endsection
