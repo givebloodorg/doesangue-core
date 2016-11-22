@@ -10,8 +10,6 @@ before_script:
   - mysql -e 'create database doesangue_test;'
   - travis_retry composer self-update
   - travis_retry composer install --no-interaction --prefer-source --dev
-  - echo "Instalando x-debug"
-  - sudo apt-get install php-xdebug
 #  - pip install --user codecov
 
 script:
@@ -26,7 +24,6 @@ notifications:
 
 env:
  - LARAVEL="5.3"
- - DB=mysql
 
 install: composer install
 
