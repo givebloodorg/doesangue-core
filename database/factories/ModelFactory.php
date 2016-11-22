@@ -22,7 +22,7 @@ $factory->define(
         'name' => $faker->name,
         'email' => $faker->unique()->companyEmail,
         'username' => $faker->userName,
-        'bio' => $faker->text($maxNbChars = 100),
+        'telefone' => $faker->tollFreePhoneNumber,
         'password' => $password ?: $password = bcrypt('secret'),
         'remember_token' => str_random(10),
         ];
@@ -34,6 +34,8 @@ $factory->define(
     DoeSangue\Doador::class, function (Faker\Generator $faker) {
         return [
         'user_id' => $faker->randomDigit,
+        'bio' => $faker->text($maxNbChars = 100),
+        'id_tiposanguineo' => $faker->randomDigit,
         ];
     }
 );

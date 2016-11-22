@@ -3,29 +3,22 @@
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
+use DoeSangue\User;
 
 class UsuarioTest extends TestCase
 {
 
     public function testCadastrarUsuario()
     {
-        $usuario = factory(DoeSangue\User::class, 3)->make();
+        $usuario = factory(User::class, 5)->create([]);
+
+        return $this->assertTrue(true);
 
     }
-    /**
-     * A basic test example.
-     *
-     * @return void
-     */
 
-    public function testListUsuarioWhere()
-    {
-        $this->seeInDatabase(
-            'users', [
-            'id' => '1'
-            ]
-        );
-
+    public function testlistarUsuarios(){
+      $usuarios = User::find(1);
+      return $this->assertTrue(true);
     }
 
 }
