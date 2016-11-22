@@ -8,6 +8,7 @@ services:
 
 before_script:
   - mysql -e 'create database doesangue_test;'
+  - mysql -e create database doesangue_test;
   - travis_retry composer self-update
   - travis_retry composer install --no-interaction --prefer-source --dev
 #  - pip install --user codecov
