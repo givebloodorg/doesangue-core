@@ -35,6 +35,6 @@ class UsersController extends Controller
       $usuario->telefone = $request[ 'telefone' ];
       $usuario->save();
 
-      return redirect()->route('perfil');
+      return redirect()->route('perfil_user', $usuario->id);
     }
 }
