@@ -28,7 +28,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/perfil';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -74,12 +74,8 @@ class RegisterController extends Controller
             'password' => bcrypt($data['password']),
             ]
         );
+
+        \Mail::to($user->email)->send(new BoasVindas($user));
     }
 
-    public function registarComoDoador(User $usuario)
-    {
-        $doador = new Doador;
-        $doador->user_id = $usuario->id;
-        $doador->save();
-    }
 }
