@@ -2,7 +2,11 @@ language: php
 php:
   - 7.0
 
+services:
+  - mysql
+
 before_script:
+  - mysql -e create database doesangue_test;
   - travis_retry composer self-update
   - travis_retry composer install --no-interaction --prefer-source --dev
   - composer --version
@@ -17,7 +21,6 @@ notifications:
   slack: mentedigital:duwI9LzVAI2ZgDbtie5vwpR7
 
 env:
- - LARAVEL="5.2"
  - LARAVEL="5.3"
 
 install: composer install
