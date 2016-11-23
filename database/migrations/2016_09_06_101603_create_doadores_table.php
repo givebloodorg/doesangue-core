@@ -20,7 +20,7 @@ class CreateDoadoresTable extends Migration
                 $table->increments('id');
                 $table->integer('user_id')->unsigned();
                 $table->string('bio', 250);
-                $table->integer('id_tiposanguineo')->unsigned();
+                $table->integer('id_tiposanguineo')->unsigned()->default(0);
                 $table->timestamps();
             }
         );
