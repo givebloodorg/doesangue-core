@@ -13,7 +13,7 @@ class UsersSeeder extends Seeder
     {
         $this->command->info('Usuários criados com sucesso!');
 
-        DB::table('users')->delete();
+        // DB::table('users')->delete();
         DB::table('users')->truncate();
         DB::table('users')->insert(
             [
