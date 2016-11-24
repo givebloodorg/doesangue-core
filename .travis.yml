@@ -21,6 +21,7 @@ script:
 
 notifications:
   slack: mentedigital:duwI9LzVAI2ZgDbtie5vwpR7
+  slack: projetodoesangue:n3fh7tZf7ZtGAiqzQPlIypiI
 
 env:
  - LARAVEL="5.3"
