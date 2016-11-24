@@ -74,4 +74,3 @@ Para subir o serviço em segundo plano:
 docker-compose up -d # sobe o serviço em segundo plano no terminal
 docker-compose down # mata o serviço
 ```
->>>>>>> master
