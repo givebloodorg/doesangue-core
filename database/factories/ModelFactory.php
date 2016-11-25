@@ -35,7 +35,7 @@ $factory->define(
         return [
         'user_id' => $faker->randomDigit,
         'bio' => $faker->text($maxNbChars = 100),
-        'id_tiposanguineo' => $faker->randomDigit,
+        'blood_type_id' => $faker->randomDigit,
         ];
     }
 );

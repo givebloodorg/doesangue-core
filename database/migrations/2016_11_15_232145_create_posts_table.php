@@ -16,6 +16,7 @@ class CreatePostsTable extends Migration
             $table->string('title', 200);
             $table->text('content');
             $table->string('image');
+            $table->integer('user_id')->unsigned();
             $table->dateTimeTz('created_at');
             $table->timestampTz('updated_at');
             $table->softDeletes();

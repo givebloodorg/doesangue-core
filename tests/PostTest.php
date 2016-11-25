@@ -10,7 +10,7 @@ class PostTest extends TestCase
 
     public function testCriarPost()
     {
-        $post = factory(DoeSangue\Models\Post::class)->create([]);
+        $post = factory(Post::class)->create([]);
 
         return $this->assertTrue(true);
 
