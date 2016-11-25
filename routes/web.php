@@ -18,14 +18,11 @@ Route::get(
     }]
 );
 
-Route::group(
-    [
-    'prefix' => 'perfil',
-    'middleware' => 'auth',
-    ], function () {
-        Route::get('/', ['as' => 'perfil_user', 'uses' => 'UsersController@perfil']);
-    }
-);
+Route::group(['prefix' => 'profile', 'middleware' => 'auth'], function () {
+
+    Route::get('/', ['as' => 'users.profile', 'uses' => 'UsersController@profile']);
+
+});
 
 // Socialite Routes.
 Route::get('social/login/redirect/{provider}', ['uses' => 'Auth\AuthController@redirectToProvider', 'as' => 'social.login']);

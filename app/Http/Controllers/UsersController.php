@@ -2,30 +2,26 @@
 
 namespace DoeSangue\Http\Controllers;
 
-use DoeSangue\User;
+use DoeSangue\Http\Requests\UserProfileRequest;
+use DoeSangue\Models\User;
 
 class UsersController extends Controller
 {
     public function index()
     {
-        $usuarios = User::orderBy('name', 'id')->get();
+        $users = User::orderBy('name', 'id')->get();
 
-        return response()->view('usuarios.index', compact('usuarios'));
+        return view('users.index', compact('users'));
     }
 
-    public function update(Request $request, $id)
+    public function update(UserProfileRequest $request, $id)
     {
-        $this->validate(
-            $request, [
-            'name' => 'required',
-            'email' => 'required',
-            'password' => 'required',
-            'username' => 'required',
-            'bio' => 'required',
-            'telefone' => 'required',
-            ]
-        );
+        $user = User::find($id);
+        $user->fill($request->all());
+        $user->password = bcrypt($request->password);
+        $user->save();
 
+<<<<<<< HEAD
         $usuario = new User();
         $usuario->name = $request[ 'name' ];
         $usuario->email = $request[ 'email' ];
@@ -36,5 +32,8 @@ class UsersController extends Controller
         $usuario->save();
 
         return redirect()->route('perfil_user', $usuario->id);
+=======
+      return redirect()->route('users.profile', $user->id);
+>>>>>>> 2997d6b361ca1e02741c8daf8458d44b41d8a305
     }
 }
