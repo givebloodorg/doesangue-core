@@ -1,6 +1,9 @@
-@extends('layouts.dashboard')
-@section('pagina', 'Home')
+@extends('layouts.app')
 
-@section('conteudo')
-<example></example>
+@section('content')
+
+    <div class="container">
+        <h3 class="page-header">Dashboard</h3>
+    </div>
+
 @endsection

@@ -2,7 +2,7 @@
 
 namespace DoeSangue\Http\Controllers\Auth;
 
-use DoeSangue\User;
+use DoeSangue\Models\User;
 use DoeSangue\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -50,6 +50,7 @@ class RegisterController extends Controller
         return Validator::make(
             $data, [
             'name' => 'required|max:255',
+            'phone' => 'required|max:255|unique:users',
             'email' => 'required|email|max:255|unique:users',
             'username' => 'required|max:20',
             'password' => 'required|min:8|confirmed',
@@ -68,12 +69,11 @@ class RegisterController extends Controller
         return User::create(
             [
             'name' => $data[ 'name' ],
+            'phone' => $data[ 'phone' ],
             'email' => $data[ 'email' ],
             'username' => $data[ 'username' ],
             'password' => bcrypt($data[ 'password' ]),
             ]
         );
-
-        \Mail::to($user->email)->send(new BoasVindas($user));
     }
 }
