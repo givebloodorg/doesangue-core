@@ -14,7 +14,7 @@
 <body>
 
 
-  @yield('conteudo')
+  @yield('content')
 
 
   <script src="public/assets/foundation6/vendor/foundation.min.js"></script>

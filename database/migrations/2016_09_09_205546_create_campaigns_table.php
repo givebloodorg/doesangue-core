@@ -7,19 +7,19 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
-class CreateCampanhasTable extends Migration
+class CreateCampaignsTable extends Migration
 {
     /**
      * Run the migrations.
      */
     public function up()
     {
-        Schema::create(
-            'campanhas', function (Blueprint $table) {
+        Schema::create('campaigns', function (Blueprint $table) {
                 $table->increments('id');
-                $table->string('titulo');
-                $table->dateTimeTz('data_limite');
+                $table->string('title');
+                $table->dateTimeTz('expires');
                 $table->timestamps();
             }
         );
@@ -30,6 +30,6 @@ class CreateCampanhasTable extends Migration
      */
     public function down()
     {
-        Schema::drop('campanhas');
+        Schema::drop('campaigns');
     }
 }

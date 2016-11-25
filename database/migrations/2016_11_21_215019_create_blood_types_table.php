@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateGrupoSanguineoTable extends Migration
+class CreateBloodTypesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreateGrupoSanguineoTable extends Migration
      */
     public function up()
     {
-        Schema::create('grupo_sanguineo', function (Blueprint $table) {
+        Schema::create('blood_types', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('descricao', 20);
-            $table->string('codigo', 10);
+            $table->string('description', 20);
+            $table->string('code', 10);
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ class CreateGrupoSanguineoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('grupo_sanguineo');
+        Schema::dropIfExists('blood_types');
     }
 }

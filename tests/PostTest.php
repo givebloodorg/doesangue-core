@@ -3,14 +3,14 @@
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
-use DoeSangue\Post;
+use DoeSangue\Models\Post;
 
 class PostTest extends TestCase
 {
 
     public function testCriarPost()
     {
-        $post = factory(DoeSangue\Post::class, 5)->create([]);
+        $post = factory(DoeSangue\Models\Post::class, 5)->create([]);
 
         return $this->assertTrue(true);
 

@@ -3,7 +3,7 @@
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
-use DoeSangue\User;
+use DoeSangue\Models\User;
 
 class UsuarioTest extends TestCase
 {
