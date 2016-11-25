@@ -16,10 +16,11 @@ class DoadoresController extends Controller
      * @return bool
      */
 
-    public function index() {
-      $doadores = Doador::orderBy('id', 'desc')->get();
+    public function index() 
+    {
+        $doadores = Doador::orderBy('id', 'desc')->get();
 
-      return view('doadores.index', compact('doadores'));
+        return view('doadores.index', compact('doadores'));
     }
 
 }

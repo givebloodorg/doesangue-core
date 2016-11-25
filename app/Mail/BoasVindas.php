@@ -31,9 +31,11 @@ class BoasVindas extends Mailable
     public function build()
     {
         return $this->view('email.boasvindas')
-                    ->with([
-                      'Nome' => $this->user->name,
-                      'UserName' => $this->user->username,
-                  ]);
+            ->with(
+                [
+                        'Nome' => $this->user->name,
+                        'UserName' => $this->user->username,
+                        ]
+            );
     }
 }

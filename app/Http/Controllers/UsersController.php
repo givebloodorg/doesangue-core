@@ -26,15 +26,15 @@ class UsersController extends Controller
             ]
         );
 
-      $usuario = new User();
-      $usuario->name = $request[ 'name' ];
-      $usuario->email = $request[ 'email' ];
-      $usuario->password = $request[ 'password' ];
-      $usuario->username = $request[ 'username' ];
-      $usuario->bio = $request[ 'bio' ];
-      $usuario->telefone = $request[ 'telefone' ];
-      $usuario->save();
+        $usuario = new User();
+        $usuario->name = $request[ 'name' ];
+        $usuario->email = $request[ 'email' ];
+        $usuario->password = $request[ 'password' ];
+        $usuario->username = $request[ 'username' ];
+        $usuario->bio = $request[ 'bio' ];
+        $usuario->telefone = $request[ 'telefone' ];
+        $usuario->save();
 
-      return redirect()->route('perfil_user', $usuario->id);
+        return redirect()->route('perfil_user', $usuario->id);
     }
 }

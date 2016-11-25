@@ -11,7 +11,12 @@
 |
 */
 
-Route::get('/', 'HomeController@index');
+//Route::get('/', ['as' => 'home', 'uses' => 'HomeController@index']);
+Route::get(
+    '/', ['as' => 'home', 'uses' => function () {
+        return view('welcome');
+    }]
+);
 
 Route::group(
     [
@@ -21,5 +26,9 @@ Route::group(
         Route::get('/', ['as' => 'perfil_user', 'uses' => 'UsersController@perfil']);
     }
 );
+
+// Socialite Routes.
+Route::get('social/login/redirect/{provider}', ['uses' => 'Auth\AuthController@redirectToProvider', 'as' => 'social.login']);
+Route::get('social/login/{provider}', 'Auth\AuthController@handleProviderCallback');
 
 Auth::routes();

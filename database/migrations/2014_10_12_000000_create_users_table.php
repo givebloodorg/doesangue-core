@@ -15,10 +15,10 @@ class CreateUsersTable extends Migration
             'users', function (Blueprint $table) {
                 $table->increments('id');
                 $table->string('name');
-                $table->string('username', 20)->unique();
+                $table->string('username', 20)->unique()->nullable();
                 $table->string('email')->unique();
                 $table->string('telefone', 15)->nullable()->default(null);
-                $table->string('password');
+                $table->string('password')->nullable();
                 $table->rememberToken();
                 $table->timestamps();
             }
