@@ -7,7 +7,7 @@
          convertNoticesToExceptions="true"
          convertWarningsToExceptions="true"
          processIsolation="false"
-         stopOnFailure="true">
+         stopOnFailure="false">
     <testsuites>
         <testsuite name="DoeSangue Test Suite">
             <directory suffix="Test.php">./tests</directory>
@@ -24,6 +24,8 @@
         <env name="SESSION_DRIVER" value="array"/>
         <env name="QUEUE_DRIVER" value="sync"/>
         <env name="DB_DATABASE" value="doesangue_test"/>
+        <env name="DB_USER" value="root"/>
+        <env name="DB_PASSWORD" value="123456"/>
     </php>
     <logging>
          <log type="coverage-clover" target="clover.xml"/>

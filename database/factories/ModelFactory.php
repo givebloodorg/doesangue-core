@@ -22,7 +22,7 @@ $factory->define(
         'name' => $faker->name,
         'email' => $faker->unique()->companyEmail,
         'username' => $faker->userName,
-        'telefone' => $faker->tollFreePhoneNumber,
+        'phone' => $faker->tollFreePhoneNumber,
         'password' => $password ?: $password = bcrypt('secret'),
         'remember_token' => str_random(10),
         ];
@@ -44,10 +44,10 @@ $factory->define(
 $factory->define(
     DoeSangue\Models\Post::class, function (Faker\Generator $faker) {
         return [
-        'titulo' => $faker->title,
-        'conteudo' => $faker->paragraph,
-        'imagem' => $faker->imageUrl,
-        'autor_id' => $faker->randomDigit,
+        'title' => $faker->title,
+        'content' => $faker->paragraph,
+        'image' => $faker->imageUrl,
+        'user_id' => $faker->randomDigit,
         ];
     }
 );
@@ -56,7 +56,7 @@ $factory->define(
 $factory->define(
     DoeSangue\Models\Campaigns::class, function (Faker\Generator $faker) {
         return [
-        'titulo' => $faker->title,
+        'title' => $faker->title,
         ];
     }
 );

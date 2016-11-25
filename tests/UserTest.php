@@ -5,12 +5,12 @@ use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use DoeSangue\Models\User;
 
-class UsuarioTest extends TestCase
+class UserTest extends TestCase
 {
 
     public function testCadastrarUsuario()
     {
-        $usuario = factory(User::class, 5)->create([]);
+        $user = factory(User::class)->create([]);
 
         return $this->assertTrue(true);
 

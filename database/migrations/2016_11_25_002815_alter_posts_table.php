@@ -13,9 +13,9 @@ class AlterPostsTable extends Migration
      */
     public function up()
     {
-        Schema::table('posts', function(Blueprint $table){
-            $table->foreign('user_id')->references('id')->on('users');
-        });
+      //  Schema::table('posts', function(Blueprint $table){
+      //      $table->foreign('user_id')->references('id')->on('users');
+      //  });
     }
 
     /**
@@ -25,8 +25,8 @@ class AlterPostsTable extends Migration
      */
     public function down()
     {
-        Schema::table('posts', function (Blueprint $table) {
-            $table->dropForeign('donors_user_id_foreign');
-        });
+    //    Schema::table('posts', function (Blueprint $table) {
+    //        $table->dropForeign('donors_user_id_foreign');
+    //    });
     }
 }
