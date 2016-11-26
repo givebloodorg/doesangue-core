@@ -3,9 +3,9 @@
 namespace DoeSangue\Http\Controllers\Auth;
 
 use DoeSangue\Http\Controllers\Controller;
+use DoeSangue\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Socialite;
-use DoeSangue\User;
 
 class AuthController extends Controller
 {
