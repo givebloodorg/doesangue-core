@@ -26,7 +26,7 @@ class AlterPostsTable extends Migration
     public function down()
     {
         Schema::table('posts', function (Blueprint $table) {
-            $table->dropForeign('donors_user_id_foreign');
+            $table->dropForeign('posts_user_id_foreign');
         });
     }
 }

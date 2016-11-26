@@ -2,7 +2,7 @@
 
 namespace DoeSangue\Http\Controllers;
 
-use DoeSangue\Donor;
+use DoeSangue\Models\Donor;
 use Illuminate\Http\Request;
 
 class DonorController extends Controller
