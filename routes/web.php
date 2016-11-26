@@ -24,7 +24,7 @@ Route::group(['prefix' => 'profile', 'middleware' => 'auth'], function () {
 });
 
 // Socialite Routes.
-Route::get('social/login/redirect/{provider}', ['uses' => 'Auth\AuthController@redirectToProvider', 'as' => 'social.login']);
-Route::get('social/login/{provider}', 'Auth\AuthController@handleProviderCallback');
+Route::get('login/redirect/{provider}', ['uses' => 'Auth\AuthController@redirectToProvider', 'as' => 'social.login']);
+Route::get('login/{provider}', 'Auth\AuthController@handleProviderCallback');
 
 Auth::routes();

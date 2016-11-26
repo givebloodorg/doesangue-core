@@ -27,7 +27,8 @@ class AuthController extends Controller
         // Getting the data from Google+
         $data = [
         'name' => $user->getName(),
-        'email' => $user->getEmail()
+        'email' => $user->getEmail(),
+        'password' => '',
         ];
 
         // Created a user with requested data
