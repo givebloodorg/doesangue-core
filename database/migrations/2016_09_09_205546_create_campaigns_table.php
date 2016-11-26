@@ -16,7 +16,8 @@ class CreateCampaignsTable extends Migration
      */
     public function up()
     {
-        Schema::create('campaigns', function (Blueprint $table) {
+        Schema::create(
+            'campaigns', function (Blueprint $table) {
                 $table->increments('id');
                 $table->string('title');
                 $table->dateTimeTz('expires');

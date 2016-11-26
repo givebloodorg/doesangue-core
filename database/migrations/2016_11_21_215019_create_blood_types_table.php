@@ -8,23 +8,21 @@ class CreateBloodTypesTable extends Migration
 {
     /**
      * Run the migrations.
-     *
-     * @return void
      */
     public function up()
     {
-        Schema::create('blood_types', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('description', 20);
-            $table->string('code', 10);
-            $table->timestamps();
-        });
+        Schema::create(
+            'blood_types', function (Blueprint $table) {
+                $table->increments('id');
+                $table->string('description', 20);
+                $table->string('code', 10);
+                $table->timestamps();
+            }
+        );
     }
 
     /**
      * Reverse the migrations.
-     *
-     * @return void
      */
     public function down()
     {

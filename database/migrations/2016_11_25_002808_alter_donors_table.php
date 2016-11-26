@@ -8,27 +8,27 @@ class AlterDonorsTable extends Migration
 {
     /**
      * Run the migrations.
-     *
-     * @return void
      */
     public function up()
     {
-        Schema::table('donors', function(Blueprint $table){
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('blood_type_id')->references('id')->on('blood_types');
-        });
+        Schema::table(
+            'donors', function (Blueprint $table) {
+                $table->foreign('user_id')->references('id')->on('users');
+                $table->foreign('blood_type_id')->references('id')->on('blood_types');
+            }
+        );
     }
 
     /**
      * Reverse the migrations.
-     *
-     * @return void
      */
     public function down()
     {
-        Schema::table('donors', function (Blueprint $table) {
-            $table->dropForeign('donors_user_id_foreign');
-            $table->dropForeign('donors_blood_type_id_foreign');
-        });
+        Schema::table(
+            'donors', function (Blueprint $table) {
+                $table->dropForeign('donors_user_id_foreign');
+                $table->dropForeign('donors_blood_type_id_foreign');
+            }
+        );
     }
 }

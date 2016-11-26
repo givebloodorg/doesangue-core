@@ -11,16 +11,18 @@ class CreatePostsTable extends Migration
      */
     public function up()
     {
-        Schema::create('posts', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('user_id');
-            $table->string('title', 200);
-            $table->text('content');
-            $table->string('image');
-            $table->dateTimeTz('created_at');
-            $table->timestampTz('updated_at');
-            $table->softDeletes();
-        });
+        Schema::create(
+            'posts', function (Blueprint $table) {
+                $table->increments('id');
+                $table->integer('user_id');
+                $table->string('title', 200);
+                $table->text('content');
+                $table->string('image');
+                $table->dateTimeTz('created_at');
+                $table->timestampTz('updated_at');
+                $table->softDeletes();
+            }
+        );
     }
 
     /**

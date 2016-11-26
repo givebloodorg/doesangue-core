@@ -16,12 +16,14 @@ class CreateDonorsTable extends Migration
      */
     public function up()
     {
-        Schema::create('donors', function (Blueprint $table) {
-            $table->integer('user_id')->unsigned();
-            $table->primary('user_id');
-            $table->integer('blood_type_id')->unsigned();
-            $table->timestamps();
-        });
+        Schema::create(
+            'donors', function (Blueprint $table) {
+                $table->integer('user_id')->unsigned();
+                $table->primary('user_id');
+                $table->integer('blood_type_id')->unsigned();
+                $table->timestamps();
+            }
+        );
     }
 
     /**
