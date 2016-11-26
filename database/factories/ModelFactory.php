@@ -15,14 +15,14 @@
  * @var \Illuminate\Database\Eloquent\Factory
  */
 $factory->define(
-    DoeSangue\User::class, function (Faker\Generator $faker) {
+    DoeSangue\Models\User::class, function (Faker\Generator $faker) {
         static $password;
 
         return [
         'name' => $faker->name,
         'email' => $faker->unique()->companyEmail,
         'username' => $faker->userName,
-        'telefone' => $faker->tollFreePhoneNumber,
+        'phone' => $faker->tollFreePhoneNumber,
         'password' => $password ?: $password = bcrypt('secret'),
         'remember_token' => str_random(10),
         ];
@@ -31,32 +31,32 @@ $factory->define(
 
 // Factory Doador
 $factory->define(
-    DoeSangue\Doador::class, function (Faker\Generator $faker) {
+    DoeSangue\Models\Donor::class, function (Faker\Generator $faker) {
         return [
         'user_id' => $faker->randomDigit,
         'bio' => $faker->text($maxNbChars = 100),
-        'id_tiposanguineo' => $faker->randomDigit,
+        'blood_type_id' => $faker->randomDigit,
         ];
     }
 );
 
 // Factory Post
 $factory->define(
-    DoeSangue\Post::class, function (Faker\Generator $faker) {
+    DoeSangue\Models\Post::class, function (Faker\Generator $faker) {
         return [
-        'titulo' => $faker->title,
-        'conteudo' => $faker->paragraph,
-        'imagem' => $faker->imageUrl,
-        'autor_id' => $faker->randomDigit,
+        'title' => $faker->title,
+        'content' => $faker->paragraph,
+        'image' => $faker->imageUrl,
+        'user_id' => $faker->randomDigit,
         ];
     }
 );
 
 // Factory Campanha
 $factory->define(
-    DoeSangue\Campanha::class, function (Faker\Generator $faker) {
+    DoeSangue\Models\Campaigns::class, function (Faker\Generator $faker) {
         return [
-        'titulo' => $faker->title,
+        'title' => $faker->title,
         ];
     }
 );

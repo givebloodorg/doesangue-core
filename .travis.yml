@@ -16,11 +16,12 @@ script:
   - composer dumpautoload
   - php artisan migrate --env=testing --no-interaction
 #  - php artisan db:seed --env=testing --no-interaction
-  - vendor/bin/phpunit --coverage-clover=coverage.xml
+  - vendor/bin/phpunit --coverage-clover=coverage.xml --debug
 #  - codecov
 
 notifications:
   slack: mentedigital:duwI9LzVAI2ZgDbtie5vwpR7
+  slack: projetodoesangue:n3fh7tZf7ZtGAiqzQPlIypiI
 
 env:
  - LARAVEL="5.3"
