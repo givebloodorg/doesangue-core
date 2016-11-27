@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class DoadoresSeeder extends Seeder
+class DonorsSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,7 +11,7 @@ class DoadoresSeeder extends Seeder
     {
         $this->command->info('Doadores criados com sucesso!');
 
-        DB::table('donors')->truncate();
+        DB::table('donors')->delete();
         DB::table('donors')->insert(
             [
             ['id' => '1', 'user_id' => '1', 'blood_type_id' => '1'],

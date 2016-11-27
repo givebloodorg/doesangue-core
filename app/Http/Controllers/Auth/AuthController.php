@@ -9,10 +9,9 @@ use Socialite;
 
 class AuthController extends Controller
 {
-
     public function __construct()
     {
-        //
+      $this->middleware('guest', ['except' => 'logout']);
     }
 
     public function redirectToProvider($provider)
@@ -28,7 +27,8 @@ class AuthController extends Controller
         $data = [
         'name' => $user->getName(),
         'email' => $user->getEmail(),
-        'password' => '',
+        'username' => '',
+        'password' => bcrypt('secret'),
         ];
 
         // Created a user with requested data
@@ -36,5 +36,10 @@ class AuthController extends Controller
 
         // redirect to home
         return redirect()->route('home');
+    }
+
+    public function logout() {
+        if (\Auth::check()) \Auth::logout();
+        return redirect('/');
     }
 }

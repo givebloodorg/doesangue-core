@@ -17,10 +17,3 @@ Route::get(
         return response()->json();
     }
 );
- // Grupo de rotas da API.
-Route::group(
-    ['middleware' => 'auth:api', 'namespace' => 'Api'], function () {
-        // Usuários
-        Route::get('doadores', 'DoadoresController@index');
-    }
-);

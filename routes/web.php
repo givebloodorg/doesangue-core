@@ -27,4 +27,6 @@ Route::group(['prefix' => 'profile', 'middleware' => 'auth'], function () {
 Route::get('login/redirect/{provider}', ['uses' => 'Auth\AuthController@redirectToProvider', 'as' => 'social.login']);
 Route::get('login/{provider}', 'Auth\AuthController@handleProviderCallback');
 
+Route::get('logout', 'Auth\AuthController@logout');
+
 Auth::routes();

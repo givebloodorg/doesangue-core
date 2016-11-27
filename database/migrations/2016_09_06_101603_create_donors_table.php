@@ -18,8 +18,8 @@ class CreateDonorsTable extends Migration
     {
         Schema::create(
             'donors', function (Blueprint $table) {
+                $table->increments('id');
                 $table->integer('user_id')->unsigned();
-                $table->primary('user_id');
                 $table->integer('blood_type_id')->unsigned();
                 $table->timestamps();
             }
