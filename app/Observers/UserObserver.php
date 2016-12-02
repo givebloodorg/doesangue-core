@@ -1,4 +1,5 @@
 <?php
+
 namespace DoeSangue\Observers;
 
 use DoeSangue\Mail\UserCreated;
@@ -10,8 +11,7 @@ class UserObserver
     /**
      * Listen to the User created event.
      *
-     * @param  User  $user
-     * @return void
+     * @param User $user
      */
     public function created(User $user)
     {

@@ -12,11 +12,11 @@ class UserProfileRequest extends Request
     public function rules()
     {
         return [
-            'name'      => 'required',
-            'username'  => 'required',
-            'email'     => 'required',
-            'password'  => 'required',
-            'phone'     => 'required',
+            'name' => 'required',
+            'username' => 'required',
+            'email' => 'required',
+            'password' => 'required',
+            'phone' => 'required',
         ];
     }
 }

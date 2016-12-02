@@ -19,6 +19,6 @@ class Comment extends Model
      * @var array
      */
     protected $filliable = [
-        //
+
     ];
 }

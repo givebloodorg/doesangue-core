@@ -19,6 +19,6 @@ class Campaign extends Model
      * @var array
      */
     protected $filliable = [
-        //
+
     ];
 }

@@ -15,8 +15,6 @@ class UserCreated extends Mailable
 
     /**
      * Create a new message instance.
-     *
-     * @return void
      */
     public function __construct(User $user)
     {
@@ -30,7 +28,6 @@ class UserCreated extends Mailable
      */
     public function build()
     {
-
         return $this->view('email.user-created')
                     ->with([
                       'Nome' => $this->user->name,

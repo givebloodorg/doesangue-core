@@ -11,7 +11,7 @@ class AuthController extends Controller
 {
     public function __construct()
     {
-      $this->middleware('guest', ['except' => 'logout']);
+        $this->middleware('guest', ['except' => 'logout']);
     }
 
     public function redirectToProvider($provider)
@@ -38,8 +38,12 @@ class AuthController extends Controller
         return redirect()->route('home');
     }
 
-    public function logout() {
-        if (\Auth::check()) \Auth::logout();
+    public function logout()
+    {
+        if (\Auth::check()) {
+            \Auth::logout();
+        }
+
         return redirect('/');
     }
 }

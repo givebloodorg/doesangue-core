@@ -22,11 +22,11 @@ class Post extends Model
         'user_id',
         'title',
         'content',
-        'image'
+        'image',
     ];
 
     /**
-     * Related
+     * Related.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */

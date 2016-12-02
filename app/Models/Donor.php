@@ -38,7 +38,7 @@ class Donor extends Model
     public $incrementing = false;
 
     /**
-     * Related
+     * Related.
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
@@ -48,7 +48,7 @@ class Donor extends Model
     }
 
     /**
-     * Related
+     * Related.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */

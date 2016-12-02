@@ -34,6 +34,7 @@ $factory->define(
 $factory->define(
     DoeSangue\Models\Donor::class, function (Faker\Generator $faker) {
         return [
+
         'user_id' => $faker->randomDigit,
         'bio' => $faker->text($maxNbChars = 100),
         'blood_type_id' => $faker->randomDigit,

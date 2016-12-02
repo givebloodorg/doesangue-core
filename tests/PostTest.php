@@ -10,16 +10,16 @@ class PostTest extends TestCase
 
     public function testCriarPost()
     {
+
         $post = factory(Post::class)->create([]);
 
         return $this->assertTrue(true);
-
     }
 
     public function testListarPosts()
     {
         $posts = Post::all();
-
+        
         return $this->assertTrue(true);
     }
 
