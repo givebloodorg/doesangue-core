@@ -3,6 +3,10 @@ php:
   - 5.6
   - 7.0
 
+cache:
+  - composer
+  - $HOME/.composer/cache
+
 services:
   - mysql
 
