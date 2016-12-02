@@ -7,8 +7,9 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
-class CreateCampanhasTable extends Migration
+class CreateDonorsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -16,10 +17,10 @@ class CreateCampanhasTable extends Migration
     public function up()
     {
         Schema::create(
-            'campanhas', function (Blueprint $table) {
+            'donors', function (Blueprint $table) {
                 $table->increments('id');
-                $table->string('titulo');
-                $table->dateTimeTz('data_limite');
+                $table->integer('user_id')->unsigned();
+                $table->integer('blood_type_id')->unsigned();
                 $table->timestamps();
             }
         );
@@ -30,6 +31,6 @@ class CreateCampanhasTable extends Migration
      */
     public function down()
     {
-        Schema::drop('campanhas');
+        Schema::dropIfExists('donors');
     }
 }

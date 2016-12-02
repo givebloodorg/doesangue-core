@@ -1,6 +1,6 @@
 <?php
 
-namespace DoeSangue;
+namespace DoeSangue\Models;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'username', 'bio', 'password',
+        'name', 'email', 'username', 'phone', 'bio', 'password',
     ];
 
     /**

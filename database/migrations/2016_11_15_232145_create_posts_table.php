@@ -14,10 +14,12 @@ class CreatePostsTable extends Migration
         Schema::create(
             'posts', function (Blueprint $table) {
                 $table->increments('id');
-                $table->string('titulo', 200);
-                $table->text('conteudo');
-                $table->string('imagem');
-                $table->integer('autor_id');
+                $table->string('title', 200);
+                $table->text('content');
+                $table->string('image');
+                $table->integer('user_id')->unsigned();
+                $table->foreign('user_id')->references('id')->on('users')
+                      ->onDelete('cascade');
                 $table->dateTimeTz('created_at');
                 $table->timestampTz('updated_at');
                 $table->softDeletes();

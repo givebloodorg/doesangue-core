@@ -2,14 +2,14 @@
 
 namespace DoeSangue\Mail;
 
+use DoeSangue\Models\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class BoasVindas extends Mailable
+class UserCreated extends Mailable
 {
     use Queueable, SerializesModels;
-
 
     protected $user;
 
@@ -30,7 +30,8 @@ class BoasVindas extends Mailable
      */
     public function build()
     {
-        return $this->view('email.boasvindas')
+
+        return $this->view('email.user-created')
                     ->with([
                       'Nome' => $this->user->name,
                       'UserName' => $this->user->username,
