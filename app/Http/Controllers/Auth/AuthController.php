@@ -40,8 +40,8 @@ class AuthController extends Controller
 
     public function logout()
     {
-        if (\Auth::check()) {
-            \Auth::logout();
+        if (Auth::check()) {
+            Auth::logout();
         }
 
         return redirect('/');
