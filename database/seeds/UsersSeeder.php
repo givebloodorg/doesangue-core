@@ -12,7 +12,7 @@ class UsersSeeder extends Seeder
         $this->command->info('Usuários criados com sucesso!');
 
         DB::table('users')->delete();
-      //  DB::table('users')->truncate();
+        //  DB::table('users')->truncate();
         DB::table('users')->insert(
             [
             ['name' => 'José Cage', 'email' => 'josecage@doesangueapp.dev', 'username' => 'josecage', 'password' => bcrypt('1234567')],

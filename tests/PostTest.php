@@ -14,7 +14,11 @@ class PostTest extends TestCase
     {
         $user = factory(User::class)->create([]);
 
-        $post = factory(Post::class)->create([]);
+        $post = factory(Post::class)->create(
+          [
+            'user_id' => $user->id,
+          ]
+        );
 
          return $this->assertTrue(true);
     }

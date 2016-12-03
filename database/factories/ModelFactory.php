@@ -24,6 +24,7 @@ $factory->define(
         'email' => $faker->unique()->companyEmail,
         'username' => $faker->userName,
         'phone' => $faker->tollFreePhoneNumber,
+        'bio' => $faker->text($maxNbChars = 100),
         'password' => $password ?: $password = bcrypt('secret'),
         'remember_token' => str_random(10),
         ];
@@ -36,7 +37,6 @@ $factory->define(
         return [
 
         'user_id' => $faker->randomDigit,
-        'bio' => $faker->text($maxNbChars = 100),
         'blood_type_id' => $faker->randomDigit,
         ];
     }
@@ -54,11 +54,21 @@ $factory->define(
     }
 );
 
-// Factory Campanha
+// Factory Campaigns
 $factory->define(
     DoeSangue\Models\Campaigns::class, function (Faker\Generator $faker) {
         return [
         'title' => $faker->title,
+        ];
+    }
+);
+
+// BloodType factory
+$factory->define(
+    DoeSangue\Models\BloodType::class, function (Faker\Generator $faker) {
+        return [
+        'description' => $faker->title,
+        'code' => $faker->randomDigit,
         ];
     }
 );

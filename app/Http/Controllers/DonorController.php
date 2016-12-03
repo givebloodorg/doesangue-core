@@ -77,7 +77,7 @@ class DonorController extends Controller
      */
     public function edit($id)
     {
-      return view('donors.edit');
+        return view('donors.edit');
     }
 
     /**
@@ -90,6 +90,13 @@ class DonorController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $this->validate(
+            $request,
+            [
+              ''
+            ]
+        );
+        $donor = Donor::find($id);
     }
 
     /**
