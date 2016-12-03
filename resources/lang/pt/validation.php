@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'accepted'             => 'The :attribute must be accepted.',
+    'accepted'             => 'O campo :attribute tem de ser aceite.',
     'active_url'           => 'The :attribute is not a valid URL.',
     'after'                => 'The :attribute must be a date after :date.',
     'alpha'                => 'The :attribute may only contain letters.',
@@ -96,9 +96,15 @@ return [
     */
 
     'custom' => [
-        'attribute-name' => [
-            'rule-name' => 'custom-message',
+        'password' => [
+            'min' => 'A senha deve ter no minimo 8 caracteres',
         ],
+        'phone' => [
+          'required' => 'Por favor informe seu número de telefone',
+        ],
+        'phone' => [
+          'min' => 'O número de telefone deve ter no minimo 12 caracteres',
+        ]
     ],
 
     /*

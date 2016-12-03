@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'password' => 'Passwords must be at least six characters and match the confirmation.',
+    'password' => 'A senha deve conter no minimo 8 caractéres e devem ser iguais.',
     'reset' => 'A sua senha foi redefinida!',
     'sent' => 'Nós enviamos o link de recuperação de senha para o seu email!',
     'token' => 'O Token fornecido não é válido.',
