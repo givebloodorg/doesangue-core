@@ -2,18 +2,10 @@
 
 namespace DoeSangue\Http\Controllers\Auth;
 
-<<<<<<< HEAD
-use DoeSangue\Models\User;
-||||||| merged common ancestors
-use DoeSangue\User;
-=======
-
-use DoeSangue\Models\User;
-use DoeSangue\Doador;
->>>>>>> 4c37c57
 use DoeSangue\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use DoeSangue\Models\User;
 
 class RegisterController extends Controller
 {
