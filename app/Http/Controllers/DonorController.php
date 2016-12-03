@@ -47,8 +47,8 @@ class DonorController extends Controller
         );
 
         $donor = new Donor();
-        $donor->user_id => $request['user_id'];
-        $donor->blood_type_id => $request['blood_type_id'];
+        $donor->user_id = $request['user_id'];
+        $donor->blood_type_id = $request['blood_type_id'];
         $donor->save();
 
         return redirect()->route('user.profile');
