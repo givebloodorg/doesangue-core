@@ -29,9 +29,11 @@ class UserCreated extends Mailable
     public function build()
     {
         return $this->view('email.user-created')
-                    ->with([
-                      'Nome' => $this->user->name,
-                      'UserName' => $this->user->username,
-                  ]);
+            ->with(
+                [
+                  'Nome' => $this->user->name,
+                  'UserName' => $this->user->username,
+                ]
+            );
     }
 }

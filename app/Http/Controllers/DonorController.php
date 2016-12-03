@@ -26,6 +26,7 @@ class DonorController extends Controller
      */
     public function create()
     {
+        return view('donors.create');
     }
 
     /**
@@ -37,6 +38,20 @@ class DonorController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate(
+            $request,
+            [
+            'user_id' => 'required',
+            'blood_type_id' => 'required',
+            ]
+        );
+
+        $donor = new Donor();
+        $donor->user_id => $request['user_id'];
+        $donor->blood_type_id => $request['blood_type_id'];
+        $donor->save();
+
+        return redirect()->route('user.profile');
     }
 
     /**
@@ -48,6 +63,9 @@ class DonorController extends Controller
      */
     public function show($id)
     {
+        $donor = Donor::find($id);
+
+        return view('donors.Show', compact('donor'));
     }
 
     /**
@@ -59,6 +77,7 @@ class DonorController extends Controller
      */
     public function edit($id)
     {
+      return view('donors.edit');
     }
 
     /**

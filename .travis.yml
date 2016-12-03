@@ -4,8 +4,10 @@ php:
   - 7.0
 
 cache:
-  - composer
-  - $HOME/.composer/cache
+  yarn: true
+  directories:
+    - node_modules
+    - ~/.composer/cache
 
 services:
   - mysql

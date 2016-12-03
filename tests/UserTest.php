@@ -7,18 +7,17 @@ use DoeSangue\Models\User;
 
 class UserTest extends TestCase
 {
-
-    public function testCadastrarUsuario()
+    public function testCanRegisterUser()
     {
         $user = factory(User::class)->create([]);
 
         return $this->assertTrue(true);
-
     }
 
-    public function testlistarUsuarios(){
-      $usuarios = User::find(1);
-      return $this->assertTrue(true);
-    }
+    public function testCanListUsers()
+    {
+        $users = User::find(1);
 
+        return $this->assertTrue(true);
+    }
 }
