@@ -9,16 +9,9 @@ class HomeController extends Controller
      *
      * @return void
      */
-public function __construct()
+    public function __construct()
     {
-<<<<<<< HEAD
         //  $this->middleware('auth');
-||||||| merged common ancestors
-        $this->middleware('auth');
-=======
-        //  $this->middleware('auth');
-
->>>>>>> 4c37c57
     }
 
     /**
