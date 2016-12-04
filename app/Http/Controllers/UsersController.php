@@ -16,13 +16,21 @@ class UsersController extends Controller
         return view('users.index', compact('users'));
     }
 
-    public function update(UserProfileRequest $request, $id)
+    public function update(Request $request, $id)
     {
         $user = User::find($id);
         $user->fill($request->all());
         $user->password = bcrypt($request->password);
         $user->save();
 
-        return redirect()->route('users.profile', $user->id);
+        return redirect('perfil', $user->id);
+    }
+
+    public function profile(Request $request, $id)
+    {
+
+        $user = User::find($id);
+
+        return view('donors.show', compact('user'));
     }
 }
