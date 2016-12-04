@@ -17,9 +17,9 @@ Route::get(
     }]
 );
 
-Route::group(['prefix' => 'profile', 'middleware' => 'auth'], function () {
+Route::group(['prefix' => 'users', 'middleware' => 'auth'], function () {
 
-    Route::get('/', ['as' => 'users.profile', 'uses' => 'UsersController@profile']);
+    Route::get('/{username}', ['as' => 'profile', 'uses' => 'UsersController@profile']);
 
 });
 

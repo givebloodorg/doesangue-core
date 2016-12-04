@@ -16,7 +16,7 @@ class UserProfileRequest extends Request
             'username' => 'required',
             'email' => 'required',
             'password' => 'required',
-            'phone' => 'required',
+            'phone' => 'required|min:12',
         ];
     }
 }
