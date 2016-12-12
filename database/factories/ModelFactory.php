@@ -49,7 +49,7 @@ $factory->define(
         'title' => $faker->title,
         'content' => $faker->paragraph,
         'image' => $faker->imageUrl,
-        'user_id' => 1,
+        'user_id' => $faker->randomDigit,
         ];
     }
 );

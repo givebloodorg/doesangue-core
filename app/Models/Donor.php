@@ -19,9 +19,9 @@ class Donor extends Model
      * @var array
      */
     protected $filliable = [
-        'blood_type_id',
-        'bio',
-    ];
+                            'blood_type_id',
+                            'bio',
+                           ];
 
     /**
      * The primary key for the model.
@@ -37,6 +37,7 @@ class Donor extends Model
      */
     public $incrementing = false;
 
+
     /**
      * Related.
      *
@@ -45,7 +46,8 @@ class Donor extends Model
     public function user()
     {
         return $this->hasOne(User::class, 'id', 'user_id');
-    }
+    }//end user()
+
 
     /**
      * Related.
@@ -55,5 +57,5 @@ class Donor extends Model
     public function bloodType()
     {
         return $this->belongsTo(BloodType::class, 'blood_type_id');
-    }
-}
+    }//end bloodType()
+}//end class

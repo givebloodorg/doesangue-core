@@ -30,7 +30,7 @@ return [
     ],
 
     'stripe' => [
-        'model' => DoeSangue\User::class,
+        'model' => DoeSangue\Models\User::class,
         'key' => env('STRIPE_KEY'),
         'secret' => env('STRIPE_SECRET'),
     ],

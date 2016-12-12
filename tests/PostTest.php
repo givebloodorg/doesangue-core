@@ -20,7 +20,7 @@ class PostTest extends TestCase
             ]
         );
 
-         return $this->assertTrue(true);
+         return $this->assertEquals($user->id, $post->user_id);
     }
 
     public function testListAllPosts()

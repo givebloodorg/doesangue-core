@@ -19,11 +19,12 @@ class Post extends Model
      * @var array
      */
     protected $filliable = [
-        'user_id',
-        'title',
-        'content',
-        'image',
-    ];
+                            'user_id',
+                            'title',
+                            'content',
+                            'image',
+                           ];
+
 
     /**
      * Related.
@@ -33,5 +34,5 @@ class Post extends Model
     public function author()
     {
         return $this->belongsTo(User::class, 'user_id');
-    }
-}
+    }//end author()
+}//end class

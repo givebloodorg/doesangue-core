@@ -18,5 +18,8 @@ class BloodType extends Model
      *
      * @var array
      */
-    protected $filliable = ['description', 'code'];
-}
+    protected $filliable = [
+                            'description',
+                            'code',
+                           ];
+}//end class
