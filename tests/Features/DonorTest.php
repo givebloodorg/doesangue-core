@@ -25,7 +25,8 @@ class DonorTest extends TestCase
             'blood_type_id' => $btype->id,
             ]
         );
-        
-        return $this->assertEquals($btype->id, $donor->blood_type_id);
+
+        $this->assertEquals($btype->id, $donor->blood_type_id);
+        $this->assertEquals($user->id, $donor->user_id);
     }
 }

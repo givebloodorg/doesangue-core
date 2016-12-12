@@ -16,7 +16,7 @@ class UserTest extends TestCase
 
     public function testCanListUsers()
     {
-        $users = User::find(1);
+        $users = User::all();
 
         return $this->assertTrue(true);
     }
