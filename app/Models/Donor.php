@@ -20,7 +20,6 @@ class Donor extends Model
      */
     protected $filliable = [
                             'blood_type_id',
-                            'bio',
                            ];
 
     /**
@@ -37,7 +36,7 @@ class Donor extends Model
      */
     public $incrementing = false;
 
-
+    protected $hidden = ['created_at', 'updated_at'];
     /**
      * Related.
      *

@@ -13,15 +13,15 @@ class AuthTest extends TestCase
      * @return void
      */
 
-     public function testLogin()
-     {
-         $user = factory(User::class)->create([]);
+    public function testLogin()
+    {
+        $user = factory(User::class)->create([]);
 
-         $this->visit('/login')
-             ->type($user->email, 'email')
-             ->type($user->password, 'password')
-             ->press('Login');
-     }
+        $this->visit('/login')
+            ->type($user->email, 'email')
+            ->type($user->password, 'password')
+            ->press('Login');
+    }
 
     public function testRegisterAndLogin()
     {

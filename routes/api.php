@@ -17,3 +17,19 @@ Route::get(
         return response()->json();
     }
 );
+
+// Donor API
+Route::group(
+    ['middleware' => ['guest'], 'namespace' => 'API'], function () {
+        Route::group(
+            ['prefix' => 'donors'], function () {
+                // All donors
+                Route::get('/', 'DonorsController@index');
+                // Create Donor
+                Route::post('/', 'DonorsController@store');
+                // show info about donor
+                Route::get('/{donor}', 'DonorsController@show');
+            }
+        );
+    }
+);
