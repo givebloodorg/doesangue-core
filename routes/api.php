@@ -21,6 +21,7 @@ Route::get(
 // Donor API
 Route::group(
     ['middleware' => ['guest'], 'namespace' => 'API'], function () {
+        // Donors
         Route::group(
             ['prefix' => 'donors'], function () {
                 // All donors
@@ -29,6 +30,22 @@ Route::group(
                 Route::post('/', 'DonorsController@store');
                 // show info about donor
                 Route::get('/{donor}', 'DonorsController@show');
+                // Update the Donor
+                Route::put('/{donor}', 'DonorsController@update');
+            }
+        );
+
+        // Campaign
+        Route::group(
+            ['prefix' => 'campaigns'], function () {
+                //All Campaigns
+                Route::get('/', 'CampaignController@index');
+                // Create Campaign
+                Route::post('/', 'CampaignController@store');
+                // Show complete info about campaign
+                Route::post('/{campaign}', 'CampaignController@show');
+                // Update campaign
+                Route::put('/{campaign}', 'CampaignController@update');
             }
         );
     }
