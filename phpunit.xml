@@ -23,7 +23,7 @@
         <env name="CACHE_DRIVER" value="array"/>
         <env name="SESSION_DRIVER" value="array"/>
         <env name="QUEUE_DRIVER" value="sync"/>
-        <env name="DB_DATABASE" value="doesangue_test"/>
+        <env name="DB_DATABASE" value="doesangue"/>
     </php>
     <logging>
          <log type="coverage-clover" target="clover.xml"/>

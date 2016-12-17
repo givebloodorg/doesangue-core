@@ -12,15 +12,16 @@
 */
 
 Route::get(
-    '/', ['as' => 'home', 'uses' => function () {
-        return view('welcome');
-    }]
+    '/', function () {
+        return redirect('api');
+    }
 );
 
 // Socialite Routes.
+/*
 Route::get('login/redirect/{provider}', ['uses' => 'Auth\AuthController@redirectToProvider', 'as' => 'social.login']);
 Route::get('login/{provider}', 'Auth\AuthController@handleProviderCallback');
 
 Route::get('logout', 'Auth\AuthController@logout');
-
+*/
 Auth::routes();

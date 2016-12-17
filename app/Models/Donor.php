@@ -45,7 +45,7 @@ class Donor extends Model
     public function user()
     {
         return $this->hasOne(User::class, 'id', 'user_id');
-    }//end user()
+    }
 
 
     /**
@@ -56,5 +56,5 @@ class Donor extends Model
     public function bloodType()
     {
         return $this->belongsTo(BloodType::class, 'blood_type_id');
-    }//end bloodType()
-}//end class
+    }
+}

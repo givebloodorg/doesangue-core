@@ -1,6 +1,6 @@
 <?php
 
-namespace DoeSangue\Http\Controllers\Api;
+namespace DoeSangue\Http\Controllers\API;
 
 use Illuminate\Http\Request;
 use DoeSangue\Models\User;

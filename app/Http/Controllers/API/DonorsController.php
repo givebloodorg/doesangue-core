@@ -1,6 +1,6 @@
 <?php
 
-namespace DoeSangue\Http\Controllers\Api;
+namespace DoeSangue\Http\Controllers\API;
 
 use Illuminate\Http\Request;
 use DoeSangue\Http\Controllers\Controller;
@@ -14,5 +14,17 @@ class DonorsController extends Controller
         $donors = Donor::orderBy('id', 'asc')->get();
 
         return response()->json(compact('donors'));
+    }
+
+    public function store()
+    {
+    }
+
+    public function update()
+    {
+    }
+
+    public function destroy()
+    {
     }
 }

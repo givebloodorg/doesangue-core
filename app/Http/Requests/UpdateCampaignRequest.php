@@ -13,7 +13,7 @@ class UpdateCampaignRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,16 @@ class UpdateCampaignRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+          'title' => 'required|min:60',
+          'expires' => 'required|date',
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+        'title.required' => 'Por favor informe o titulo',
+        'expires.required' => 'Por favor informe a data de expiração',
         ];
     }
 }
