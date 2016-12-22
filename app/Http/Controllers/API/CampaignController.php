@@ -20,8 +20,8 @@ class CampaignController extends Controller
     public function store(CreateCampaignRequest $request)
     {
         $campaign = new Campaign();
-        $campaign->title = $request['title'];
-        $campaign->expires = $request['expires'];
+        $campaign->title = $request[ 'title' ];
+        $campaign->expires = $request[ 'expires' ];
         $campaign->save();
 
         return response()->json(compact('campaign')->with('message', 'Campaign stored sucessfully'));
@@ -37,8 +37,8 @@ class CampaignController extends Controller
     public function update(UpdateCampaignRequest $request, $id)
     {
         $campaign = Campaign::find($id);
-        $campaign->title = $request['title'];
-        $campaign->expires = $request['expires'];
+        $campaign->title = $request[ 'title' ];
+        $campaign->expires = $request[ 'expires' ];
         $campaign->save();
 
         return response()->json($campaign)->with('message', 'Campanha atualizada');

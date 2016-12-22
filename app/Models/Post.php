@@ -23,9 +23,9 @@ class Post extends Model
                             'title',
                             'content',
                             'image',
-                           ];
+                            ];
 
-    protected $hidden = ['created_at', 'updated_at', 'deleted_at'];
+    protected $hidden = [ 'created_at', 'updated_at', 'deleted_at' ];
     /**
      * Related.
      *
