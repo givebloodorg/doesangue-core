@@ -21,5 +21,5 @@ class BloodType extends Model
     protected $filliable = [
                             'description',
                             'code',
-                           ];
+                            ];
 }//end class
