@@ -6,3 +6,6 @@
 *swp
 .env
 storage/debugbar
+composer.lock
+bower_components
+.git/
