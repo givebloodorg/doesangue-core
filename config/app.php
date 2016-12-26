@@ -163,6 +163,7 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         Laravel\Socialite\SocialiteServiceProvider::class,
+        Laravel\Passport\PassportServiceProvider::class,
 
         /*
          * Package Service Providers...

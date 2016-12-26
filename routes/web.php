@@ -11,11 +11,6 @@
 |
 */
 
-Route::get(
-    '/', function () {
-        return redirect('api');
-    }
-);
 
 // Socialite Routes.
 /*
@@ -24,4 +19,8 @@ Route::get('login/{provider}', 'Auth\AuthController@handleProviderCallback');
 
 Route::get('logout', 'Auth\AuthController@logout');
 */
+//Auth::routes();
+
 Auth::routes();
+
+Route::get('/', 'HomeController@index');
