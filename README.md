@@ -62,7 +62,7 @@ docker-compose run app php artisan route:list # lista de rotas
 ```
 
 #### Serviço
-> Por padrão a API roda em `localhost:80`
+> Por padrão a API roda em `localhost:8080`
 
 ```shell
 docker-compose up # subir serviço

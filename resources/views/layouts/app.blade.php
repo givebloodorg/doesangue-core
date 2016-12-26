@@ -8,18 +8,17 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name') }} - @yield('pagina')</title>
+    <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Styles -->
-    <link href="/css/app.css" rel="stylesheet">
+    <ink href="/css/app.css" rel="stylesheet">
+    <ink href="/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Scripts -->
     <script>
-        window.Laravel = <?php echo json_encode(
-            [
+        window.Laravel = <?php echo json_encode([
             'csrfToken' => csrf_token(),
-            ]
-        ); ?>
+        ]); ?>
     </script>
 </head>
 <body>
