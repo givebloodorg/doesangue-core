@@ -19,7 +19,7 @@ class Donor extends Model
      * @var array
      */
     protected $filliable = [
-                            'blood_type_id',
+                            'blood_type_id', 'user_id'
                             ];
 
     /**

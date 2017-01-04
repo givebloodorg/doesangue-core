@@ -11,7 +11,7 @@ class ExampleTest extends TestCase
      */
     public function testBasicExample()
     {
-        $this->visit('/')
-            ->see(config('app.name' - 'Home'));
+        $this->visit('/api')
+            ->seeJson();
     }
 }

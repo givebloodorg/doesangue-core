@@ -10,6 +10,10 @@ use DoeSangue\Models\Post;
 
 class PostsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('jwt.auth', ['except' => ['index', 'show']]);
+    }
 
     public function index()
     {
@@ -21,6 +25,14 @@ class PostsController extends Controller
     public function show($id)
     {
         $post = Post::find($id);
+
+        if (!$post) {
+          return response()->json(
+            [
+              'error_code' => '404',
+              'message' => 'Post not found!'
+            ], 404);
+        }
 
         return response()->json(compact('post'));
     }
@@ -41,8 +53,8 @@ class PostsController extends Controller
      *
      * @method update
      *
-     * @param  UpdatePostRequest $request
-     * @param  integer $id
+     * @param UpdatePostRequest $request
+     * @param integer           $id
      *
      * @return \Illuminate\Http\JsonResponse
      */
@@ -51,9 +63,9 @@ class PostsController extends Controller
     {
         $post = Campaign::find($id);
         $post->title = $request[ 'title' ];
-        $post->title = $request[ 'content' ];
-        $post->title = $request[ 'image' ];
-        $post->title = $request[ 'user_id' ];
+        $post->content = $request[ 'content' ];
+        $post->image = $request[ 'image' ];
+        $post->user_id = $request[ 'user_id' ];
         $post->save();
 
         return response()->json([ 'message' => 'Post Updated' ]);
@@ -61,9 +73,26 @@ class PostsController extends Controller
 
     public function destroy($id)
     {
-        $post = Post::findOrFail($id);
+        $post = Post::find($id);
+
+
+        if (!$post) {
+          return response()->json(
+            [
+              'error_code' => '404',
+              'message' => 'Post not found!'
+            ], 404);
+        }
+
         $post->delete();
 
-        return response()->json([ 'message' => 'Post delected' ]);
+        return response()->json(
+          [
+            'title' => $post->title,
+            'content' => $post->content,
+            'image' => $post->image,
+            'user_id' => $post->user_id,
+            'message' => 'Post delected',
+          ]);
     }
 }

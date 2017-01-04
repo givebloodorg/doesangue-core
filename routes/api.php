@@ -18,11 +18,12 @@ Route::get(
     }
 );
 
+// Create new Token
 Route::post('auth/login', 'Auth\AuthenticateController@authenticate');
 
 // Donor API
 Route::group(
-    ['middleware' => ['jwt.auth'], 'namespace' => 'API'], function () {
+    ['namespace' => 'API'], function () {
         // Donors
         Route::group(
             ['prefix' => 'donors'], function () {
@@ -34,6 +35,10 @@ Route::group(
                 Route::get('{donor}', 'DonorsController@show');
                 // Update the Donor
                 Route::put('{donor}', 'DonorsController@update');
+
+                // Campaigns by donor
+                Route::get('{donors}/campaigns', 'DonorsController@campaigns');
+                Route::get('{donors}/campaigns/{campaign}', 'DonorsController@showCampaign');
             }
         );
 

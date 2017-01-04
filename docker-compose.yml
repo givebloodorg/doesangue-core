@@ -19,7 +19,7 @@ services:
     volumes:
       - doesangue-mysql-data:/var/lib/mysql
     ports:
-      - "33060:33060"
+      - "3306:3306"
     environment:
       - MYSQL_ROOT_PASSWORD=doesangue
       - MYSQL_DATABASE=doesangue

@@ -26,6 +26,7 @@ class CreateCampaignRequest extends FormRequest
         return [
             'title' => 'required|min:60',
             'expires' => 'required|date',
+            'id_user' => 'required|integer',
         ];
     }
 
@@ -34,6 +35,7 @@ class CreateCampaignRequest extends FormRequest
         return [
         'title.required' => 'Por favor informe o titulo',
         'expires.required' => 'Por favor informe a data de expiração',
+        'id_user' => 'Looks like the author is not recognized!',
         ];
     }
 }

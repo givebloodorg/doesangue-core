@@ -56,9 +56,11 @@ $factory->define(
 
 // Factory Campaigns
 $factory->define(
-    DoeSangue\Models\Campaigns::class, function (Faker\Generator $faker) {
+    DoeSangue\Models\Campaign::class, function (Faker\Generator $faker) {
         return [
         'title' => $faker->title,
+        'expires' => $faker->date,
+        'id_user' => $faker->randomDigit,
         ];
     }
 );

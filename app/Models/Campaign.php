@@ -18,7 +18,12 @@ class Campaign extends Model
      *
      * @var array
      */
-    protected $filliable = [ 'title' ];
+    protected $filliable = [ 'title', 'expires', 'id_user' ];
 
     protected $hidden = [ 'created_at', 'updated_at' ];
+
+    public function author()
+    {
+        return $this->hasOne(DoeSangue\Models\User::class, 'id', 'id_user');
+    }
 }

@@ -19,5 +19,3 @@ Route::get('login/{provider}', 'Auth\AuthController@handleProviderCallback');
 
 Route::get('logout', 'Auth\AuthController@logout');
 */
-
-Route::get('/', 'HomeController@index');

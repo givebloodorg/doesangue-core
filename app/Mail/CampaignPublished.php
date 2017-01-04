@@ -3,6 +3,7 @@
 namespace DoeSangue\Mail;
 
 use DoeSangue\Models\Campaign;
+use DoeSangue\Models\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
@@ -12,14 +13,17 @@ class CampaignPublished extends Mailable
     use Queueable, SerializesModels;
 
     protected $campaign;
+
+    protected $user;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct(Campaign $campaign)
+    public function __construct(Campaign $campaign, User $user)
     {
         $this->campaign = $campaign;
+        $this->user = $user;
     }
 
     /**
@@ -29,12 +33,6 @@ class CampaignPublished extends Mailable
      */
     public function build()
     {
-        return $this->view('email.campaign-published')
-            ->with(
-                [
-                        'title' => $this->campaign->title,
-                        'expires' => $this->campaign->expires,
-                        ]
-            );
+        return $this->view('email.campaign-published');
     }
 }

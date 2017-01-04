@@ -27,6 +27,9 @@ class AuthenticateController extends Controller
         }
 
         // all good so return the token
-        return response()->json(compact('token'));
+        return response()->json([
+          'access_token' => $token,
+          'token_type' => 'bearer'
+        ]);
     }
 }

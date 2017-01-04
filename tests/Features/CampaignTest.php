@@ -3,14 +3,23 @@
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
+use DoeSangue\Models\User;
+use DoeSangue\Models\Campaign;
 
 class CampaignTest extends TestCase
 {
-    /**
-     * A basic test example.
-     */
-    public function testExample()
+
+    public function testCreateCampaign()
     {
-        $this->assertTrue(true);
+
+        $author = factory(User::class)->create();
+
+        $campaign = factory(Campaign::class)->create(
+            [
+            'id_user' => $author->id,
+            ]
+        );
+
+        $this->assertEquals($author->id, $campaign->id_user);
     }
 }
