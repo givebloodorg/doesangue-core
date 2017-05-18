@@ -26,15 +26,15 @@ class CreateCampaignRequest extends FormRequest
         return [
             'title' => 'required|min:60',
             'expires' => 'required|date',
-            'id_user' => 'required|integer',
+            'id_user' => 'required|integer:exists:users',
         ];
     }
 
     public function messages()
     {
         return [
-        'title.required' => 'Por favor informe o titulo',
-        'expires.required' => 'Por favor informe a data de expiração',
+        'title.required' => 'Please provide a campaign tite!',
+        'expires.required' => 'Please provide a date when the campaign will expire!',
         'id_user' => 'Looks like the author is not recognized!',
         ];
     }

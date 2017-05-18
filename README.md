@@ -8,7 +8,7 @@
 * [Development](#development)
 
 ![Mente Digital HQ](public/img/logo.jpg)
-*Core maintained by Mente Digital Inc and opensource contributors.* 
+*Core maintained by Mente Digital Inc and opensource contributors.*
 
 ## What?
 
@@ -70,4 +70,4 @@ docker-compose down # stop and kill the service
 ```
 
 -----------------
-If you prefer to read the portuguese version please check [README_PT](README_PT.md) 
+If you prefer to read the portuguese version please check [README PT](README_PT.md) 

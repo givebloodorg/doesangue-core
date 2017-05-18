@@ -27,11 +27,12 @@ class PostsController extends Controller
         $post = Post::find($id);
 
         if (!$post) {
-          return response()->json(
-            [
-              'error_code' => '404',
-              'message' => 'Post not found!'
-            ], 404);
+            return response()->json(
+                [
+                'error_code' => '404',
+                'message' => 'Post not found!'
+                ], 404
+            );
         }
 
         return response()->json(compact('post'));
@@ -77,22 +78,24 @@ class PostsController extends Controller
 
 
         if (!$post) {
-          return response()->json(
-            [
-              'error_code' => '404',
-              'message' => 'Post not found!'
-            ], 404);
+            return response()->json(
+                [
+                'error_code' => '404',
+                'message' => 'Post not found!'
+                ], 404
+            );
         }
 
         $post->delete();
 
         return response()->json(
-          [
+            [
             'title' => $post->title,
             'content' => $post->content,
             'image' => $post->image,
             'user_id' => $post->user_id,
             'message' => 'Post delected',
-          ]);
+            ]
+        );
     }
 }

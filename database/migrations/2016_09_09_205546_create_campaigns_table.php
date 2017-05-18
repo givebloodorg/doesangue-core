@@ -21,7 +21,7 @@ class CreateCampaignsTable extends Migration
                 $table->increments('id');
                 $table->string('title');
                 $table->dateTimeTz('expires');
-                $table->integer('id_user');
+                $table->integer('user_id');
                 $table->timestamps();
             }
         );

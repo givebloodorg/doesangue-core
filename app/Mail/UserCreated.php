@@ -2,10 +2,11 @@
 
 namespace DoeSangue\Mail;
 
-use DoeSangue\Models\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Contracts\Queue\ShouldQueue;
+use DoeSangue\Models\User;
 
 class UserCreated extends Mailable
 {
@@ -15,6 +16,8 @@ class UserCreated extends Mailable
 
     /**
      * Create a new message instance.
+     *
+     * @return void
      */
     public function __construct(User $user)
     {
@@ -29,11 +32,12 @@ class UserCreated extends Mailable
     public function build()
     {
         return $this->view('email.user-created')
-            ->with(
-                [
-                  'Nome' => $this->user->name,
-                  'UserName' => $this->user->username,
-                ]
-            );
+                    ->with(
+                      [
+                        'FirstName' => $this->user->first_name,
+                        'LastName' => $this->user->last_name,
+                        'UserName' => $this->user->username
+                      ]
+                    );
     }
 }

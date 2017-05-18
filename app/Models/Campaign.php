@@ -3,6 +3,7 @@
 namespace DoeSangue\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use DoeSangue\Models\User;
 
 class Campaign extends Model
 {
@@ -18,12 +19,12 @@ class Campaign extends Model
      *
      * @var array
      */
-    protected $filliable = [ 'title', 'expires', 'id_user' ];
+    protected $filliable = [ 'title', 'expires', 'user_id' ];
 
     protected $hidden = [ 'created_at', 'updated_at' ];
 
-    public function author()
+    public function owner()
     {
-        return $this->hasOne(DoeSangue\Models\User::class, 'id', 'id_user');
+        return $this->hasOne(User::class);
     }
 }

@@ -20,9 +20,10 @@ class DonorsController extends Controller
         return response()->json($donors);
     }
 
-    public function show($id) {
+    public function show($id) 
+    {
 
-      $donor = Donor::find($id);
+        $donor = Donor::find($id);
 
         return response()->json($donor);
     }

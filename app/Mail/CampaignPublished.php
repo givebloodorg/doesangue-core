@@ -2,11 +2,13 @@
 
 namespace DoeSangue\Mail;
 
-use DoeSangue\Models\Campaign;
-use DoeSangue\Models\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Contracts\Queue\ShouldQueue;
+
+use DoeSangue\Models\Campaign;
+use DoeSangue\Models\User;
 
 class CampaignPublished extends Mailable
 {

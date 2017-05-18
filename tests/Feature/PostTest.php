@@ -1,15 +1,16 @@
 <?php
 
+namespace Tests\Feature;
+
+use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use DoeSangue\Models\Post;
 use DoeSangue\Models\User;
 
-
 class PostTest extends TestCase
 {
-
     public function testCreatePost()
     {
         $user = factory(User::class)->create([]);
@@ -29,5 +30,4 @@ class PostTest extends TestCase
 
         return $this->assertTrue(true);
     }
-
 }
