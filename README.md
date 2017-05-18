@@ -68,3 +68,6 @@ To run the service in background:
 docker-compose up -d # run's the service in background
 docker-compose down # stop and kill the service
 ```
+
+-----------------
+If you prefer to read the portuguese version please check [README_PT](README_PT.md) 

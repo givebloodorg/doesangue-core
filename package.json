@@ -2,28 +2,24 @@
   "name": "doesangue",
   "version": "1.0.0",
   "description": "Plataforma de pesquisa de doadores",
-  "main": "index.js",
-  "repository": {
-    "url": "https://github.com/doesangueorg/doesangueweb.git",
-    "type": "git"
-  },
-  "author": "(https://josecage.com)",
   "license": "MIT",
   "private": true,
   "scripts": {
     "prod": "gulp --production",
     "dev": "gulp watch"
   },
+  "repository": {
+    "url": "https://github.com/doesangueorg/doesangueweb.git",
+    "type": "git"
+  },
+  "author": {
+    "name": "José Cage",
+    "email": "josejanuario7@gmail.com",
+    "url": "https://josecage.com"
+  },
   "devDependencies": {
-    "bootstrap-sass": "^3.3.7",
     "gulp": "^3.9.1",
-    "jquery": "^3.1.0",
-    "laravel-elixir": "^6.0.0-11",
-    "laravel-elixir-vue-2": "^0.3.0",
-    "laravel-elixir-webpack-official": "^1.0.2",
-    "lodash": "^4.17.4",
-    "vue": "^2.2.4",
-    "vue-resource": "^1.2.1"
+    "laravel-elixir": "^6.0.0-11"
   },
   "dependencies": {}
 }
