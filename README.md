@@ -1,6 +1,6 @@
-[![Build Status](https://travis-ci.org/doesangueorg/doesangueweb.svg)](https://travis-ci.org/doesangueorg/doesangueweb)
-[![Test Coverage](https://codeclimate.com/github/doesangueorg/doesangueweb/badges/coverage.svg)](https://codeclimate.com/github/doesangueorg/doesangueweb/coverage)
- [![Issue Count](https://codeclimate.com/github/doesangueorg/doesangueweb/badges/issue_count.svg)](https://codeclimate.com/github/doesangueorg/doesangueweb)
+[![Build Status master](https://travis-ci.org/doesangueorg/doesangueweb.svg?branch=master)](https://travis-ci.org/doesangueorg/doesangueweb)
+[![Build Status development](https://travis-ci.org/doesangueorg/doesangueweb.svg?branch=development)](https://travis-ci.org/doesangueorg/doesangueweb)
+ [![Issue Count](https://codeclimate.com/github/JoseCage/doesangue.me/badges/issue_count.svg)](https://codeclimate.com/github/JoseCage/doesangue.me)
 
 #### Topics.
 * [What](#what)?
@@ -8,6 +8,7 @@
 * [Development](#development)
 
 ![Mente Digital HQ](public/img/logo.jpg)
+*Core maintained by Mente Digital Inc and opensource contributors.* 
 
 ## What?
 
@@ -37,33 +38,33 @@ docker-compose run app composer install # install php dependencies
 ```
 
 ```shell
-docker-compose run app php artisan key:generate # gerar chave de aplicação
+docker-compose run app php artisan key:generate # generate the API_KEY
 ```
 
 ```shell
-docker-compose run app php artisan migrate --seed # rodar migrações
+docker-compose run app php artisan migrate --seed # run the migrations
 ```
 
 ##### Artisan commands
-Usando o comando `docker-compose run app php artisan` se tem acesso ao artisan dentro do container docker
+Using the command `docker-compose run app php artisan` you can see all available artisan commands
 
 Ex:
 
 ```shell
-docker-compose run app php artisan # lista de comandos
-docker-compose run app php artisan route:list # lista de rotas
+docker-compose run app php artisan # list the commands
+docker-compose run app php artisan route:list # list all routes of our API
 ```
 
 #### Service
-> Por padrão a API roda em `localhost:8080`
+> By default the API run's in `localhost:8080`
 
 ```shell
-docker-compose up # subir serviço
+docker-compose up # run's the service
 ```
 
-Para subir o serviço em segundo plano:
+To run the service in background:
 
 ```shell
-docker-compose up -d # sobe o serviço em segundo plano no terminal
-docker-compose down # mata o serviço
+docker-compose up -d # run's the service in background
+docker-compose down # stop and kill the service
 ```
