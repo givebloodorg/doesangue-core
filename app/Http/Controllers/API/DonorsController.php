@@ -10,7 +10,7 @@ class DonorsController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('jwt.auth', ['except' => ['index', 'show']]);
+        $this->middleware('jwt.auth', [ 'except' => [ 'index', 'show' ] ]);
     }
 
     public function index()
@@ -20,11 +20,11 @@ class DonorsController extends Controller
         return response()->json($donors);
     }
 
-    public function show($id){
+    public function show($id) {
 
       $donor = Donor::find($id);
 
-       return response()->json($donor);
+        return response()->json($donor);
     }
 
     public function store()

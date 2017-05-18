@@ -12,7 +12,7 @@ class CampaignObserver
     /**
      * Listen to the Campaign created event.
      *
-     * @param Campaign $Campaign
+     * @param Campaign $campaign
      */
     public function published(Campaign $campaign)
     {
