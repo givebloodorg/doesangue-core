@@ -21,9 +21,9 @@ Route::get(
 // Create new Token
 Route::post('auth/login', 'Auth\AuthenticateController@authenticate');
 
-// Donor API
+// Donors API
 Route::group(
-    ['namespace' => 'API'], function () {
+    ['middleware' => 'api', 'namespace' => 'API', 'prefix' => 'v1'], function () {
         // Donors
         Route::group(
             ['prefix' => 'donors'], function () {

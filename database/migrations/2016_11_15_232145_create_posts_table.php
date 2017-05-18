@@ -21,7 +21,7 @@ class CreatePostsTable extends Migration
                 $table->foreign('user_id')->references('id')->on('users')
                     ->onDelete('cascade');
                 $table->dateTimeTz('created_at')->nullable();
-                $table->timestampTz('updated_at');
+                $table->timestamp('updated_at');
                 $table->softDeletes();
             }
         );
