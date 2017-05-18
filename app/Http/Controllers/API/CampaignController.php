@@ -20,7 +20,7 @@ class CampaignController extends Controller
     {
         $campaigns = Campaign::all();
 
-        return response()->json($data, 200);
+        return response()->json($campaigns, 200);
     }
 
     public function store(CreateCampaignRequest $request)
