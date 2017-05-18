@@ -11,7 +11,7 @@ class CampaignController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('jwt.auth', ['except' => ['index', 'show']]);
+        $this->middleware('jwt.auth', [ 'except' => [ 'index', 'show' ] ]);
     }
 
     public function index()
@@ -33,7 +33,7 @@ class CampaignController extends Controller
         $campaign = new Campaign();
         $campaign->title = $request[ 'title' ];
         $campaign->expires = $request[ 'expires' ];
-        $campaign->id_user = $request['id_user'];
+        $campaign->id_user = $request[ 'id_user' ];
         $campaign->save();
 
         return response()->json($campaign, 201);
@@ -81,7 +81,7 @@ class CampaignController extends Controller
      * Get campaigns by specific donor/user
      * @return Response
      */
-    public function campaigns(Donor $id){
+    public function campaigns(Donor $id) {
 
       $donor = Donor::find($id);
       $campaigns = Campaigns::where('id_user', $donor->id)->get();
