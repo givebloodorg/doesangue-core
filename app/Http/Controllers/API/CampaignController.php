@@ -2,7 +2,6 @@
 
 namespace DoeSangue\Http\Controllers\API;
 
-use Illuminate\Http\Request;
 use DoeSangue\Http\Requests\UpdateCampaignRequest;
 use DoeSangue\Http\Requests\CreateCampaignRequest;
 use DoeSangue\Http\Controllers\Controller;
@@ -48,10 +47,10 @@ class CampaignController extends Controller
 
         if (!$campaign) {
             return response()->json(
-                ['data' => [
+                [ 'data' => [
                 'error_code' => '404',
                 'error_message' => 'Campaign not found!'
-                ]], 404
+                ] ], 404
             );
         }
 

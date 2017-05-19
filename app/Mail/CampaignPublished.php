@@ -5,8 +5,6 @@ namespace DoeSangue\Mail;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
-use Illuminate\Contracts\Queue\ShouldQueue;
-
 use DoeSangue\Models\Campaign;
 use DoeSangue\Models\User;
 
