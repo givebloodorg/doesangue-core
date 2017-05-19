@@ -14,14 +14,17 @@ class CampaignTest extends TestCase
     public function testCreateCampaign()
     {
 
-        $author = factory(User::class)->create();
+        $users = factory(User::class, 3)
+           ->create()
+           ->each(function ($u) {
+                $u->campaigns()->save(factory(Campaign::class)->make());
+            });
 
-        $campaign = factory(Campaign::class)->create(
-            [
-            'id_user' => $author->id,
-            ]
-        );
-
-        $this->assertEquals($author->id, $campaign->id_user);
+        //  $this->assertEquals($author->id, $campaign->user_id);
+          $this->assertDatabaseHas(
+              'users', [
+              'email' => $user->email
+              ]
+          );
     }
 }

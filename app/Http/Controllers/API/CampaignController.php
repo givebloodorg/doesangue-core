@@ -5,8 +5,10 @@ namespace DoeSangue\Http\Controllers\API;
 use DoeSangue\Http\Requests\UpdateCampaignRequest;
 use DoeSangue\Http\Requests\CreateCampaignRequest;
 use DoeSangue\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Mail;
 use DoeSangue\Models\Donor;
 use DoeSangue\Models\Campaign;
+use DoeSangue\Models\User;
 
 class CampaignController extends Controller
 {
@@ -33,12 +35,16 @@ class CampaignController extends Controller
         $campaign->user_id = auth()->user()->id;
         $campaign->save();
 
+        // Send mail to users about the new campaign.
+        Mail::to(User::all())->send(new CampaignPublished($campaign));
+
         return response()->json(
             [
             'status_code' => 201,
             'message' => 'Campaign added!'
             ], 201
         );
+
     }
 
     public function show($id)

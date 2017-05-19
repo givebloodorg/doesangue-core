@@ -17,7 +17,6 @@ class DonorsSeeder extends Seeder
             ['id' => '1', 'user_id' => '1', 'blood_type_id' => '1'],
             ['id' => '2', 'user_id' => '2', 'blood_type_id' => '1'],
             ['id' => '3', 'user_id' => '3', 'blood_type_id' => '2'],
-            ['id' => '4', 'user_id' => '4', 'blood_type_id' => '2'],
             ]
         );
     }

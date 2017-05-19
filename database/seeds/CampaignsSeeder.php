@@ -16,8 +16,8 @@ class CampaignsSeeder extends Seeder
         DB::table('campaigns')->truncate();
         DB::table('campaigns')->insert(
             [
-            array('title' => 'Campanha de teste do sistema', 'id_user' => '1', 'expires' => '20180605123000'),
-            array('title' => 'Solicitação de ajuda pela comunidade', 'id_user' => '2', 'expires' => '20190807123000'),
+            array('title' => 'Campanha de teste do sistema', 'user_id' => '1', 'expires' => \Carbon\Carbon::now()->endOfYear(), 'created_at' => \Carbon\Carbon::now(), 'updated_at' => \Carbon\Carbon::now()),
+            array('title' => 'Solicitação de ajuda pela comunidade', 'user_id' => '2', 'expires' => \Carbon\Carbon::now()->endOfYear(), 'created_at' => \Carbon\Carbon::now(), 'updated_at' => \Carbon\Carbon::now()),
             ]
         );
     }

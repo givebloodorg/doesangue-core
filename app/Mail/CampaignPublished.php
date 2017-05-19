@@ -5,25 +5,22 @@ namespace DoeSangue\Mail;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Contracts\Queue\ShouldQueue;
 use DoeSangue\Models\Campaign;
-use DoeSangue\Models\User;
 
-class CampaignPublished extends Mailable
+class CampaignPublished extends Mailable implements ShouldQueue
 {
     use Queueable, SerializesModels;
 
     protected $campaign;
-
-    protected $user;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct(Campaign $campaign, User $user)
+    public function __construct(Campaign $campaign)
     {
         $this->campaign = $campaign;
-        $this->user = $user;
     }
 
     /**
@@ -33,6 +30,6 @@ class CampaignPublished extends Mailable
      */
     public function build()
     {
-        return $this->view('email.campaign-published');
+        return $this->markdown('email.campaigns.published');
     }
 }
