@@ -15,10 +15,9 @@ class UsersSeeder extends Seeder
         //  DB::table('users')->truncate();
         DB::table('users')->insert(
             [
-            ['name' => 'José Cage', 'email' => 'josecage@doesangueapp.dev', 'username' => 'josecage', 'password' => bcrypt('123456789'), 'id' => '1'],
-            ['name' => 'Jó Cage', 'email' => 'jocage@doesangueapp.dev', 'username' => 'jocage', 'password' => bcrypt('123456789'), 'id' => '2'],
-            ['name' => 'User Demo', 'email' => 'demo@doesangueapp.dev', 'username' => 'userdemo', 'password' => bcrypt('123456789'), 'id' => '3'],
-            ['name' => 'User Demo 2', 'email' => 'demo2@doesangueapp.dev', 'username' => 'userdemo2', 'password' => bcrypt('123456789'), 'id' => '4'],
+            ['first_name' => 'José', 'last_name' => 'Cage', 'email' => 'josejanuario7@gmail.com', 'username' => 'josecage', 'password' => bcrypt('123456789'), 'id' => '1'],
+            ['first_name' => 'Jó', 'last_name' => 'Cage', 'email' => 'jocage@doesangue.me', 'username' => 'jocage', 'password' => bcrypt('123456789'), 'id' => '2'],
+            ['first_name' => 'Admin', 'last_name' => 'User', 'email' => 'admin@doesangue.me', 'username' => 'userdemo', 'password' => bcrypt('123456789'), 'id' => '3']
             ]
         );
     }

@@ -8,7 +8,7 @@ use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use DoeSangue\Models\User;
 
-class UserCreated extends Mailable
+class UserCreated extends Mailable implements ShouldQueue
 {
     use Queueable, SerializesModels;
 
@@ -31,7 +31,7 @@ class UserCreated extends Mailable
      */
     public function build()
     {
-        return $this->view('email.user-created')
+        return $this->markdown('email.users.created')
                     ->with(
                       [
                         'FirstName' => $this->user->first_name,

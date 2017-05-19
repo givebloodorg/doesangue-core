@@ -23,6 +23,9 @@ class Campaign extends Model
 
     protected $hidden = [ 'created_at', 'updated_at' ];
 
+    /**
+     * Return the owner of campaign
+     */
     public function owner()
     {
         return $this->hasOne(User::class);

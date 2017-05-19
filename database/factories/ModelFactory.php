@@ -20,7 +20,8 @@ $factory->define(
         static $password;
 
         return [
-        'name' => $faker->name,
+        'first_name' => $faker->firstName,
+        'last_name' => $faker->lastName,
         'email' => $faker->unique()->companyEmail,
         'username' => $faker->userName,
         'phone' => $faker->tollFreePhoneNumber,
@@ -60,7 +61,7 @@ $factory->define(
         return [
         'title' => $faker->title,
         'expires' => $faker->date,
-        'id_user' => $faker->randomDigit,
+        'user_id' => $faker->randomDigit,
         ];
     }
 );
