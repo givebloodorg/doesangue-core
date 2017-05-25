@@ -1,24 +1,77 @@
-# COMO CONTRIBUIR
+# Contributing to doesangue.me
 
-### Instruções para programadores
+:cake: First off, thanks for taking you precious time to contribute. :+1:
+The following is a set of guidelines for Contributing to **Doe Sangue.me** and it's projects/apps, which are in the [Doe Sangue](https://github.com/doesangueorg) on Github. These are just guidelines, not rules. Use your best judgement, and feel free to propose changes to this document in a **Pull Request**.
 
-Olá. Se tú és desenvolvedor e pretendes contribuir para o desenvolvimento da plataforma <b>DoeSangue.me</b>, por favor siga as diretrizes descritas nos paragráfos abaixo.
+## Table of contents
+[What to know before start?](#getting-started)
+ * [How?](#how)
+ * [Pull Requests](#pull-requests)
+[Styleguide](#styleguide)
 
-Antes de mais, para contribuir na parte do desenvolvimento é necessário que você tenha uma conta de utilizador no <a href="htpp://github.com">Github</a> e que tenhas o <a href="htpp://git-scm.com">Git</a> instalado em sua máquina.
+### Getting started
+Contributions are always welcome and will be fully **credited**.
+
+We accept contributions via **Pull Requests** via [Github](https://github.com/doesangueorg/doesangue-core) and/or tests in our [doesangue.me demo app](https://doesangue.herokuapp.com).
+
+Search if the issue/bug you are trying to resolve wasn't already solved... Try to search issues in :muscle: [#wontfix](https://github.com/doesangueorg/doesangue-core/issues?q=is%3Aopen+is%3Aissue+label%3Awontfix) label or :bug: [#bug](https://github.com/doesangueorg/doesangue-core/issues?q=is%3Aopen+is%3Aissue+label%3Abug). If you prefer to search for *Pull Requests* check :muscle: [#wontfix](https://github.com/doesangueorg/doesangue-core/issues?q=is%3Aopen+is%3Apr+label%3Awontfix).
+
+If you get a new idea or want to add a new feature please before you create a new Pull Requests open an [Issue](https://github.com/doesangueorg/doesangue-core/labels/feature%20request) talking about it.
+
+#### How?
+* 1 Fork the project.
+* 2 Create your bugfix/feature branch and your (commented) code.
+
+**Note**: Consider to naming your branch based on feature you'll work. Like in example:
+
+```
+git checkout -b my-new-feature development
+```
+
+ where development is the branch where the **my-new-feature** will be based.
+
+* 3 Create unit tests for your feature/code:
+* 3.1 Run ``php artisan make:test --unit ClassnameTest`` (don't forget the Test suffix) and write your test inside the class.
+* 3.2 Run ``vendor/bin/phpunit`` to make sure everything works as well (new and old tests).
+* 4 Commit your changes (your feature and tests) and push to your branch.
+* 5 Run the following to make sure your fork is updated with our latest changes.
+
+```
+git remote add upstream git@github.com:doesangueorg/doesangue-core.git
+git checkout development
+git pull upstream development
+```
+Then update your feature branch from your local copy of development, and push it!
+
+```
+git checkout my-new-feature
+git rebase development
+git push --set-upstream origin my-new-feature
+```
+
+Finally, go to Github and make a [Pull Request](https://help.github.com/articles/creating-a-pull-request) :cake: cake: cake:
 
 
-## Primeiros Passos:
+#### Pull Requests
+* Use the [PSR-2 Coding Standard](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md). The easiest way to apply the conventions is to install the [PHP Code Sniffer](http://pear.php.net/package/PHP_CodeSniffer).
 
-Logado na sua conta do Github, entre em <a href="http://github.com/JoseCage/doesangue.me">DoeSangue</a> para acessar o repositório do projeto e clique em Fork para copiar o projeto para sua conta e de seguida faça o clone do projeto (forkado) para seu ambiente local (seu computador), tendo em conta que o teu ambiente local já esteja instalado e configurado o <b>Git</b> e o restante das ferramentas necessárias.
+* **Add tests**! Your pull request won't be accepted if it doesn't have tests (or if it doesn't passes). 
+* **Document any change in behavior**. Make sure the **README.md** and any other relevant documentation are kept up-to-date.
+* Don't worry about updating CHANGELOG.md. The package administrator will handle updating those when new releases are created.
 
-Consuante a alteração que fizer no projeto em seu ambiente local, descreva em seus commits de uma forma clara o que alterou/adicionou, qual a sua função e de preferência trabalhe em uma <b>Branch</b> que não sejá a <b>Master</b> e por fim, faça o Push para seu repositório remoto e só então pode fazer um <b>Pull Request</b> para o repositório oficial, onde será avaliado e igualmente testado seu código e caso tal função não se tenha implementado ainda, e no caso da mesma ser de utilidade na plataforma será aprovado o Pull Request e automaticamente adicionado na Branch <b>Master</b> (que é a branch onde tem o código final e funcional da plataforma).
+#### Styleguide
+**Note**: More details about styleguide needed here.
+
+### TO-DO
+* Add the styleguide.
+* Add the Pull Requests and Issue templates
+* Add environment/dev requirements
 
 
-## O que posso alterar?
-Uma vez que já tenha seguido os passos iniciais descritos acima, segue algumas dicas importantes que deves ter em conta ao contribuir no projeto.
-Uma vez que o projeto já dispõe de funcionalidades implementadas, recomendamos que altere as já existentes apenas no caso de melhoria ou correção de bugs. No entanto, conforme citado acima, você pode criar novas páginas, classes e funções dentro da plataforma desde que no entanto não fuja do conceito do que é a plataforma.
+#### Chat
+if you prefer to open a chat with other members/developers join us on Gitter and/or Slack.
 
+* Slack [Invite yourself :anchor:](https://slack-doesangue.now.sh/) or if you are already a member just go to [Slack](https://projetodoesangue.slack.com)
+* Gitter [Join the core](https://gitter.im/doesangueorg/core?utm_source=share-link&utm_medium=link&utm_campaign=share-link) or [Chat](https://gitter.im/doesangueorg/chat?utm_source=share-link&utm_medium=link&utm_campaign=share-link) channels.
 
-Caso queira discutir qualquer assunto que esteja relacionado ao DoeSangue com os outros desenvolvedores/contribuidores da plataforma, Para participar da comunidade no slack basta solicitar o [convite](https://slack-doesangue.now.sh/) ou caso ja tenha o convite acesse <a href="http://projetodoesangue.slack.com">Slack</a> e seja bem vindo.
-
-:radio_button: Adicionar novas regras.
+[Back to top](#contributing-to-doesangueme)

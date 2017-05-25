@@ -11,6 +11,8 @@ use DoeSangue\Models\Campaign;
 
 class CampaignTest extends TestCase
 {
+  use DatabaseMigrations;
+
     public function testCreateCampaign()
     {
 
@@ -20,11 +22,6 @@ class CampaignTest extends TestCase
                 $u->campaigns()->save(factory(Campaign::class)->make());
             });
 
-        //  $this->assertEquals($author->id, $campaign->user_id);
-          $this->assertDatabaseHas(
-              'users', [
-              'email' => $user->email
-              ]
-          );
+        $this->assertEquals($users, 3);
     }
 }

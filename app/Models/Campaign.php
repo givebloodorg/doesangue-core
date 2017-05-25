@@ -28,6 +28,6 @@ class Campaign extends Model
      */
     public function owner()
     {
-        return $this->hasOne(User::class);
+        return $this->belongsTo(User::class);
     }
 }

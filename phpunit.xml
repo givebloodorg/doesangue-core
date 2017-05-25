@@ -29,4 +29,7 @@
         <env name="QUEUE_DRIVER" value="sync"/>
         <env name="DB_DATABASE" value="doesangue"/>
     </php>
+    <logging>
+    <log type="coverage-clover" target="coverage/clover.xml"/>
+  </logging>
 </phpunit>

@@ -37,7 +37,7 @@ class CampaignController extends Controller
         $campaign->save();
 
         // Send mail to users about the new campaign.
-        Mail::to(User::all())->send(new CampaignPublished($campaign));
+ //       Mail::to($campaign->owner->email)->send(new CampaignPublished($campaign));
 
         return response()->json(
             [
