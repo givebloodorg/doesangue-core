@@ -1,17 +1,19 @@
-[![Build Status master](https://travis-ci.org/doesangueorg/doesangueweb.svg?branch=master)](https://travis-ci.org/doesangueorg/doesangueweb)
-[![Build Status development](https://travis-ci.org/doesangueorg/doesangueweb.svg?branch=development)](https://travis-ci.org/doesangueorg/doesangueweb)
- [![Issue Count](https://codeclimate.com/github/JoseCage/doesangue.me/badges/issue_count.svg)](https://codeclimate.com/github/JoseCage/doesangue.me)
+[![Build Status](https://travis-ci.org/doesangueorg/doesangue-core.svg?branch=master)](https://travis-ci.org/doesangueorg/doesangue-core)
+[![Build Status](https://travis-ci.org/doesangueorg/doesangue-core.svg?branch=development)](https://travis-ci.org/doesangueorg/doesangue-core)
+[![codecov](https://codecov.io/gh/doesangueorg/doesangue-core/branch/development/graph/badge.svg)](https://codecov.io/gh/doesangueorg/doesangue-core)
 
 #### Topics.
 * [What](#what)?
 * [Why](#why)?
 * [Development](#development)
+* [Contributing](#contributing)
 
 ![Mente Digital HQ](public/img/logo.jpg)
-*Core maintained by Mente Digital Inc and opensource contributors.*
+*Core maintained by Mente Digital Inc and awesome opensource contributors.*
+
 
 ## What?
-
+doesangue.me is a free (and opensource) platform that connects people interesting in blood donation.
 
 ## Why?
 
@@ -68,6 +70,10 @@ To run the service in background:
 docker-compose up -d # run's the service in background
 docker-compose down # stop and kill the service
 ```
+
+
+### Contributing
+To contribute to this repo, please check the documentation/guide at [Contributing](CONTRIBUTING.md)
 
 -----------------
 If you prefer to read the portuguese version please check [README PT](README_PT.md) 

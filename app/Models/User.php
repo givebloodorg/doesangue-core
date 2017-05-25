@@ -4,6 +4,8 @@ namespace DoeSangue\Models;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use DoeSangue\Models\Campaign;
+use DoeSangue\Models\Donor;
 
 class User extends Authenticatable
 {
@@ -40,4 +42,9 @@ class User extends Authenticatable
     {
       return $this->hasMany(Campaign::class);
     }
-}//end class
+
+    public function donor()
+    {
+      return $this->hasOne(Donor::class);
+    }
+}
