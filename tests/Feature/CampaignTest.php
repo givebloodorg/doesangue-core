@@ -19,8 +19,7 @@ class CampaignTest extends TestCase
 
         $ampaign = factory(Campaign::class)->create(
             [
-            'user_id' => $user->id,
-            'expires' => \Carbon\Carbon::now()->endOfYear()
+            'user_id' => $user->id
             ]
         );
 

@@ -51,7 +51,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'https://doesangueapp.herokuapp.com'),
+    'url' => env('APP_URL', 'https://doesangueapi.herokuapp.com'),
 
     /*
     |--------------------------------------------------------------------------

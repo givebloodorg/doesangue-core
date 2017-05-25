@@ -80,9 +80,7 @@ Finally, go to Github and make a [Pull Request](https://help.github.com/articles
 -----|----|---
 :art:| ``:art:`` | when improving the format/structure of the code
 :racehorse:| ``:racehorse:`` |when improving performance
-:non-potable_water:| ``:non-potable_water:``| when plugging memory leaks
 :memo:| ``:memo:`` |when writing docs
-:checkered_flag: |``:checkered_flag:``| when fixing something on Windows
 :bug: |``:bug:`` when fixing a bug
 :fire: | ``:fire:``| when removing code or files
 :green_heart: |``:green_heart:``| when fixing the CI build
