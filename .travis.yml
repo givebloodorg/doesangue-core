@@ -1,19 +1,35 @@
+---
 language: php
 php:
   - 5.6
   - 7.0
 
+addons:
+    postgresql: "9.6"
+    code_climate:
+        repo_token: 0cf44912ed4344a020d170ff41b89b3cadda2102e3c04f4e1316ce0d346e1268
+
+services:
+  - postgresql
+  - redis-server
+
 cache:
-  yarn: true
   directories:
     - node_modules
     - ~/.composer/cache
 
-services:
-  - mysql
+sudo: false
+dist: trusty
+
+notifications:
+  slack: mentedigital:duwI9LzVAI2ZgDbtie5vwpR7
+  slack: projetodoesangue:n3fh7tZf7ZtGAiqzQPlIypiI
+
+before_install: sh ./cache-clean.sh
+install: composer install
 
 before_script:
-  - mysql -e 'create database doesangue;'
+  - psql -e 'create database doesangue_test;' -u postgres
 #  - travis_retry composer install --no-interaction --prefer-source --dev
 #  - pip install --user codecov
   - composer require codeclimate/php-test-reporter --dev
@@ -21,19 +37,21 @@ before_script:
 script:
   - php artisan migrate --env=testing --no-interaction
 #  - php artisan db:seed --env=testing --no-interaction
-  - vendor/bin/phpunit --coverage-clover=coverage.xml --debug
-#  - codecov
-
-notifications:
-  slack: mentedigital:duwI9LzVAI2ZgDbtie5vwpR7
-  slack: projetodoesangue:n3fh7tZf7ZtGAiqzQPlIypiI
-
-install: composer install
-
-addons:
-    code_climate:
-        repo_token: 0cf44912ed4344a020d170ff41b89b3cadda2102e3c04f4e1316ce0d346e1268
+#  - vendor/bin/phpunit --coverage-clover=coverage.xml
+  - vendor/bin/phpunit
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
   - vendor/bin/test-reporter
+
+before_deploy: "echo 'Booting the deploy to heroku'"
+
+deploy:
+  provider: heroku
+  api_key: $HEROKU_AUTH_TOKEN
+  app: doesangueapi
+  on:
+    branch: development
+    php: 7.0
+  run: "php artisan migrate:refresh --seed"
+  skip_cleanup: true

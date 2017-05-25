@@ -11,17 +11,27 @@ use DoeSangue\Models\Campaign;
 
 class CampaignTest extends TestCase
 {
-  use DatabaseMigrations;
 
     public function testCreateCampaign()
     {
 
-        $users = factory(User::class, 3)
-           ->create()
-           ->each(function ($u) {
-                $u->campaigns()->save(factory(Campaign::class)->make());
-            });
+        $user = factory(User::class)->create();
 
-        $this->assertEquals($users, 3);
+        $ampaign = factory(Campaign::class)->create(
+            [
+            'user_id' => $user->id,
+            'expires' => \Carbon\Carbon::now()->endOfYear()
+            ]
+        );
+
+        $this->assertEquals($campaign->user_id, $user->id);
     }
+
+    public function getAllCampaigns()
+    {
+        $campaigns = Campaign::all();
+
+        return $this->assertTrue(true);
+    }
+
 }
