@@ -9,14 +9,17 @@ The following is a set of guidelines for Contributing to **Doe Sangue.me** and i
  * [Pull Requests](#pull-requests)
 [Styleguide](#styleguide)
 
+
+
+
 ### Getting started
 Contributions are always welcome and will be fully **credited**.
 
-We accept contributions via **Pull Requests** via [Github](https://github.com/doesangueorg/doesangue-core) and/or tests in our [doesangue.me demo app](https://doesangue.herokuapp.com).
+We accept contributions via **Pull Requests** via [Github](https://github.com/doesangueorg/doesangue-core) and/or tests in our [doesangue.me demo app](https://doesangueapp.herokuapp.com).
 
 Search if the issue/bug you are trying to resolve wasn't already solved... Try to search issues in :muscle: [#wontfix](https://github.com/doesangueorg/doesangue-core/issues?q=is%3Aopen+is%3Aissue+label%3Awontfix) label or :bug: [#bug](https://github.com/doesangueorg/doesangue-core/issues?q=is%3Aopen+is%3Aissue+label%3Abug). If you prefer to search for *Pull Requests* check :muscle: [#wontfix](https://github.com/doesangueorg/doesangue-core/issues?q=is%3Aopen+is%3Apr+label%3Awontfix).
 
-If you get a new idea or want to add a new feature please before you create a new Pull Requests open an [Issue](https://github.com/doesangueorg/doesangue-core/labels/feature%20request) talking about it.
+If you get a new idea or want to add a new feature please before you create a new Pull Requests open an [Issue](https://github.com/doesangueorg/doesangue-core/issues/new) talking about it.
 
 #### How?
 * 1 Fork the project.
@@ -49,7 +52,7 @@ git rebase development
 git push --set-upstream origin my-new-feature
 ```
 
-Finally, go to Github and make a [Pull Request](https://help.github.com/articles/creating-a-pull-request) :cake: cake: cake:
+Finally, go to Github and make a [Pull Request](https://help.github.com/articles/creating-a-pull-request) :cake: :cake: :cake:
 
 
 #### Pull Requests
