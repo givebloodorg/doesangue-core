@@ -21,9 +21,9 @@ class AuthTest extends TestCase
           [
             'first_name' => 'Josimar',
             'last_name' => 'José',
+            'username' => 'josimar1',
             'email' => 'janilson.py2@gmail.com',
             'phone' => '244949143413',
-            'bio' => 'Josimar is a geek, José Cage`s son',
             'password' => bcrypt('123456789')
           ]
         );

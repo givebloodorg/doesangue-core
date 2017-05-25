@@ -9,7 +9,7 @@ php:
 addons:
     postgresql: "9.6"
     code_climate:
-        repo_token: 0cf44912ed4344a020d170ff41b89b3cadda2102e3c04f4e1316ce0d346e1268
+        repo_token: $CODECLIMATE_API_TOKEN
 
 services:
   - postgresql
