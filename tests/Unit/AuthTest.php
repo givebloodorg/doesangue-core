@@ -30,8 +30,8 @@ class AuthTest extends TestCase
 
       $request = $this->post('/api/auth/login',
         [
-          'email' => $user->email,
-          'password' => $user->password
+          'email' => 'janilson.py2@gmail.com',
+          'password' => '123456789'
         ]);
 
       return $request->assertStatus(200);

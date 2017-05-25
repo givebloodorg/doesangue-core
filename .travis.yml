@@ -39,7 +39,7 @@ script:
   - php artisan migrate --env=testing --no-interaction
 #  - php artisan db:seed --env=testing --no-interaction
 #  - vendor/bin/phpunit --coverage-clover=coverage.xml
-  - vendor/bin/phpunit
+  - vendor/bin/phpunit --debug
   - sh ./cache-clean.sh
 
 after_success:
