@@ -8,6 +8,7 @@ The following is a set of guidelines for Contributing to **Doe Sangue.me** and i
  * [How?](#how)
  * [Pull Requests](#pull-requests)
 [Styleguide](#styleguide)
+ * [Commits](#git-commit-messages)
 
 
 
@@ -62,8 +63,35 @@ Finally, go to Github and make a [Pull Request](https://help.github.com/articles
 * **Document any change in behavior**. Make sure the **README.md** and any other relevant documentation are kept up-to-date.
 * Don't worry about updating CHANGELOG.md. The package administrator will handle updating those when new releases are created.
 
-#### Styleguide
+### Styleguide
 **Note**: More details about styleguide needed here.
+
+#### Git Commit Messages
+
+* Use the present tense ("Add feature" not "Added feature")
+* Use the imperative mood ("Move cursor to..." not "Moves cursor to...")
+* Limit the first line to 72 characters or less
+* Reference issues and pull requests liberally
+* When only changing documentation, include [ci skip] in the commit description
+
+* Consider starting the commit message with an applicable emoji:
+
+| Emoji | Code | Description
+-----|----|---
+:art:| ``:art:`` | when improving the format/structure of the code
+:racehorse:| ``:racehorse:`` |when improving performance
+:non-potable_water:| ``:non-potable_water:``| when plugging memory leaks
+:memo:| ``:memo:`` |when writing docs
+:checkered_flag: |``:checkered_flag:``| when fixing something on Windows
+:bug: |``:bug:`` when fixing a bug
+:fire: | ``:fire:``| when removing code or files
+:green_heart: |``:green_heart:``| when fixing the CI build
+:white_check_mark: |``:white_check_mark:``| when adding tests
+:lock: |``:lock:``| when dealing with security
+:arrow_up: |``:arrow_up:``| when upgrading dependencies
+:arrow_down: |``:arrow_down:``| when downgrading dependencies
+:shirt: |``:shirt:``| when removing linter warnings
+
 
 ### TO-DO
 * Add the styleguide.
