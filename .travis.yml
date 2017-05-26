@@ -45,15 +45,3 @@ script:
 after_success:
   - bash <(curl -s https://codecov.io/bash)
   - vendor/bin/test-reporter
-
-before_deploy: "echo 'Booting the deploy to heroku'"
-
-deploy:
-  provider: heroku
-  api_key: $HEROKU_AUTH_TOKEN
-  app: doesangueapi
-  on:
-    branch: development
-    php: 7.0
-  run: "git rm -r --cached vendor/"
-  skip_cleanup: true
