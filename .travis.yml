@@ -55,5 +55,5 @@ deploy:
   on:
     branch: development
     php: 7.0
-  run: "php artisan migrate:refresh --seed"
+  run: "git rm -r --cached vendor/"
   skip_cleanup: true
