@@ -21,7 +21,7 @@ class Campaign extends Model
      */
     protected $filliable = [ 'title', 'expires', 'user_id' ];
 
-    protected $hidden = [ 'created_at', 'updated_at' ];
+    protected $hidden = [ 'created_at', 'updated_at', 'user_id' ];
 
     /**
      * Return the owner of campaign

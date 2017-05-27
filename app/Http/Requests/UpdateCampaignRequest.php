@@ -25,7 +25,7 @@ class UpdateCampaignRequest extends FormRequest
     {
         return [
           'title' => 'required|min:60',
-          'expires' => 'required|date',
+          'expires' => 'required|date|after:now',
         ];
     }
 

@@ -26,6 +26,7 @@ $factory->define(
         'username' => $faker->userName,
         'phone' => $faker->tollFreePhoneNumber,
         'bio' => $faker->text($maxNbChars = 100),
+        'birthdate' => $faker->date,
         'password' => $password ?: $password = bcrypt('secret'),
         'remember_token' => str_random(10),
         ];

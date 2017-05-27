@@ -24,9 +24,9 @@ class CreateCampaignRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required|min:60',
-            'expires' => 'required|date',
-            'id_user' => 'required|integer:exists:users',
+            'title' => 'required|string|unique:campaigns',
+            'expires' => 'required|date|after:created_at',
+ //           'id_user' => 'required|integer:exists:users',
         ];
     }
 
@@ -34,6 +34,7 @@ class CreateCampaignRequest extends FormRequest
     {
         return [
         'title.required' => 'Please provide a campaign tite!',
+        'title.unique' => 'Already exists a campaign with this title!',
         'expires.required' => 'Please provide a date when the campaign will expire!',
         'id_user' => 'Looks like the author is not recognized!',
         ];

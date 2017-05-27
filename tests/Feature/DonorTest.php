@@ -12,6 +12,7 @@ use DoeSangue\Models\BloodType;
 
 class DonorTest extends TestCase
 {
+  use DatabaseMigrations;
     /**
      * A basic test example.
      *

@@ -18,8 +18,14 @@ Route::get(
     }
 );
 
+// API Authentication routes
 // Create new Token
-Route::post('auth/login', 'Auth\AuthenticateController@authenticate');
+Route::group(['prefix' => 'auth', 'namespace' => 'Auth'], function($auth)
+  {
+    $auth->post('/login', 'AuthenticateController@authenticate')->name('login');
+    $auth->post('/register', 'AuthenticateController@register')->name('register');
+  });
+// End API Authentication routes.
 
 // Donors API
 Route::group(

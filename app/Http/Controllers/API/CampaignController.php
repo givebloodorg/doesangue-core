@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Mail;
 use DoeSangue\Models\Donor;
 use DoeSangue\Models\Campaign;
 use DoeSangue\Models\User;
+use Carbon\Carbon;
+use Tymon\JWTAuth\Facades\JWTAuth;
 
 class CampaignController extends Controller
 {
@@ -27,12 +29,15 @@ class CampaignController extends Controller
     public function store(CreateCampaignRequest $request)
     {
 
+        $user = JWTAuth::parseToken()->authenticate();
+
         $campaign = new Campaign();
         $campaign->title = $request[ 'title' ];
         $campaign->expires = $request[ 'expires' ];
 //        $campaign->user_id = $request[ 'user_id' ];
         // use auth guard instead of $request['user_id'].
-        $campaign->user_id = auth()->user()->id;
+        $campaign->user_id = $user->id;
+        $campaign->created_at = Carbon::now();
         $campaign->save();
 
         // Send mail to users about the new campaign.
@@ -53,10 +58,10 @@ class CampaignController extends Controller
 
         if (!$campaign) {
             return response()->json(
-                [ 'data' => [
-                'error_code' => '404',
-                'error_message' => 'Campaign not found!'
-                ] ], 404
+                [
+                    'error_code' => 404,
+                    'error_message' => 'Campaign not found!'
+                ], 404
             );
         }
 
@@ -66,7 +71,6 @@ class CampaignController extends Controller
             'owner' => [
               'first_name' => $campaign->owner->first_name,
               'last_name' => $campaign->owner->last_name,
-              'email' => $campaign->owner->email,
               'username' => $campaign->owner->username
             ],
             'dates' => [
@@ -81,8 +85,20 @@ class CampaignController extends Controller
     public function update(UpdateCampaignRequest $request, $id)
     {
         $campaign = Campaign::find($id);
+
+        $user = JWTAuth::parseToken()->authenticate();
+
+        if ($user->id !== $campaign->user_id) {
+            return response()->json(
+                [
+                'message' => 'You haven\'t permission to update this entry'
+                ], 401
+            );
+        }
+
         $campaign->title = $request[ 'title' ];
         $campaign->expires = $request[ 'expires' ];
+        $campaign->updated_at = Carbon::now();
 
         // Notify error in not found
         if (!$campaign) {
@@ -91,14 +107,6 @@ class CampaignController extends Controller
                   'error_code' => '404',
                   'message' => 'Campaign not found!'
                 ], 404
-            );
-        }
-
-        if (auth()->user()->id != $campaign->user_id) {
-            return response()->json(
-                [
-                'message' => 'You haven\'t permission to update this entry'
-                ]
             );
         }
 
@@ -125,6 +133,17 @@ class CampaignController extends Controller
     public function destroy($id)
     {
         $campaign = Campaign::find($id);
+
+        $user = JWTAuth::parseToken()->authenticate();
+
+        if ($user->id !== $campaign->user_id) {
+            return response()->json(
+                [
+                'message' => 'You haven\'t permission to delete this entry'
+                ], 401
+            );
+        }
+
         // Notify error in not found
         if (!$campaign) {
             return response()->json(
@@ -135,20 +154,12 @@ class CampaignController extends Controller
             );
         }
 
-        if (auth()->user()->id != $campaign->user_id) {
-            return response()->json(
-                [
-                'message' => 'You haven\'t permission to delete this entry'
-                ]
-            );
-        }
-
         $campaign->delete();
 
         return response()->json(
             [
             'message' => 'Campaign deleted'
-            ], 204
+            ], 200
         );
     }
 
