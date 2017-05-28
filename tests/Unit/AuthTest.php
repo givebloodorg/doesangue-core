@@ -9,7 +9,7 @@ use DoeSangue\Models\User;
 
 class AuthTest extends TestCase
 {
-  // use DatabaseMigrations;
+  use DatabaseMigrations;
 
     /**
      * Test if the user can generate a token with email and pass.
@@ -21,9 +21,10 @@ class AuthTest extends TestCase
           [
             'first_name' => 'Josimar',
             'last_name' => 'José',
-            'username' => 'josimar1',
+            'username' => 'janilson',
             'email' => 'janilson.py2@gmail.com',
             'phone' => '244949143413',
+            'birthdate' => '19950104',
             'password' => bcrypt('123456789')
           ]
         );

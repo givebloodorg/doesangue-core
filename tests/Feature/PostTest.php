@@ -11,6 +11,8 @@ use DoeSangue\Models\User;
 
 class PostTest extends TestCase
 {
+    use DatabaseMigrations;
+
     public function testCreatePost()
     {
         $user = factory(User::class)->create([]);

@@ -36,7 +36,7 @@ class Donor extends Model
      */
     public $incrementing = false;
 
-    protected $hidden = [ 'created_at', 'updated_at', 'user_id' ];
+    protected $hidden = [ 'created_at', 'updated_at', 'user_id', 'blood_type_id' ];
     /**
      * Related.
      *

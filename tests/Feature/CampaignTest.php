@@ -11,6 +11,7 @@ use DoeSangue\Models\Campaign;
 
 class CampaignTest extends TestCase
 {
+  use DatabaseMigrations;
 
     public function testCreateCampaign()
     {
