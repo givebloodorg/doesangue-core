@@ -1,7 +1,10 @@
 {
     "name": "doesangueorg/doesangueweb",
     "description": "Plataforma de pesquisa doadores de sangue.",
-    "keywords": ["social", "laravel"],
+    "keywords": [
+        "social",
+        "laravel"
+    ],
     "license": "MIT",
     "type": "project",
     "require": {
@@ -15,7 +18,7 @@
     "require-dev": {
         "fzaninotto/faker": "~1.4",
         "mockery/mockery": "0.9.*",
-        "phpunit/phpunit": "~5.7"
+        "phpunit/phpunit": "^6.1.4"
     },
     "autoload": {
         "classmap": [
