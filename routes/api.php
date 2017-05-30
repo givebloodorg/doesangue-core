@@ -20,16 +20,18 @@ Route::get(
 
 // API Authentication routes
 // Create new Token
-Route::group(['prefix' => 'auth', 'namespace' => 'Auth'], function($auth)
+Route::group(['prefix' => 'v1', 'namespace' => 'Auth'], function($auth)
   {
-    $auth->post('/login', 'AuthenticateController@authenticate')->name('login');
-    $auth->post('/register', 'AuthenticateController@register')->name('register');
+    $auth->post('/auth/login', 'AuthenticateController@authenticate')->name('login');
+    $auth->post('/auth/logout', 'AuthenticateController@logout')->name('logout');
+    $auth->post('/auth/register', 'AuthenticateController@register')->name('register');
+    $auth->get('/auth/me', 'AuthenticateController@userInfo')->name('profile');
   });
 // End API Authentication routes.
 
 // Donors API
 Route::group(
-    ['middleware' => 'api', 'namespace' => 'API', 'prefix' => 'v1'], function () {
+    ['namespace' => 'API', 'prefix' => 'v1'], function () {
         // Donors
         Route::group(
             ['prefix' => 'donors'], function () {
@@ -61,17 +63,18 @@ Route::group(
                 Route::put('{campaign}', 'CampaignController@update');
                 // Detele Campaign
                 Route::delete('{campaign}', 'CampaignController@destroy');
+                // Comments
+                Route::get('{campaign}/comments', 'CommentsController@index');
+                Route::post('{campaign}/comments', 'CommentsController@create');
+                Route::put('{campaign}/comments/{comment}', 'CommentsController@update');
+                Route::delete('{campaign}/comments/{comment}', 'CommentsController@destroy');
             }
         );
 
-        // Posts
-        Route::group(['prefix' => 'posts'], function (){
-          // All Posts
-          Route::get('/', 'PostsController@index');
-          Route::post('/', 'PostsController@store');
-          Route::get('{post}', 'PostsController@show');
-          Route::put('{post}', 'PostsController@update');
-          Route::delete('{post}', 'PostsController@destroy');
-        });
+      // Search campaigns and donors.
+      Route::group(['prefix' => 'search'], function() {
+          // Search campaigns
+          Route::get('/query={$query}', 'SearchController@search');
+      });
     }
 );

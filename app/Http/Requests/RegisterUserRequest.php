@@ -35,6 +35,7 @@ class RegisterUserRequest extends FormRequest
 
     /**
      * Return custom messages for errors
+     *
      * @return array
      */
     public function messages()

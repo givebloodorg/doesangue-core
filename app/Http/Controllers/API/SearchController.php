@@ -7,5 +7,12 @@ use DoeSangue\Http\Controllers\Controller;
 
 class SearchController extends Controller
 {
-    //
+    /**
+     * Search method
+     *
+     * @return void
+     */
+    public function search(Request $request, $query)
+    {
+    }
 }

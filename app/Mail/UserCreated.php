@@ -32,12 +32,12 @@ class UserCreated extends Mailable implements ShouldQueue
     public function build()
     {
         return $this->markdown('email.users.created')
-                    ->with(
-                      [
+            ->with(
+                [
                         'FirstName' => $this->user->first_name,
                         'LastName' => $this->user->last_name,
                         'UserName' => $this->user->username
-                      ]
-                    );
+                        ]
+            );
     }
 }

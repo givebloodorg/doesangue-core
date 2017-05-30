@@ -1,6 +1,6 @@
 {
     "name": "doesangueorg/doesangueweb",
-    "description": "Plataforma de pesquisa doadores de sangue.",
+    "description": "Online platform that helps you to found donors.",
     "keywords": ["social", "laravel"],
     "license": "MIT",
     "type": "project",

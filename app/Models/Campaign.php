@@ -4,6 +4,7 @@ namespace DoeSangue\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use DoeSangue\Models\User;
+use DoeSangue\Models\Comment;
 
 class Campaign extends Model
 {
@@ -19,15 +20,24 @@ class Campaign extends Model
      *
      * @var array
      */
-    protected $filliable = [ 'title', 'expires', 'user_id' ];
+    protected $filliable = [ 'title', 'description', 'image', 'expires', 'user_id' ];
 
-    protected $hidden = [ 'created_at', 'updated_at', 'user_id' ];
+    protected $hidden = [ 'created_at', 'updated_at', 'deleted_at', 'user_id' ];
+
+    protected $dates = [
+      'created_at', 'updated_at', 'deleted_at'
+    ];
 
     /**
      * Return the owner of campaign
      */
     public function owner()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'user_id');
+    }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
     }
 }

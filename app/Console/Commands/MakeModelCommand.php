@@ -12,7 +12,7 @@ class MakeModelCommand extends ModelMakeCommand
      *
      * @var string
      */
- //   protected $signature = 'make:model';
+    //   protected $signature = 'make:model';
 
     /**
      * The console command description.
@@ -30,6 +30,7 @@ class MakeModelCommand extends ModelMakeCommand
     }
     /**
      * Get the root namespace for the class.
+     *
      * @return string
      */
     protected function rootNamespace()
