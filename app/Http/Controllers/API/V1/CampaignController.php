@@ -1,6 +1,6 @@
 <?php
 
-namespace DoeSangue\Http\Controllers\API;
+namespace DoeSangue\Http\Controllers\API\V1;
 
 use DoeSangue\Http\Requests\UpdateCampaignRequest;
 use DoeSangue\Http\Requests\CreateCampaignRequest;

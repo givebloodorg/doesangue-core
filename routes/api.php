@@ -31,7 +31,7 @@ Route::group(['prefix' => 'v1', 'namespace' => 'Auth'], function($auth)
 
 // Donors API
 Route::group(
-    ['namespace' => 'API', 'prefix' => 'v1'], function () {
+    ['namespace' => 'API\V1', 'prefix' => 'v1'], function () {
         // Donors
         Route::group(
             ['prefix' => 'donors'], function () {
