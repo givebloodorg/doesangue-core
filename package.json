@@ -23,6 +23,6 @@
     "url": "https://josecage.com"
   },
   "devDependencies": {
-    "laravel-mix": "0.*"
+    "laravel-mix": "^1.2.2"
   }
 }
