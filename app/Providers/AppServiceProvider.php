@@ -14,15 +14,16 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-      //  User::observe(UserObserver::class);
+        //  User::observe(UserObserver::class);
 
         // Extend the Validator class.
         // To check the user age (minimum: 16)
-        Validator::extend('olderThan', function ($attributes, $value, $parameters)
-        {
-          $minAge = ( ! empty($parameters)) ? (int) $parameters[0] : 16;
-          return \Carbon\Carbon::now()->diff(new \Carbon\Carbon($value))->y >= $minAge;
-        });
+        Validator::extend(
+            'olderThan', function ($attributes, $value, $parameters) {
+                $minAge = ( ! empty($parameters)) ? (int) $parameters[0] : 16;
+                return \Carbon\Carbon::now()->diff(new \Carbon\Carbon($value))->y >= $minAge;
+            }
+        );
     }
 
     /**

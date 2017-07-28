@@ -11,27 +11,35 @@ use DoeSangue\Models\Campaign;
 
 class CampaignTest extends TestCase
 {
-  use DatabaseMigrations;
+  use DatabaseTransactions;
 
     public function testCreateCampaign()
     {
+      $user = factory(User::class)->create();
 
-        $user = factory(User::class)->create();
+      //$this->headers($user);
 
-        $ampaign = factory(Campaign::class)->create(
-            [
-            'user_id' => $user->id
-            ]
-        );
+        $token = \JWTAuth::fromUser($user);
 
-        $this->assertTrue(true);
+        \JWTAuth::setToken($token);
+
+       $request = $this->post('/api/v1/campaigns', [
+          'title' => 'This is just a basic test for our API!',
+          'expires' => \Carbon\Carbon::now()->endOfYear(),
+          'token' => $token
+
+        ]);
+
+      return $this->assertEquals('201', $request->status());
     }
 
     public function getAllCampaigns()
     {
-        $campaigns = Campaign::all();
+      $campaigns = factory(Campaign::class, 10)->create();
 
-        return $this->assertTrue(true);
+      $request = $this->get('/api/v1/campaigns');
+
+       return $this->assertStatus(201);
     }
 
 }

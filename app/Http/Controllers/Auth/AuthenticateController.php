@@ -30,16 +30,19 @@ class AuthenticateController extends Controller
         }
 
         // all good so return the token
-        return response()->json([
-          'access_token' => $token,
-          'token_type' => 'bearer'
-        ]);
+        return response()->json(
+            [
+            'access_token' => $token,
+            'token_type' => 'bearer'
+            ]
+        );
     }
 
     // Register a new user
     public function register(RegisterUserRequest $request)
     {
-        $user = User::create([
+        $user = User::create(
+            [
             'first_name' => $request->first_name,
             'last_name' => $request->last_name,
             'email' => $request->email,
@@ -52,12 +55,13 @@ class AuthenticateController extends Controller
             'bio' => $request->bio,
             'birthdate' => $request->birthdate,
             'password' => bcrypt($request->password),
-        ]);
+            ]
+        );
 
         if ($user) {
             $donor = new Donor();
             $donor->user_id = $user->id;
-            $donor->blood_type_id = NULL;
+            $donor->blood_type_id = null;
             $donor->save();
         }
 
@@ -69,26 +73,38 @@ class AuthenticateController extends Controller
         $token = JWTAuth::attempt($request->only('email', 'password'));
 
         // all good so return the token
-        return response()->json([
-          'access_token' => $token,
-          'token_type' => 'Bearer'
-        ]);
+        return response()->json(
+            [
+            'access_token' => $token,
+            'token_type' => 'Bearer'
+            ]
+        );
+    }
+
+    /**
+     * Invalidate and log out the user
+     */
+    public function logout()
+    {
+      //
     }
 
     public function userInfo()
     {
-        $user = JWTAuth::parsetToken()->authenticate();
+        $user = JWTAuth::parseToken()->authenticate();
 
         // If the token is invalid
         if (! $user) {
             return response()->json(['invalid_user'], 401);
         }
 
-        return response()->json([
-            'id' => $user->id,
-            'first_name' => $user->first_name,
-            'last_name' => $user->last_name,
-            'email' => $user->email
-        ]);
+        return response()->json(
+            [
+              'first_name' => $user->first_name,
+              'last_name' => $user->last_name,
+              'email' => $user->email,
+              'username' => $user->username
+            ], 200
+        );
     }
 }

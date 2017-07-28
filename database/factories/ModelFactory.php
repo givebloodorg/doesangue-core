@@ -44,24 +44,13 @@ $factory->define(
     }
 );
 
-// Factory Post
-$factory->define(
-    DoeSangue\Models\Post::class, function (Faker\Generator $faker) {
-        return [
-        'title' => $faker->title,
-        'content' => $faker->paragraph,
-        'image' => $faker->imageUrl,
-        'user_id' => $faker->randomDigit,
-        ];
-    }
-);
-
 // Factory Campaigns
 $factory->define(
     DoeSangue\Models\Campaign::class, function (Faker\Generator $faker) {
         return [
         'title' => $faker->title,
         'expires' => $faker->date,
+        'image' => $faker->imageUrl,
         'user_id' => $faker->randomDigit,
         ];
     }

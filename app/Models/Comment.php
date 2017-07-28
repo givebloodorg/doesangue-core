@@ -3,6 +3,8 @@
 namespace DoeSangue\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use DoeSangue\Models\User;
+use DoeSangue\Models\Campaign;
 
 class Comment extends Model
 {
@@ -18,5 +20,23 @@ class Comment extends Model
      *
      * @var array
      */
-    protected $filliable = [ ];
-}//end class
+    protected $filliable = [ 'comment_id', 'id', 'comment', 'campaign_id', 'user_id' ];
+
+    protected $primaryKey = 'comment_id';
+
+    protected $dates = [ 'created_at', 'updated_at' ];
+
+    protected $hidden = [ 'created_at', 'updated_at', 'user_id', 'campaign_id' ];
+
+    // protected $casts = [ 'commentator', 'campaign' ];
+
+    public function commentator()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function campaign()
+    {
+        return $this->belongsTo(Campaign::class);
+    }
+}

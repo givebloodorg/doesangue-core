@@ -22,8 +22,10 @@ class CreateUsersTable extends Migration
                 $table->string('phone', 15)->nullable();
                 $table->date('birthdate');
                 $table->longText('bio')->nullable();
+                $table->boolean('active')->default(true);
                 $table->rememberToken();
                 $table->timestamps();
+                $table->softDeletes();
             }
         );
     }
