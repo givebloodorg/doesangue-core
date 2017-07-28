@@ -41,18 +41,37 @@ class User extends Authenticatable
                           'updated_at',
                           'deleted_at',
                           'id',
-                          'phone'
+                          'phone',
+                          'active'
                         ];
 
+    /**
+     * The dates attributes.
+     *
+     * @var array $dates
+     */
     protected $dates = [
       'created_at', 'updated_at', 'deleted_at'
     ];
 
+    protected $appends = [ 'is_active' ];
+
+    /**
+     * Returns the full name of user.
+     *
+     * @return string
+     */
     public function getFullNameAttribute($value)
     {
         return ucfirst($this->first_name) . ' ' . ucfirst($this->last_name);
     }
 
+    /**
+     * Returns the campaigns created by the user.
+     *
+     * @return array relationship
+     * @var    array
+     */
     public function campaigns()
     {
         return $this->hasMany(Campaign::class);
@@ -63,8 +82,19 @@ class User extends Authenticatable
         return $this->hasOne(Donor::class);
     }
 
+    /**
+     * Returns the comments created by the user.
+     *
+     * @return array relationship
+     * @var    array
+     */
     public function comments()
     {
         return $this->hasMany(Comment::class);
+    }
+
+    public function getIsActiveAttribute()
+    {
+        return $this->attributes['active'] == true;
     }
 }
