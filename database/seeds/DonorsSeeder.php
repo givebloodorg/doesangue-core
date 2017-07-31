@@ -9,7 +9,7 @@ class DonorsSeeder extends Seeder
      */
     public function run()
     {
-        $this->command->info('Doadores criados com sucesso!');
+        $this->command->info('Donors created sucessfully!');
 
         DB::table('donors')->truncate();
         DB::table('donors')->insert(

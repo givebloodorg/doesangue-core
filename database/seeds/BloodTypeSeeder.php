@@ -11,15 +11,15 @@ class BloodTypeSeeder extends Seeder
      */
     public function run()
     {
-        $this->command->info('Grupos sanguineos criados');
+        $this->command->info('BloodTypes created sucessfully!');
 
         DB::table('blood_types')->delete();
         DB::table('blood_types')->insert(
             [
-            array('description' => 'A negativo', 'code' => 'A-', 'id' => '1'),
-            array('description' => 'A Positivo', 'code' => 'A+', 'id' => '2'),
-            array('description' => 'B Negativo', 'code' => 'B-', 'id' => '3'),
-            array('description' => 'B Positivo', 'code' => 'B+', 'id' => '4'),
+            array('description' => 'A negative', 'code' => 'A-', 'id' => '1'),
+            array('description' => 'A Positive', 'code' => 'A+', 'id' => '2'),
+            array('description' => 'B Negative', 'code' => 'B-', 'id' => '3'),
+            array('description' => 'B Positive', 'code' => 'B+', 'id' => '4'),
             ]
         );
     }

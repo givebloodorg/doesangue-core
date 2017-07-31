@@ -6,6 +6,7 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use DoeSangue\Models\Campaign;
 use DoeSangue\Models\Donor;
+use DoeSangue\Models\Invite;
 use DoeSangue\Models\Comment;
 
 class User extends Authenticatable
@@ -80,6 +81,14 @@ class User extends Authenticatable
     public function donor()
     {
         return $this->hasOne(Donor::class);
+    }
+
+    /**
+     * Return as Many invites created by user.
+     */
+    public function invites()
+    {
+        return $this->hasMany(Invite::class);
     }
 
     /**

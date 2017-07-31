@@ -20,13 +20,14 @@ Route::get(
 
 // API Authentication routes
 // Create new Token
-Route::group(['prefix' => 'v1', 'namespace' => 'Auth'], function($auth)
-  {
-    $auth->post('/auth/login', 'AuthenticateController@authenticate')->name('login');
-    $auth->post('/auth/logout', 'AuthenticateController@logout')->name('logout');
-    $auth->post('/auth/register', 'AuthenticateController@register')->name('register');
-    $auth->get('/auth/me', 'AuthenticateController@userInfo')->name('profile');
-  });
+Route::group(
+    ['prefix' => 'v1', 'namespace' => 'Auth'], function ($auth) {
+        $auth->post('/auth/login', 'AuthenticateController@authenticate')->name('login');
+        $auth->post('/auth/logout', 'AuthenticateController@logout')->name('logout');
+        $auth->post('/auth/register', 'AuthenticateController@register')->name('register');
+        $auth->get('/auth/me', 'AuthenticateController@userInfo')->name('profile');
+    }
+);
 // End API Authentication routes.
 
 // Donors API
@@ -71,10 +72,24 @@ Route::group(
             }
         );
 
-      // Search campaigns and donors.
-      Route::group(['prefix' => 'search'], function() {
-          // Search campaigns
-          Route::get('/query={$query}', 'SearchController@search');
-      });
+        // Invites.
+        Route::group(
+            ['prefix' => 'invites'], function ($invite) {
+                // Create a new invite.
+                $invite->post('/', 'InvitesController@create');
+                // Get a Invite details.
+                $invite->get('/{invite}', 'InvitesController@show');
+                // Delete a invite.
+                $invite->delete('/{invite}', 'InvitesController@destroy');
+            }
+        );
+
+        // Search campaigns and donors.
+        Route::group(
+            ['prefix' => 'search'], function () {
+                // Search campaigns
+                Route::get('/query={$query}', 'SearchController@search');
+            }
+        );
     }
 );
