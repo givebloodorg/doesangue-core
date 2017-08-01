@@ -1,22 +1,21 @@
 {
     "name": "doesangueorg/doesangueweb",
-    "description": "Plataforma de pesquisa doadores de sangue.",
+    "description": "Online platform that helps you to found donors.",
     "keywords": ["social", "laravel"],
     "license": "MIT",
     "type": "project",
     "require": {
         "php": ">=5.6.4",
-        "laravel/framework": "5.3.*",
+        "barryvdh/laravel-cors": "^0.9.2",
+        "laravel/framework": "5.4.*",
+        "laravel/tinker": "~1.0",
         "predis/predis": "^1.1",
-        "laravel/socialite": "^2.0"
+        "tymon/jwt-auth": "^0.5.11"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
         "mockery/mockery": "0.9.*",
-        "phpunit/phpunit": "~5.0",
-        "symfony/css-selector": "3.1.*",
-        "symfony/dom-crawler": "3.1.*",
-        "guzzlehttp/guzzle": "^6.2"
+        "phpunit/phpunit": "~5.7"
     },
     "autoload": {
         "classmap": [
@@ -27,9 +26,9 @@
         }
     },
     "autoload-dev": {
-        "classmap": [
-            "tests/TestCase.php"
-        ]
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
     },
     "scripts": {
         "post-root-package-install": [
@@ -48,6 +47,8 @@
         ]
     },
     "config": {
-        "preferred-install": "dist"
+        "preferred-install": "dist",
+        "sort-packages": true,
+        "optimize-autoloader": true
     }
 }

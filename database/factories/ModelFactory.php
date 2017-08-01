@@ -20,11 +20,13 @@ $factory->define(
         static $password;
 
         return [
-        'name' => $faker->name,
+        'first_name' => $faker->firstName,
+        'last_name' => $faker->lastName,
         'email' => $faker->unique()->companyEmail,
         'username' => $faker->userName,
         'phone' => $faker->tollFreePhoneNumber,
         'bio' => $faker->text($maxNbChars = 100),
+        'birthdate' => $faker->date,
         'password' => $password ?: $password = bcrypt('secret'),
         'remember_token' => str_random(10),
         ];
@@ -42,23 +44,14 @@ $factory->define(
     }
 );
 
-// Factory Post
-$factory->define(
-    DoeSangue\Models\Post::class, function (Faker\Generator $faker) {
-        return [
-        'title' => $faker->title,
-        'content' => $faker->paragraph,
-        'image' => $faker->imageUrl,
-        'user_id' => $faker->randomDigit,
-        ];
-    }
-);
-
 // Factory Campaigns
 $factory->define(
-    DoeSangue\Models\Campaigns::class, function (Faker\Generator $faker) {
+    DoeSangue\Models\Campaign::class, function (Faker\Generator $faker) {
         return [
         'title' => $faker->title,
+        'expires' => $faker->date,
+        'image' => $faker->imageUrl,
+        'user_id' => $faker->randomDigit,
         ];
     }
 );

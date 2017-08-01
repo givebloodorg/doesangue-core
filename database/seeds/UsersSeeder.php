@@ -9,15 +9,15 @@ class UsersSeeder extends Seeder
      */
     public function run()
     {
-        $this->command->info('Usuários criados com sucesso!');
+        $this->command->info('Users created sucessfully!');
 
         DB::table('users')->delete();
         //  DB::table('users')->truncate();
         DB::table('users')->insert(
             [
-            ['name' => 'José Cage', 'email' => 'josecage@doesangueapp.dev', 'username' => 'josecage', 'password' => bcrypt('1234567')],
-            ['name' => 'Jó Cage', 'email' => 'jocage@doesangueapp.dev', 'username' => 'jocage', 'password' => bcrypt('1234567')],
-            ['name' => 'User Demo', 'email' => 'demo@doesangueapp.dev', 'username' => 'userdemo', 'password' => bcrypt('1234567')],
+            ['first_name' => 'José', 'last_name' => 'Cage', 'email' => 'josejanuario7@gmail.com', 'username' => 'josecage', 'birthdate' => '20000104', 'password' => bcrypt('123456789'), 'created_at' => Carbon\Carbon::now(), 'updated_at' => Carbon\Carbon::now()],
+            ['first_name' => 'Jó', 'last_name' => 'Cage', 'email' => 'jocage@doesangue.me', 'username' => 'jocage', 'birthdate' => '19990104', 'password' => bcrypt('123456789'), 'created_at' => Carbon\Carbon::yesterday(), 'updated_at' => Carbon\Carbon::yesterday()],
+            ['first_name' => 'Admin', 'last_name' => 'User', 'email' => 'admin@doesangue.me', 'username' => 'userdemo', 'birthdate' => '19950104', 'password' => bcrypt('123456789'), 'created_at' => Carbon\Carbon::tomorrow(), 'updated_at' => Carbon\Carbon::tomorrow() ]
             ]
         );
     }

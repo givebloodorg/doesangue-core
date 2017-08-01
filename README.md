@@ -1,37 +1,36 @@
-[![Build Status](https://travis-ci.org/JoseCage/doesangue.me.svg)](https://travis-ci.org/JoseCage/doesangue.me)
-[![Test Coverage](https://codeclimate.com/github/JoseCage/doesangue.me/badges/coverage.svg)](https://codeclimate.com/github/JoseCage/doesangue.me/coverage)
- [![Issue Count](https://codeclimate.com/github/JoseCage/doesangue.me/badges/issue_count.svg)](https://codeclimate.com/github/JoseCage/doesangue.me)
-
-# doesangue.me
-Plataforma online de procura de doadores e necessitados de sangue.
-
-## O QUE É?
-Um <b>webApp</b> (plaforma de website aplicativo) que permite aos usuários procurar e se conectar com pessoas que estejam a necessitar de doação de Sangue ou por outro lado encontrar alguém que esteja disposto a doar seu sangue e salvar vidas.
-
-## COMO PARTICIPAR?
-Para usar/participar, basta que cadastre na Plataforma como doador ou instituição responsavél pelo\s usuário\s necessitado\s.
-
-## Doadores!
- O usuário cadastrado como doador deverá informar o seu tipo de sangue, idade, nacionalidade, localização\morada de modo a facilitar que as instituições achem o perfíl certo para o doador que precisam e assim entrar em contacto pessoalmente ou conectar-lo na plataforma.
+[![Build Status](https://travis-ci.org/doesangueorg/doesangue-core.svg?branch=master)](https://travis-ci.org/doesangueorg/doesangue-core)
+[![Build Status](https://travis-ci.org/doesangueorg/doesangue-core.svg?branch=development)](https://travis-ci.org/doesangueorg/doesangue-core)
+[![codecov](https://codecov.io/gh/doesangueorg/doesangue-core/branch/development/graph/badge.svg)](https://codecov.io/gh/doesangueorg/doesangue-core)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/doesangueorg/doesangue-core/badges/quality-score.png?b=development)](https://scrutinizer-ci.com/g/doesangueorg/doesangue-core/?branch=development)
+[![Build Status](https://scrutinizer-ci.com/g/doesangueorg/doesangue-core/badges/build.png?b=development)](https://scrutinizer-ci.com/g/doesangueorg/doesangue-core/build-status/development)
 
 
-## instituições!
-O usuário cadastrado como Instituição fornecerá os dados como Nome da Instituição, email, NIF (número de Identificação Fiscal), localização da Instituição em questão, contactos de telefone, possibilitando que os usuários (doadores) possam a conectar/contactar na rede ou mesmo pessoalmente.
+#### Topics.
+* [What](#what)?
+* [Why](#why)?
+* [Development](#development)
+* [Contributing](#contributing)
 
-## QUEM PODE USAR?
-Todo cidadão que sinta no dever de salvar vidas doando parte de seu sangue voluntariamente para instituições de saúde ou para pessoas especifícas.
+![Mente Digital HQ](public/img/logo.jpg)
+*Core maintained by Mente Digital Inc and awesome opensource contributors.*
 
 
-## Desenvolvimento
+## What?
+doesangue.me is a free (and opensource) platform that connects people interesting in blood donation.
+
+## Why?
+
+
+## Development
 
 ### assets
 
 ```shell
-yarn # instalar dependencias node/js/css
+yarn # install node/js/css dependencies
 ```
-ou
+or
 ```shell
-npm install # instalar dependencias node/js/css
+npm install # install node/js/css dependencies
 ```
 
 ### Docker
@@ -40,37 +39,44 @@ npm install # instalar dependencias node/js/css
 - docker-compose 1.8+
 
 ```shell
-docker-compose run app composer install # instalar dependencias php
+docker-compose run app composer install # install php dependencies
 ```
 
 ```shell
-docker-compose run app php artisan key:generate # gerar chave de aplicação
+docker-compose run app php artisan key:generate # generate the API_KEY
 ```
 
 ```shell
-docker-compose run app php artisan migrate --seed # rodar migrações
+docker-compose run app php artisan migrate --seed # run the migrations
 ```
 
-##### Comandos artisan
-Usando o comando `docker-compose run app php artisan` se tem acesso ao artisan dentro do container docker
+##### Artisan commands
+Using the command `docker-compose run app php artisan` you can see all available artisan commands
 
 Ex:
 
 ```shell
-docker-compose run app php artisan # lista de comandos
-docker-compose run app php artisan route:list # lista de rotas
+docker-compose run app php artisan # list the commands
+docker-compose run app php artisan route:list # list all routes of our API
 ```
 
-#### Serviço
-> Por padrão a API roda em `localhost:80`
+#### Service
+> By default the API run's in `localhost:8080`
 
 ```shell
-docker-compose up # subir serviço
+docker-compose up # run's the service
 ```
 
-Para subir o serviço em segundo plano:
+To run the service in background:
 
 ```shell
-docker-compose up -d # sobe o serviço em segundo plano no terminal
-docker-compose down # mata o serviço
+docker-compose up -d # run's the service in background
+docker-compose down # stop and kill the service
 ```
+
+
+### Contributing
+To contribute to this repo, please check the documentation/guide at [Contributing](CONTRIBUTING.md)
+
+-----------------
+If you prefer to read the portuguese version please check [README PT](README_PT.md) 

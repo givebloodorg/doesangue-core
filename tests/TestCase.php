@@ -1,24 +1,28 @@
 <?php
 
-abstract class TestCase extends \Illuminate\Foundation\Testing\TestCase
+namespace Tests;
+
+use Illuminate\Foundation\Testing\TestCase as BaseTestCase;
+use JWTAuth;
+
+abstract class TestCase extends BaseTestCase
 {
-    /**
-     * The base URL to use while testing the application.
-     *
-     * @var string
-     */
-    protected $baseUrl = 'http://localhost';
-    /**
-     * Creates the application.
-     *
-     * @return \Illuminate\Foundation\Application
-     */
-    public function createApplication()
+    use CreatesApplication;
+
+    protected function headers($user = null)
     {
-        $app = include __DIR__.'/../bootstrap/app.php';
+      $headers = ['Accept' => 'application/json'];
 
-        $app->make(Illuminate\Contracts\Console\Kernel::class)->bootstrap();
+      if (!is_null($user)) {
 
-        return $app;
+        $token = JWTAuth::fromUser($user);
+
+        JWTAuth::setToken($token);
+
+        $headers['Authorization'] = 'Bearer '.$token;
+      }
+
+      return $headers;
     }
+
 }

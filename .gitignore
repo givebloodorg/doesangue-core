@@ -5,4 +5,6 @@
 /.idea
 *swp
 .env
-storage/debugbar
+bower_components
+.git/
+.env.testing

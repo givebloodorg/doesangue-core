@@ -20,7 +20,7 @@ class CreateDonorsTable extends Migration
             'donors', function (Blueprint $table) {
                 $table->increments('id');
                 $table->integer('user_id')->unsigned();
-                $table->integer('blood_type_id')->unsigned();
+                $table->integer('blood_type_id')->unsigned()->nullable();
                 $table->timestamps();
             }
         );
