@@ -24,7 +24,7 @@ class CreateCampaignRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required|string|unique:campaigns',
+            'title' => 'required|string',
             'expires' => 'required|date|after:created_at',
         //           'id_user' => 'required|integer:exists:users',
         ];

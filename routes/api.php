@@ -22,10 +22,10 @@ Route::get(
 // Create new Token
 Route::group(
     ['prefix' => 'v1', 'namespace' => 'Auth'], function ($auth) {
-        $auth->post('/auth/login', 'AuthenticateController@authenticate')->name('login');
-        $auth->post('/auth/logout', 'AuthenticateController@logout')->name('logout');
-        $auth->post('/auth/register', 'AuthenticateController@register')->name('register');
-        $auth->get('/auth/me', 'AuthenticateController@userInfo')->name('profile');
+        $auth->post('/auth/login', 'AuthenticateController@authenticate');
+        $auth->post('/auth/logout', 'AuthenticateController@logout');
+        $auth->post('/auth/register', 'AuthenticateController@register');
+        $auth->get('/auth/me', 'AuthenticateController@userInfo');
     }
 );
 // End API Authentication routes.
