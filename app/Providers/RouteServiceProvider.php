@@ -39,6 +39,7 @@ class RouteServiceProvider extends ServiceProvider
      *
      * These routes all receive session state, CSRF protection, etc.
      */
+     /*
     protected function mapWebRoutes()
     {
         Route::group(
@@ -50,6 +51,7 @@ class RouteServiceProvider extends ServiceProvider
             }
         );
     }
+    */
 
     /**
      * Define the "api" routes for the application.
@@ -62,7 +64,6 @@ class RouteServiceProvider extends ServiceProvider
             [
             'middleware' => 'api',
             'namespace' => $this->namespace,
-            'prefix' => 'api',
             ], function ($router) {
                 include base_path('routes/api.php');
             }
