@@ -11,35 +11,39 @@ use DoeSangue\Models\Campaign;
 
 class CampaignTest extends TestCase
 {
-  use DatabaseTransactions;
 
-    public function testCreateCampaign()
+    use WithoutMiddleware;
+
+    /* Test: Post /v1/campaigns
+     public function testCreateCampaign()
     {
-      $user = factory(User::class)->create();
+        $user = factory(User::class)->create();
 
-      //$this->headers($user);
+        $response = $this->post(
+            '/v1/campaigns', [
+            'title' => "Hi, This is a test campaign",
+            'description' => 'As we say before, this campaign is just a simple and not important test for our API.',
+            'expires' => \Carbon\Carbon::now()->endOfYear(),
+            'image' => 'http://lorempixel.com/640/480/058256',
+            'user_id' => $user->id
+            ]
+        );
 
-        $token = \JWTAuth::fromUser($user);
+        $response->assertStatus(201)
+            ->assertJson(
+                [
+                    'status_code' => 201,
+                    'message' => 'Campaign added!'
+                ]
+            );
+    }*/
 
-        \JWTAuth::setToken($token);
-
-       $request = $this->post('/api/v1/campaigns', [
-          'title' => 'This is just a basic test for our API!',
-          'expires' => \Carbon\Carbon::now()->endOfYear(),
-          'token' => $token
-
-        ]);
-
-      return $this->assertEquals('201', $request->status());
-    }
-
-    public function getAllCampaigns()
+    public function testgetAllCampaigns()
     {
-      $campaigns = factory(Campaign::class, 10)->create();
 
-      $request = $this->get('/api/v1/campaigns');
+        $request = $this->get('/v1/campaigns');
 
-       return $this->assertStatus(201);
+        $request->assertStatus(200);
     }
 
 }

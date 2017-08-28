@@ -16,8 +16,14 @@ class ExampleTest extends TestCase
      */
     public function testBasicTest()
     {
-        $response = $this->get('/api');
+        $response = $this->get('/');
 
-        $response->assertStatus(200);
+        $response->assertJson(
+            [
+            'message' => 'Hello World!'
+            ]
+        );
+
+        //$response->assertStatus(200);
     }
 }

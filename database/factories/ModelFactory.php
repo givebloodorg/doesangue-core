@@ -48,8 +48,9 @@ $factory->define(
 $factory->define(
     DoeSangue\Models\Campaign::class, function (Faker\Generator $faker) {
         return [
-        'title' => $faker->title,
-        'expires' => $faker->date,
+        'title' => $faker->text(60),
+        'description' => $faker->text(100),
+        'expires' => \Carbon\Carbon::now()->endOfYear(),
         'image' => $faker->imageUrl,
         'user_id' => $faker->randomDigit,
         ];
