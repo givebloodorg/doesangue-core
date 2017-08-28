@@ -77,7 +77,7 @@ class AuthenticateController extends Controller
             [
             'access_token' => $token,
             'token_type' => 'Bearer'
-            ]
+            ], 201
         );
     }
 
