@@ -33,16 +33,6 @@ class CampaignController extends Controller
         $campaign = new Campaign();
         $campaign->title = $request[ 'title' ];
         $campaign->description = $request['description'];
-      /*   $imageName = sprintf('%s.%s', hash_file('sha256', $request->file->getPathname()), $request->file->getExtension());
-         if ($request->has('image') && $filesystem->has("uploads/{$imageName}")) {
-             $image->storePubliclyAs($imageName, 'uploads/');
-         }
-        $campaign->image = $imageName;*/
-      /*  if ($request->has('image')) {
-            $imageName = 'campaign' . '_'. hash_file('sha256', $request->file('image')->getClientOriginalExtension());
-            $campaign->image = $imageName;
-        }*/
-        //$campaign->image = $request['image'];
         $campaign->expires = $request[ 'expires' ];
         //        $campaign->user_id = $request[ 'user_id' ];
         // use auth guard instead of $request['user_id'].
