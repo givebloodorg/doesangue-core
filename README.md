@@ -1,3 +1,4 @@
+[![Packagist](https://img.shields.io/packagist/v/doesangueorg/core.svg)](https://packagist.org/packages/doesangueorg/core)
 [![Build Status](https://travis-ci.org/doesangueorg/doesangue-core.svg?branch=master)](https://travis-ci.org/doesangueorg/doesangue-core)
 [![Build Status](https://travis-ci.org/doesangueorg/doesangue-core.svg?branch=development)](https://travis-ci.org/doesangueorg/doesangue-core)
 [![codecov](https://codecov.io/gh/doesangueorg/doesangue-core/branch/development/graph/badge.svg)](https://codecov.io/gh/doesangueorg/doesangue-core)
