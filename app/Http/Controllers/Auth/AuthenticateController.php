@@ -14,6 +14,12 @@ use DoeSangue\Models\Donor;
 
 class AuthenticateController extends Controller
 {
+      /**
+       * Authenticate the user
+       *
+       * @param Request $request
+       * @return void
+      */
     public function authenticate(Request $request)
     {
         // grab credentials from the request
@@ -32,11 +38,9 @@ class AuthenticateController extends Controller
         // all good so return the token
         return response()->json(
             [
-              "data" {
-                'access_token' => $token,
-                'token_type' => 'Bearer'
-              }
-            ]
+              'access_token' => $token,
+              'token_type' => 'Bearer'
+            ], 200
         );
     }
 
@@ -85,19 +89,26 @@ class AuthenticateController extends Controller
 
     /**
      * Invalidate and log out the user
+     *
+     * @return void
+     *
      */
     public function logout()
     {
         //
     }
-
+    /**
+     * Get the current user (logged in) information
+     *
+     * @return void
+     */
     public function userInfo()
     {
         $user = JWTAuth::parseToken()->authenticate();
 
         // If the token is invalid
-        if (! $user) {
-            return response()->json(['invalid_user'], 401);
+        if (!$user) {
+            return response()->json([ 'invalid_user' ], 401);
         }
 
         return response()->json(

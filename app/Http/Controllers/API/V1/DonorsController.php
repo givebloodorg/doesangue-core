@@ -36,7 +36,7 @@ class DonorsController extends Controller
 
         $donor = Donor::find($id);
 
-        if (! $donor) {
+        if (!$donor) {
             return response()->json(
                 [
                     'error_code' => 404,
