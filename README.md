@@ -1,5 +1,4 @@
 [![Packagist](https://img.shields.io/packagist/v/doesangueorg/core.svg)](https://packagist.org/packages/doesangueorg/core)
-[![Build Status](https://travis-ci.org/doesangueorg/doesangue-core.svg?branch=master)](https://travis-ci.org/doesangueorg/doesangue-core)
 [![Build Status](https://travis-ci.org/doesangueorg/doesangue-core.svg?branch=development)](https://travis-ci.org/doesangueorg/doesangue-core)
 [![codecov](https://codecov.io/gh/doesangueorg/doesangue-core/branch/development/graph/badge.svg)](https://codecov.io/gh/doesangueorg/doesangue-core)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/doesangueorg/doesangue-core/badges/quality-score.png?b=development)](https://scrutinizer-ci.com/g/doesangueorg/doesangue-core/?branch=development)
@@ -9,6 +8,7 @@
 #### Topics.
 * [What](#what)?
 * [Why](#why)?
+* [Instalation](#instalation)
 * [Development](#development)
 * [Contributing](#contributing)
 
@@ -21,6 +21,10 @@ doesangue.me is a free (and opensource) platform that connects people interestin
 
 ## Why?
 
+
+# Instalation
+
+If you want to install locally or deploy to your server/infra please follow the guide at our [Wiki](https://github.com/doesangueorg/doesangue-core/wiki)
 
 ## Development
 
