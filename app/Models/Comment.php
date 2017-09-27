@@ -32,7 +32,7 @@ class Comment extends Model
 
     public function commentator()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'user_id');
     }
 
     public function campaign()

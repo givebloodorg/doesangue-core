@@ -3,11 +3,15 @@
 namespace DoeSangue\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use DoeSangue\Models\User;
 use DoeSangue\Models\Comment;
 
 class Campaign extends Model
 {
+
+    use SoftDeletes;
+
     /**
      * The table associated with the model.
      *

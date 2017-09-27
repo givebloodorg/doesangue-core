@@ -13,13 +13,24 @@ class DonorsController extends Controller
         $this->middleware('jwt.auth', [ 'except' => [ 'index', 'show' ] ]);
     }
 
+    /**
+     * Get all donors
+     *
+     * @return void
+     */
     public function index()
     {
-        $donors = Donor::with('user')->get();
+        $donors = Donor::orderBy('id', 'desc')->paginate('20');
 
         return response()->json($donors, 200);
     }
 
+    /**
+     * Show details about the donors
+     *
+     * @param  integer $id
+     * @return void
+     */
     public function show($id)
     {
 
@@ -38,8 +49,8 @@ class DonorsController extends Controller
             [
                 'first_name' => $donor->user->first_name,
                 'last_name' => $donor->user->last_name,
-                'email' => $donor->user->email,
-                'birthdate' => $donor->user->birthdate,
+             //   'email' => $donor->user->email,
+             //   'birthdate' => $donor->user->birthdate,
             ]
         );
     }

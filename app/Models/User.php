@@ -4,6 +4,7 @@ namespace DoeSangue\Models;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use DoeSangue\Models\Campaign;
 use DoeSangue\Models\Donor;
 use DoeSangue\Models\Invite;
@@ -11,7 +12,7 @@ use DoeSangue\Models\Comment;
 
 class User extends Authenticatable
 {
-    use Notifiable;
+    use Notifiable, SoftDeletes;
 
     /**
      * The attributes that are mass assignable.
@@ -43,7 +44,11 @@ class User extends Authenticatable
                           'deleted_at',
                           'id',
                           'phone',
-                          'active'
+                          'active',
+                          'username',
+                          'is_active',
+                          'birthdate',
+                          'email'
                         ];
 
     /**

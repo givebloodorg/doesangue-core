@@ -8,8 +8,9 @@ use DoeSangue\Http\Controllers\Controller;
 class SearchController extends Controller
 {
     /**
-     * Search method
+     * Search for donors or campaigns
      *
+     * @param  string $query
      * @return void
      */
     public function search(Request $request, $query)

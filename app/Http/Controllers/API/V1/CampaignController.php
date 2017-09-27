@@ -13,18 +13,34 @@ use Tymon\JWTAuth\Facades\JWTAuth;
 
 class CampaignController extends Controller
 {
+    /**
+     * Initialize the class
+     * and set the middleware
+     */
     public function __construct()
     {
         $this->middleware('jwt.auth', [ 'except' => [ 'index', 'show' ] ]);
     }
 
+    /**
+     * Get all campaigns
+     * 20 queries per page
+     *
+     * @return void
+     */
     public function index()
     {
-        $campaigns = Campaign::with('owner')->with('comments')->paginate('12');
+        $campaigns = Campaign::with('comments.commentator')->paginate('12');
 
         return response()->json($campaigns, 200);
     }
 
+    /**
+     * Create a new campaign
+     *
+     * @param  CreateCampaignRequest $request
+     * @return void
+     */
     public function store(CreateCampaignRequest $request)
     {
 
@@ -52,6 +68,12 @@ class CampaignController extends Controller
 
     }
 
+    /**
+     * Get all details of a campaign
+     *
+     * @param  integer $id
+     * @return void
+     */
     public function show($id)
     {
         $campaign = Campaign::find($id);
@@ -82,6 +104,13 @@ class CampaignController extends Controller
 
     }
 
+    /**
+     * Update details of a campaign
+     *
+     * @param  UpdateCampaignRequest $request
+     * @param  integer               $id
+     * @return void
+     */
     public function update(UpdateCampaignRequest $request, $id)
     {
         $campaign = Campaign::find($id);
@@ -131,6 +160,12 @@ class CampaignController extends Controller
         );
     }
 
+    /**
+     * Delete the campaign from platform.
+     *
+     * @param  integer $id
+     * @return void
+     */
     public function destroy($id)
     {
         $campaign = Campaign::find($id);
