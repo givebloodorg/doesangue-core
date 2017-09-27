@@ -32,10 +32,10 @@ class AuthenticateController extends Controller
         // all good so return the token
         return response()->json(
             [
-             "data" {
+              "data" {
                 'access_token' => $token,
                 'token_type' => 'Bearer'
-             }
+              }
             ]
         );
     }

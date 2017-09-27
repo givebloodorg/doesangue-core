@@ -49,8 +49,8 @@ class DonorsController extends Controller
             [
                 'first_name' => $donor->user->first_name,
                 'last_name' => $donor->user->last_name,
-             //   'email' => $donor->user->email,
-             //   'birthdate' => $donor->user->birthdate,
+              //   'email' => $donor->user->email,
+              //   'birthdate' => $donor->user->birthdate,
             ]
         );
     }
