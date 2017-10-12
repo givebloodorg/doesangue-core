@@ -113,10 +113,15 @@ class AuthenticateController extends Controller
 
         return response()->json(
             [
-              'first_name' => $user->first_name,
-              'last_name' => $user->last_name,
-            //   'email' => $user->email,
-              'username' => $user->username
+              'first_name' =>   $user->first_name,
+              'last_name'  =>   $user->last_name,
+              'email'      =>   $user->email,
+              'username'   =>   $user->username,
+              'blood_type' =>   $user->donor->bloodType->code,
+              'avatar'     =>   '',//$user->avatar,
+              'birthdate'  =>   $user->birthdate,
+              'phone'      =>   $user->phone,
+              'bio'        =>   $user->bio
             ], 200
         );
     }
