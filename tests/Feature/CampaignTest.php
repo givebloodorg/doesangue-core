@@ -3,16 +3,13 @@
 namespace Tests\Feature;
 
 use Tests\TestCase;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithoutMiddleware;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Illuminate\Foundation\Testing\DatabaseTransactions;
 use DoeSangue\Models\User;
 use DoeSangue\Models\Campaign;
 
 class CampaignTest extends TestCase
 {
-
-    use WithoutMiddleware;
 
     /* Test: Post /v1/campaigns
      public function testCreateCampaign()

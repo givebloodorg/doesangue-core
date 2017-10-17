@@ -33,6 +33,15 @@ Route::group(
 // Donors API
 Route::group(
     ['namespace' => 'API\V1', 'prefix' => 'v1'], function () {
+
+      // Routes related to logged in user
+      Route::group(['prefix' => 'me'], function($user) {
+        $user->get('/', 'UsersController@userInfo');
+        // User campigns
+        $user->group(['prefix' => 'campaigns'], function() {
+          Route::get('/', 'CampaignController@index');
+        });
+      });
         // Donors
         Route::group(
             ['prefix' => 'donors'], function () {
