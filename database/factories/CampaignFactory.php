@@ -24,5 +24,6 @@ $factory->define(DoeSangue\Models\Campaign::class, function (Faker $faker) {
       'expires' => \Carbon\Carbon::now()->endOfYear(),
       'image' => $faker->imageUrl,
       'user_id' => $faker->randomDigit,
+      'slug' => $faker->slug
     ];
 });

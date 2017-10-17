@@ -25,7 +25,6 @@ Route::group(
         $auth->post('/auth/login', 'AuthenticateController@authenticate');
         $auth->post('/auth/logout', 'AuthenticateController@logout');
         $auth->post('/auth/register', 'AuthenticateController@register');
-        $auth->get('/auth/me', 'AuthenticateController@userInfo');
     }
 );
 // End API Authentication routes.
@@ -34,14 +33,30 @@ Route::group(
 Route::group(
     ['namespace' => 'API\V1', 'prefix' => 'v1'], function () {
 
-      // Routes related to logged in user
-      Route::group(['prefix' => 'me'], function($user) {
-        $user->get('/', 'UsersController@userInfo');
-        // User campigns
-        $user->group(['prefix' => 'campaigns'], function() {
-          Route::get('/', 'CampaignController@index');
-        });
-      });
+        // Routes related to logged in user
+        Route::group(
+            ['prefix' => 'me', 'namespace' => 'User'], function ($user) {
+                // Get user information.
+                $user->get('/', 'AccountController@userInfo');
+                // Update User profile information.
+                $user->put('/', 'AccountController@updateProfile');
+                // User campigns
+                $user->group(
+                    ['prefix' => 'campaigns'], function () {
+                        // Get all user Campaigns.
+                        Route::get('/', 'CampaignController@index');
+                        // Create Campaign
+                        Route::post('/', 'CampaignController@store');
+                        // Show complete info about campaign
+                        Route::get('{campaign}', 'CampaignController@show');
+                        // Update campaign
+                        Route::put('{campaign}', 'CampaignController@update');
+                        // Detele Campaign
+                        Route::delete('{campaign}', 'CampaignController@destroy');
+                    }
+                );
+            }
+        );
         // Donors
         Route::group(
             ['prefix' => 'donors'], function () {
@@ -65,14 +80,6 @@ Route::group(
             ['prefix' => 'campaigns'], function () {
                 //All Campaigns
                 Route::get('/', 'CampaignController@index');
-                // Create Campaign
-                Route::post('/', 'CampaignController@store');
-                // Show complete info about campaign
-                Route::get('{campaign}', 'CampaignController@show');
-                // Update campaign
-                Route::put('{campaign}', 'CampaignController@update');
-                // Detele Campaign
-                Route::delete('{campaign}', 'CampaignController@destroy');
                 // Comments
                 Route::get('{campaign}/comments', 'CommentsController@index');
                 Route::post('{campaign}/comments', 'CommentsController@create');
