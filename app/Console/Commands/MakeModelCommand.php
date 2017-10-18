@@ -26,7 +26,7 @@ class MakeModelCommand extends ModelMakeCommand
     {
         $name = str_replace_first($this->rootNamespace(), '', $name);
 
-        return $this->laravel['path'].'/Models/'.str_replace('\\', '/', $name).'.php';
+        return $this->laravel[ 'path' ].'/Models/'.str_replace('\\', '/', $name).'.php';
     }
     /**
      * Get the root namespace for the class.
@@ -35,7 +35,7 @@ class MakeModelCommand extends ModelMakeCommand
      */
     protected function rootNamespace()
     {
-        return $this->laravel->getNamespace() . 'Models';
+        return $this->laravel->getNamespace().'Models';
     }
 
     /**

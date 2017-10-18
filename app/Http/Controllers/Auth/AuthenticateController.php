@@ -19,7 +19,7 @@ class AuthenticateController extends Controller
        *
        * @param Request $request
        * @return void
-      */
+       */
     public function authenticate(Request $request)
     {
         // grab credentials from the request

@@ -32,7 +32,7 @@ class CommentsController extends Controller
         $camp = Campaign::find($campaign);
         $comment = new Comment();
         $comment->id = str_random();
-        $comment->comment = $request['comment'];
+        $comment->comment = $request[ 'comment' ];
         $comment->user_id = $user->id;
         $comment->campaign_id = $camp->id;
         // $comment->created_at = Carbon::now();
@@ -63,9 +63,9 @@ class CommentsController extends Controller
             );
         }
 
-        $comment->comment = $request['comment'];
+        $comment->comment = $request[ 'comment' ];
 
-        if (! $comment) {
+        if (!$comment) {
             return response()->json(
                 [
                     'error_code' => 404,

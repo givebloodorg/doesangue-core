@@ -3,7 +3,6 @@
 namespace DoeSangue\Http\Controllers\API\V1\User;
 
 use JWTAuth;
-use Tymon\JWTAuth\Exceptions\JWTException;
 use Illuminate\Http\Request;
 use DoeSangue\Http\Controllers\Controller;
 
@@ -12,7 +11,7 @@ class AccountController extends Controller
     /**
      * Get Logged in User information.
      *
-     * @return void
+     * @return \Illuminate\Http\JsonResponse
      */
     public function userInfo()
     {
@@ -30,7 +29,7 @@ class AccountController extends Controller
             'email'      =>   $user->email,
             'username'   =>   $user->username,
             'blood_type' =>   $user->donor->bloodType->code,
-            'avatar'     =>   '',//$user->avatar,
+            'avatar'     =>   '', //$user->avatar,
             'birthdate'  =>   $user->birthdate,
             'phone'      =>   $user->phone,
             'bio'        =>   $user->bio
