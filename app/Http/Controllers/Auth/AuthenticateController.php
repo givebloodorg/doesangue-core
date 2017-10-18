@@ -44,7 +44,12 @@ class AuthenticateController extends Controller
         );
     }
 
-    // Register a new user
+    /**
+     * Register a new User
+     *
+     * @param RegisterUserRequest $request
+     * @return void
+     */
     public function register(RegisterUserRequest $request)
     {
         $user = User::create(
@@ -52,24 +57,14 @@ class AuthenticateController extends Controller
             'first_name' => $request->first_name,
             'last_name' => $request->last_name,
             'email' => $request->email,
-            // create the username based on first_name and last_name
-            // if not provided
-            /*$userName = trim(strtolower($request->first_name.'-'.$request->last_name)),
-            'username' => $userName,*/
             'username' => $request->username,
             'phone' => $request->phone,
             'bio' => $request->bio,
+            'blood_type_id' => $request->blood_type_id,
             'birthdate' => $request->birthdate,
             'password' => bcrypt($request->password),
             ]
         );
-
-        if ($user) {
-            $donor = new Donor();
-            $donor->user_id = $user->id;
-            $donor->blood_type_id = null;
-            $donor->save();
-        }
 
         // Send mail to user
         Mail::to($user->email)->send(new UserCreated($user));

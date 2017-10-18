@@ -10,7 +10,7 @@ use DoeSangue\Models\User;
 class AuthTest extends TestCase
 {
     use RefreshDatabase;
-    
+
     /**
      * Test if user can create account (register)
      * Test: Get /v1/auth/register
