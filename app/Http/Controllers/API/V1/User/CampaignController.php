@@ -13,7 +13,7 @@ class CampaignController extends Controller
     /**
      * Get all campaigns from current logged-in user.
      *
-     * @return void
+     * @return \Illuminate\Http\JsonResponse|null
      */
     public function all()
     {
