@@ -3,6 +3,7 @@
 [![codecov](https://codecov.io/gh/doesangueorg/doesangue-core/branch/development/graph/badge.svg)](https://codecov.io/gh/doesangueorg/doesangue-core)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/doesangueorg/doesangue-core/badges/quality-score.png?b=development)](https://scrutinizer-ci.com/g/doesangueorg/doesangue-core/?branch=development)
 [![Build Status](https://scrutinizer-ci.com/g/doesangueorg/doesangue-core/badges/build.png?b=development)](https://scrutinizer-ci.com/g/doesangueorg/doesangue-core/build-status/development)
+[![Code Coverage](https://scrutinizer-ci.com/g/doesangueorg/doesangue-core/badges/coverage.png?b=laravel-55)](https://scrutinizer-ci.com/g/doesangueorg/doesangue-core/?branch=laravel-55)
 
 
 #### Topics.
