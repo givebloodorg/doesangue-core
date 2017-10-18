@@ -47,7 +47,7 @@ class MakeModelCommand extends ModelMakeCommand
     {
         parent::__construct();
     }
-    */
+     */
 
     /**
      * Execute the console command.
@@ -58,5 +58,5 @@ class MakeModelCommand extends ModelMakeCommand
     {
         //
     }
-    */
+     */
 }

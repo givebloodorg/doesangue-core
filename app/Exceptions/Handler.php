@@ -57,24 +57,24 @@ class Handler extends ExceptionHandler
     public function render($request, Exception $exception)
     {
         // Validate 404 exceptions.
-        if($exception instanceof NotFoundHttpException) {
+        if ($exception instanceof NotFoundHttpException) {
             return response()->json(
                 [
                 'error' => [
                     'description' => 'Invalid URI',
-                    'messages' => []
+                    'messages' => [ ]
                 ]
                 ], 404
             );
         }
 
         // Method not allowed exception handler
-        if($exception instanceof MethodNotAllowedHttpException) {
+        if ($exception instanceof MethodNotAllowedHttpException) {
             return response()->json(
                 [
                 'error' => [
                     'description' => 'Method Not Allowed',
-                    'messages' => []
+                    'messages' => [ ]
                 ]
                 ], 405
             );
@@ -107,11 +107,11 @@ class Handler extends ExceptionHandler
     {
         if ($request->expectsJson()) {
 
-            return response()->json(['error' => 'Unauthenticated.'], 401);
+            return response()->json([ 'error' => 'Unauthenticated.' ], 401);
 
         }
 
-       // return redirect()->guest('login');
+        // return redirect()->guest('login');
     }
 
 

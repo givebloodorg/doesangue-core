@@ -39,7 +39,7 @@ class RouteServiceProvider extends ServiceProvider
      *
      * These routes all receive session state, CSRF protection, etc.
      */
-     /*
+      /*
     protected function mapWebRoutes()
     {
         Route::group(
