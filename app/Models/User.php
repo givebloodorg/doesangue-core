@@ -31,7 +31,7 @@ class User extends Authenticatable
         'active',
         'password',
         'blood_type_id',
-       ];
+        ];
 
     /**
      * The attributes that should be hidden for arrays.

@@ -10,7 +10,6 @@ use DoeSangue\Http\Requests\RegisterUserRequest;
 use DoeSangue\Mail\UserCreated;
 use Illuminate\Support\Facades\Mail;
 use DoeSangue\Models\User;
-use DoeSangue\Models\Donor;
 
 class AuthenticateController extends Controller
 {
@@ -48,7 +47,7 @@ class AuthenticateController extends Controller
      * Register a new User
      *
      * @param RegisterUserRequest $request
-     * @return void
+     * @return \Illuminate\Http\JsonResponse
      */
     public function register(RegisterUserRequest $request)
     {
