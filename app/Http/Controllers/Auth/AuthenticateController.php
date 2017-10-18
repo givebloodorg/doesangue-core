@@ -18,7 +18,7 @@ class AuthenticateController extends Controller
        * Authenticate the user
        *
        * @param Request $request
-       * @return void
+       * @return \Illuminate\Http\JsonResponse
        */
     public function authenticate(Request $request)
     {
