@@ -20,7 +20,7 @@ class CampaignController extends Controller
 
         $user = JWTAuth::parseToken()->authenticate();
 
-         // If the token is invalid
+          // If the token is invalid
         if (!$user) {
             return response()->json([ 'invalid_user' ], 401);
         }
@@ -32,7 +32,7 @@ class CampaignController extends Controller
      * Create a new campaign
      *
      * @param  CreateCampaignRequest $request
-     * @return void
+     * @return \Illuminate\Http\JsonResponse
      */
     public function store(CreateCampaignRequest $request)
     {
@@ -41,7 +41,7 @@ class CampaignController extends Controller
 
         $campaign = new Campaign();
         $campaign->title = $request[ 'title' ];
-        $campaign->description = $request['description'];
+        $campaign->description = $request[ 'description' ];
         $campaign->expires = $request[ 'expires' ];
         //        $campaign->user_id = $request[ 'user_id' ];
         // use auth guard instead of $request['user_id'].
@@ -66,7 +66,7 @@ class CampaignController extends Controller
      *
      * @param  UpdateCampaignRequest $request
      * @param  integer               $id
-     * @return void
+     * @return \Illuminate\Http\JsonResponse
      */
     public function update(UpdateCampaignRequest $request, $id)
     {
@@ -106,8 +106,8 @@ class CampaignController extends Controller
             'owner' => [
               'first_name' => $campaign->owner->first_name,
               'last_name' => $campaign->owner->last_name,
-             // 'email' => $campaign->owner->email,
-             // 'username' => $campaign->owner->username
+              // 'email' => $campaign->owner->email,
+              // 'username' => $campaign->owner->username
             ],
             'dates' => [
             'start_at' => $campaign->created_at->format('d-m-Y h:m:s'),
@@ -121,7 +121,7 @@ class CampaignController extends Controller
      * Delete the campaign from platform.
      *
      * @param  integer $id
-     * @return void
+     * @return \Illuminate\Http\JsonResponse
      */
     public function destroy($id)
     {

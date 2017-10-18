@@ -26,7 +26,7 @@ class CampaignController extends Controller
      * Get all campaigns
      * 20 queries per page
      *
-     * @return void
+     * @return \Illuminate\Http\JsonResponse
      */
     public function index()
     {
@@ -39,7 +39,7 @@ class CampaignController extends Controller
      * Get all details of a campaign
      *
      * @param  integer $id
-     * @return void
+     * @return \Illuminate\Http\JsonResponse
      */
     public function show($id)
     {

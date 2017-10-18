@@ -69,7 +69,7 @@ class User extends Authenticatable
      */
     public function getFullNameAttribute($value)
     {
-        return ucfirst($this->first_name) . ' ' . ucfirst($this->last_name);
+        return ucfirst($this->first_name).' '.ucfirst($this->last_name);
     }
 
     /**
@@ -109,14 +109,14 @@ class User extends Authenticatable
 
     public function getIsActiveAttribute()
     {
-        return $this->attributes['active'] == true;
+        return $this->attributes[ 'active' ] == true;
     }
 
     /**
- * Get the route key for the model.
- *
- * @return string
- */
+     * Get the route key for the model.
+     *
+     * @return string
+     */
 public function getRouteKeyName()
 {
     return 'username';
