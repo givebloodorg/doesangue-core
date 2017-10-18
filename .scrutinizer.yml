@@ -1,0 +1,66 @@
+filter:
+    paths:
+        - 'app/*'
+    excluded_paths:
+        - 'resources/views/*'
+        -  - 'resources/assets/*'
+        - 'config/*'
+        - 'tests/*'
+checks:
+    php:
+        properties_in_camelcaps: true
+        function_in_camel_caps: true
+        encourage_single_quotes: true
+        phpunit_assertions: true
+        no_long_variable_names:
+            maximum: '20'
+        fix_use_statements:
+            remove_unused: true
+            preserve_multiple: true
+            preserve_blanklines: true
+            order_alphabetically: false
+        unused_variables: true
+
+#        phpunit_assertions: true
+        function_in_camel_caps: true
+        encourage_single_quotes: true
+#    javascript: true
+
+coding_style:
+    php:
+        indentation:
+            general:
+                size: 2
+        spaces:
+            within:
+                brackets: true
+
+
+build:
+    environment:
+        php:
+            version: 7.1.*
+
+        mysql: 5.7
+
+        variables:
+            APP_KEY: base64:D6N/Z/7E0B1M3l1GumT+Kp+JT7E4bzbeMRuxzV3CP1s=
+            DB_DATABASE: doesangue
+            DB_USERNAME: root
+            DB_CONNECTION: mysql
+            APP_ENV: testing
+
+    dependencies:
+            before:
+                 - mysql -uroot -e 'CREATE DATABASE doesangue'
+
+    tests:
+        override:
+            -
+                command: 'vendor/bin/phpunit --coverage-clover=build/logs/clover.xml'
+                coverage:
+                    file: 'build/logs/clover.xml'
+                    format: 'clover'
+#       before:
+#           - command: php artisan migrate --env=testing --no-interaction
+#           - command: php artisan db:seed --env=testing --no-interaction
