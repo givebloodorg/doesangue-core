@@ -24,7 +24,7 @@ $factory->define(DoeSangue\Models\User::class, function (Faker $faker) {
       'first_name' => $faker->firstName,
       'last_name' => $faker->lastName,
       'email' => $faker->unique()->companyEmail,
-      'username' => $faker->userName,
+      'username' => $faker->userName(20),
       'phone' => $faker->tollFreePhoneNumber,
       'bio' => $faker->text($maxNbChars = 100),
       'birthdate' => $faker->date,
