@@ -57,21 +57,25 @@ Route::group(
                 );
             }
         );
+
+        // BloodTypes
+        Route::group(['prefix' => 'bloodtype'], function()
+        {
+          Route::get('/', 'BloodTypeController@index');
+        });
         // Donors
         Route::group(
             ['prefix' => 'donors'], function () {
+                // Because all donor is a user
+                // We will use UsersController instead
                 // All donors
-                Route::get('/', 'DonorsController@index');
-                // Create Donor
-                Route::post('/', 'DonorsController@store');
+                Route::get('/', 'UsersController@index');
                 // show info about donor
-                Route::get('{donor}', 'DonorsController@show');
-                // Update the Donor
-                Route::put('{donor}', 'DonorsController@update');
+                Route::get('{donor}', 'UsersController@show');
 
                 // Campaigns by donor
-                Route::get('{donors}/campaigns', 'DonorsController@campaigns');
-                Route::get('{donors}/campaigns/{campaign}', 'DonorsController@showCampaign');
+                Route::get('{donor}/campaigns', 'UsersController@getCampaigns');
+                Route::get('{donor}/campaigns/{campaign}', 'UsersController@showCampaign');
             }
         );
 

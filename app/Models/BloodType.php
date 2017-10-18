@@ -3,6 +3,7 @@
 namespace DoeSangue\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use DoeSangue\Models\User;
 
 class BloodType extends Model
 {
@@ -18,8 +19,40 @@ class BloodType extends Model
      *
      * @var array
      */
-    protected $filliable = [
-                            'description',
-                            'code',
-                            ];
-}//end class
+    protected $filliable =
+      [
+        'description',
+        'code',
+      ];
+
+    /**
+     * BloodType Dates.
+     *
+     * @var array
+     */
+    protected $dates =
+      [
+        'created_at',
+        'updated_at'
+      ];
+    /**
+     * Hidden fields from json response.
+     *
+     * @return void
+     */
+    protected $hidden =
+      [
+        'created_at',
+        'updated_at'
+      ];
+
+    /**
+     * Related.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+}

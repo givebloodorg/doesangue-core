@@ -28,6 +28,7 @@ $factory->define(DoeSangue\Models\User::class, function (Faker $faker) {
       'phone' => $faker->tollFreePhoneNumber,
       'bio' => $faker->text($maxNbChars = 100),
       'birthdate' => $faker->date,
+      'blood_type_id' => $faker->randomDigit,
       'password' => $password ?: $password = bcrypt('secret'),
       'remember_token' => str_random(10),
     ];

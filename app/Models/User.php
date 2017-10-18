@@ -6,8 +6,8 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use DoeSangue\Models\Campaign;
-use DoeSangue\Models\Donor;
 use DoeSangue\Models\Invite;
+use DoeSangue\Models\BloodType;
 use DoeSangue\Models\Comment;
 
 class User extends Authenticatable
@@ -19,48 +19,58 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $fillable = [
-                            'first_name',
-                            'last_name',
-                            'email',
-                            'username',
-                            'phone',
-                            'bio',
-                            'birthdate',
-                            'active',
-                            'password',
-                          ];
+    protected $fillable =
+      [
+        'first_name',
+        'last_name',
+        'email',
+        'username',
+        'phone',
+        'bio',
+        'birthdate',
+        'active',
+        'password',
+        'blood_type_id',
+       ];
 
     /**
      * The attributes that should be hidden for arrays.
      *
      * @var array
      */
-    protected $hidden = [
-                          'password',
-                          'remember_token',
-                          'created_at',
-                          'updated_at',
-                          'deleted_at',
-                          'id',
-                          'phone',
-                          'active',
-                          'username',
-                          'is_active',
-                          'birthdate',
-                          'email'
-                        ];
+    protected $hidden =
+        [
+          'password',
+          'remember_token',
+          'created_at',
+          'updated_at',
+          'deleted_at',
+          'id',
+          'phone',
+          'active',
+          'username',
+          'is_active',
+          'birthdate',
+          'email',
+          'blood_type_id'
+        ];
 
     /**
      * The dates attributes.
      *
      * @var array $dates
      */
-    protected $dates = [
-      'created_at', 'updated_at', 'deleted_at'
-    ];
+    protected $dates =
+      [
+        'created_at',
+        'updated_at',
+        'deleted_at'
+      ];
 
-    protected $appends = [ 'is_active' ];
+    protected $appends =
+      [
+        'is_active'
+      ];
 
     /**
      * Returns the full name of user.
@@ -83,9 +93,14 @@ class User extends Authenticatable
         return $this->hasMany(Campaign::class);
     }
 
-    public function donor()
+    /**
+     * Related.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function bloodType()
     {
-        return $this->hasOne(Donor::class);
+        return $this->belongsTo(BloodType::class, 'blood_type_id');
     }
 
     /**
@@ -109,7 +124,7 @@ class User extends Authenticatable
 
     public function getIsActiveAttribute()
     {
-        return $this->attributes[ 'active' ] == true;
+        return $this->attributes[ 'status' ] == "active";
     }
 
     /**
@@ -117,8 +132,8 @@ class User extends Authenticatable
      *
      * @return string
      */
-public function getRouteKeyName()
-{
-    return 'username';
-}
+    public function getRouteKeyName()
+    {
+        return 'username';
+    }
 }
