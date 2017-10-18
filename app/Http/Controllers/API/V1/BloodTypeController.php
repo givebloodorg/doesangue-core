@@ -2,7 +2,6 @@
 
 namespace DoeSangue\Http\Controllers\API\V1;
 
-use Illuminate\Http\Request;
 use DoeSangue\Http\Controllers\Controller;
 use DoeSangue\Models\BloodType;
 
