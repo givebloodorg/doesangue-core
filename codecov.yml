@@ -25,4 +25,4 @@ comment:
   layout: "reach, diff, flags, files, footer"
   behavior: default
   require_head: yes
-  require_changes: yes
+  require_changes: no
