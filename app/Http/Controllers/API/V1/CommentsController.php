@@ -99,7 +99,7 @@ class CommentsController extends Controller
             );
         }
 
-         // Notify error in not found
+          // Notify error in not found
         if (!$comment) {
             return response()->json(
                 [

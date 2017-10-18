@@ -2,14 +2,8 @@
 
 namespace DoeSangue\Http\Controllers\API\V1;
 
-use DoeSangue\Http\Requests\UpdateCampaignRequest;
-use DoeSangue\Http\Requests\CreateCampaignRequest;
 use DoeSangue\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Mail;
-use DoeSangue\Models\Donor;
 use DoeSangue\Models\Campaign;
-use Carbon\Carbon;
-use Tymon\JWTAuth\Facades\JWTAuth;
 
 class CampaignController extends Controller
 {
