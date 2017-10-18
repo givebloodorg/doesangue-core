@@ -11,6 +11,8 @@ use DoeSangue\Models\Campaign;
 class CampaignTest extends TestCase
 {
 
+    use RefreshDatabase;
+
     /* Test: Post /v1/campaigns
      public function testCreateCampaign()
     {
