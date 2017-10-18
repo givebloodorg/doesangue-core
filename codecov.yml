@@ -10,23 +10,8 @@ coverage:
   status:
     project:
       default: off
-      api:
-        target: 50%
-        flags: api
-      tests:
-        target: 50%
-        flags: tests
     patch: yes
     changes: no
-
-flags:
- api:
-   paths:
-     - app/
-
- tests:
-   paths:
-    - tests/
 
 parsers:
   gcov:
