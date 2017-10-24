@@ -25,6 +25,8 @@ Route::group(
         $auth->post('/auth/login', 'AuthenticateController@authenticate');
         $auth->post('/auth/logout', 'AuthenticateController@logout');
         $auth->post('/auth/register', 'AuthenticateController@register');
+        $auth->get('/auth/password/recover', 'PasswordResetController@recover');
+        $auth->get('/auth/password/reset/{token}', 'PasswordResetController@reset');
     }
 );
 // End API Authentication routes.
@@ -59,7 +61,7 @@ Route::group(
         );
 
         // BloodTypes
-        Route::group(['prefix' => 'bloodtype'], function()
+        Route::group(['prefix' => 'bloodtypes'], function()
         {
           Route::get('/', 'BloodTypeController@index');
         });
