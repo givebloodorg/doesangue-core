@@ -83,6 +83,16 @@ class User extends Authenticatable
     }
 
     /**
+     * Get user avatar or set default.png as default.
+     *
+     * @return void
+     */
+    public function getAvatarAttribute($avatar)
+    {
+        return asset($avatar ?: 'images/avatars/default.png');
+    }
+
+    /**
      * Returns the campaigns created by the user.
      *
      * @return array relationship

@@ -20,7 +20,7 @@ class User extends Resource
           // 'email'      =>   $this->email,
           'username'   =>   $this->username,
           'blood_type' =>   $this->bloodType->code,
-          'avatar'     =>   '', //$this->avatar,
+          'avatar'     =>   $this->avatar,
         //  'birthdate'  =>   $this->birthdate,
         //  'phone'      =>   $this->phone,
           'bio'        =>   $this->bio
