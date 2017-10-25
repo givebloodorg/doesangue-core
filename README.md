@@ -3,8 +3,8 @@
 [![Build Status](https://travis-ci.org/doesangueorg/doesangue-core.svg?branch=master)](https://travis-ci.org/doesangueorg/doesangue-core)
 [![codecov](https://codecov.io/gh/doesangueorg/doesangue-core/branch/master/graph/badge.svg)](https://codecov.io/gh/doesangueorg/doesangue-core)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/doesangueorg/doesangue-core/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/doesangueorg/doesangue-core/?branch=master)
-[![Build Status](https://scrutinizer-ci.com/g/doesangueorg/doesangue-core/badges/build.png?b=master)](https://scrutinizer-ci.com/g/doesangueorg/doesangue-core/build-status/development)
-[![Code Coverage](https://scrutinizer-ci.com/g/doesangueorg/doesangue-core/badges/coverage.png?b=laravel-55)](https://scrutinizer-ci.com/g/doesangueorg/doesangue-core/?branch=laravel-55)
+[![Build Status](https://scrutinizer-ci.com/g/doesangueorg/doesangue-core/badges/build.png?b=master)](https://scrutinizer-ci.com/g/doesangueorg/doesangue-core/build-status/master)
+[![Code Coverage](https://scrutinizer-ci.com/g/doesangueorg/doesangue-core/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/doesangueorg/doesangue-core/?branch=master)
 
 
 #### Topics.
@@ -75,6 +75,3 @@ To contribute to this repo, please check the documentation/guide at [Contributin
 ### Contributors
 We consider and respect everybody that contribute to our project.
 Check the complete list of contributors in [CONTRIBUTORS](CONTRIBUTORS.md) doc.
-
------------------
-If you prefer to read the portuguese version please check [README PT](README-ptBR.md) 
