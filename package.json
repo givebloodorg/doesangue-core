@@ -5,16 +5,11 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "dev": "npm run development",
-    "development": "NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
-    "watch": "NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
-    "watch-poll": "npm run watch -- --watch-poll",
-    "hot": "NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
-    "prod": "npm run production",
-    "production": "NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
+    "add": "all-contributors add",
+    "generate": "all-contributors generate"
   },
   "repository": {
-    "url": "https://github.com/doesangueorg/doesangueweb.git",
+    "url": "git@github.com:doesangueorg/doesangueorg.github.io.git",
     "type": "git"
   },
   "author": {
@@ -23,6 +18,6 @@
     "url": "https://josecage.com"
   },
   "devDependencies": {
-    "laravel-mix": "^1.2.2"
+    "all-contributors-cli": "^4.5.1"
   }
 }

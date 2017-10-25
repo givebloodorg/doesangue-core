@@ -1,0 +1,11 @@
+{
+  "projectName": "doesangue-core",
+  "projectOwner": "doesangueorg",
+  "files": [
+    "CONTRIBUTORS.md",
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": []
+}
