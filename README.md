@@ -1,5 +1,5 @@
 [![Packagist](https://img.shields.io/packagist/v/doesangueorg/core.svg)](https://packagist.org/packages/doesangueorg/core)
-[![All Contributors](https://img.shields.io/badge/all_contributors-0-orange.svg?style=flat-square)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](#contributors)
 [![Build Status](https://travis-ci.org/doesangueorg/doesangue-core.svg?branch=master)](https://travis-ci.org/doesangueorg/doesangue-core)
 [![codecov](https://codecov.io/gh/doesangueorg/doesangue-core/branch/master/graph/badge.svg)](https://codecov.io/gh/doesangueorg/doesangue-core)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/doesangueorg/doesangue-core/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/doesangueorg/doesangue-core/?branch=master)
