@@ -26,6 +26,7 @@ class User extends Authenticatable
         'email',
         'username',
         'phone',
+        'country_code',
         'bio',
         'birthdate',
         'active',
@@ -145,5 +146,10 @@ class User extends Authenticatable
     public function getRouteKeyName()
     {
         return 'username';
+    }
+
+    public function getPhoneNumberAttribute()
+    {
+        return $this->attributes[ 'country_code' ].$this->attributes[ 'phone' ];
     }
 }
