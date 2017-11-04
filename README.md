@@ -1,8 +1,10 @@
 [![Packagist](https://img.shields.io/packagist/v/doesangueorg/core.svg)](https://packagist.org/packages/doesangueorg/core)
-[![Build Status](https://travis-ci.org/doesangueorg/doesangue-core.svg?branch=development)](https://travis-ci.org/doesangueorg/doesangue-core)
-[![codecov](https://codecov.io/gh/doesangueorg/doesangue-core/branch/development/graph/badge.svg)](https://codecov.io/gh/doesangueorg/doesangue-core)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/doesangueorg/doesangue-core/badges/quality-score.png?b=development)](https://scrutinizer-ci.com/g/doesangueorg/doesangue-core/?branch=development)
-[![Build Status](https://scrutinizer-ci.com/g/doesangueorg/doesangue-core/badges/build.png?b=development)](https://scrutinizer-ci.com/g/doesangueorg/doesangue-core/build-status/development)
+[![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](#contributors)
+[![Build Status](https://travis-ci.org/doesangueorg/doesangue-core.svg?branch=master)](https://travis-ci.org/doesangueorg/doesangue-core)
+[![codecov](https://codecov.io/gh/doesangueorg/doesangue-core/branch/master/graph/badge.svg)](https://codecov.io/gh/doesangueorg/doesangue-core)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/doesangueorg/doesangue-core/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/doesangueorg/doesangue-core/?branch=master)
+[![Build Status](https://scrutinizer-ci.com/g/doesangueorg/doesangue-core/badges/build.png?b=master)](https://scrutinizer-ci.com/g/doesangueorg/doesangue-core/build-status/master)
+[![Code Coverage](https://scrutinizer-ci.com/g/doesangueorg/doesangue-core/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/doesangueorg/doesangue-core/?branch=master)
 
 
 #### Topics.
@@ -11,13 +13,10 @@
 * [Instalation](#instalation)
 * [Development](#development)
 * [Contributing](#contributing)
-
-![Mente Digital HQ](public/img/logo.jpg)
-*Core maintained by Mente Digital Inc and awesome opensource contributors.*
-
+* [Contributors](#contributors)
 
 ## What?
-doesangue.me is a free (and opensource) platform that connects people interesting in blood donation.
+[doesangue.me](https://doesangue.me) is a free (and opensource and free) platform that connects people interesting in blood donation.
 
 ## Why?
 
@@ -27,16 +26,6 @@ doesangue.me is a free (and opensource) platform that connects people interestin
 If you want to install locally or deploy to your server/infra please follow the guide at our [Wiki](https://github.com/doesangueorg/doesangue-core/wiki)
 
 ## Development
-
-### assets
-
-```shell
-yarn # install node/js/css dependencies
-```
-or
-```shell
-npm install # install node/js/css dependencies
-```
 
 ### Docker
 
@@ -83,5 +72,6 @@ docker-compose down # stop and kill the service
 ### Contributing
 To contribute to this repo, please check the documentation/guide at [Contributing](CONTRIBUTING.md)
 
------------------
-If you prefer to read the portuguese version please check [README PT](README_PT.md) 
+### Contributors
+We consider and respect everybody that contribute to our project.
+Check the complete list of contributors in [CONTRIBUTORS](CONTRIBUTORS.md) doc.

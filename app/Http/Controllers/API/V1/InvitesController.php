@@ -22,7 +22,7 @@ class InvitesController extends Controller
         $user = JWTAuth::parseToken()->authenticate();
 
         $invite = new Invite();
-        $invite->invite_code = Hash::make($request['invite_code']);
+        $invite->invite_code = Hash::make($request[ 'invite_code' ]);
         $invite->user_id = $user->id;
         $invite->save();
 

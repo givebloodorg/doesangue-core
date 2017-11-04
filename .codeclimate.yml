@@ -1,0 +1,14 @@
+---
+engines:
+ phpcodescniffer:
+   enabled: true
+   config:
+     standards: "PSR2"
+   ignore_warnings: true
+ratings:
+  paths:
+  - "**.php"
+exclude_paths:
+- config/
+- bootstrap/
+- tests/

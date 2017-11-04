@@ -18,7 +18,7 @@ class Kernel extends HttpKernel
         \Illuminate\Foundation\Http\Middleware\ValidatePostSize::class,
         \DoeSangue\Http\Middleware\TrimStrings::class,
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
-        \Barryvdh\Cors\HandleCors::class,
+        \DoeSangue\Http\Middleware\TrustProxies::class,
     ];
 
     /**
@@ -38,6 +38,7 @@ class Kernel extends HttpKernel
         ],
 
         'api' => [
+            \Barryvdh\Cors\HandleCors::class,
             'throttle:60,1',
             'bindings',
         ],

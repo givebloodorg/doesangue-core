@@ -10,7 +10,6 @@ use DoeSangue\Http\Requests\RegisterUserRequest;
 use DoeSangue\Mail\UserCreated;
 use Illuminate\Support\Facades\Mail;
 use DoeSangue\Models\User;
-use DoeSangue\Models\Donor;
 
 class AuthenticateController extends Controller
 {
@@ -18,8 +17,8 @@ class AuthenticateController extends Controller
        * Authenticate the user
        *
        * @param Request $request
-       * @return void
-      */
+       * @return \Illuminate\Http\JsonResponse
+       */
     public function authenticate(Request $request)
     {
         // grab credentials from the request
@@ -44,7 +43,12 @@ class AuthenticateController extends Controller
         );
     }
 
-    // Register a new user
+    /**
+     * Register a new User
+     *
+     * @param RegisterUserRequest $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function register(RegisterUserRequest $request)
     {
         $user = User::create(
@@ -52,24 +56,15 @@ class AuthenticateController extends Controller
             'first_name' => $request->first_name,
             'last_name' => $request->last_name,
             'email' => $request->email,
-            // create the username based on first_name and last_name
-            // if not provided
-            /*$userName = trim(strtolower($request->first_name.'-'.$request->last_name)),
-            'username' => $userName,*/
             'username' => $request->username,
             'phone' => $request->phone,
+            'country_code' => $request->country_code,
             'bio' => $request->bio,
+            'blood_type_id' => $request->blood_type_id,
             'birthdate' => $request->birthdate,
             'password' => bcrypt($request->password),
             ]
         );
-
-        if ($user) {
-            $donor = new Donor();
-            $donor->user_id = $user->id;
-            $donor->blood_type_id = null;
-            $donor->save();
-        }
 
         // Send mail to user
         Mail::to($user->email)->send(new UserCreated($user));
@@ -97,32 +92,5 @@ class AuthenticateController extends Controller
     {
         //
     }
-    /**
-     * Get the current user (logged in) information
-     *
-     * @return void
-     */
-    public function userInfo()
-    {
-        $user = JWTAuth::parseToken()->authenticate();
 
-        // If the token is invalid
-        if (!$user) {
-            return response()->json([ 'invalid_user' ], 401);
-        }
-
-        return response()->json(
-            [
-              'first_name' =>   $user->first_name,
-              'last_name'  =>   $user->last_name,
-              'email'      =>   $user->email,
-              'username'   =>   $user->username,
-              'blood_type' =>   $user->donor->bloodType->code,
-              'avatar'     =>   '',//$user->avatar,
-              'birthdate'  =>   $user->birthdate,
-              'phone'      =>   $user->phone,
-              'bio'        =>   $user->bio
-            ], 200
-        );
-    }
 }
