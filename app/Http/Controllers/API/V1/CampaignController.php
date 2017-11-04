@@ -4,6 +4,9 @@ namespace DoeSangue\Http\Controllers\API\V1;
 
 use DoeSangue\Http\Controllers\Controller;
 use DoeSangue\Models\Campaign;
+use DoeSangue\Http\Resources\Campaign as CampaignResource;
+use DoeSangue\Http\Resources\CampaignCollection;
+
 
 class CampaignController extends Controller
 {
@@ -24,9 +27,7 @@ class CampaignController extends Controller
      */
     public function index()
     {
-        $campaigns = Campaign::with('owner')->with('comments.commentator')->paginate('12');
-
-        return response()->json($campaigns, 200);
+        return new CampaignCollection(Campaign::paginate(30));
     }
 
     /**
@@ -35,33 +36,10 @@ class CampaignController extends Controller
      * @param  integer $id
      * @return \Illuminate\Http\JsonResponse
      */
-    public function show($id)
+    public function show($campaign)
     {
-        $campaign = Campaign::find($id);
 
-        if (!$campaign) {
-            return response()->json(
-                [
-                    'error_code' => 404,
-                    'error_message' => 'Campaign not found!'
-                ], 404
-            );
-        }
-
-        return response()->json(
-            [
-            'title' => $campaign->title,
-            'owner' => [
-              'first_name' => $campaign->owner->first_name,
-              'last_name' => $campaign->owner->last_name,
-              'username' => $campaign->owner->username
-            ],
-            'dates' => [
-            'start_at' => $campaign->created_at->format('Y-m-d h:m:s'),
-            'finish_at' => $campaign->expires
-            ]
-            ], 200
-        );
+       return new CampaignResource(Campaign::find($campaign));
 
     }
 

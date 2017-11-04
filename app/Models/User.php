@@ -148,8 +148,21 @@ class User extends Authenticatable
         return 'username';
     }
 
+    /**
+     * Get the user phone number
+     * @return string
+     */
     public function getPhoneNumberAttribute()
     {
         return $this->attributes[ 'country_code' ].$this->attributes[ 'phone' ];
+    }
+
+    /**
+     * Return the user fullname
+     * @return string
+     */
+    public function getPhoneFullNameAttribute()
+    {
+        return $this->attributes[ 'first_name' ]. $this->attributes[ 'last_name' ];
     }
 }

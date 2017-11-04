@@ -100,6 +100,8 @@ Route::group(
             ['prefix' => 'campaigns'], function () {
                 //All Campaigns
                 Route::get('/', 'CampaignController@index');
+                // Campaign details
+                Route::get('{campaign}', 'CampaignController@show');
                 // Comments
                 Route::get('{campaign}/comments', 'CommentsController@index');
                 Route::post('{campaign}/comments', 'CommentsController@create');

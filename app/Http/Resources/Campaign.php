@@ -18,8 +18,14 @@ class Campaign extends Resource
           'title'          => $this->title,
           'description'    => $this->description,
           'image'          => $this->image,
-          'expires'        => $this->expires->format('d-m-Y H:m'),
-          'owner'          => ''
+          //'expires'        => $this->expires->format('d-m-Y H:m'),
+          'start_at' => $this->created_at->format('Y-m-d h:m:s'),
+          'finish_at' => $this->expires,
+          'owner' => [
+              'name' => $this->owner->fullname,
+              'username' => $this->owner->username
+          ]
         ];
     }
+
 }
