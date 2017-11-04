@@ -13,13 +13,13 @@ class UsersController extends Controller
     public function index()
     {
 
-      return new UserCollection(User::paginate(50));
+        return new UserCollection(User::paginate(50));
 
     }
 
     public function show($donor)
     {
-      return new UserResource(User::find($donor));
+        return new UserResource(User::find($donor));
     }
 
 }

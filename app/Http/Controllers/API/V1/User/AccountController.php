@@ -40,6 +40,6 @@ class AccountController extends Controller
 
     public function updateProfile(Request $data)
     {
-      //
+        //
     }
 }

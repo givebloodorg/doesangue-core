@@ -24,7 +24,7 @@ class CampaignController extends Controller
      */
     public function index()
     {
-        $campaigns = Campaign::with('comments.commentator')->paginate('12');
+        $campaigns = Campaign::with('owner')->with('comments.commentator')->paginate('12');
 
         return response()->json($campaigns, 200);
     }

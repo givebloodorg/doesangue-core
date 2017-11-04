@@ -18,8 +18,8 @@ class BloodTypeController extends Controller
 
     public function index()
     {
-      $bloodtypes = BloodType::all();
+        $bloodtypes = BloodType::all();
 
-      return response()->json($bloodtypes, 200);
+        return response()->json($bloodtypes, 200);
     }
 }

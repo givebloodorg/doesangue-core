@@ -25,8 +25,10 @@ Route::group(
         $auth->post('/auth/login', 'AuthenticateController@authenticate');
         $auth->post('/auth/logout', 'AuthenticateController@logout');
         $auth->post('/auth/register', 'AuthenticateController@register');
-        $auth->get('/auth/password/recover', 'PasswordResetController@recover');
-        $auth->get('/auth/password/reset/{token}', 'PasswordResetController@reset');
+        $auth->group(['prefix' => 'password', 'namespace' => 'V1'], function($password) {
+          $password->get('/recover', 'PasswordResetController@recover');
+          $password->post('/reset/{token}', 'PasswordResetController@reset');
+        });
     }
 );
 // End API Authentication routes.
@@ -118,6 +120,7 @@ Route::group(
             }
         );
 
+        /*
         // Search campaigns and donors.
         Route::group(
             ['prefix' => 'search'], function () {
@@ -125,5 +128,6 @@ Route::group(
                 Route::get('/query={$query}', 'SearchController@search');
             }
         );
+        */
     }
 );

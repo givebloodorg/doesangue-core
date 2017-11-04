@@ -9,9 +9,9 @@ The following is a set of guidelines for Contributing to **Doe Sangue.me** and i
 [What to know before start?](#getting-started)
  * [How?](#how)
  * [Pull Requests](#pull-requests)
-[Styleguide](#styleguide)
+* [Styleguide](#styleguide)
  * [Commits](#git-commit-messages)
-[Contributors list](#contributors)
+ * [Contributors list](#contributors)
 
 
 
