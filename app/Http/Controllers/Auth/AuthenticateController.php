@@ -58,6 +58,7 @@ class AuthenticateController extends Controller
             'email' => $request->email,
             'username' => $request->username,
             'phone' => $request->phone,
+            'country_code' => $request->country_code,
             'bio' => $request->bio,
             'blood_type_id' => $request->blood_type_id,
             'birthdate' => $request->birthdate,

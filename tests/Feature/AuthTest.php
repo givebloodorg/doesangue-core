@@ -39,6 +39,7 @@ class AuthTest extends TestCase
             'username' => 'member1',
             'email' => 'info@doesangue.me',
             'phone' => '244932401234',
+            'country_code' => '244',
             'birthdate' => '19890401',
             'password' => 'secret1234'
           ]);

@@ -57,6 +57,18 @@ Route::group(
                         Route::delete('{campaign}', 'CampaignController@destroy');
                     }
                 );
+
+              // User donations
+              $user->get('/donations', 'DonationController@donations');
+
+              // User notifications.
+              /*$user->group(
+                [
+                 'prefix' => 'notifications', function() {
+                    Route::get('notifications', 'NotificationController');
+                 }
+                ]
+              );*/
             }
         );
 
