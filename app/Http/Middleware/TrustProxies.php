@@ -5,10 +5,10 @@ namespace DoeSangue\Http\Middleware;
 use Illuminate\Http\Request;
 use Fideloper\Proxy\TrustProxies as Middleware;
 
-class TrustProxies
+class TrustProxies extends Middleware
 {
     /**
-     * The trust proxies for this application.
+     * The trusted proxies for this application.
      *
      * @var array
      */
