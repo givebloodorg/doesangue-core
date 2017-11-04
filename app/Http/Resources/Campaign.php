@@ -19,7 +19,7 @@ class Campaign extends Resource
           'description'    => $this->description,
           'image'          => $this->image,
           'expires'        => $this->expires->format('d-m-Y H:m'),
-          'owner'          ''
+          'owner'          '',
         ];
     }
 }
