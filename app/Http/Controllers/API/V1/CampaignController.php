@@ -33,13 +33,12 @@ class CampaignController extends Controller
     /**
      * Get all details of a campaign
      *
-     * @param  integer $id
      * @return \Illuminate\Http\JsonResponse
      */
     public function show($campaign)
     {
 
-       return new CampaignResource(Campaign::find($campaign));
+        return new CampaignResource(Campaign::find($campaign));
 
     }
 
