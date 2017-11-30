@@ -17,7 +17,7 @@ class CreateInvitesTable extends Migration
             'invites', function (Blueprint $table) {
                 $table->increments('id');
                 $table->string('invite_code')->unique();
-                $table->integer('user_id');
+                $table->uuid('user_id');
                 $table->timestamps();
             }
         );

@@ -12,7 +12,5 @@ class DatabaseSeeder extends Seeder
         $this->call(UsersSeeder::class);
         $this->call(BloodTypeSeeder::class);
         $this->call(CampaignsSeeder::class);
-        $this->call(DonorsSeeder::class);
-        $this->call(DonorsSeeder::class);
     }
 }

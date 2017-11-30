@@ -18,12 +18,13 @@ class CreateCampaignsTable extends Migration
     {
         Schema::create(
             'campaigns', function (Blueprint $table) {
-                $table->increments('id');
+                $table->increments('cpid');
+                $table->uuid('id')->unique();
                 $table->string('title');
                 $table->text('description');
                 $table->string('image')->nullable();
                 $table->dateTimeTz('expires');
-                $table->integer('user_id')->unsigned();
+                $table->uuid('user_id');
                    $table->foreign('user_id')->references('id')->on('users')
                        ->onDelete('cascade');
                 $table->string('slug');

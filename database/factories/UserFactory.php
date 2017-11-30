@@ -21,6 +21,7 @@ $factory->define(DoeSangue\Models\User::class, function (Faker $faker) {
   static $password;
 
     return [
+      'id' => $faker->uuid,
       'first_name' => $faker->firstName,
       'last_name' => $faker->lastName,
       'email' => $faker->unique()->companyEmail,

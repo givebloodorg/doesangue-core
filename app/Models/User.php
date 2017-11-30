@@ -9,6 +9,7 @@ use DoeSangue\Models\Campaign;
 use DoeSangue\Models\Invite;
 use DoeSangue\Models\BloodType;
 use DoeSangue\Models\Comment;
+use Webpatser\Uuid\Uuid;
 
 class User extends Authenticatable
 {
@@ -46,7 +47,6 @@ class User extends Authenticatable
           'created_at',
           'updated_at',
           'deleted_at',
-          'id',
           'phone',
           'active',
           'username',
@@ -55,6 +55,13 @@ class User extends Authenticatable
           'email',
           'blood_type_id'
         ];
+
+      /**
+       * Indicates if the IDs are auto-incrementing.
+       *
+       * @var bool
+       */
+    public $incrementing = false;
 
     /**
      * The dates attributes.
@@ -150,11 +157,28 @@ class User extends Authenticatable
 
     /**
      * Get the user phone number
+     *
      * @return string
      */
     public function getPhoneNumberAttribute()
     {
         return $this->attributes[ 'country_code' ].$this->attributes[ 'phone' ];
+    }
+
+    /**
+     * Generate automaticaly the User uuid.
+     *
+     * @return Webpatser\Uuid\Uuid::generate()
+     */
+    public static function boot()
+    {
+        parent::boot();
+        self::creating(
+            function ($model) {
+                // Generate a version 4 Uuid.
+                $model->id = (string) Uuid::generate(4)->string;
+            }
+        );
     }
 
 }
