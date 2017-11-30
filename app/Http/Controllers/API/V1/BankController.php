@@ -10,10 +10,10 @@ use DoeSangue\Models\Bank;
 
 class BankController extends Controller
 {
-     /**
-     * Initialize the class
-     * and set the middleware
-     */
+      /**
+       * Initialize the class
+       * and set the middleware
+       */
     public function __construct()
     {
         $this->middleware('jwt.auth', [ 'except' => [ 'index' ] ]);
