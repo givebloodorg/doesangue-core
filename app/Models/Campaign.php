@@ -56,13 +56,13 @@ class Campaign extends Model
     /**
      * Generate automaticaly the Campaign id(uuid).
      *
-     * @return Webpatser\Uuid\Uuid::generate()
+     * @return void
      */
     public static function boot()
     {
         parent::boot();
         self::creating(
-            function($model) {
+            function ($model) {
                 // Generate a version 4 Uuid.
                 $model->id = (string) Uuid::generate(4)->string;
             }
