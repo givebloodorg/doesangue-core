@@ -67,7 +67,7 @@ class BloodType extends Model
     /**
      * Generate automaticaly the BloodType id(uuid).
      *
-     * @return Webpatser\Uuid\Uuid::generate()
+     * @return void
      */
     public static function boot()
     {
