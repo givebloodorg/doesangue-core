@@ -93,7 +93,7 @@ class User extends Authenticatable
     /**
      * Get user avatar or set default.png as default.
      *
-     * @return void
+     * @return string
      */
     public function getAvatarAttribute($avatar)
     {
@@ -103,7 +103,7 @@ class User extends Authenticatable
     /**
      * Returns the campaigns created by the user.
      *
-     * @return array relationship
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany relationship
      * @var    array
      */
     public function campaigns()
@@ -132,7 +132,7 @@ class User extends Authenticatable
     /**
      * Returns the comments created by the user.
      *
-     * @return array relationship
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany relationship
      * @var    array
      */
     public function comments()
@@ -174,7 +174,7 @@ class User extends Authenticatable
     {
         parent::boot();
         self::creating(
-            function ($model) {
+            function($model) {
                 // Generate a version 4 Uuid.
                 $model->id = (string) Uuid::generate(4)->string;
             }

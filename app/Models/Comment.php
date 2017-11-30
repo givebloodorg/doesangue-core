@@ -21,10 +21,10 @@ class Comment extends Model
     protected $table = 'comments';
 
     /**
-       * Indicates if the IDs are auto-incrementing.
-       *
-       * @var bool
-       */
+     * Indicates if the IDs are auto-incrementing.
+     *
+     * @var bool
+     */
     public $incrementing = false;
 
     /**
@@ -66,16 +66,16 @@ class Comment extends Model
         return $this->belongsTo(Campaign::class);
     }
 
-     /**
-     * Generate automaticaly the Comment id(uuid).
-     *
-     * @return Webpatser\Uuid\Uuid::generate()
-     */
+      /**
+       * Generate automaticaly the Comment id(uuid).
+       *
+       * @return Webpatser\Uuid\Uuid::generate()
+       */
     public static function boot()
     {
         parent::boot();
         self::creating(
-            function ($model) {
+            function($model) {
                 // Generate a version 4 Uuid.
                 $model->id = (string) Uuid::generate(4)->string;
             }

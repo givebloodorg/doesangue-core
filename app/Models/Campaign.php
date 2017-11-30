@@ -21,10 +21,10 @@ class Campaign extends Model
     protected $table = 'campaigns';
 
     /**
-       * Indicates if the IDs are auto-incrementing.
-       *
-       * @var bool
-       */
+     * Indicates if the IDs are auto-incrementing.
+     *
+     * @var bool
+     */
     public $incrementing = false;
 
     /**
@@ -62,7 +62,7 @@ class Campaign extends Model
     {
         parent::boot();
         self::creating(
-            function ($model) {
+            function($model) {
                 // Generate a version 4 Uuid.
                 $model->id = (string) Uuid::generate(4)->string;
             }
