@@ -11,7 +11,6 @@ class BloodTypeSeeder extends Seeder
      */
     public function run()
     {
-        $this->command->info('BloodTypes created sucessfully!');
 
         DB::table('blood_types')->delete();
         DB::table('blood_types')->insert(
@@ -20,5 +19,7 @@ class BloodTypeSeeder extends Seeder
             array('description' => 'O Positive', 'code' => 'O+', 'id' => '20a4c67d-8de9-668e-83aa-868a244cdfe3'),
             ]
         );
+
+        $this->command->info('BloodTypes created sucessfully!');
     }
 }

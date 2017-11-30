@@ -13,4 +13,18 @@ class Bank extends Model
       'phone',
       'location'
     ];
+
+    protected $hidden = [
+      'id',
+      'email',
+      'created_at',
+      'updated_at',
+      'delete_at'
+    ];
+
+    protected $dates = [
+      'created_at',
+      'updated_at',
+      'delete_at'
+    ];
 }

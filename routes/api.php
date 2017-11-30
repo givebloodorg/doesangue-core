@@ -74,6 +74,13 @@ Route::group(
             }
         );
 
+        // Blood Banks
+        Route::group(['prefix' => 'banks'], function($bank)
+        {
+          $bank->get('/', 'BankController@index');
+          $bank->get('/{bank}', 'BankController@show');
+        });
+
         // BloodTypes
         Route::group(['prefix' => 'bloodtypes'], function()
         {
