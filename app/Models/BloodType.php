@@ -15,6 +15,13 @@ class BloodType extends Model
     protected $table = 'blood_types';
 
     /**
+       * Indicates if the IDs are auto-incrementing.
+       *
+       * @var bool
+       */
+    public $incrementing = false;
+
+    /**
      * The attributes that are mass assignable.
      *
      * @var array
@@ -42,6 +49,7 @@ class BloodType extends Model
      */
     protected $hidden =
       [
+        'bid',
         'created_at',
         'updated_at'
       ];
@@ -54,5 +62,21 @@ class BloodType extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    /**
+     * Generate automaticaly the BloodType id(uuid).
+     *
+     * @return Webpatser\Uuid\Uuid::generate()
+     */
+    public static function boot()
+    {
+        parent::boot();
+        self::creating(
+            function ($model) {
+                // Generate a version 4 Uuid.
+                $model->id = (string) Uuid::generate(4)->string;
+            }
+        );
     }
 }

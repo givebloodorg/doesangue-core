@@ -13,7 +13,8 @@ class CreateBloodTypesTable extends Migration
     {
         Schema::create(
             'blood_types', function (Blueprint $table) {
-                $table->increments('id');
+                $table->increments('bid');
+                $table->uuid('id')->unique();
                 $table->string('description', 20);
                 $table->string('code', 10);
                 $table->timestamps();

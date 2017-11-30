@@ -16,10 +16,8 @@ class BloodTypeSeeder extends Seeder
         DB::table('blood_types')->delete();
         DB::table('blood_types')->insert(
             [
-            array('description' => 'A negative', 'code' => 'A-', 'id' => '1'),
-            array('description' => 'A Positive', 'code' => 'A+', 'id' => '2'),
-            array('description' => 'B Negative', 'code' => 'B-', 'id' => '3'),
-            array('description' => 'B Positive', 'code' => 'B+', 'id' => '4'),
+            array('description' => 'O negative', 'code' => 'O-', 'id' => '16d4b85d-8ab4-438e-94aa-400d266fbfa9'),
+            array('description' => 'O Positive', 'code' => 'O+', 'id' => '20a4c67d-8de9-668e-83aa-868a244cdfe3'),
             ]
         );
     }

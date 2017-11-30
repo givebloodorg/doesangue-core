@@ -21,6 +21,13 @@ class Campaign extends Model
     protected $table = 'campaigns';
 
     /**
+       * Indicates if the IDs are auto-incrementing.
+       *
+       * @var bool
+       */
+    public $incrementing = false;
+
+    /**
      * The attributes that are mass assignable.
      *
      * @var array

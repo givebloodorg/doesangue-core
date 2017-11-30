@@ -8,7 +8,7 @@ class Bank extends Model
 {
     protected $filliable = [
       'name',
-      'email'
+      'email',
       'url',
       'phone',
       'location'
