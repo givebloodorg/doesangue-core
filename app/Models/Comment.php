@@ -75,7 +75,7 @@ class Comment extends Model
     {
         parent::boot();
         self::creating(
-            function ($model) {
+            function($model) {
                 // Generate a version 4 Uuid.
                 $model->id = (string) Uuid::generate(4)->string;
             }
