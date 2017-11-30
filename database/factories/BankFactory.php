@@ -6,6 +6,7 @@ use Faker\Generator as Faker;
 
 $factory->define(DoeSangue\Models\Bank::class, function (Faker $faker) {
     return [
+        'id' => $faker->uuid,
         'name' => $faker->company,
         'email' => $faker->companyEmail,
         'url' => $faker->domainName,

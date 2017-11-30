@@ -6,12 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use DoeSangue\Models\User;
 use DoeSangue\Models\Comment;
-use Webpatser\Uuid\Uuid;
+use DoeSangue\Uuids;
 
 class Campaign extends Model
 {
 
-    use SoftDeletes;
+    use SoftDeletes, Uuids;
 
     /**
      * The table associated with the model.
@@ -53,19 +53,4 @@ class Campaign extends Model
         return $this->hasMany(Comment::class);
     }
 
-    /**
-     * Generate automaticaly the Campaign id(uuid).
-     *
-     * @return void
-     */
-    public static function boot()
-    {
-        parent::boot();
-        self::creating(
-            function($model) {
-                // Generate a version 4 Uuid.
-                $model->id = (string) Uuid::generate(4)->string;
-            }
-        );
-    }
 }

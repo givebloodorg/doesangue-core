@@ -9,11 +9,11 @@ use DoeSangue\Models\Campaign;
 use DoeSangue\Models\Invite;
 use DoeSangue\Models\BloodType;
 use DoeSangue\Models\Comment;
-use Webpatser\Uuid\Uuid;
+use DoeSangue\Uuids;
 
 class User extends Authenticatable
 {
-    use Notifiable, SoftDeletes;
+    use Notifiable, SoftDeletes, Uuids;
 
     /**
      * The attributes that are mass assignable.
@@ -163,22 +163,6 @@ class User extends Authenticatable
     public function getPhoneNumberAttribute()
     {
         return $this->attributes[ 'country_code' ].$this->attributes[ 'phone' ];
-    }
-
-    /**
-     * Generate automaticaly the User uuid.
-     *
-     * @return void
-     */
-    public static function boot()
-    {
-        parent::boot();
-        self::creating(
-            function($model) {
-                // Generate a version 4 Uuid.
-                $model->id = (string) Uuid::generate(4)->string;
-            }
-        );
     }
 
 }

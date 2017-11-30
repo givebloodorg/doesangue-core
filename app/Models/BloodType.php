@@ -4,9 +4,13 @@ namespace DoeSangue\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use DoeSangue\Models\User;
+use DoeSangue\Uuids;
 
 class BloodType extends Model
 {
+
+  use Uuids;
+
     /**
      * The table associated with the model.
      *
@@ -62,21 +66,5 @@ class BloodType extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
-    }
-
-    /**
-     * Generate automaticaly the BloodType id(uuid).
-     *
-     * @return void
-     */
-    public static function boot()
-    {
-        parent::boot();
-        self::creating(
-            function($model) {
-                // Generate a version 4 Uuid.
-                $model->id = (string) Uuid::generate(4)->string;
-            }
-        );
     }
 }

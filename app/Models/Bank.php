@@ -3,9 +3,22 @@
 namespace DoeSangue\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use DoeSangue\Uuids;
 
 class Bank extends Model
 {
+
+  use SoftDeletes, Uuids;
+
+    /**
+     * Indicates if the IDs are auto-incrementing.
+     *
+     * @var bool
+     */
+    public $incrementing = false;
+
+
     protected $filliable = [
       'name',
       'email',
@@ -15,16 +28,16 @@ class Bank extends Model
     ];
 
     protected $hidden = [
-      'id',
+      'bid',
       'email',
       'created_at',
       'updated_at',
-      'delete_at'
+      'deleted_at'
     ];
 
     protected $dates = [
       'created_at',
       'updated_at',
-      'delete_at'
+      'deleted_at'
     ];
 }

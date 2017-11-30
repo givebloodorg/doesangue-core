@@ -25,8 +25,8 @@ class CreateUsersTable extends Migration
                 $table->date('birthdate');
                 $table->longText('bio')->nullable();
                 $table->string('avatar')->nullable();
-                $table->integer('blood_type_id')->unsigned()->nullable();
-              //  $table->foreign('blood_type_id')->references('id')->on('blood_types');
+                $table->uuid('blood_type_id')->nullable();
+              //$table->foreign('blood_type_id')->references('id')->on('blood_types');
                 $table->enum('status', ['active', 'inactive'])->default('inactive');
                 $table->rememberToken();
                 $table->timestamps();
