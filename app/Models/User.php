@@ -157,12 +157,4 @@ class User extends Authenticatable
         return $this->attributes[ 'country_code' ].$this->attributes[ 'phone' ];
     }
 
-    /**
-     * Return the user fullname
-     * @return string
-     */
-    public function getPhoneFullNameAttribute()
-    {
-        return $this->attributes[ 'first_name' ]. $this->attributes[ 'last_name' ];
-    }
 }
