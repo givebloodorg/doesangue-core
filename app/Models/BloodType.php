@@ -15,10 +15,10 @@ class BloodType extends Model
     protected $table = 'blood_types';
 
     /**
-       * Indicates if the IDs are auto-incrementing.
-       *
-       * @var bool
-       */
+     * Indicates if the IDs are auto-incrementing.
+     *
+     * @var bool
+     */
     public $incrementing = false;
 
     /**
@@ -57,7 +57,7 @@ class BloodType extends Model
     /**
      * Related.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function user()
     {
@@ -73,7 +73,7 @@ class BloodType extends Model
     {
         parent::boot();
         self::creating(
-            function ($model) {
+            function($model) {
                 // Generate a version 4 Uuid.
                 $model->id = (string) Uuid::generate(4)->string;
             }
