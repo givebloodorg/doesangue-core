@@ -6,11 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use DoeSangue\Models\User;
 use DoeSangue\Models\Comment;
+use DoeSangue\Uuids;
 
 class Campaign extends Model
 {
 
-    use SoftDeletes;
+    use SoftDeletes, Uuids;
 
     /**
      * The table associated with the model.
@@ -18,6 +19,13 @@ class Campaign extends Model
      * @var string
      */
     protected $table = 'campaigns';
+
+    /**
+     * Indicates if the IDs are auto-incrementing.
+     *
+     * @var bool
+     */
+    public $incrementing = false;
 
     /**
      * The attributes that are mass assignable.
@@ -44,4 +52,5 @@ class Campaign extends Model
     {
         return $this->hasMany(Comment::class);
     }
+
 }

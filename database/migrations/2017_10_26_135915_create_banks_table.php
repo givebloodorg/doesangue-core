@@ -14,8 +14,14 @@ class CreateBanksTable extends Migration
     public function up()
     {
         Schema::create('banks', function (Blueprint $table) {
-            $table->increments('id');
+            $table->uuid('id')->unique()->primary();
+            $table->string('name');
+            $table->string('email');
+            $table->string('url');
+            $table->string('phone');
+            $table->string('location');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

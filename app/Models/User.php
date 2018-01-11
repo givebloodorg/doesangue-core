@@ -9,10 +9,11 @@ use DoeSangue\Models\Campaign;
 use DoeSangue\Models\Invite;
 use DoeSangue\Models\BloodType;
 use DoeSangue\Models\Comment;
+use DoeSangue\Uuids;
 
 class User extends Authenticatable
 {
-    use Notifiable, SoftDeletes;
+    use Notifiable, SoftDeletes, Uuids;
 
     /**
      * The attributes that are mass assignable.
@@ -42,11 +43,11 @@ class User extends Authenticatable
     protected $hidden =
         [
           'password',
+          'uid',
           'remember_token',
           'created_at',
           'updated_at',
           'deleted_at',
-          'id',
           'phone',
           'active',
           'username',
@@ -55,6 +56,13 @@ class User extends Authenticatable
           'email',
           'blood_type_id'
         ];
+
+      /**
+       * Indicates if the IDs are auto-incrementing.
+       *
+       * @var bool
+       */
+    public $incrementing = false;
 
     /**
      * The dates attributes.
@@ -86,7 +94,7 @@ class User extends Authenticatable
     /**
      * Get user avatar or set default.png as default.
      *
-     * @return void
+     * @return string
      */
     public function getAvatarAttribute($avatar)
     {
@@ -96,7 +104,7 @@ class User extends Authenticatable
     /**
      * Returns the campaigns created by the user.
      *
-     * @return array relationship
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany relationship
      * @var    array
      */
     public function campaigns()
@@ -125,7 +133,7 @@ class User extends Authenticatable
     /**
      * Returns the comments created by the user.
      *
-     * @return array relationship
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany relationship
      * @var    array
      */
     public function comments()
@@ -150,6 +158,7 @@ class User extends Authenticatable
 
     /**
      * Get the user phone number
+     *
      * @return string
      */
     public function getPhoneNumberAttribute()
@@ -157,12 +166,4 @@ class User extends Authenticatable
         return $this->attributes[ 'country_code' ].$this->attributes[ 'phone' ];
     }
 
-    /**
-     * Return the user fullname
-     * @return string
-     */
-    public function getPhoneFullNameAttribute()
-    {
-        return $this->attributes[ 'first_name' ]. $this->attributes[ 'last_name' ];
-    }
 }

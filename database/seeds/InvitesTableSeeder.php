@@ -13,16 +13,7 @@ class InvitesTableSeeder extends Seeder
     {
         //
         DB::table('invites')->delete();
-        DB::table('invites')->insert(
-            [
-            [
-              'user_id' => 1, 'invite_code' => Hash::make('joinUS2017')
-            ],
-            [
-              'user_id' => 2, 'invite_code' => Hash::make('joinUSNow')
-            ]
-            ]
-        );
+
         $this->command->info('Invites created sucessfully!');
     }
 }

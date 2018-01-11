@@ -23,10 +23,10 @@ Route::get(
 Route::group(
     ['prefix' => 'v1', 'namespace' => 'Auth'], function ($auth) {
         $auth->post('/auth/login', 'AuthenticateController@authenticate');
-        $auth->post('/auth/logout', 'AuthenticateController@logout');
+        $auth->get('/auth/logout', 'AuthenticateController@logout');
         $auth->post('/auth/register', 'AuthenticateController@register');
         $auth->group(['prefix' => 'password', 'namespace' => 'V1'], function($password) {
-          $password->get('/recover', 'PasswordResetController@recover');
+          $password->post('/recover', 'PasswordResetController@recover')->name('password.reset');
           $password->post('/reset/{token}', 'PasswordResetController@reset');
         });
     }
@@ -73,6 +73,13 @@ Route::group(
               );*/
             }
         );
+
+        // Blood Banks
+        Route::group(['prefix' => 'banks'], function($bank)
+        {
+          $bank->get('/', 'BankController@index');
+          $bank->get('/{bank}', 'BankController@show');
+        });
 
         // BloodTypes
         Route::group(['prefix' => 'bloodtypes'], function()

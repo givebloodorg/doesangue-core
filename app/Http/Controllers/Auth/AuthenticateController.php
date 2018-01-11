@@ -6,6 +6,7 @@ use JWTAuth;
 use Tymon\JWTAuth\Exceptions\JWTException;
 use DoeSangue\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 use DoeSangue\Http\Requests\RegisterUserRequest;
 use DoeSangue\Mail\UserCreated;
 use Illuminate\Support\Facades\Mail;
@@ -16,17 +17,22 @@ class AuthenticateController extends Controller
       /**
        * Authenticate the user
        *
-       * @param Request $request
+       * @param  Request $request
        * @return \Illuminate\Http\JsonResponse
        */
     public function authenticate(Request $request)
     {
-        // grab credentials from the request
-        $credentials = $request->only('email', 'password');
 
         try {
+
+            // grab credentials from the request
             // attempt to verify the credentials and create a token for the user
-            if (!$token = JWTAuth::attempt($credentials)) {
+            if (!$token = JWTAuth::attempt(
+                $request->only('email', 'password'), [
+                'exp' => Carbon::now()->addWeek()->timestamp,
+                ]
+            )
+            ) {
                 return response()->json([ 'error' => 'invalid_credentials' ], 401);
             }
         } catch (JWTException $e) {
@@ -37,8 +43,8 @@ class AuthenticateController extends Controller
         // all good so return the token
         return response()->json(
             [
-              'access_token' => $token,
-              'token_type' => 'Bearer'
+            'access_token' => $token,
+            'token_type' => 'Bearer'
             ], 200
         );
     }
@@ -46,7 +52,7 @@ class AuthenticateController extends Controller
     /**
      * Register a new User
      *
-     * @param RegisterUserRequest $request
+     * @param  RegisterUserRequest $request
      * @return \Illuminate\Http\JsonResponse
      */
     public function register(RegisterUserRequest $request)
@@ -85,12 +91,24 @@ class AuthenticateController extends Controller
     /**
      * Invalidate and log out the user
      *
-     * @return void
-     *
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
      */
-    public function logout()
+    public function logout(Request $request)
     {
-        //
+      $this->validate($request, [ 'token' => 'required' ]);
+
+      try {
+        JWTAuth::invalidate($request->input('token'));
+        return response()->json(
+          [
+            'success' => true
+          ]
+        );
+      } catch (JWTException $e) {
+        // Something went wrong whilst attemping to encode the token
+        return response()->json([ 'success' => false, 'error' => 'Failed to logout, please try again.', 500 ]);
+      }
     }
 
 }

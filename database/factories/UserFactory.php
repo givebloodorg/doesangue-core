@@ -2,6 +2,8 @@
 
 use Faker\Generator as Faker;
 
+use DoeSangue\Models\BloodType;
+
 /*
 |--------------------------------------------------------------------------
 | Model Factories
@@ -21,6 +23,7 @@ $factory->define(DoeSangue\Models\User::class, function (Faker $faker) {
   static $password;
 
     return [
+      'id' => $faker->uuid,
       'first_name' => $faker->firstName,
       'last_name' => $faker->lastName,
       'email' => $faker->unique()->companyEmail,
@@ -28,7 +31,7 @@ $factory->define(DoeSangue\Models\User::class, function (Faker $faker) {
       'phone' => $faker->tollFreePhoneNumber,
       'bio' => $faker->text($maxNbChars = 100),
       'birthdate' => $faker->date,
-      'blood_type_id' => $faker->randomDigit,
+      'blood_type_id' => factory(BloodType::class)->create(),
       'password' => $password ?: $password = bcrypt('secret'),
       'remember_token' => str_random(10),
     ];
