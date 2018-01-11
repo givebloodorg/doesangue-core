@@ -20,7 +20,7 @@ class PasswordResetController extends Controller
       $user = User::where('email', $request->email)->first();
       if (!$user) {
         $error_message = "Your email address was not found.";
-        return response()->json(['success' => false, 'error' => ['email' => $error_message]], 401);
+        return response()->json([ 'success' => false, 'error' => [ 'email' => $error_message ] ], 401);
       }
 
       try {
@@ -30,12 +30,12 @@ class PasswordResetController extends Controller
       } catch (Exception $e) {
         // Return with error
         $error_message = $e->getMessage();
-        return response()->json(['success' => false, 'error' => $error_message], 401);
+        return response()->json([ 'success' => false, 'error' => $error_message ], 401);
       }
 
       return response()->json([
         'success' => true,
-        'data' => ['message' => 'A reset email has been sent! Please check your email.']
+        'data' => [ 'message' => 'A reset email has been sent! Please check your email.' ]
         ]);
     }
 }
