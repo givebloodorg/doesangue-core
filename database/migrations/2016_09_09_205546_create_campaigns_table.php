@@ -18,8 +18,7 @@ class CreateCampaignsTable extends Migration
     {
         Schema::create(
             'campaigns', function (Blueprint $table) {
-                $table->increments('cpid');
-                $table->uuid('id')->unique();
+                $table->uuid('id')->unique()->primary();
                 $table->string('title');
                 $table->text('description');
                 $table->string('image')->nullable();

@@ -9,9 +9,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call(UsersSeeder::class);
         $this->call(BloodTypeSeeder::class);
-        $this->call(CampaignsSeeder::class);
+        $this->call(UsersSeeder::class);
         $this->call(BanksSeeder::class);
+        $this->call(CampaignsSeeder::class);
     }
 }
