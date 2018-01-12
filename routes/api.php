@@ -24,10 +24,15 @@ Route::group(
     ['prefix' => 'v1', 'namespace' => 'Auth'], function ($auth) {
         $auth->post('/auth/login', 'AuthenticateController@authenticate');
         $auth->get('/auth/logout', 'AuthenticateController@logout');
-        $auth->post('/auth/register', 'AuthenticateController@register');
+//        $auth->post('/auth/register', 'AuthenticateController@register');
         $auth->group(['prefix' => 'password', 'namespace' => 'V1'], function($password) {
           $password->post('/recover', 'PasswordResetController@recover')->name('password.reset');
           $password->post('/reset/{token}', 'PasswordResetController@reset');
+        });
+        // invitation routes
+        $auth->group(['prefix' => 'invitation', 'namespace' => 'V1'], function($invitation) {
+            $invitation->post('/', 'InvitationRequestsController@createInvitation');
+            $invitation->get('/check', 'InvitationRequestsController@checkInvation');
         });
     }
 );
@@ -117,6 +122,7 @@ Route::group(
             }
         );
 
+        /*
         // Invites.
         Route::group(
             ['prefix' => 'invites'], function ($invite) {
@@ -128,6 +134,7 @@ Route::group(
                 $invite->delete('/{invite}', 'InvitesController@destroy');
             }
         );
+        */
 
         /*
         // Search campaigns and donors.

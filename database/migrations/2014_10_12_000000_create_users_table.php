@@ -20,13 +20,15 @@ class CreateUsersTable extends Migration
                 $table->string('email')->unique();
                 $table->string('password');
                 $table->string('phone', 15)->nullable();
-                $table->string('country_code', 4)->nullable();
                 $table->date('birthdate');
                 $table->longText('bio')->nullable();
                 $table->string('avatar')->nullable();
                 $table->uuid('blood_type_id')->nullable();
                 $table->foreign('blood_type_id')->references('id')
                       ->on('blood_types');
+                $table->uuid('country_id')->nullable();
+                $table->foreign('country_id')->references('id')
+                      ->on('countries');
                 $table->enum('status', ['active', 'inactive'])->default('inactive');
                 $table->rememberToken();
                 $table->timestamps();
