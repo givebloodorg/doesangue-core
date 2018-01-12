@@ -26,7 +26,7 @@ class CreateUsersTable extends Migration
                 $table->uuid('blood_type_id')->nullable();
                 $table->foreign('blood_type_id')->references('id')
                       ->on('blood_types');
-                $table->uuid('country_id')->nullable();
+                $table->integer('country_id')->nullable()->unsigned();
                 $table->foreign('country_id')->references('id')
                       ->on('countries');
                 $table->enum('status', ['active', 'inactive'])->default('inactive');
