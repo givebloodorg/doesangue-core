@@ -20,7 +20,7 @@ use Faker\Generator as Faker;
 $factory->define(DoeSangue\Models\BloodType::class, function (Faker $faker) {
   return [
     'id' => $faker->uuid,
-    'description' => $faker->title,
-    'code' => $faker->randomDigit,
+    'description' => $faker->randomElement(['O Positivo', 'O Negativo', 'A', 'A Negativo']),
+    'code' => $faker->randomElement(['O+', 'O-', 'A', 'A-']),
   ];
 });
