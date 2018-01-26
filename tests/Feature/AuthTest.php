@@ -32,24 +32,20 @@ class AuthTest extends TestCase
             ]
         );*/
 
-        $response = $this->json('POST', 'v1/auth/register',
+        $response = $this->json('POST', 'v1/invitation',
           [
-            'first_name' => 'Doe Sangue',
+            'first_name' => 'Gamer',
             'last_name' => "Tester",
-            'username' => 'member1',
-            'email' => 'info@doesangue.me',
-            'phone' => '244932401234',
-            'country_code' => '244',
-            'birthdate' => '19890401',
-            'password' => 'secret1234'
+            'guest_email' => 'gamer.tester@internet.io',
+            'country_id' => '1',
+            'token' => \Hash::make(str_random(60))
           ]);
 
         $response
            ->assertStatus(201)
            ->assertJsonStructure(
              [
-              'access_token',
-              'token_type'
+              'message'
              ]
            );
     }
