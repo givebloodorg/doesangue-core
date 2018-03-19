@@ -1,0 +1,46 @@
+{
+  "projectName": "doesangue-core",
+  "projectOwner": "doesangueorg",
+  "files": [
+    "CONTRIBUTORS.md",
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "JoseCage",
+      "name": "José Cage ",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/4200487?v=4",
+      "profile": "https://josecage.github.io",
+      "contributions": [
+        "code",
+        "doc",
+        "ideas",
+        "review",
+        "test"
+      ]
+    },
+    {
+      "login": "vinicius73",
+      "name": "Vinicius Reis",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/1561347?v=4",
+      "profile": "http://luizvinicius.com.br/",
+      "contributions": [
+        "doc",
+        "example",
+        "tool"
+      ]
+    },
+    {
+      "login": "pablolovera",
+      "name": "Pablo Lovera",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/3923722?v=4",
+      "profile": "https://github.com/pablolovera",
+      "contributions": [
+        "code",
+        "example"
+      ]
+    }
+  ]
+}

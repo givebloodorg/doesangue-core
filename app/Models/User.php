@@ -4,58 +4,82 @@ namespace DoeSangue\Models;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use DoeSangue\Models\Campaign;
-use DoeSangue\Models\Donor;
 use DoeSangue\Models\Invite;
+use DoeSangue\Models\BloodType;
 use DoeSangue\Models\Comment;
+use DoeSangue\Uuids;
 
 class User extends Authenticatable
 {
-    use Notifiable;
+    use Notifiable, SoftDeletes, Uuids;
 
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
-    protected $fillable = [
-                            'first_name',
-                            'last_name',
-                            'email',
-                            'username',
-                            'phone',
-                            'bio',
-                            'birthdate',
-                            'active',
-                            'password',
-                          ];
+    protected $fillable =
+      [
+        'first_name',
+        'last_name',
+        'email',
+        'username',
+        'phone',
+        'country_code',
+        'bio',
+        'birthdate',
+        'active',
+        'password',
+        'blood_type_id',
+        ];
 
     /**
      * The attributes that should be hidden for arrays.
      *
      * @var array
      */
-    protected $hidden = [
-                          'password',
-                          'remember_token',
-                          'created_at',
-                          'updated_at',
-                          'deleted_at',
-                          'id',
-                          'phone',
-                          'active'
-                        ];
+    protected $hidden =
+        [
+          'password',
+          'uid',
+          'remember_token',
+          'created_at',
+          'updated_at',
+          'deleted_at',
+          'phone',
+          'active',
+          'username',
+          'is_active',
+          'birthdate',
+          'email',
+          'blood_type_id'
+        ];
+
+      /**
+       * Indicates if the IDs are auto-incrementing.
+       *
+       * @var bool
+       */
+    public $incrementing = false;
 
     /**
      * The dates attributes.
      *
      * @var array $dates
      */
-    protected $dates = [
-      'created_at', 'updated_at', 'deleted_at'
-    ];
+    protected $dates =
+      [
+        'created_at',
+        'updated_at',
+        'deleted_at'
+      ];
 
-    protected $appends = [ 'is_active' ];
+    protected $appends =
+      [
+        'is_active'
+      ];
 
     /**
      * Returns the full name of user.
@@ -64,13 +88,23 @@ class User extends Authenticatable
      */
     public function getFullNameAttribute($value)
     {
-        return ucfirst($this->first_name) . ' ' . ucfirst($this->last_name);
+        return ucfirst($this->first_name).' '.ucfirst($this->last_name);
+    }
+
+    /**
+     * Get user avatar or set default.png as default.
+     *
+     * @return string
+     */
+    public function getAvatarAttribute($avatar)
+    {
+        return asset($avatar ?: 'images/avatars/default.png');
     }
 
     /**
      * Returns the campaigns created by the user.
      *
-     * @return array relationship
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany relationship
      * @var    array
      */
     public function campaigns()
@@ -78,9 +112,14 @@ class User extends Authenticatable
         return $this->hasMany(Campaign::class);
     }
 
-    public function donor()
+    /**
+     * Related.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function bloodType()
     {
-        return $this->hasOne(Donor::class);
+        return $this->belongsTo(BloodType::class, 'blood_type_id');
     }
 
     /**
@@ -94,7 +133,7 @@ class User extends Authenticatable
     /**
      * Returns the comments created by the user.
      *
-     * @return array relationship
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany relationship
      * @var    array
      */
     public function comments()
@@ -104,6 +143,27 @@ class User extends Authenticatable
 
     public function getIsActiveAttribute()
     {
-        return $this->attributes['active'] == true;
+        return $this->attributes[ 'status' ] == "active";
     }
+
+    /**
+     * Get the route key for the model.
+     *
+     * @return string
+     */
+    public function getRouteKeyName()
+    {
+        return 'username';
+    }
+
+    /**
+     * Get the user phone number
+     *
+     * @return string
+     */
+    public function getPhoneNumberAttribute()
+    {
+        return $this->attributes[ 'country_code' ].$this->attributes[ 'phone' ];
+    }
+
 }

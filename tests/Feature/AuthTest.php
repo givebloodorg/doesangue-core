@@ -3,14 +3,14 @@
 namespace Tests\Feature;
 
 use Tests\TestCase;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithoutMiddleware;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Illuminate\Foundation\Testing\DatabaseTransactions;
 use DoeSangue\Models\User;
 
 class AuthTest extends TestCase
 {
-    use WithoutMiddleware;
+    use RefreshDatabase;
+
     /**
      * Test if user can create account (register)
      * Test: Get /v1/auth/register
@@ -20,7 +20,7 @@ class AuthTest extends TestCase
     public function testUsercanRegister()
     {
 
-        $request = $this->post(
+       /* $request = $this->post(
             '/v1/auth/register', [
             'first_name' => 'Doe Sangue',
             'last_name' => "Tester",
@@ -30,9 +30,24 @@ class AuthTest extends TestCase
             'birthdate' => '19890401',
             'password' => 'secret1234'
             ]
-        );
+        );*/
 
-        $request->assertStatus(201);
+        $response = $this->json('POST', 'v1/invitation',
+          [
+            'first_name' => 'Gamer',
+            'last_name' => "Tester",
+            'guest_email' => 'gamer.tester@internet.io',
+            'country_id' => '1',
+            'token' => \Hash::make(str_random(60))
+          ]);
+
+        $response
+           ->assertStatus(201)
+           ->assertJsonStructure(
+             [
+              'message'
+             ]
+           );
     }
 
     /**
@@ -43,16 +58,27 @@ class AuthTest extends TestCase
         // Create the user before login.
         $user = factory(User::class)->create();
 
-        $request = $this->post(
+        $response = $this->json('POST', 'v1/auth/login',
+          [
+            'email' => $user->email,
+            'password' => 'secret'
+          ]);
+
+        $response
+           ->assertStatus(200)
+           ->assertJsonStructure([
+            'access_token',
+            'token_type'
+           ]);
+
+       /* $request = $this->post(
             '/v1/auth/login',
             [
             'email' => $user->email,
             'password' => 'secret'
             ]
-        );
-    
-        $request->assertStatus(200);
-        // return $this->assertEquals('200', $request->status());
+        );*/
+
     }
 
     /**

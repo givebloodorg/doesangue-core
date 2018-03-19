@@ -1,5 +1,7 @@
 # Contributing to doesangue.me
 
+**Working on your first Pull Request?** You can learn how from this *free* series [How to Contribute to an Open Source Project on GitHub](https://egghead.io/series/how-to-contribute-to-an-open-source-project-on-github)
+
 :cake: First off, thanks for taking you precious time to contribute. :+1:
 The following is a set of guidelines for Contributing to **Doe Sangue.me** and it's projects/apps, which are in the [Doe Sangue](https://github.com/doesangueorg) on Github. These are just guidelines, not rules. Use your best judgement, and feel free to propose changes to this document in a **Pull Request**.
 
@@ -7,8 +9,9 @@ The following is a set of guidelines for Contributing to **Doe Sangue.me** and i
 [What to know before start?](#getting-started)
  * [How?](#how)
  * [Pull Requests](#pull-requests)
-[Styleguide](#styleguide)
+* [Styleguide](#styleguide)
  * [Commits](#git-commit-messages)
+ * [Contributors list](#contributors)
 
 
 
@@ -60,7 +63,7 @@ Finally, go to Github and make a [Pull Request](https://help.github.com/articles
 * Use the [PSR-2 Coding Standard](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md). The easiest way to apply the conventions is to install the [PHP Code Sniffer](http://pear.php.net/package/PHP_CodeSniffer).
 
 * **Add tests**! Your pull request won't be accepted if it doesn't have tests (or if it doesn't passes). 
-* **Document any change in behavior**. Make sure the **README.md** and any other relevant documentation are kept up-to-date.
+* **Document any change in behavior**. Make sure the **README.md**, **CONTRIBUTORS.md** and any other relevant documentation are kept up-to-date.
 * Don't worry about updating CHANGELOG.md. The package administrator will handle updating those when new releases are created.
 
 ### Styleguide
@@ -91,6 +94,25 @@ Finally, go to Github and make a [Pull Request](https://help.github.com/articles
 :arrow_down: |``:arrow_down:``| when downgrading dependencies
 :shirt: |``:shirt:``| when removing linter warnings
 
+### Contributors
+After you have created/added your features, changes don't forget to add yourself to our **contributors list** following the next steps:
+
+ * Install **all-contributors** dependency
+ ```bash
+  npm install
+ ```
+
+ * Run the `add` command with your name and category ([list of categories](https://github.com/kentcdodds/all-contributors#emoji-key))
+
+ ```bash 
+  npm run add YOURNAME category1 category2
+ ```
+  Or run only the ``npm run add`` without arguments and will be open and interactive prompt
+
+ * Then update the list with you name
+ ```bash 
+  npm run generate
+ ```
 
 ### TO-DO
 * Add the styleguide.
