@@ -1,6 +1,6 @@
 <?php
 
-namespace DoeSangue\GraphQL\Mutations;
+namespace DoeSangue\GraphQL\Mutation;
 
 class NewBankMutation
 {

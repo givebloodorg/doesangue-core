@@ -1,6 +1,6 @@
 <?php
 
-namespace DoeSangue\GraphQL\Types;
+namespace DoeSangue\GraphQL\Type;
 
 class CampaignsType
 {

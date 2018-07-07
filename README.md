@@ -1,4 +1,4 @@
-# This project is now archived.
+# This project was paused.
 Read about it [here](https://medium.com/@JoseCage/chegou-a-hora-do-adeus-doesangue-e-um-recomeço-para-mim-faf11ab27163)
 
 [![Packagist](https://img.shields.io/packagist/v/doesangueorg/core.svg)](https://packagist.org/packages/doesangueorg/core)
