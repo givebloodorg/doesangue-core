@@ -15,7 +15,7 @@ class InvitationRequestsController extends Controller
      * @param UserInvitationRequest $request
      * @return void
      */
-    public function createInvitation(UserInvitationRequest $request)
+    public function createInvitation(Request $request)
     {
 
         $guestExist = DB::table('invitation_requests')
