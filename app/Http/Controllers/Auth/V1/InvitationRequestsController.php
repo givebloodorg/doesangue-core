@@ -5,7 +5,8 @@ namespace DoeSangue\Http\Controllers\Auth\V1;
 use Illuminate\Http\Request;
 use DoeSangue\Http\Controllers\Controller;
 use DoeSangue\Http\Requests\UserInvitationRequest;
-use Hash, DB;
+use Hash,
+    DB;
 
 class InvitationRequestsController extends Controller
 {
@@ -13,13 +14,13 @@ class InvitationRequestsController extends Controller
      * Create an invite when user requests from API.
      *
      * @param UserInvitationRequest $request
-     * @return void
+     * @return \Illuminate\Http\JsonResponse
      */
     public function createInvitation(Request $request)
     {
 
         $guestExist = DB::table('invitation_requests')
-                     ->where('guest_email', $request['guest_email'])->first();
+                      ->where('guest_email', $request['guest_email'])->first();
 
         if (!$guestExist) {
             $guest = [

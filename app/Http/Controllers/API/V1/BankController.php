@@ -3,7 +3,6 @@
 namespace DoeSangue\Http\Controllers\API\V1;
 
 use DoeSangue\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use DoeSangue\Http\Resources\BanksCollection;
 use DoeSangue\Http\Resources\Bank as BankResource;
 use DoeSangue\Models\Bank;
