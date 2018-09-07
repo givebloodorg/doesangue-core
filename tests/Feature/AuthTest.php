@@ -35,7 +35,7 @@ class AuthTest extends TestCase
         $response = $this->json('POST', 'v1/invitation',
           [
             'first_name' => 'Gamer',
-            'last_name' => "Tester",
+            'last_name' => 'Tester',
             'guest_email' => 'gamer.tester@internet.io',
             'country_id' => '1',
             'token' => \Hash::make(str_random(60))
