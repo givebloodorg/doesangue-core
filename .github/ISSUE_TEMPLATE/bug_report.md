@@ -6,13 +6,18 @@ about: Create a report to help us improve
 
 **Describe the bug**
 A clear and concise description of what the bug is.
+* Core Version: 1.0.
+* PHP Version: 7.
+* Database Driver & Version:
+
+- [ ] I have read the CONTRIBUTING document.
+- [ ] This isn't a duplicate issue.
+
 
 **To Reproduce**
 Steps to reproduce the behavior:
-1. Go to '...'
-2. Click on '....'
-3. Scroll down to '....'
-4. See error
+1. Add your steps line by line
+2. Just like in this example
 
 **Expected behavior**
 A clear and concise description of what you expected to happen.
