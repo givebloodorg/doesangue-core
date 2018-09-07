@@ -9,3 +9,4 @@ bower_components
 .git/
 .env.testing
 #composer.lock
+/.theia/
