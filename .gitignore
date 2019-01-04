@@ -10,3 +10,5 @@ bower_components
 .env.testing
 #composer.lock
 .theia/
+composer.lock
+Procfile
