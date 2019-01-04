@@ -1,47 +1,31 @@
----
 language: php
 php:
-#  - 5.6
-#  - 7.0
-  - 7.1
-  - nightly
-
+- 7.1
+- nightly
 addons:
-    postgresql: "9.6"
-    code_climate:
-        repo_token: $CODECLIMATE_API_TOKEN
-
+  postgresql: '9.6'
+  code_climate:
+    repo_token: "$CODECLIMATE_API_TOKEN"
 services:
-  - postgresql
-  - redis-server
-
+- postgresql
+- redis-server
 cache:
   directories:
-    - node_modules
-    - ~/.composer/cache
-
+  - node_modules
+  - "~/.composer/cache"
 sudo: false
 dist: trusty
-
 notifications:
-  slack: mentedigital:duwI9LzVAI2ZgDbtie5vwpR7
-  slack: projetodoesangue:n3fh7tZf7ZtGAiqzQPlIypiI
-
+  slack:
+    secure: g5gScU7zKCyMI1gZnoezl4VDAFQ5DZgr/Vav5kVbxCiItw+J6vvMqygmK5CFwNaYwvStJ9tIfJPvbxlRyEfF3qzRyCtpzKelbzyG79y/ecICVFI3Qd52FyXmgk/HrijxqeBU3geSSu1yi9fObf6DpmJ9jBdAeyCJ1dXCaaPe75aq7tPljxd4Qh2Omw/XjTdTqO5YWZ1wM3CAuIrobDtDNQ+fDHpam5Kdb62T9uR0d7MTHygHefoOw+1AWHVggNzAP4uBi7rU3XXMJDeAjUlPw6Mg3SRhsfJ3RechLVq/7dw7fQpHsoG8o6ySqd6CvLT2qFFdQ6kX3nSMIsO49CV8QtghICTwnzqbyhnQeI05tqlkYDC0i9AY4TF7kx4Uy7GvrvjjekJlMBGNLrYzPoSYBIms1lGbprqDAASoM73m4IhNWQ0GQiMeIf1ctrgzj0H0SxPPGSANn57YIAfhsioXsR/ChvNhreUyNHBinAO3afR7VI0utsPLwWiKzvDDh7NzIwqFzgQAeocu3pbuStPk1/hQZiMjJINNlFPHv/00j36+YuqKJxPM1y+fis1cloEsHhx29tKy9RtqyHlXsszTM34gbmQuSzJ+oLaaKm63uCAAPJFgb1g01/57ZlIbnZ9riGIORMkoJvqbDO7MRllpGFvSVjewSy6XroC5wjlGSZ4=
 install: composer install
-
 before_script:
-  - psql -c 'create database doesangue_test;' -U postgres
-#  - travis_retry composer install --no-interaction --prefer-source --dev
-#  - pip install --user codecov
-  - composer require codeclimate/php-test-reporter --dev
-
+- psql -c 'create database doesangue_test;' -U postgres
+- composer require codeclimate/php-test-reporter --dev
 script:
-  - php artisan migrate --env=testing --no-interaction
-#  - php artisan db:seed --env=testing --no-interaction
-#  - vendor/bin/phpunit --coverage-clover=coverage.xml
-  - vendor/bin/phpunit
-  - sh ./cache-clean.sh
-
+- php artisan migrate --env=testing --no-interaction
+- vendor/bin/phpunit
+- sh ./cache-clean.sh
 after_success:
-  - bash <(curl -s https://codecov.io/bash)
-  - vendor/bin/test-reporter
+- bash <(curl -s https://codecov.io/bash)
+- vendor/bin/test-reporter
