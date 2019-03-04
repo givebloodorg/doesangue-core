@@ -1,6 +1,6 @@
 <?php
 
-namespace DoeSangue\Console\Commands;
+namespace GiveBlood\Console\Commands;
 
 //use Illuminate\Console\Command;
 use Illuminate\Foundation\Console\ModelMakeCommand;
@@ -19,14 +19,14 @@ class MakeModelCommand extends ModelMakeCommand
      *
      * @var string
      */
-    protected $description = 'Create a new model class with Models namespace';
+    protected $description = 'Create a new model class with Modules namespace';
 
 
     protected function getPath($name)
     {
         $name = str_replace_first($this->rootNamespace(), '', $name);
 
-        return $this->laravel[ 'path' ].'/Models/'.str_replace('\\', '/', $name).'.php';
+        return $this->laravel[ 'path' ].'/Modules/'.str_replace('\\', '/', $name).'.php';
     }
     /**
      * Get the root namespace for the class.
@@ -35,7 +35,7 @@ class MakeModelCommand extends ModelMakeCommand
      */
     protected function rootNamespace()
     {
-        return $this->laravel->getNamespace().'Models';
+        return $this->laravel->getNamespace().'Modules';
     }
 
     /**

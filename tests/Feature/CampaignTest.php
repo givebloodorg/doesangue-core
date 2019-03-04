@@ -5,8 +5,8 @@ namespace Tests\Feature;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithoutMiddleware;
-use DoeSangue\Models\User;
-use DoeSangue\Models\Campaign;
+use GiveBlood\Modules\Users\User;
+use GiveBlood\Modules\Campaign\Campaign;
 
 class CampaignTest extends TestCase
 {
@@ -37,6 +37,9 @@ class CampaignTest extends TestCase
             );
     }*/
 
+    /**
+     * @test
+     */
     public function testgetAllCampaigns()
     {
 

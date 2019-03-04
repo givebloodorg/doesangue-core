@@ -1,9 +1,9 @@
 <?php
 
-namespace DoeSangue\Observers;
+namespace GiveBlood\Observers;
 
-use DoeSangue\Mail\UserCreated;
-use DoeSangue\Models\User;
+use GiveBlood\Mail\UserCreated;
+use GiveBlood\Modules\Users\User;
 use Illuminate\Support\Facades\Mail;
 
 class UserObserver

@@ -1,12 +1,12 @@
 <?php
 
-namespace DoeSangue\Mail;
+namespace GiveBlood\Mail;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
-use DoeSangue\Models\User;
+use GiveBlood\Modules\Users\User;
 
 class UserCreated extends Mailable implements ShouldQueue
 {
