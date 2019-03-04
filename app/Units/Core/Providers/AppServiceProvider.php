@@ -28,7 +28,7 @@ class AppServiceProvider extends ServiceProvider
         // Extend the Validator class.
         // To check the user age (minimum: 16)
         Validator::extend(
-            'olderThan', function($attributes, $value, $parameters) {
+            'olderThan', function ($attributes, $value, $parameters) {
                 $minAge = (!empty($parameters)) ? (int) $parameters[ 0 ] : 16;
                 return \Carbon\Carbon::now()->diff(new \Carbon\Carbon($value))->y >= $minAge;
             }

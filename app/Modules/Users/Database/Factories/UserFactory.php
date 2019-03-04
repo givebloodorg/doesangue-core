@@ -19,7 +19,8 @@ class UserFactory extends ModelFactory
 {
     protected $model = User::class;
 
-    protected function fields(){
+    protected function fields()
+    {
         static $password;
 
         return [

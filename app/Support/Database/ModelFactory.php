@@ -5,28 +5,28 @@ namespace GiveBlood\Support\Database;
 use Illuminate\Database\Eloquent\Factory;
 use Faker\Generator;
 /**
-* Class ModelFactory
-*/
+ * Class ModelFactory
+ */
 abstract class ModelFactory
 {
     /**
-    * @var string
-    */
+     * @var string
+     */
     protected $model;
 
     /**
-    * @var Factory
-    */
+     * @var Factory
+     */
     protected $factory;
 
     /**
-    * @var Generator
-    */
+     * @var Generator
+     */
     protected $faker;
 
     /**
-    * ModelFactory construct
-    */
+     * ModelFactory construct
+     */
     public function __construct()
     {
         $this->factory = app()->make(Factory::class);
@@ -34,17 +34,19 @@ abstract class ModelFactory
     }
 
     /**
-    *
-    */
+     *
+     */
     public function define()
     {
-        $this->factory->define($this->model, function(){
-            return $this->fields();
-        });
+        $this->factory->define(
+            $this->model, function () {
+                return $this->fields();
+            }
+        );
     }
 
     /**
-    * @return array
-    */
+     * @return array
+     */
     abstract protected function fields();
 }

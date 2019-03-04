@@ -18,7 +18,8 @@ class BloodTypeFactory extends ModelFactory
 {
     protected $model = BloodType::class;
 
-    protected function fields(){
+    protected function fields()
+    {
 
         return [
         'id' => $this->faker->uuid,

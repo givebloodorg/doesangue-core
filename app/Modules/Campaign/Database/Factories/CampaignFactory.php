@@ -19,7 +19,8 @@ class CampaignFactory extends ModelFactory
 {
     protected $model = Campaign::class;
 
-    protected function fields(){
+    protected function fields()
+    {
 
         return [
         'title' => $faker->text(60),
