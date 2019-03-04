@@ -33,7 +33,7 @@ class UserFactory extends ModelFactory
         'phone' => $this->faker->tollFreePhoneNumber,
         'bio' => $this->faker->text($maxNbChars = 100),
         'birthdate' => $this->faker->date,
-        'blood_type_id' => factory(BloodType::class)->create(),
+        'blood_type_id' => factory(BloodType::class)->make()->id,
         'password' => $password ?: $password = bcrypt('secret'),
         'remember_token' => \Str::random(10),
         ];

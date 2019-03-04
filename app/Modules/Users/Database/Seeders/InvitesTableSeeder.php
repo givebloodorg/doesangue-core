@@ -1,5 +1,7 @@
 <?php
 
+namespace GiveBlood\Modules\Users\Database\Seeders;
+
 use Illuminate\Database\Seeder;
 
 class InvitesTableSeeder extends Seeder

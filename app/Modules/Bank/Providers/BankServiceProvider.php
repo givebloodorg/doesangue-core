@@ -4,7 +4,9 @@ namespace GiveBlood\Modules\Bank\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Migrator\MigratorTrait as LaravelMigrator;
+
 use GiveBlood\Modules\Bank\Database\Migrations\CreateBanksTable;
+use GiveBlood\Modules\Bank\BankFactory;
 
 
 class BankServiceProvider extends ServiceProvider
@@ -15,7 +17,7 @@ class BankServiceProvider extends ServiceProvider
     {
         $this->registerMigrations();
         $this->registerFactories();
-        //$this->registerSeeders();
+        $this->registerSeeders();
     }
 
     public function registerMigrations()
@@ -29,7 +31,7 @@ class BankServiceProvider extends ServiceProvider
 
     public function registerFactories()
     {
-        //
+        (new BankFactory())->define();
     }
 
     public function registerSeeders()

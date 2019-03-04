@@ -30,12 +30,22 @@ class CreateUsersTable extends Migration
         $this->schema->create(
             'users', function (Blueprint $table) {
                 $table->uuid('id');
-                $table->string('name');
+                $table->string('first_name');
+                $table->string('last_name');
+                $table->string('username')->unique();
                 $table->string('email')->unique();
                 $table->timestamp('email_verified_at')->nullable();
+                $table->string('phone', 15);
+                $table->text('bio')->nullable();
+                $table->date('birthdate')->nullable();
+                $table->integer('country_id')->unsigned();
+                $table->integer('blood_type_id')->unsigned();
                 $table->string('password');
                 $table->rememberToken();
                 $table->timestamps();
+
+                $table->foreign('country_id')->references('id')->on('countries')->onCascade('delete');
+                $table->foreign('blood_type_id')->references('id')->on('blood_types')->onCascade('delete');
             }
         );
     }

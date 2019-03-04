@@ -4,6 +4,7 @@ namespace GiveBlood\Modules\Users\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Migrator\MigratorTrait as LaravelMigrator;
+
 use GiveBlood\Modules\Users\Database\Migrations\CreateCountriesTable;
 use GiveBlood\Modules\Users\Database\Migrations\CreateUsersTable;
 use GiveBlood\Modules\Users\Database\Migrations\CreatePasswordResetsTable;
@@ -50,7 +51,7 @@ class UserServiceProvider extends ServiceProvider
             [
             CountriesSeeder::class,
             UsersSeeder::class,
-            InvitesSeeder::class,
+            //InvitesSeeder::class,
             ]
         );
     }

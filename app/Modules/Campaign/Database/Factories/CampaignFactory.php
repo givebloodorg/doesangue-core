@@ -1,6 +1,6 @@
 <?php
 
-namespace GiveBlood\Modules\Campaign\Database\Factories;
+namespace GiveBlood\Modules\Campaign;
 
 use GiveBlood\Modules\Users\User;
 use GiveBlood\Support\Database\ModelFactory;
@@ -23,14 +23,14 @@ class CampaignFactory extends ModelFactory
     {
 
         return [
-        'title' => $faker->text(60),
-        'description' => $faker->text(100),
+        'title' => $this->faker->text(60),
+        'description' => $this->faker->text(100),
         'expires' => \Carbon\Carbon::now()->endOfYear(),
-        'image' => $faker->imageUrl,
+        'image' => $this->faker->imageUrl,
         'user_id' =>  function () {
-            return factory(GiveBlood\Modules\Users\User::class)->create()->id;
+            return factory(User::class)->make()->id;
         },
-        'slug' => $faker->slug
+        'slug' => $this->faker->slug
         ];
     }
 }

@@ -1,6 +1,9 @@
 <?php
 
+namespace GiveBlood\Modules\Users\Database\Seeders;
+
 use Illuminate\Database\Seeder;
+use DB;
 
 class CountriesSeeder extends Seeder
 {

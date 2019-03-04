@@ -72,7 +72,7 @@ class Api extends Router
             ['prefix' => 'v1', 'namespace' => '\GiveBlood\Units\Authentication\Http\Controllers\Auth'], function ($auth) {
                 $auth->post('/auth/login', 'AuthenticateController@authenticate');
                 $auth->get('/auth/logout', 'AuthenticateController@logout');
-                //        $auth->post('/auth/register', 'AuthenticateController@register');
+                $auth->post('/auth/register', 'AuthenticateController@register');
                 $auth->group(
                     ['prefix' => 'password'], function ($password) {
                         $password->post('/recover', 'PasswordResetController@recover')->name('password.reset');

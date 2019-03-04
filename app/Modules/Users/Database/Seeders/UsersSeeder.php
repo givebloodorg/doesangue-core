@@ -1,8 +1,10 @@
 <?php
 
-use Migrator\Seeder;
-use DoeSangue\Models\User;
-use DoeSangue\Models\BloodType;
+namespace GiveBlood\Modules\Users\Database\Seeders;
+
+use Illuminate\Database\Seeder;
+use  GiveBlood\Modules\Users\User;
+use  GiveBlood\Modules\Blood\BloodType;
 
 class UsersSeeder extends Seeder
 {
@@ -13,8 +15,8 @@ class UsersSeeder extends Seeder
     {
         factory(User::class, 20)->create(
             [
-            'password' => bcrypt('1234567890'),
-            'blood_type_id' => factory(BloodType::class)->create()->id
+            'password' => bcrypt('secret'),
+            'blood_type_id' => factory(BloodType::class)->make()->id
             ]
         );
 

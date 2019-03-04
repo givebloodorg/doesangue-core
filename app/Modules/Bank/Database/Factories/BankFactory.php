@@ -1,8 +1,7 @@
 <?php
 
-namespace GiveBlood\Modules\Users;
+namespace GiveBlood\Modules\Bank;
 
-use GiveBlood\Modules\Blood\BloodType;
 use GiveBlood\Support\Database\ModelFactory;
 
 /*
@@ -15,19 +14,19 @@ use GiveBlood\Support\Database\ModelFactory;
 | model instances for testing / seeding your application's database.
 |
 */
-class UserFactory extends ModelFactory
+class BankFactory extends ModelFactory
 {
-    protected $model = User::class;
+    protected $model = Bank::class;
 
     protected function fields()
     {
         return [
-        'id' => $faker->uuid,
-        'name' => $faker->company,
-        'email' => $faker->companyEmail,
-        'url' => $faker->domainName,
-        'phone' => $faker->phoneNumber,
-        'location' => $faker->address
+            'id' => $this->faker->uuid,
+            'name' => $this->faker->company,
+            'email' => $this->faker->companyEmail,
+            'url' => $this->faker->domainName,
+            'phone' => $this->faker->phoneNumber,
+            'location' => $this->faker->address
         ];
     }
 }

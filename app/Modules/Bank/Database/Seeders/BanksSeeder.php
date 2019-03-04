@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use DoeSangue\Models\Bank;
+use  GiveBlood\Modules\Bank\Bank;
 
 class BanksSeeder extends Seeder
 {
