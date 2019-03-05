@@ -14,6 +14,7 @@ use GiveBlood\Modules\Users\Database\Seeders\CountriesSeeder;
 use GiveBlood\Modules\Users\Database\Seeders\UsersSeeder;
 use GiveBlood\Modules\Users\Database\Seeders\InvitesSeeder;
 use GiveBlood\Modules\Users\UserFactory;
+use GiveBlood\Modules\Users\CountryFactory;
 
 
 class UserServiceProvider extends ServiceProvider
@@ -43,6 +44,7 @@ class UserServiceProvider extends ServiceProvider
     public function registerFactories()
     {
         (new UserFactory())->define();
+        (new CountryFactory())->define();
     }
 
     public function registerSeeders()

@@ -38,14 +38,14 @@ class CreateUsersTable extends Migration
                 $table->string('phone', 15);
                 $table->text('bio')->nullable();
                 $table->date('birthdate')->nullable();
-                $table->integer('country_id')->unsigned();
-                $table->integer('blood_type_id')->unsigned();
+                $table->uuid('country_id');
+                $table->uuid('blood_type_id');
                 $table->string('password');
                 $table->rememberToken();
                 $table->timestamps();
 
-                $table->foreign('country_id')->references('id')->on('countries')->onCascade('delete');
-                $table->foreign('blood_type_id')->references('id')->on('blood_types')->onCascade('delete');
+                //$table->foreign('country_id')->references('id')->on('countries')->onCascade('delete');
+                //$table->foreign('blood_type_id')->references('id')->on('blood_types')->onCascade('delete');
             }
         );
     }

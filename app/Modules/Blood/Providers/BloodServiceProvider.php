@@ -8,6 +8,7 @@ use Migrator\MigratorTrait as LaravelMigrator;
 
 use GiveBlood\Modules\Blood\Database\Migrations\CreateBloodTypesTable;
 use GiveBlood\Modules\Blood\BloodTypeFactory;
+use  GiveBlood\Modules\Blood\Database\Seeders\BloodTypeSeeder;
 
 
 class BloodServiceProvider extends ServiceProvider
@@ -37,6 +38,10 @@ class BloodServiceProvider extends ServiceProvider
 
     public function registerSeeders()
     {
-        //
+        $this->seeders(
+            [
+                BloodTypeSeeder::class
+            ]
+        );
     }
 }

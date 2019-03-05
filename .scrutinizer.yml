@@ -45,14 +45,14 @@ build:
 
         variables:
             APP_KEY: base64:D6N/Z/7E0B1M3l1GumT+Kp+JT7E4bzbeMRuxzV3CP1s=
-            DB_DATABASE: doesangue
+            DB_DATABASE: giveblood_test
             DB_USERNAME: root
             DB_CONNECTION: mysql
             APP_ENV: testing
 
     dependencies:
             before:
-                 - mysql -uroot -e 'CREATE DATABASE doesangue'
+                 - mysql -uroot -e 'CREATE DATABASE giveblood_test'
 
     tests:
         override:

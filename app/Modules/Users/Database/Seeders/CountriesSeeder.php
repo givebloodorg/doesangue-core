@@ -1,9 +1,11 @@
 <?php
 
-namespace GiveBlood\Modules\Users\Database\Seeders;
+ namespace GiveBlood\Modules\Users\Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use DB;
+
+use GiveBlood\Modules\Users\Country;
 
 class CountriesSeeder extends Seeder
 {
@@ -14,13 +16,8 @@ class CountriesSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('countries')->delete();
+        factory(Country::class, 5)->make();
 
-        DB::table('countries')->insert(
-            [
-            ['country_name' => 'Angola', 'country_code' => 'AO'],
-            ['country_name' => 'Moçambique', 'country_code' => 'Moz']
-            ]
-        );
+        $this->command->info('Countries created sucessfully!');
     }
 }

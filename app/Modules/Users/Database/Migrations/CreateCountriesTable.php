@@ -31,7 +31,6 @@ class CreateCountriesTable extends Migration
             'countries', function (Blueprint $table) {
                 $table->increments('id');
                 $table->string('country_name');
-                $table->string('country_code');
                 $table->timestamps();
             }
         );

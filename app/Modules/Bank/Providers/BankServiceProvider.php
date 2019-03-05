@@ -7,6 +7,7 @@ use Migrator\MigratorTrait as LaravelMigrator;
 
 use GiveBlood\Modules\Bank\Database\Migrations\CreateBanksTable;
 use GiveBlood\Modules\Bank\BankFactory;
+use GiveBlood\Modules\Bank\Database\Seeders\BanksSeeder;
 
 
 class BankServiceProvider extends ServiceProvider
@@ -36,6 +37,10 @@ class BankServiceProvider extends ServiceProvider
 
     public function registerSeeders()
     {
-        //
+        $this->seeders(
+            [
+                BanksSeeder::class
+            ]
+        );
     }
 }

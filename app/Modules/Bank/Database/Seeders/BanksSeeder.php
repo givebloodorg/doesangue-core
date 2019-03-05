@@ -1,5 +1,7 @@
 <?php
 
+ namespace GiveBlood\Modules\Bank\Database\Seeders;
+
 use Illuminate\Database\Seeder;
 use  GiveBlood\Modules\Bank\Bank;
 
@@ -12,11 +14,8 @@ class BanksSeeder extends Seeder
      */
     public function run()
     {
-
-        DB::table('banks')->delete();
-
         factory(Bank::class, 10)->create();
 
-        $this->command->info('Demo Blood Banks created sucessfully!');
+        $this->command->info('Blood Banks created sucessfully!');
     }
 }

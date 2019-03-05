@@ -163,7 +163,7 @@ class User extends Authenticatable
      */
     public function getPhoneNumberAttribute()
     {
-        return $this->attributes[ 'country_code' ].$this->attributes[ 'phone' ];
+        return $this->attributes[ 'phone' ];
     }
 
 }

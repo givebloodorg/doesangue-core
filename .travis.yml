@@ -1,7 +1,9 @@
 language: php
 php:
 - 7.1
+- 7.2
 - nightly
+
 addons:
   postgresql: '9.6'
   code_climate:
@@ -20,7 +22,7 @@ notifications:
     secure: g5gScU7zKCyMI1gZnoezl4VDAFQ5DZgr/Vav5kVbxCiItw+J6vvMqygmK5CFwNaYwvStJ9tIfJPvbxlRyEfF3qzRyCtpzKelbzyG79y/ecICVFI3Qd52FyXmgk/HrijxqeBU3geSSu1yi9fObf6DpmJ9jBdAeyCJ1dXCaaPe75aq7tPljxd4Qh2Omw/XjTdTqO5YWZ1wM3CAuIrobDtDNQ+fDHpam5Kdb62T9uR0d7MTHygHefoOw+1AWHVggNzAP4uBi7rU3XXMJDeAjUlPw6Mg3SRhsfJ3RechLVq/7dw7fQpHsoG8o6ySqd6CvLT2qFFdQ6kX3nSMIsO49CV8QtghICTwnzqbyhnQeI05tqlkYDC0i9AY4TF7kx4Uy7GvrvjjekJlMBGNLrYzPoSYBIms1lGbprqDAASoM73m4IhNWQ0GQiMeIf1ctrgzj0H0SxPPGSANn57YIAfhsioXsR/ChvNhreUyNHBinAO3afR7VI0utsPLwWiKzvDDh7NzIwqFzgQAeocu3pbuStPk1/hQZiMjJINNlFPHv/00j36+YuqKJxPM1y+fis1cloEsHhx29tKy9RtqyHlXsszTM34gbmQuSzJ+oLaaKm63uCAAPJFgb1g01/57ZlIbnZ9riGIORMkoJvqbDO7MRllpGFvSVjewSy6XroC5wjlGSZ4=
 install: composer install
 before_script:
-- psql -c 'create database doesangue_test;' -U postgres
+- psql -c 'create database giveblood_test;' -U postgres
 - composer require codeclimate/php-test-reporter --dev
 script:
 - php artisan migrate --env=testing --no-interaction

@@ -1,8 +1,11 @@
 <?php
 
+namespace GiveBlood\Modules\Campaign\Database\Seeders;
+
 use Illuminate\Database\Seeder;
-use DoeSangue\Models\User;
-use DoeSangue\Models\Campaign;
+use  GiveBlood\Modules\Users\User;
+use  GiveBlood\Modules\Campaign\Campaign;
+use DB;
 
 class CampaignsSeeder extends Seeder
 {

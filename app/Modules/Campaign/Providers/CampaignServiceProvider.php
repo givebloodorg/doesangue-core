@@ -39,6 +39,10 @@ class CampaignServiceProvider extends ServiceProvider
 
     public function registerSeeders()
     {
-        //
+        $this->seeders(
+            [
+            CampaignsSeeder::class,
+            ]
+        );
     }
 }

@@ -4,59 +4,59 @@ version: '2'
 # Named volumes
 volumes:
   # MySQL Data
-#  doesangue-mysql-data:
+#  giveblood-mysql-data:
 #    driver: local
 
   # postgresql
-  doesangue-pgsql-data:
+  giveblood-pgsql-data:
     driver: local
 
   # Redis Data
-  doesangue-redis-data:
+  giveblood-redis-data:
     driver: local
 
 services:
   # MySQL (5.7)
 #  mysql:
 #    image: mysql:5.7
-#    container_name: doesangue-mysql
+#    container_name: giveblood-mysql
 #    volumes:
-#      - doesangue-mysql-data:/var/lib/mysql
+#      - giveblood-mysql-data:/var/lib/mysql
 #    ports:
 #      - "3306:3306"
 #    environment:
-#      - MYSQL_ROOT_PASSWORD=doesangue
-#      - MYSQL_DATABASE=doesangue
-#      - MYSQL_USER=doesangue
-#      - MYSQL_PASSWORD=doesangue
+#      - MYSQL_ROOT_PASSWORD=giveblood
+#      - MYSQL_DATABASE=giveblood
+#      - MYSQL_USER=giveblood
+#      - MYSQL_PASSWORD=giveblood
 
   # Postresql (Alpine)
   postgres:
     image: postgres:alpine
-    container_name: doesangue-pgsql
+    container_name: giveblood-pgsql
     volumes:
-      - doesangue-pgsql-data:/var/lib/postgresql/data
+      - giveblood-pgsql-data:/var/lib/postgresql/data
     ports:
       - "5432:5432"
     environment:
-      - POSTGRES_DB=doesangue
-      - POSTGRES_USER=doesangue
-      - POSTGRES_PASSWORD=doesangue
+      - POSTGRES_DB=giveblood
+      - POSTGRES_USER=giveblood
+      - POSTGRES_PASSWORD=giveblood
 
   # Redis
   cache:
     image: ambientum/redis:3.2
-    container_name: doesangue-redis
+    container_name: giveblood-redis
     command: --appendonly yes
     volumes:
-      - doesangue-redis-data:/data
+      - giveblood-redis-data:/data
     ports:
       - "6379:6379"
 
   # APP (with Caddy)
   app:
     image: ambientum/php:7.0-caddy
-    container_name: doesangue-app
+    container_name: giveblood-app
     volumes:
       - .:/var/www/app
     ports:
@@ -68,7 +68,7 @@ services:
   # Laravel Queues
   queue:
     image: ambientum/php:7.0
-    container_name: doesangue-queue
+    container_name: giveblood-queue
     command: php artisan queue:listen
     volumes:
       - .:/var/www/app
