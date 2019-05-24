@@ -25,7 +25,7 @@ class CampaignFactory extends ModelFactory
         return [
         'title' => $this->faker->text(60),
         'description' => $this->faker->text(100),
-        'expires' => \Carbon\Carbon::now()->endOfYear(),
+        'due_date' => \Carbon\Carbon::now()->endOfYear(),
         'image' => $this->faker->imageUrl,
         'user_id' =>  function () {
             return factory(User::class)->make()->id;

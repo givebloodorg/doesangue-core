@@ -32,7 +32,7 @@ class Campaign extends Model
      *
      * @var array
      */
-    protected $filliable = [ 'title', 'description', 'image', 'expires', 'user_id' ];
+    protected $filliable = [ 'title', 'description', 'image', 'due_date', 'user_id' ];
 
     protected $hidden = [ 'created_at', 'updated_at', 'deleted_at', 'user_id' ];
 

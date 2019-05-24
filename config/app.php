@@ -169,6 +169,7 @@ return [
         GiveBlood\Modules\Campaign\Providers\CampaignServiceProvider::class,
         GiveBlood\Modules\Blood\Providers\BloodServiceProvider::class,
         GiveBlood\Modules\Bank\Providers\BankServiceProvider::class,
+        GiveBlood\Modules\Badges\Providers\BadgeServiceProvider::class,
         /*
          * Package Service Providers...
          */

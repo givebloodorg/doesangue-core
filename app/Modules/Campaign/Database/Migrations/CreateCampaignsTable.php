@@ -33,7 +33,7 @@ class CreateCampaignsTable extends Migration
                 $table->string('title');
                 $table->text('description');
                 $table->string('image')->nullable();
-                $table->dateTimeTz('expires');
+                $table->dateTimeTz('due_date');
                 $table->uuid('user_id');
                 $table->string('slug');
                 $table->timestamps();
