@@ -68,7 +68,7 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => GiveBlood\Modules\User::class,
+            'model' => GiveBlood\Modules\Users\User::class,
         ],
 
         // 'users' => [
