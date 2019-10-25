@@ -1,0 +1,37 @@
+<?php
+
+namespace DummyNamespace;
+
+use Illuminate\Support\ServiceProvider;
+use Migrator\MigratorTrait as LaravelMigrator;
+
+class DummyClass extends ServiceProvider
+{
+    use LaravelMigrator;
+
+    public function register()
+    {
+        $this->registerMigrations();
+        //$this->registerFactories();
+        //$this->registerSeeders();
+    }
+
+    public function registerMigrations()
+    {
+        $this->migrations(
+            [
+                //
+            ]
+        );
+    }
+
+    public function registerFactories()
+    {
+        //
+    }
+
+    public function registerSeeders()
+    {
+        //
+    }
+}

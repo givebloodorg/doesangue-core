@@ -4,7 +4,6 @@ namespace Tests\Feature;
 
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithoutMiddleware;
 
 class ExampleTest extends TestCase
 {
@@ -18,16 +17,18 @@ class ExampleTest extends TestCase
         $response = $this->get('/');
 
         $response
-          ->assertJson(
-            [
-            'message' => 'Hello World!'
-            ]
-          )
-          ->assertJsonStructure([
-            'message'
-          ]);
+            ->assertJson(
+                [
+                'message' => 'Hello World!'
+                ]
+            )
+            ->assertJsonStructure(
+                [
+                'message'
+                ]
+            );
 
 
-        //$response->assertStatus(200);
+        $response->assertStatus(200);
     }
 }

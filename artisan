@@ -16,6 +16,7 @@ define('LARAVEL_START', microtime(true));
 */
 
 require __DIR__.'/vendor/autoload.php';
+
 $app = require_once __DIR__.'/bootstrap/app.php';
 
 /*
@@ -28,11 +29,14 @@ $app = require_once __DIR__.'/bootstrap/app.php';
 | or another output device for the developers. Here goes nothing!
 |
 */
+
 $kernel = $app->make(Illuminate\Contracts\Console\Kernel::class);
+
 $status = $kernel->handle(
     $input = new Symfony\Component\Console\Input\ArgvInput,
     new Symfony\Component\Console\Output\ConsoleOutput
 );
+
 /*
 |--------------------------------------------------------------------------
 | Shutdown The Application
@@ -43,5 +47,7 @@ $status = $kernel->handle(
 | down the process. This is the last thing to happen to the request.
 |
 */
+
 $kernel->terminate($input, $status);
+
 exit($status);

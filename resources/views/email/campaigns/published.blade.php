@@ -1,5 +1,5 @@
 @component('mail::message')
-# Doe Sangue.me
+# Give Blood
 
 <p>Hello dear {{ $CampOwner->first_name }} {{ $CampOwner->last_name }}, a new campaign was published: {{ $CampTitle }}</p>
 <p>It start's: {{ $CampCreated }}, and expires {{ $CampExpiration }}</p>
