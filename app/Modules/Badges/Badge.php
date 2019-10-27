@@ -30,7 +30,7 @@ class Badge extends Model
      *
      * @var array
      */
-    protected $filliable = [ 'name', 'icon' ];
+    protected $filliable = [ 'name', 'icon', 'slug' ];
 
     protected $hidden = [ 'created_at', 'updated_at', 'deleted_at' ];
 
