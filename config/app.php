@@ -173,7 +173,7 @@ return [
         /*
          * Package Service Providers...
          */
-        NotificationChannels\FCM\ServiceProvider::class
+        NotificationChannels\FCM\ServiceProvider::class,
 
         /*
          * Application Service Providers...
