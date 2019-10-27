@@ -12,6 +12,7 @@
         "php": "^7.2",
         "artesaos/migrator": "^2.0",
         "barryvdh/laravel-cors": "^0.11.3",
+        "enniel/laravel-fcm-notification-channel": "1.*",
         "fideloper/proxy": "^4.0",
         "folklore/graphql": "^1.1",
         "laravel/framework": "5.8.*",
