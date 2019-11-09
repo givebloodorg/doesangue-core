@@ -31,6 +31,7 @@ class CreateBadgesTable extends Migration
             $table->uuid('id');
             $table->string('name');
             $table->char('icon');
+            $table->string('slug');
             $table->timestamps();
             $table->softDeletes();
         });
