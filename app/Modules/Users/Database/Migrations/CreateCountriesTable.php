@@ -2,13 +2,14 @@
 
 namespace GiveBlood\Modules\Users\Database\Migrations;
 
+use Illuminate\Database\Schema\Builder;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
 class CreateCountriesTable extends Migration
 {
     /**
-     * @var \Illuminate\Database\Schema\Builder
+     * @var Builder
      */
     protected $schema;
 
@@ -22,13 +23,11 @@ class CreateCountriesTable extends Migration
 
     /**
      * Run the migrations.
-     *
-     * @return void
      */
-    public function up()
+    public function up(): void
     {
         $this->schema->create(
-            'countries', function (Blueprint $table) {
+            'countries', function (Blueprint $table): void {
                 $table->increments('id');
                 $table->string('country_name');
                 $table->timestamps();
@@ -38,10 +37,8 @@ class CreateCountriesTable extends Migration
 
     /**
      * Reverse the migrations.
-     *
-     * @return void
      */
-    public function down()
+    public function down(): void
     {
         $this->schema->drop('countries');
     }

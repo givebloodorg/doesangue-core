@@ -9,8 +9,8 @@ use GiveBlood\Traits\UuidTrait;
 class Bank extends Model
 {
 
-    use SoftDeletes, UuidTrait;
-
+    use SoftDeletes;
+    use UuidTrait;
     /**
      * Indicates if the IDs are auto-incrementing.
      *
@@ -19,7 +19,7 @@ class Bank extends Model
     public $incrementing = false;
 
 
-    protected $filliable = [
+    protected array $filliable = [
       'name',
       'email',
       'url',
@@ -27,6 +27,9 @@ class Bank extends Model
       'location'
     ];
 
+    /**
+     * @var string[]
+     */
     protected $hidden = [
       'bid',
       'email',
@@ -35,6 +38,9 @@ class Bank extends Model
       'deleted_at'
     ];
 
+    /**
+     * @var string[]
+     */
     protected $dates = [
       'created_at',
       'updated_at',

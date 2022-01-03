@@ -40,7 +40,7 @@ class CampaignTest extends TestCase
     /**
      * @test
      */
-    public function testgetAllCampaigns()
+    public function testgetAllCampaigns(): void
     {
 
         $request = $this->get('/v1/campaigns');

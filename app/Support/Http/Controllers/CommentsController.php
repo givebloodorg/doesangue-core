@@ -2,6 +2,7 @@
 
 namespace GiveBlood\Support\Http\Controllers;
 
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use GiveBlood\Support\Http\Controllers\Controller;
 use GiveBlood\Modules\Campaign\Comment;
@@ -16,14 +17,14 @@ class CommentsController extends Controller
         $this->middleware('jwt.auth', [ 'except' => [ 'index', 'show' ] ]);
     }
 
-    public function index($campaign)
+    public function index($campaign): JsonResponse
     {
         $comments = Comment::where('campaign_id', $campaign)->get();
 
         return response()->json($comments, 200);
     }
 
-    public function create(Request $request, $campaign)
+    public function create(Request $request, $campaign): JsonResponse
     {
 
         $user = JWTAuth::parseToken()->authenticate();
@@ -48,7 +49,7 @@ class CommentsController extends Controller
 
     }
 
-    public function update($id, Request $request)
+    public function update($id, Request $request): JsonResponse
     {
         $comment = Comment::find($id);
 
@@ -58,7 +59,7 @@ class CommentsController extends Controller
             return response()->json(
                 [
                   'status_code' => 401,
-                  'message' => 'You haven\'t permission to update this entry'
+                  'message' => "You haven't permission to update this entry"
                 ], 401
             );
         }
@@ -84,8 +85,9 @@ class CommentsController extends Controller
         );
     }
 
-    public function destroy($id)
+    public function destroy($id): JsonResponse
     {
+        $Comment = null;
         $comment = Comment::find($id);
 
         $user = JWTAuth::parseToken()->authenticate();
@@ -94,7 +96,7 @@ class CommentsController extends Controller
             return response()->json(
                 [
                   'status_code' => 401,
-                  'message' => 'You haven\'t permission to update this entry'
+                  'message' => "You haven't permission to update this entry"
                 ], 401
             );
         }

@@ -2,13 +2,14 @@
 
 namespace GiveBlood\Modules\Blood\Database\Migrations;
 
+use Illuminate\Database\Schema\Builder;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
 class CreateBloodTypesTable extends Migration
 {
     /**
-     * @var \Illuminate\Database\Schema\Builder
+     * @var Builder
      */
     protected $schema;
 
@@ -22,13 +23,11 @@ class CreateBloodTypesTable extends Migration
 
     /**
      * Run the migrations.
-     *
-     * @return void
      */
-    public function up()
+    public function up(): void
     {
         $this->schema->create(
-            'blood_types', function (Blueprint $table) {
+            'blood_types', function (Blueprint $table): void {
                 $table->uuid('id')->unique()->primary();
                 $table->string('description', 20);
                 $table->string('code', 10);
@@ -39,10 +38,8 @@ class CreateBloodTypesTable extends Migration
 
     /**
      * Reverse the migrations.
-     *
-     * @return void
      */
-    public function down()
+    public function down(): void
     {
         $this->schema->drop('blood_types');
     }

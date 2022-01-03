@@ -2,13 +2,14 @@
 
 namespace GiveBlood\Modules\Badges\Database\Migrations;
 
+use Illuminate\Database\Schema\Builder;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
 class CreateBadgesTable extends Migration
 {
     /**
-     * @var \Illuminate\Database\Schema\Builder
+     * @var Builder
      */
     protected $schema;
 
@@ -22,12 +23,10 @@ class CreateBadgesTable extends Migration
 
     /**
      * Run the migrations.
-     *
-     * @return void
      */
-    public function up()
+    public function up(): void
     {
-        $this->schema->create('badges', function (Blueprint $table) {
+        $this->schema->create('badges', function (Blueprint $table): void {
             $table->uuid('id');
             $table->string('name');
             $table->char('icon');
@@ -39,10 +38,8 @@ class CreateBadgesTable extends Migration
 
     /**
      * Reverse the migrations.
-     *
-     * @return void
      */
-    public function down()
+    public function down(): void
     {
         $this->schema->drop('badges');
     }

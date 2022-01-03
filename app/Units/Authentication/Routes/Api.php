@@ -29,7 +29,7 @@ class Api extends Router
     |
     */
 
-    protected function routes()
+    protected function routes(): void
     {
         $this->homeRoutes();
         $this->authRoutes();
@@ -37,51 +37,47 @@ class Api extends Router
         $this->campaignRoutes();
     }
 
-    protected function homeRoutes()
+    protected function homeRoutes(): void
     {
         $this->router->get(
-            '/', function () {
-                return response()->json([ 'message' => 'Hello World!']);
-            }
+            '/', fn() => response()->json([ 'message' => 'Hello World!'])
         );
 
         // Search campaigns and donors.
         $this->router->group(
-            ['prefix' => 'search', 'namespace' => '\GiveBlood\Support\Http\Controllers'], function () {
+            ['prefix' => 'search', 'namespace' => '\GiveBlood\Support\Http\Controllers'], function (): void {
                 // Search campaigns
                 $this->router->get('/', 'SearchController@search');
             }
         );
 
         $this->router->fallback(
-            function () {
-                return response()->json(
-                    [
-                    'error' => 'Route cannot be found!'], 404
-                );
-            }
+            fn() => response()->json(
+                [
+                'error' => 'Route cannot be found!'], 404
+            )
         );
 
     }
 
-    protected function authRoutes()
+    protected function authRoutes(): void
     {
         // API Authentication routes
         // Create new Token
         $this->router->group(
-            ['prefix' => 'v1', 'namespace' => '\GiveBlood\Units\Authentication\Http\Controllers\Auth'], function ($auth) {
+            ['prefix' => 'v1', 'namespace' => '\GiveBlood\Units\Authentication\Http\Controllers\Auth'], function ($auth): void {
                 $auth->post('/auth/login', 'AuthenticateController@authenticate');
                 $auth->get('/auth/logout', 'AuthenticateController@logout');
                 $auth->post('/auth/register', 'AuthenticateController@register');
                 $auth->group(
-                    ['prefix' => 'password'], function ($password) {
+                    ['prefix' => 'password'], function ($password): void {
                         $password->post('/recover', 'PasswordResetController@recover')->name('password.reset');
                         $password->post('/reset/{token}', 'PasswordResetController@reset');
                     }
                 );
                 // invitation routes
                 $auth->group(
-                    ['prefix' => 'invitation'], function ($invitation) {
+                    ['prefix' => 'invitation'], function ($invitation): void {
                         $invitation->post('/', 'InvitationRequestsController@createInvitation');
                         $invitation->get('/check', 'InvitationRequestsController@checkInvation');
                     }
@@ -90,19 +86,19 @@ class Api extends Router
         );
 
         $this->router->group(
-            ['prefix' => 'v1', 'namespace' => '\GiveBlood\Units\Authentication\Http\Controllers\Auth'], function ($auth) {
+            ['prefix' => 'v1', 'namespace' => '\GiveBlood\Units\Authentication\Http\Controllers\Auth'], function ($auth): void {
                 $auth->post('/auth/login', 'AuthenticateController@authenticate');
                 $auth->get('/auth/logout', 'AuthenticateController@logout');
                 //        $auth->post('/auth/register', 'AuthenticateController@register');
                 $auth->group(
-                    ['prefix' => 'password'], function ($password) {
+                    ['prefix' => 'password'], function ($password): void {
                         $password->post('/recover', 'PasswordResetController@recover')->name('password.reset');
                         $password->post('/reset/{token}', 'PasswordResetController@reset');
                     }
                 );
                 // invitation routes
                 $auth->group(
-                    ['prefix' => 'invitation'], function ($invitation) {
+                    ['prefix' => 'invitation'], function ($invitation): void {
                         $invitation->post('/', 'InvitationRequestsController@createInvitation');
                         $invitation->get('/check', 'InvitationRequestsController@checkInvation');
                     }
@@ -111,11 +107,11 @@ class Api extends Router
         );
     }
 
-    protected function userRoutes()
+    protected function userRoutes(): void
     {
         // Donors
         $this->router->group(
-            ['namespace' => '\GiveBlood\Support\Http\Controllers', 'prefix' => 'donors'], function ($donor) {
+            ['namespace' => '\GiveBlood\Support\Http\Controllers', 'prefix' => 'donors'], function ($donor): void {
                 // Because all donor is a user
                 // We will use UsersController instead
                 // All donors
@@ -130,18 +126,18 @@ class Api extends Router
         );
         // Donors API
         $this->router->group(
-            ['namespace' => '\GiveBlood\Support\Http\Controllers', 'prefix' => 'v1'], function () {
+            ['namespace' => '\GiveBlood\Support\Http\Controllers', 'prefix' => 'v1'], function (): void {
 
                 // Routes related to logged in user
                 $this->router->group(
-                    ['prefix' => 'me', 'namespace' => 'User'], function ($user) {
+                    ['prefix' => 'me', 'namespace' => 'User'], function ($user): void {
                         // Get user information.
                         $user->get('/', 'AccountController@userInfo');
                         // Update User profile information.
                         $user->put('/', 'AccountController@updateProfile');
                         // User campigns
                         $user->group(
-                            ['prefix' => 'campaigns'], function ($campaign) {
+                            ['prefix' => 'campaigns'], function ($campaign): void {
                                 // Get all user Campaigns.
                                 $campaign->get('/', 'CampaignController@index');
                                 // Create Campaign
@@ -162,7 +158,7 @@ class Api extends Router
 
                 // Blood Banks
                 $this->router->group(
-                    ['prefix' => 'banks'], function ($bank) {
+                    ['prefix' => 'banks'], function ($bank): void {
                         $bank->get('/', 'BankController@index');
                         $bank->get('/{bank}', 'BankController@show');
                     }
@@ -170,7 +166,7 @@ class Api extends Router
 
                 // BloodTypes
                 $this->router->group(
-                    ['prefix' => 'bloodtypes'], function () {
+                    ['prefix' => 'bloodtypes'], function (): void {
                         $this->router->get('/', 'BloodTypeController@index');
                     }
                 );
@@ -191,14 +187,14 @@ class Api extends Router
         );
     }
 
-    protected function campaignRoutes()
+    protected function campaignRoutes(): void
     {
         // Campaign
         $this->router->group(
-            ['namespace' => '\GiveBlood\Support\Http\Controllers', 'prefix' => 'v1'], function () {
+            ['namespace' => '\GiveBlood\Support\Http\Controllers', 'prefix' => 'v1'], function (): void {
 
                 $this->router->group(
-                    ['prefix' => 'campaigns'], function ($campaign) {
+                    ['prefix' => 'campaigns'], function ($campaign): void {
                         //All Campaigns
                         $campaign->get('/', 'CampaignController@index');
                         // Campaign details

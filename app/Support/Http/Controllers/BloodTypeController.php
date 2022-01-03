@@ -2,6 +2,7 @@
 
 namespace GiveBlood\Support\Http\Controllers;
 
+use Illuminate\Http\JsonResponse;
 use GiveBlood\Support\Http\Controllers\Controller;
 use GiveBlood\Modules\Blood\BloodType;
 
@@ -16,7 +17,7 @@ class BloodTypeController extends Controller
         $this->middleware('jwt.auth', [ 'except' => [ 'index' ] ]);
     }
 
-    public function index()
+    public function index(): JsonResponse
     {
         $bloodtypes = BloodType::all();
 

@@ -9,14 +9,14 @@ use GiveBlood\Modules\Users\User;
 
 class UsersController extends Controller
 {
-    public function index()
+    public function index(): UserCollection
     {
 
         return new UserCollection(User::paginate(50));
 
     }
 
-    public function show($donor)
+    public function show($donor): UserResource
     {
         return new UserResource(User::find($donor));
     }

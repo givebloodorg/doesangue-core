@@ -18,12 +18,12 @@ class BankController extends Controller
         $this->middleware('jwt.auth', [ 'except' => [ 'index' ] ]);
     }
 
-    public function index()
+    public function index(): BanksCollection
     {
         return new BanksCollection(Bank::paginate(20));
     }
 
-    public function show($bank)
+    public function show($bank): BankResource
     {
         return new BankResource(Bank::find($bank));
     }

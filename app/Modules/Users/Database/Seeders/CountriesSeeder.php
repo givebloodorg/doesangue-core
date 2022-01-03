@@ -11,10 +11,8 @@ class CountriesSeeder extends Seeder
 {
     /**
      * Run the database seeds.
-     *
-     * @return void
      */
-    public function run()
+    public function run(): void
     {
         factory(Country::class, 5)->make();
 

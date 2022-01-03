@@ -21,20 +21,16 @@ class CampaignController extends Controller
     /**
      * Get all campaigns
      * 20 queries per page
-     *
-     * @return CampaignCollection
      */
-    public function index()
+    public function index(): CampaignCollection
     {
         return new CampaignCollection(Campaign::paginate(30));
     }
 
     /**
      * Get all details of a campaign
-     *
-     * @return CampaignResource
      */
-    public function show($campaign)
+    public function show($campaign): CampaignResource
     {
 
         return new CampaignResource(Campaign::find($campaign));

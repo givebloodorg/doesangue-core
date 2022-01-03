@@ -9,7 +9,10 @@ class Country extends Model
 {
     use UuidTrait;
 
+    /**
+     * @var string
+     */
     protected $table = 'countries';
 
-    protected $filliable = [ 'country_name', 'country_code' ];
+    protected array $filliable = [ 'country_name', 'country_code' ];
 }

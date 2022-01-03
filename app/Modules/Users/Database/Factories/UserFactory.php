@@ -1,8 +1,10 @@
 <?php
 
-namespace GiveBlood\Modules\Users;
+namespace GiveBlood\Modules\Users\Database\Factories;
 
+use Str;
 use GiveBlood\Modules\Blood\BloodType;
+use GiveBlood\Modules\Users\User;
 use GiveBlood\Support\Database\ModelFactory;
 
 /*
@@ -17,9 +19,15 @@ use GiveBlood\Support\Database\ModelFactory;
 */
 class UserFactory extends ModelFactory
 {
+    /**
+     * @var class-string<User>
+     */
     protected $model = User::class;
 
-    protected function fields()
+    /**
+     * @return array<string, mixed>
+     */
+    protected function fields(): array
     {
         static $password;
 
@@ -36,7 +44,7 @@ class UserFactory extends ModelFactory
         'country_id' => factory(Country::class)->make()->id,
         'blood_type_id' => factory(BloodType::class)->make()->id,
         'password' => $password ?: $password = bcrypt('secret'),
-        'remember_token' => \Str::random(10),
+        'remember_token' => Str::random(10),
         ];
     }
 }

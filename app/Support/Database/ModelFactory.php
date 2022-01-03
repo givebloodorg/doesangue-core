@@ -39,14 +39,12 @@ abstract class ModelFactory
     public function define()
     {
         $this->factory->define(
-            $this->model, function () {
-                return $this->fields();
-            }
+            $this->model, fn() => $this->fields()
         );
     }
 
     /**
-     * @return array
+     * @return mixed[]
      */
-    abstract protected function fields();
+    abstract protected function fields(): array;
 }

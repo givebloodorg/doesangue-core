@@ -2,13 +2,14 @@
 
 namespace GiveBlood\Modules\Users\Database\Migrations;
 
+use Illuminate\Database\Schema\Builder;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
 class CreateInvitesTable extends Migration
 {
     /**
-     * @var \Illuminate\Database\Schema\Builder
+     * @var Builder
      */
     protected $schema;
 
@@ -22,13 +23,11 @@ class CreateInvitesTable extends Migration
 
     /**
      * Run the migrations.
-     *
-     * @return void
      */
-    public function up()
+    public function up(): void
     {
         $this->schema->create(
-            'invites', function (Blueprint $table) {
+            'invites', function (Blueprint $table): void {
                 $table->increments('id');
                 $table->string('invite_code')->unique();
                 $table->uuid('user_id');
@@ -39,10 +38,8 @@ class CreateInvitesTable extends Migration
 
     /**
      * Reverse the migrations.
-     *
-     * @return void
      */
-    public function down()
+    public function down(): void
     {
         $this->schema->drop('invites');
     }

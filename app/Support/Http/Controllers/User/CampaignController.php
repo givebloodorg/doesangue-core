@@ -2,6 +2,7 @@
 
 namespace GiveBlood\Support\Http\Controllers\User;
 
+use Illuminate\Http\JsonResponse;
 use GiveBlood\Support\Http\Controllers\Controller;
 
 use GiveBlood\Modules\Campaign\Campaign;
@@ -12,7 +13,7 @@ class CampaignController extends Controller
     /**
      * Get all campaigns from current logged-in user.
      *
-     * @return \Illuminate\Http\JsonResponse|null
+     * @return JsonResponse|void
      */
     public function all()
     {
@@ -24,16 +25,15 @@ class CampaignController extends Controller
             return response()->json([ 'invalid_user' ], 401);
         }
 
-        $campaigns = $user->campaigns()->get();
+        $user->campaigns()->get();
     }
 
     /**
      * Create a new campaign
      *
      * @param  CreateCampaignRequest $request
-     * @return \Illuminate\Http\JsonResponse
      */
-    public function store(CreateCampaignRequest $request)
+    public function store(CreateCampaignRequest $request): JsonResponse
     {
 
         $user = JWTAuth::parseToken()->authenticate();
@@ -64,10 +64,8 @@ class CampaignController extends Controller
      * Update details of a campaign
      *
      * @param  UpdateCampaignRequest $request
-     * @param  integer               $id
-     * @return \Illuminate\Http\JsonResponse
      */
-    public function update(UpdateCampaignRequest $request, $id)
+    public function update(UpdateCampaignRequest $request, int $id): JsonResponse
     {
         $campaign = Campaign::find($id);
 
@@ -76,7 +74,7 @@ class CampaignController extends Controller
         if ($user->id !== $campaign->user_id) {
             return response()->json(
                 [
-                'message' => 'You haven\'t permission to update this entry'
+                'message' => "You haven't permission to update this entry"
                 ], 401
             );
         }
@@ -118,11 +116,8 @@ class CampaignController extends Controller
 
     /**
      * Delete the campaign from platform.
-     *
-     * @param  integer $id
-     * @return \Illuminate\Http\JsonResponse
      */
-    public function destroy($id)
+    public function destroy(int $id): JsonResponse
     {
         $campaign = Campaign::find($id);
 
@@ -131,7 +126,7 @@ class CampaignController extends Controller
         if ($user->id !== $campaign->user_id) {
             return response()->json(
                 [
-                'message' => 'You haven\'t permission to delete this entry'
+                'message' => "You haven't permission to delete this entry"
                 ], 401
             );
         }

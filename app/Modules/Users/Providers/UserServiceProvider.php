@@ -12,23 +12,23 @@ use GiveBlood\Modules\Users\Database\Migrations\CreateInvitesTable;
 use GiveBlood\Modules\Users\Database\Migrations\CreateInvitationRequestsTable;
 use GiveBlood\Modules\Users\Database\Seeders\CountriesSeeder;
 use GiveBlood\Modules\Users\Database\Seeders\UsersSeeder;
-use GiveBlood\Modules\Users\Database\Seeders\InvitesSeeder;
-use GiveBlood\Modules\Users\UserFactory;
-use GiveBlood\Modules\Users\CountryFactory;
+use GiveBlood\Modules\Users\Database\Seeders\InvitesTableSeeder;
+use GiveBlood\Modules\Users\Database\Factories\UserFactory;
+use GiveBlood\Modules\Users\Database\Factories\CountryFactory;
 
 
 class UserServiceProvider extends ServiceProvider
 {
     use LaravelMigrator;
 
-    public function register()
+    public function register(): void
     {
         $this->registerMigrations();
         $this->registerFactories();
         $this->registerSeeders();
     }
 
-    public function registerMigrations()
+    public function registerMigrations(): void
     {
         $this->migrations(
             [
@@ -41,13 +41,13 @@ class UserServiceProvider extends ServiceProvider
         );
     }
 
-    public function registerFactories()
+    public function registerFactories(): void
     {
         (new UserFactory())->define();
         (new CountryFactory())->define();
     }
 
-    public function registerSeeders()
+    public function registerSeeders(): void
     {
         $this->seeders(
             [

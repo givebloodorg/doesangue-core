@@ -10,25 +10,22 @@ use GiveBlood\Modules\Users\User;
 
 class UserCreated extends Mailable implements ShouldQueue
 {
-    use Queueable, SerializesModels;
+    use Queueable;
 
-    protected $user;
+    use SerializesModels;
 
     /**
      * Create a new message instance.
      *
      */
-    public function __construct(User $user)
+    public function __construct(protected User $user)
     {
-        $this->user = $user;
     }
 
     /**
      * Build the message.
-     *
-     * @return $this
      */
-    public function build()
+    public function build(): static
     {
         return $this->markdown('email.users.created')
             ->with(

@@ -2,13 +2,14 @@
 
 namespace GiveBlood\Modules\Users\Database\Migrations;
 
+use Illuminate\Database\Schema\Builder;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
 class CreateInvitationRequestsTable extends Migration
 {
     /**
-     * @var \Illuminate\Database\Schema\Builder
+     * @var Builder
      */
     protected $schema;
 
@@ -22,13 +23,11 @@ class CreateInvitationRequestsTable extends Migration
 
     /**
      * Run the migrations.
-     *
-     * @return void
      */
-    public function up()
+    public function up(): void
     {
         $this->schema->create(
-            'invitation_requests', function (Blueprint $table) {
+            'invitation_requests', function (Blueprint $table): void {
                 $table->increments('id');
                 $table->string('first_name');
                 $table->string('last_name');
@@ -45,10 +44,8 @@ class CreateInvitationRequestsTable extends Migration
 
     /**
      * Reverse the migrations.
-     *
-     * @return void
      */
-    public function down()
+    public function down(): void
     {
         $this->schema->drop('invitation_requests');
     }

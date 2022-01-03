@@ -2,6 +2,7 @@
 
 namespace GiveBlood\Modules\Blood;
 
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -11,8 +12,8 @@ use GiveBlood\Traits\UuidTrait;
 class BloodType extends Model
 {
 
-    use SoftDeletes, UuidTrait;
-
+    use SoftDeletes;
+    use UuidTrait;
     /**
      * The table associated with the model.
      *
@@ -48,10 +49,12 @@ class BloodType extends Model
         'created_at',
         'updated_at'
       ];
+
     /**
      * Hidden fields from json response.
      *
      * @return void
+     * @var string[]
      */
     protected $hidden =
       [
@@ -62,10 +65,8 @@ class BloodType extends Model
 
     /**
      * Related.
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function user()
+    public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }

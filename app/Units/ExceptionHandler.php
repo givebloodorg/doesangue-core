@@ -2,6 +2,8 @@
 
 namespace GiveBlood\Units;
 
+use Illuminate\Http\Request;
+use Illuminate\Http\JsonResponse;
 use Exception;
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Validation\ValidationException;
@@ -32,11 +34,8 @@ class ExceptionHandler extends Handler
 
     /**
      * Report or log an exception.
-     *
-     * @param  \Exception $exception
-     * @return void
      */
-    public function report(Exception $exception)
+    public function report(Exception $exception): void
     {
         parent::report($exception);
     }
@@ -44,11 +43,9 @@ class ExceptionHandler extends Handler
     /**
      * Render an exception into an HTTP response.
      *
-     * @param  \Illuminate\Http\Request $request
-     * @param  \Exception               $exception
-     * @return \Illuminate\Http\Response
+     * @param Request $request
      */
-    public function render($request, Exception $exception)
+    public function render($request, Exception $exception): JsonResponse|\Symfony\Component\HttpFoundation\Response
     {
         // Validate 404 exceptions.
         if ($exception instanceof NotFoundHttpException) {
@@ -73,17 +70,16 @@ class ExceptionHandler extends Handler
                 ], 405
             );
         }
+
         return parent::render($request, $exception);
     }
 
     /**
      * Convert a validation exception into a JSON response.
      *
-     * @param  \Illuminate\Http\Request                   $request
-     * @param  \Illuminate\Validation\ValidationException $exception
-     * @return \Illuminate\Http\JsonResponse
+     * @param Request $request
      */
-    protected function invalidJson($request, ValidationException $exception)
+    protected function invalidJson($request, ValidationException $exception): JsonResponse
     {
         return response()->json($exception->errors(), $exception->status);
     }
@@ -91,9 +87,8 @@ class ExceptionHandler extends Handler
     /**
      * Convert an authentication exception into an unauthenticated response.
      *
-     * @param  \Illuminate\Http\Request                 $request
-     * @param  \Illuminate\Auth\AuthenticationException $exception
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @return JsonResponse|void
      */
     protected function unauthenticated($request, AuthenticationException $exception)
     {

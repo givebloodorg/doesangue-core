@@ -10,14 +10,14 @@ class BadgeServiceProvider extends ServiceProvider
 {
     use LaravelMigrator;
 
-    public function register()
+    public function register(): void
     {
         $this->registerMigrations();
         $this->registerFactories();
         $this->registerSeeders();
     }
 
-    public function registerMigrations()
+    public function registerMigrations(): void
     {
         $this->migrations(
             [
@@ -26,12 +26,12 @@ class BadgeServiceProvider extends ServiceProvider
         );
     }
 
-    public function registerFactories()
+    public function registerFactories(): void
     {
         //(new BadgeFactory())->define();
     }
 
-    public function registerSeeders()
+    public function registerSeeders(): void
     {
         $this->seeders(
             [

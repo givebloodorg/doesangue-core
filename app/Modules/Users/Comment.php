@@ -2,6 +2,7 @@
 
 namespace GiveBlood\Modules\Users;
 
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use GiveBlood\Modules\Users\User;
@@ -11,8 +12,8 @@ use GiveBlood\Traits\UuidTrait;
 class Comment extends Model
 {
 
-    use SoftDeletes, UuidTrait;
-
+    use SoftDeletes;
+    use UuidTrait;
     /**
      * The table associated with the model.
      *
@@ -40,13 +41,22 @@ class Comment extends Model
       'user_id'
     ];
 
+    /**
+     * @var string
+     */
     protected $primaryKey = 'comment_id';
 
+    /**
+     * @var string[]
+     */
     protected $dates = [
       'created_at',
       'updated_at'
     ];
 
+    /**
+     * @var string[]
+     */
     protected $hidden = [
       'created_at',
       'updated_at',
@@ -56,12 +66,12 @@ class Comment extends Model
 
     // protected $casts = [ 'commentator', 'campaign' ];
 
-    public function commentator()
+    public function commentator(): BelongsTo
     {
         return $this->belongsTo(User::class, 'user_id');
     }
 
-    public function campaign()
+    public function campaign(): BelongsTo
     {
         return $this->belongsTo(Campaign::class);
     }

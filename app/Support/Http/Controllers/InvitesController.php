@@ -2,6 +2,7 @@
 
 namespace GiveBlood\Support\Http\Controllers;
 
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use GiveBlood\Support\Http\Controllers\Controller;
 use Tymon\JWTAuth\Facades\JWTAuth;
@@ -15,7 +16,7 @@ class InvitesController extends Controller
         $this->middleware('jwt.auth', [ 'except' => [ 'invite' ] ]);
     }
 
-    public function create(Request $request)
+    public function create(Request $request): JsonResponse
     {
         // Determines the user/owner of invite.
         $user = JWTAuth::parseToken()->authenticate();
@@ -33,7 +34,7 @@ class InvitesController extends Controller
         );
     }
 
-    public function show($id)
+    public function show($id): JsonResponse
     {
         $invite = Invite::find($id);
 
