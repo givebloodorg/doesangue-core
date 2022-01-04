@@ -8,21 +8,21 @@ use Migrator\MigratorTrait as LaravelMigrator;
 use GiveBlood\Modules\Campaign\Database\Migrations\CreateCampaignsTable;
 use GiveBlood\Modules\Campaign\Database\Migrations\CreateCommentsTable;
 use GiveBlood\Modules\Campaign\Database\Seeders\CampaignsSeeder;
-use GiveBlood\Modules\Campaign\CampaignFactory;
+use GiveBlood\Modules\Campaign\Database\Factories\CampaignFactory;
 
 
 class CampaignServiceProvider extends ServiceProvider
 {
     use LaravelMigrator;
 
-    public function register()
+    public function register(): void
     {
         $this->registerMigrations();
         $this->registerFactories();
         $this->registerSeeders();
     }
 
-    public function registerMigrations()
+    public function registerMigrations(): void
     {
         $this->migrations(
             [
@@ -32,12 +32,12 @@ class CampaignServiceProvider extends ServiceProvider
         );
     }
 
-    public function registerFactories()
+    public function registerFactories(): void
     {
         (new CampaignFactory())->define();
     }
 
-    public function registerSeeders()
+    public function registerSeeders(): void
     {
         $this->seeders(
             [

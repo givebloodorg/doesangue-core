@@ -8,11 +8,6 @@ namespace GiveBlood\Support\Http\Routing;
 abstract class Router
 {
     /**
-     * @var array
-     */
-    protected $options;
-
-    /**
      * @var Illuminate\Routing\Router
      */
     protected $router;
@@ -20,10 +15,8 @@ abstract class Router
     /**
      * Router constructor
      */
-    public function __construct($options = [])
+    public function __construct(protected $options = [])
     {
-        $this->options = $options;
-
         $this->router = app('router');
     }
 

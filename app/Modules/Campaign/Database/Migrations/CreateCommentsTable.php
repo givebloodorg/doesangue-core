@@ -2,13 +2,14 @@
 
 namespace GiveBlood\Modules\Campaign\Database\Migrations;
 
+use Illuminate\Database\Schema\Builder;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
 class CreateCommentsTable extends Migration
 {
     /**
-     * @var \Illuminate\Database\Schema\Builder
+     * @var Builder
      */
     protected $schema;
 
@@ -22,13 +23,11 @@ class CreateCommentsTable extends Migration
 
     /**
      * Run the migrations.
-     *
-     * @return void
      */
-    public function up()
+    public function up(): void
     {
         $this->schema->create(
-            'comments', function (Blueprint $table) {
+            'comments', function (Blueprint $table): void {
                 $table->uuid('id')->unique()->primary();
                 $table->string('comment');
                 $table->uuid('campaign_id');
@@ -43,10 +42,8 @@ class CreateCommentsTable extends Migration
 
     /**
      * Reverse the migrations.
-     *
-     * @return void
      */
-    public function down()
+    public function down(): void
     {
         $this->schema->drop('comments');
     }

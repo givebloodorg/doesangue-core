@@ -2,16 +2,15 @@
 
  namespace GiveBlood\Modules\Blood\Database\Seeders;
 
+use GiveBlood\Modules\Blood\BloodType;
 use Illuminate\Database\Seeder;
 
 class BloodTypeSeeder extends Seeder
 {
     /**
      * Run the database seeds.
-     *
-     * @return void
      */
-    public function run()
+    public function run(): void
     {
 
         // DB::table('blood_types')->delete();
@@ -21,7 +20,7 @@ class BloodTypeSeeder extends Seeder
         //     array('description' => 'O Positive', 'code' => 'O+', 'id' => '20a4c67d-8de9-668e-83aa-868a244cdfe3'),
         //     ]
         // );
-        factory('GiveBlood\Modules\Blood\BloodType', 2)->create();
+        factory(BloodType::class, 2)->create();
 
         $this->command->info('BloodTypes created sucessfully!');
     }

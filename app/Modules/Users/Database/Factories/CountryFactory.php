@@ -1,25 +1,21 @@
 <?php
 
-namespace GiveBlood\Modules\Users;
+namespace GiveBlood\Modules\Users\Database\Factories;
 
 use GiveBlood\Modules\Users\Country;
 use GiveBlood\Support\Database\ModelFactory;
 
-/*
-|--------------------------------------------------------------------------
-| User Model Factory
-|--------------------------------------------------------------------------
-|
-| This directory should contain each of the model factory definitions for
-| your application. Factories provide a convenient way to generate new
-| model instances for testing / seeding your application's database.
-|
-*/
 class CountryFactory extends ModelFactory
 {
+    /**
+     * @var class-string<Country>
+     */
     protected $model = Country::class;
 
-    protected function fields()
+    /**
+     * @return array<string, string>
+     */
+    protected function fields(): array
     {
         return [
         'id' => $this->faker->uuid,

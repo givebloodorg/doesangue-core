@@ -11,7 +11,7 @@ class UsersSeeder extends Seeder
     /**
      * Run the database seeds.
      */
-    public function run()
+    public function run(): void
     {
         factory(User::class, 20)->create(
             [

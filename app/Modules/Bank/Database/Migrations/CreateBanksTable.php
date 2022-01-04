@@ -2,13 +2,14 @@
 
 namespace GiveBlood\Modules\Bank\Database\Migrations;
 
+use Illuminate\Database\Schema\Builder;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
 class CreateBanksTable extends Migration
 {
     /**
-     * @var \Illuminate\Database\Schema\Builder
+     * @var Builder
      */
     protected $schema;
 
@@ -22,13 +23,11 @@ class CreateBanksTable extends Migration
 
     /**
      * Run the migrations.
-     *
-     * @return void
      */
-    public function up()
+    public function up(): void
     {
         $this->schema->create(
-            'banks', function (Blueprint $table) {
+            'banks', function (Blueprint $table): void {
                 $table->uuid('id')->unique()->primary();
                 $table->string('name');
                 $table->string('email');
@@ -43,10 +42,8 @@ class CreateBanksTable extends Migration
 
     /**
      * Reverse the migrations.
-     *
-     * @return void
      */
-    public function down()
+    public function down(): void
     {
         $this->schema->drop('banks');
     }

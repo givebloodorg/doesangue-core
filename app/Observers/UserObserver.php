@@ -10,10 +10,8 @@ class UserObserver
 {
     /**
      * Listen to the User created event.
-     *
-     * @param User $user
      */
-    public function created(User $user)
+    public function created(User $user): void
     {
         Mail::to($user->email)->send(new UserCreated($user));
     }

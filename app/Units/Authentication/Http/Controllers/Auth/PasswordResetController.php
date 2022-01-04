@@ -2,6 +2,7 @@
 
 namespace GiveBlood\Units\Authentication\Http\Controllers\Auth;
 
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use GiveBlood\Support\Http\Controllers\Controller;
 use GiveBlood\Modules\Users\User;
@@ -11,11 +12,8 @@ class PasswordResetController extends Controller
 {
     /**
      * Password recover
-     *
-     * @param  Request $request
-     * @return \Illuminate\Http\JsonResponse
      */
-    public function recover(Request $request)
+    public function recover(Request $request): JsonResponse
     {
         $user = User::where('email', $request->email)->first();
         if (!$user) {
@@ -25,13 +23,11 @@ class PasswordResetController extends Controller
 
         try {
             Password::sendResetLink(
-                $request->only('email'), function (Message $message) {
-                    $message->subject('Your Password Reset Link');
-                }
+                $request->only('email')
             );
-        } catch (Exception $e) {
+        } catch (Exception $exception) {
             // Return with error
-            $error_message = $e->getMessage();
+            $error_message = $exception->getMessage();
             return response()->json([ 'success' => false, 'error' => $error_message ], 401);
         }
 

@@ -2,10 +2,13 @@
 
 namespace GiveBlood\Units\Authentication\Http\Controllers\Auth;
 
+use Illuminate\Http\JsonResponse;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use GiveBlood\Support\Http\Controllers\Controller;
 use GiveBlood\Support\Http\Controllers\UserInvitationRequest;
-use Hash, DB;
+use Hash;
+use DB;
 
 class InvitationRequestsController extends Controller
 {
@@ -13,9 +16,9 @@ class InvitationRequestsController extends Controller
      * Create an invite when user requests from API.
      *
      * @param  UserInvitationRequest $request
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse|void
      */
-    public function createInvitation(Request $request)
+    public function createInvitation(Request $request): JsonResponse
     {
 
         $guestExist = DB::table('invitation_requests')
@@ -28,8 +31,8 @@ class InvitationRequestsController extends Controller
                 'guest_email' => $request->guest_email,
                 'country_id' => $request->country_id,
                 'token' => Hash::make(str_random(60)),
-                'created_at' => \Carbon\Carbon::now(),
-                'updated_at' => \Carbon\Carbon::now()
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
             ];
 
             DB::table('invitation_requests')->insert($guest);
@@ -39,23 +42,19 @@ class InvitationRequestsController extends Controller
                 'message' => 'Urrah! You have been invited. Check you email for more information.'
                 ], 201
             );
-        } else {
-            return response()->json(
-                [
-                'message' => 'Oops. Looks like you have been invited already. But don\'t scary, we will send you again!'
-                ], 200
-            );
         }
+        return response()->json(
+            [
+            'message' => "Oops. Looks like you have been invited already. But don't scary, we will send you again!"
+            ], 200
+        );
 
     }
 
     /**
      * Check if User was invited before.
-     *
-     * @param  Request $data
-     * @return void
      */
-    public function checkInvitation(Request $data)
+    public function checkInvitation(Request $data): void
     {
     }
 }

@@ -2,6 +2,7 @@
 
 namespace GiveBlood\Support\Http\Controllers;
 
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use GiveBlood\Support\Http\Controllers\Controller;
 
@@ -13,27 +14,26 @@ class SearchController extends Controller
      * Search for donors or campaigns
      *
      * @param  string $query
-     * @return void
+     * @return JsonResponse|void
      */
-    public function search(Request $request)
+    public function search(Request $request): JsonResponse
     {
         $campaigns = Campaign::where('title', 'like', '%'.$request->input('query').'%')
                                ->orWhere('description', 'like', '%'.$request->input('query').'%')
                                ->orderBy($request->input('orderBy'), $request->input('order'))
                                ->get();
 
-        if (count($campaigns) > 0) {
+        if ((is_countable($campaigns) ? count($campaigns) : 0) > 0) {
             return response()->json(
                 [
                 'data' => $campaigns
                 ], 200
             );
-        } else {
-            return response()->json(
-                [
-                'No content found. Try to search again!'
-                ]
-            );
         }
+        return response()->json(
+            [
+            'No content found. Try to search again!'
+            ]
+        );
     }
 }

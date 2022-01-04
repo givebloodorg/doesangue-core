@@ -10,10 +10,8 @@ class BankTest extends TestCase
     use RefreshDatabase;
     /**
      * A basic test example.
-     *
-     * @return void
      */
-    public function testGetAllBanks()
+    public function testGetAllBanks(): void
     {
         $response = $this->json('GET', '/v1/banks');
 

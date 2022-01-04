@@ -2,6 +2,8 @@
 
 namespace GiveBlood\Modules\Users;
 
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -13,8 +15,9 @@ use GiveBlood\Traits\UuidTrait;
 
 class User extends Authenticatable
 {
-    use Notifiable, SoftDeletes, UuidTrait;
-
+    use Notifiable;
+    use SoftDeletes;
+    use UuidTrait;
     /**
      * The attributes that are mass assignable.
      *
@@ -76,6 +79,9 @@ class User extends Authenticatable
         'deleted_at'
       ];
 
+    /**
+     * @var string[]
+     */
     protected $appends =
       [
         'is_active'
@@ -83,20 +89,16 @@ class User extends Authenticatable
 
     /**
      * Returns the full name of user.
-     *
-     * @return string
      */
-    public function getFullNameAttribute($value)
+    public function getFullNameAttribute($value): string
     {
         return ucfirst($this->first_name).' '.ucfirst($this->last_name);
     }
 
     /**
      * Get user avatar or set default.png as default.
-     *
-     * @return string
      */
-    public function getAvatarAttribute($avatar)
+    public function getAvatarAttribute($avatar): string
     {
         return asset($avatar ?: 'images/avatars/default.png');
     }
@@ -104,20 +106,18 @@ class User extends Authenticatable
     /**
      * Returns the campaigns created by the user.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany relationship
+     * @return HasMany relationship
      * @var    array
      */
-    public function campaigns()
+    public function campaigns(): HasMany
     {
         return $this->hasMany(Campaign::class);
     }
 
     /**
      * Related.
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function bloodType()
+    public function bloodType(): BelongsTo
     {
         return $this->belongsTo(BloodType::class, 'blood_type_id');
     }
@@ -125,7 +125,7 @@ class User extends Authenticatable
     /**
      * Return as Many invites created by user.
      */
-    public function invites()
+    public function invites(): HasMany
     {
         return $this->hasMany(Invite::class);
     }
@@ -133,35 +133,28 @@ class User extends Authenticatable
     /**
      * Returns the comments created by the user.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany relationship
+     * @return HasMany relationship
      * @var    array
      */
-    public function comments()
+    public function comments(): HasMany
     {
         return $this->hasMany(Comment::class);
     }
 
-    public function getIsActiveAttribute()
+    public function getIsActiveAttribute(): bool
     {
         return $this->attributes[ 'status' ] == "active";
     }
 
     /**
      * Get the route key for the model.
-     *
-     * @return string
      */
-    public function getRouteKeyName()
+    public function getRouteKeyName(): string
     {
         return 'username';
     }
 
-    /**
-     * Get the user phone number
-     *
-     * @return string
-     */
-    public function getPhoneNumberAttribute()
+    public function getPhoneNumberAttribute(): string
     {
         return $this->attributes[ 'phone' ];
     }

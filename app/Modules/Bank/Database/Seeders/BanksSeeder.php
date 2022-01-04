@@ -9,10 +9,8 @@ class BanksSeeder extends Seeder
 {
     /**
      * Run the database seeds.
-     *
-     * @return void
      */
-    public function run()
+    public function run(): void
     {
         factory(Bank::class, 10)->create();
 

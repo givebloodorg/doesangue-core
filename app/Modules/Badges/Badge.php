@@ -9,8 +9,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Badge extends Model
 {
 
-    use SoftDeletes, UuidTrait;
-
+    use SoftDeletes;
+    use UuidTrait;
     /**
      * The table associated with the model.
      *
@@ -32,8 +32,14 @@ class Badge extends Model
      */
     protected $filliable = [ 'name', 'icon', 'slug' ];
 
+    /**
+     * @var string[]
+     */
     protected $hidden = [ 'created_at', 'updated_at', 'deleted_at' ];
 
+    /**
+     * @var string[]
+     */
     protected $dates = [
       'created_at', 'updated_at', 'deleted_at'
     ];

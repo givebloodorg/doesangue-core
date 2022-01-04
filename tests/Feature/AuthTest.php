@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 
+use Hash;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithoutMiddleware;
@@ -16,9 +17,8 @@ class AuthTest extends TestCase
      * Test: Get /v1/auth/register
      *
      * @test
-     * @return void
      */
-    public function testUserCanRegister()
+    public function testUserCanRegister(): void
     {
 
         /* $request = $this->post(
@@ -40,7 +40,7 @@ class AuthTest extends TestCase
             'last_name' => 'Tester',
             'guest_email' => 'gamer.tester@internet.io',
             'country_id' => '1',
-            'token' => \Hash::make(str_random(60))
+            'token' => Hash::make(str_random(60))
             ]
         );
 
@@ -58,7 +58,7 @@ class AuthTest extends TestCase
      *
      * @test
      */
-    public function testuserCanLogin()
+    public function testuserCanLogin(): void
     {
         // Create the user before login.
         $user = factory(User::class)->create();
@@ -95,10 +95,8 @@ class AuthTest extends TestCase
      *
      * @test
      *  Test: GET /v1/auth/register
-     *
-     * @return void
      */
-    public function testUserCannotLogin()
+    public function testUserCannotLogin(): void
     {
         $user = factory(User::class)->create();
 

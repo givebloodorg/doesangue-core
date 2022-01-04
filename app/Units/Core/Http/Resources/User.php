@@ -1,6 +1,6 @@
 <?php
 
-namespace DoeSangGiveBlood\Units\Core\Http\Resources;
+namespace GiveBlood\Units\Core\Http\Resources;
 
 use Illuminate\Http\Resources\Json\Resource;
 
@@ -10,9 +10,9 @@ class User extends Resource
      * Transform the resource into an array.
      *
      * @param  \Illuminate\Http\Request
-     * @return array
+     * @return array<string, mixed>
      */
-    public function toArray($request)
+    public function toArray($request): array
     {
         return [
           'first_name' =>   $this->first_name,

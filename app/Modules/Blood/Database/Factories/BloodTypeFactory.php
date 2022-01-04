@@ -1,7 +1,8 @@
 <?php
 
-namespace GiveBlood\Modules\Blood;
+namespace GiveBlood\Modules\Blood\Database\Factories;
 
+use GiveBlood\Modules\Blood\BloodType;
 use GiveBlood\Support\Database\ModelFactory;
 
 /*
@@ -16,9 +17,15 @@ use GiveBlood\Support\Database\ModelFactory;
 */
 class BloodTypeFactory extends ModelFactory
 {
+    /**
+     * @var class-string<BloodType>
+     */
     protected $model = BloodType::class;
 
-    protected function fields()
+    /**
+     * @return array<string, mixed>
+     */
+    protected function fields(): array
     {
 
         return [

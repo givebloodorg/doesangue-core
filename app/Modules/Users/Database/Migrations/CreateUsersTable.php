@@ -2,13 +2,14 @@
 
 namespace GiveBlood\Modules\Users\Database\Migrations;
 
+use Illuminate\Database\Schema\Builder;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
 class CreateUsersTable extends Migration
 {
     /**
-     * @var \Illuminate\Database\Schema\Builder
+     * @var Builder
      */
     protected $schema;
 
@@ -22,13 +23,11 @@ class CreateUsersTable extends Migration
 
     /**
      * Run the migrations.
-     *
-     * @return void
      */
-    public function up()
+    public function up(): void
     {
         $this->schema->create(
-            'users', function (Blueprint $table) {
+            'users', function (Blueprint $table): void {
                 $table->uuid('id');
                 $table->string('first_name');
                 $table->string('last_name');
@@ -52,10 +51,8 @@ class CreateUsersTable extends Migration
 
     /**
      * Reverse the migrations.
-     *
-     * @return void
      */
-    public function down()
+    public function down(): void
     {
         $this->schema->drop('users');
     }

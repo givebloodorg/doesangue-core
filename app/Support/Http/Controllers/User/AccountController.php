@@ -2,6 +2,7 @@
 
 namespace GiveBlood\Support\Http\Controllers\User;
 
+use Illuminate\Http\JsonResponse;
 use JWTAuth;
 use Illuminate\Http\Request;
 use GiveBlood\Support\Http\Controllers\Controller;
@@ -10,10 +11,8 @@ class AccountController extends Controller
 {
     /**
      * Get Logged in User information.
-     *
-     * @return \Illuminate\Http\JsonResponse
      */
-    public function userInfo()
+    public function userInfo(): JsonResponse
     {
         $user = JWTAuth::parseToken()->authenticate();
 
@@ -21,6 +20,7 @@ class AccountController extends Controller
         if (!$user) {
             return response()->json([ 'invalid_user' ], 401);
         }
+
         // Return the user data in json.
         return response()->json(
             [
@@ -38,7 +38,7 @@ class AccountController extends Controller
 
     }
 
-    public function updateProfile(Request $data)
+    public function updateProfile(Request $data): void
     {
         //
     }

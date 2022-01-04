@@ -10,24 +10,21 @@ use GiveBlood\Modules\Campaign\Campaign;
 
 class CampaignPublished extends Mailable implements ShouldQueue
 {
-    use Queueable, SerializesModels;
+    use Queueable;
 
-    protected $campaign;
+    use SerializesModels;
     /**
      * Create a new message instance.
      *
      */
-    public function __construct(Campaign $campaign)
+    public function __construct(protected Campaign $campaign)
     {
-        $this->campaign = $campaign;
     }
 
     /**
      * Build the message.
-     *
-     * @return $this
      */
-    public function build()
+    public function build(): static
     {
         return $this->markdown('email.campaigns.published')
             ->with(

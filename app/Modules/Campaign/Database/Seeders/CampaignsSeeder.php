@@ -11,16 +11,14 @@ class CampaignsSeeder extends Seeder
 {
     /**
      * Run the database seeds.
-     *
-     * @return void
      */
-    public function run()
+    public function run(): void
     {
 
         DB::table('campaigns')->delete();
 
         factory(User::class, 20)->create()->each(
-            function ($u) {
+            function ($u): void {
                     $u->campaigns()->save(factory(Campaign::class)->make());
             }
         );
