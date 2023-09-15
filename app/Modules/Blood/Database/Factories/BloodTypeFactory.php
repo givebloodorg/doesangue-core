@@ -3,7 +3,7 @@
 namespace GiveBlood\Modules\Blood\Database\Factories;
 
 use GiveBlood\Modules\Blood\BloodType;
-use GiveBlood\Support\Database\ModelFactory;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,7 +15,7 @@ use GiveBlood\Support\Database\ModelFactory;
 | model instances for testing / seeding your application's database.
 |
 */
-class BloodTypeFactory extends ModelFactory
+class BloodTypeFactory extends Factory
 {
     /**
      * @var class-string<BloodType>
@@ -25,7 +25,7 @@ class BloodTypeFactory extends ModelFactory
     /**
      * @return array<string, mixed>
      */
-    protected function fields(): array
+    public function definition(): array
     {
 
         return [

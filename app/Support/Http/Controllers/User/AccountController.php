@@ -21,6 +21,9 @@ class AccountController extends Controller
             return response()->json([ 'invalid_user' ], 401);
         }
 
+
+        //return var_dump($user->bloodType()->code);
+
         // Return the user data in json.
         return response()->json(
             [
@@ -28,7 +31,7 @@ class AccountController extends Controller
             'last_name'  =>   $user->last_name,
             'email'      =>   $user->email,
             'username'   =>   $user->username,
-            'blood_type' =>   $user->donor->bloodType->code,
+            'blood_type' =>   $user->bloodType->code,
             'avatar'     =>   '', //$user->avatar,
             'birthdate'  =>   $user->birthdate,
             'phone'      =>   $user->phone,

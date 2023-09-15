@@ -13,7 +13,7 @@ class PasswordResetController extends Controller
     /**
      * Password recover
      */
-    public function recover(Request $request): JsonResponse
+    public function recover(Request $request) :  JsonResponse
     {
         $user = User::where('email', $request->email)->first();
         if (!$user) {

@@ -9,6 +9,7 @@ use GiveBlood\Modules\Campaign\Comment;
 use GiveBlood\Modules\Campaign\Campaign;
 use Tymon\JWTAuth\Facades\JWTAuth;
 use Carbon\Carbon;
+use Illuminate\Support\Str;
 
 class CommentsController extends Controller
 {
@@ -24,7 +25,7 @@ class CommentsController extends Controller
         return response()->json($comments, 200);
     }
 
-    public function create(Request $request, $campaign): JsonResponse
+    public function create($campaign, Request $request):JsonResponse
     {
 
         $user = JWTAuth::parseToken()->authenticate();
@@ -32,11 +33,11 @@ class CommentsController extends Controller
         //$campaign = Campaign::find($id);
         $camp = Campaign::find($campaign);
         $comment = new Comment();
-        $comment->id = str_random();
+        $comment->id = Str::random(16);
         $comment->comment = $request[ 'comment' ];
         $comment->user_id = $user->id;
         $comment->campaign_id = $camp->id;
-        // $comment->created_at = Carbon::now();
+        $comment->created_at = Carbon::now();
         $comment->save();
 
         //  return response()->json($comment);
@@ -49,13 +50,14 @@ class CommentsController extends Controller
 
     }
 
-    public function update($id, Request $request): JsonResponse
+    public function update($campaign, $comment, Request $request): JsonResponse
     {
-        $comment = Comment::find($id);
+
+        $comment_item = Comment::find($comment);
 
         $user = JWTAuth::parseToken()->authenticate();
 
-        if ($user->id !== $comment->user_id) {
+        if ($user->id !== $comment_item->user_id) {
             return response()->json(
                 [
                   'status_code' => 401,
@@ -64,9 +66,9 @@ class CommentsController extends Controller
             );
         }
 
-        $comment->comment = $request[ 'comment' ];
+        $comment_item->comment = $request[ 'comment' ];
 
-        if (!$comment) {
+        if (!$comment_item) {
             return response()->json(
                 [
                     'error_code' => 404,
@@ -75,7 +77,7 @@ class CommentsController extends Controller
             );
         }
 
-        $comment->save();
+        $comment_item->save();
 
         return response()->json(
             [
@@ -85,14 +87,14 @@ class CommentsController extends Controller
         );
     }
 
-    public function destroy($id): JsonResponse
+    public function destroy($campaign, $comment):JsonResponse
     {
-        $Comment = null;
-        $comment = Comment::find($id);
+
+        $comment_item = Comment::find($comment);
 
         $user = JWTAuth::parseToken()->authenticate();
 
-        if ($user->id !== $comment->user_id) {
+        if ($user->id !== $comment_item->user_id) {
             return response()->json(
                 [
                   'status_code' => 401,
@@ -102,7 +104,7 @@ class CommentsController extends Controller
         }
 
           // Notify error in not found
-        if (!$comment) {
+        if (!$comment_item) {
             return response()->json(
                 [
                   'error_code' => 404,
@@ -111,13 +113,13 @@ class CommentsController extends Controller
             );
         }
 
-        $Comment->delete();
+        $comment_item->delete();
 
         return response()->json(
             [
-              'status_code' => 204,
+              'status_code' => 200,
               'message' => 'Comment deleted'
-            ], 204
+            ], 200
         );
     }
 }

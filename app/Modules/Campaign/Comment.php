@@ -1,6 +1,6 @@
 <?php
 
-namespace GiveBlood\Modules\Blood;
+namespace GiveBlood\Modules\Campaign;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -11,11 +11,10 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use GiveBlood\Modules\Users\User;
 use GiveBlood\Traits\UuidTrait;
 
-class BloodType extends Model
+class Comment extends Model
 {
 
-use HasFactory;
-
+    use HasFactory;
     use SoftDeletes;
     use UuidTrait;
     /**
@@ -23,7 +22,7 @@ use HasFactory;
      *
      * @var string
      */
-    protected $table = 'blood_types';
+    protected $table = 'comments';
 
     /**
      * Indicates if the IDs are auto-incrementing.
@@ -37,42 +36,18 @@ use HasFactory;
      *
      * @var array
      */
-    protected $filliable =
-      [
-        'description',
-        'code',
-      ];
+    protected $filliable = [ 'comment',  'campaign_id', 'user_id' ];
 
     /**
-     * BloodType Dates.
-     *
-     * @var array
-     */
-    protected $dates =
-      [
-        'created_at',
-        'updated_at'
-      ];
-
-    /**
-     * Hidden fields from json response.
-     *
-     * @return void
      * @var string[]
      */
-    protected $hidden =
-      [
-        'bid',
-        'deleted_at',
-        'created_at',
-        'updated_at'
-      ];
+    protected $hidden = [ 'created_at', 'updated_at', 'deleted_at' ];
 
     /**
-     * Related.
+     * @var string[]
      */
-    public function user(): BelongsTo
-    {
-        return $this->belongsTo(User::class);
-    }
+    protected $dates = [
+      'created_at', 'updated_at', 'deleted_at'
+    ];
+
 }

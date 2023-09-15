@@ -3,9 +3,9 @@
 namespace GiveBlood\Modules\Users\Database\Factories;
 
 use GiveBlood\Modules\Users\Country;
-use GiveBlood\Support\Database\ModelFactory;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
-class CountryFactory extends ModelFactory
+class CountryFactory extends Factory
 {
     /**
      * @var class-string<Country>
@@ -15,10 +15,9 @@ class CountryFactory extends ModelFactory
     /**
      * @return array<string, string>
      */
-    protected function fields(): array
+    public function definition(): array
     {
         return [
-        'id' => $this->faker->uuid,
         'country_name' => $this->faker->country
         ];
     }

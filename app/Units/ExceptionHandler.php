@@ -5,6 +5,7 @@ namespace GiveBlood\Units;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 use Exception;
+use Throwable;
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Validation\ValidationException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
@@ -35,7 +36,7 @@ class ExceptionHandler extends Handler
     /**
      * Report or log an exception.
      */
-    public function report(Exception $exception): void
+    public function report(Throwable $exception): void
     {
         parent::report($exception);
     }
@@ -45,7 +46,7 @@ class ExceptionHandler extends Handler
      *
      * @param Request $request
      */
-    public function render($request, Exception $exception): JsonResponse|\Symfony\Component\HttpFoundation\Response
+    public function render($request, Throwable $exception): JsonResponse|\Symfony\Component\HttpFoundation\Response
     {
         // Validate 404 exceptions.
         if ($exception instanceof NotFoundHttpException) {

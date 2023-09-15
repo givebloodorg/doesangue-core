@@ -4,14 +4,16 @@ namespace GiveBlood\Units\Authentication\Http\Controllers\Auth;
 
 use Illuminate\Http\JsonResponse;
 use JWTAuth;
+use Throwable;
 use Tymon\JWTAuth\Exceptions\JWTException;
 use GiveBlood\Support\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
-use GiveBlood\Support\Http\Requests\RegisterUserRequest;
+//use GiveBlood\Support\Http\Requests\RegisterUserRequest;
 use GiveBlood\Mail\UserCreated;
 use Illuminate\Support\Facades\Mail;
 use GiveBlood\Modules\Users\User;
+use Illuminate\Http\Response;
 
 class AuthenticateController extends Controller
 {
@@ -47,13 +49,14 @@ class AuthenticateController extends Controller
         );
     }
 
-    /**
-     * Register a new User
-     *
-     * @param  RegisterUserRequest $request
-     */
-    public function register(RegisterUserRequest $request): JsonResponse
+    // /**
+    //  * Register a new User
+    // *
+    // * @param  RegisterUserRequest $request
+    // */
+    public function register(Request $request): JsonResponse
     {
+
         $user = User::create(
             [
             'first_name' => $request->first_name,
@@ -61,7 +64,7 @@ class AuthenticateController extends Controller
             'email' => $request->email,
             'username' => $request->username,
             'phone' => $request->phone,
-            'country_code' => $request->country_code,
+            'country_id' => $request->country_id,
             'bio' => $request->bio,
             'blood_type_id' => $request->blood_type_id,
             'birthdate' => $request->birthdate,
@@ -69,10 +72,12 @@ class AuthenticateController extends Controller
             ]
         );
 
+       try {
+         Mail::to($user->email)->send(new UserCreated($user));
+
+       } catch (Throwable $th) {
+       }
         // Send mail to user
-        Mail::to($user->email)->send(new UserCreated($user));
-
-
 
         $token = JWTAuth::attempt($request->only('email', 'password'));
 
@@ -88,21 +93,24 @@ class AuthenticateController extends Controller
     /**
      * Invalidate and log out the user
      */
-    public function logout(Request $request): JsonResponse
+    public function logout(Request $request) : JsonResponse
     {
         $this->validate($request, [ 'token' => 'required' ]);
 
-        try {
-            JWTAuth::invalidate($request->input('token'));
+      try {
+            //JWTAuth::invalidate($request->input('token'));
+            JWTAuth::invalidate(JWTAuth::getToken());
+
             return response()->json(
                 [
                 'success' => true
                 ]
             );
-        } catch (JWTException) {
+       } catch (JWTException) {
             // Something went wrong whilst attemping to encode the token
             return response()->json([ 'success' => false, 'error' => 'Failed to logout, please try again.', 500 ]);
         }
+
     }
 
 }

@@ -32,7 +32,8 @@ class BankServiceProvider extends ServiceProvider
 
     public function registerFactories(): void
     {
-        (new BankFactory())->define();
+
+       // (new BankFactory())->definition();
     }
 
     public function registerSeeders(): void

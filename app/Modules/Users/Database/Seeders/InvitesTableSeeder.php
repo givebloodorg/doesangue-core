@@ -2,6 +2,7 @@
 
 namespace GiveBlood\Modules\Users\Database\Seeders;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Seeder;
 
 class InvitesTableSeeder extends Seeder

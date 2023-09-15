@@ -4,20 +4,12 @@ namespace GiveBlood\Modules\Campaign\Database\Factories;
 
 use Carbon\Carbon;
 use GiveBlood\Modules\Campaign\Campaign;
+use GiveBlood\Modules\Users\Database\Factories\UserFactory;
 use GiveBlood\Modules\Users\User;
-use GiveBlood\Support\Database\ModelFactory;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
-/*
-|--------------------------------------------------------------------------
-| User Model Factory
-|--------------------------------------------------------------------------
-|
-| This directory should contain each of the model factory definitions for
-| your application. Factories provide a convenient way to generate new
-| model instances for testing / seeding your application's database.
-|
-*/
-class CampaignFactory extends ModelFactory
+
+class CampaignFactory extends Factory
 {
     /**
      * @var class-string<Campaign>
@@ -27,7 +19,7 @@ class CampaignFactory extends ModelFactory
     /**
      * @return array<string, mixed>
      */
-    protected function fields(): array
+    public function definition(): array
     {
 
         return [
@@ -35,7 +27,8 @@ class CampaignFactory extends ModelFactory
         'description' => $this->faker->text(100),
         'due_date' => Carbon::now()->endOfYear(),
         'image' => $this->faker->imageUrl,
-        'user_id' =>  fn() => factory(User::class)->make()->id,
+        //'user_id' =>  fn() =>  factory(User::class)->make()->id,
+        'user_id' =>  fn() =>  UserFactory::new()->create()->id,
         'slug' => $this->faker->slug
         ];
     }

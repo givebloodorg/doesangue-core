@@ -34,7 +34,7 @@ class CampaignServiceProvider extends ServiceProvider
 
     public function registerFactories(): void
     {
-        (new CampaignFactory())->define();
+       //  (new CampaignFactory())->definition();
     }
 
     public function registerSeeders(): void

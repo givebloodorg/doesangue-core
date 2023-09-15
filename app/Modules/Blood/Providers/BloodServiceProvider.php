@@ -33,7 +33,7 @@ class BloodServiceProvider extends ServiceProvider
 
     public function registerFactories(): void
     {
-        (new BloodTypeFactory())->define();
+       // (new BloodTypeFactory())->definition();
     }
 
     public function registerSeeders(): void

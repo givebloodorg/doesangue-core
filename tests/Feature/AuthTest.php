@@ -2,15 +2,17 @@
 
 namespace Tests\Feature;
 
+use GiveBlood\Modules\Users\Database\Factories\UserFactory;
 use Hash;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use GiveBlood\Modules\Users\User;
+use Illuminate\Support\Str;
 
 class AuthTest extends TestCase
 {
-    use RefreshDatabase;
+   use RefreshDatabase;
 
     /**
      * Test if user can create account (register)
@@ -18,21 +20,27 @@ class AuthTest extends TestCase
      *
      * @test
      */
+
+
     public function testUserCanRegister(): void
     {
 
-        /* $request = $this->post(
+         $request = $this->post(
             '/v1/auth/register', [
             'first_name' => 'Doe Sangue',
             'last_name' => "Tester",
             'username' => 'member1',
             'email' => 'info@doesangue.me',
             'phone' => '244932401234',
+            'country_id'=>'2',
+            'bio'=>"I'm amazing",
+            'blood_type_id'=>'01157557-7f4d-4bf1-9d5e-9c93338acd42',
             'birthdate' => '19890401',
             'password' => 'secret1234'
             ]
-        );*/
+        );
 
+        /*
         $response = $this->json(
             'POST', 'v1/invitation',
             [
@@ -40,17 +48,18 @@ class AuthTest extends TestCase
             'last_name' => 'Tester',
             'guest_email' => 'gamer.tester@internet.io',
             'country_id' => '1',
-            'token' => Hash::make(str_random(60))
+            'token' => Hash::make(Str::random(60))
             ]
         );
+        */
 
-        $response
-            ->assertStatus(201)
-            ->assertJsonStructure(
+        $request
+            ->assertStatus(201) ->assertJsonStructure(
                 [
-                'message'
+                'access_token',
+                'token_type'
                 ]
-            );
+            );;
     }
 
     /**
@@ -61,7 +70,8 @@ class AuthTest extends TestCase
     public function testuserCanLogin(): void
     {
         // Create the user before login.
-        $user = factory(User::class)->create();
+       // $user = factory(User::class)->create();
+       $user = UserFactory::new()->create();
 
         $response = $this->json(
             'POST', 'v1/auth/login',
@@ -98,7 +108,9 @@ class AuthTest extends TestCase
      */
     public function testUserCannotLogin(): void
     {
-        $user = factory(User::class)->create();
+       // $user = factory(User::class)->create();
+       $user = UserFactory::new()->create();
+
 
         $request = $this->post(
             '/v1/auth/login', [

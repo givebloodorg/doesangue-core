@@ -31,6 +31,7 @@ class CreateInvitesTable extends Migration
                 $table->increments('id');
                 $table->string('invite_code')->unique();
                 $table->uuid('user_id');
+                $table->softDeletes();
                 $table->timestamps();
             }
         );

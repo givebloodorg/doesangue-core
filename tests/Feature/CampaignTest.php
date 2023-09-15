@@ -7,7 +7,6 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use GiveBlood\Modules\Users\User;
 use GiveBlood\Modules\Campaign\Campaign;
-
 class CampaignTest extends TestCase
 {
 

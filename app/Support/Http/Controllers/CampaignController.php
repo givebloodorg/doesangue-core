@@ -6,6 +6,7 @@ use GiveBlood\Support\Http\Controllers\Controller;
 use GiveBlood\Modules\Campaign\Campaign;
 use GiveBlood\Units\Core\Http\Resources\Campaign as CampaignResource;
 use GiveBlood\Units\Core\Http\Resources\CampaignCollection;
+use Illuminate\Http\JsonResponse;
 
 class CampaignController extends Controller
 {
@@ -30,10 +31,19 @@ class CampaignController extends Controller
     /**
      * Get all details of a campaign
      */
-    public function show($campaign): CampaignResource
+    public function show($campaign): CampaignResource | JsonResponse
     {
+        $campaign_data =Campaign::find($campaign);
 
-        return new CampaignResource(Campaign::find($campaign));
+        if($campaign_data == NULL){
+            return response()->json(
+                [
+                'No content found. Try to search again!'
+                ], 404
+            );
+        }
+
+        return new CampaignResource($campaign_data);
 
     }
 

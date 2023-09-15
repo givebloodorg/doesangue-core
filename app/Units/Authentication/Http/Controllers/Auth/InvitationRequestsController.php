@@ -9,6 +9,7 @@ use GiveBlood\Support\Http\Controllers\Controller;
 use GiveBlood\Support\Http\Controllers\UserInvitationRequest;
 use Hash;
 use DB;
+use Illuminate\Support\Str;
 
 class InvitationRequestsController extends Controller
 {
@@ -30,7 +31,7 @@ class InvitationRequestsController extends Controller
                 'last_name' => $request->last_name,
                 'guest_email' => $request->guest_email,
                 'country_id' => $request->country_id,
-                'token' => Hash::make(str_random(60)),
+                'token' => Hash::make(Str::random(60)),
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ];

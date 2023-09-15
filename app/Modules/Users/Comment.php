@@ -2,6 +2,8 @@
 
 namespace GiveBlood\Modules\Users;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -12,8 +14,10 @@ use GiveBlood\Traits\UuidTrait;
 class Comment extends Model
 {
 
+use HasFactory;
+
     use SoftDeletes;
-    use UuidTrait;
+    //use UuidTrait;
     /**
      * The table associated with the model.
      *
