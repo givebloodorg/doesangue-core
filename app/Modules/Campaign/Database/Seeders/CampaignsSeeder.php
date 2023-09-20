@@ -1,6 +1,6 @@
 <?php
 
-namespace GiveBlood\Modules\Campaing\Database\Seeders;
+namespace GiveBlood\Modules\Campaign\Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use  GiveBlood\Modules\Users\User;
