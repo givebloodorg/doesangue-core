@@ -5,7 +5,7 @@ namespace GiveBlood\Support\Http\Controllers;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use GiveBlood\Support\Http\Controllers\Controller;
-
+use Throwable;
 use GiveBlood\Modules\Campaign\Campaign;
 
 class SearchController extends Controller
@@ -16,12 +16,20 @@ class SearchController extends Controller
      * @param  string $query
      * @return JsonResponse|void
      */
-    public function search(Request $request): JsonResponse
+    public function search(Request $request)
     {
-        $campaigns = Campaign::where('title', 'like', '%'.$request->input('query').'%')
-                               ->orWhere('description', 'like', '%'.$request->input('query').'%')
-                               ->orderBy($request->input('orderBy'), $request->input('order'))
-                               ->get();
+        try {
+            $campaigns = Campaign::where('title', 'like', '%'.$request->input('query', '').'%')
+            ->orWhere('description', 'like', '%'.$request->input('query', '').'%')
+            ->orderBy($request->input('orderBy', 'title'), $request->input('order', 'desc'))
+            ->get();
+
+        } catch (Throwable $th) {
+            return response()->json([
+                'Internal Error'
+            ], 500);
+        }
+
 
         if ((is_countable($campaigns) ? count($campaigns) : 0) > 0) {
             return response()->json(

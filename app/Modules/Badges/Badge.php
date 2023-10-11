@@ -2,13 +2,14 @@
 
 namespace GiveBlood\Modules\Badges;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use GiveBlood\Traits\UuidTrait;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Badge extends Model
 {
-
+    use HasFactory;
     use SoftDeletes;
     use UuidTrait;
     /**

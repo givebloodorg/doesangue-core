@@ -2,6 +2,8 @@
 
 namespace GiveBlood\Modules\Users;
 
+use Tymon\JWTAuth\Contracts\JWTSubject;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Notifications\Notifiable;
@@ -13,8 +15,10 @@ use GiveBlood\Modules\Users\Invite;
 use GiveBlood\Modules\Blood\BloodType;
 use GiveBlood\Traits\UuidTrait;
 
-class User extends Authenticatable
+class User extends Authenticatable implements JWTSubject
+
 {
+    use HasFactory;
     use Notifiable;
     use SoftDeletes;
     use UuidTrait;
@@ -30,7 +34,7 @@ class User extends Authenticatable
         'email',
         'username',
         'phone',
-        'country_code',
+        'country_id',
         'bio',
         'birthdate',
         'active',
@@ -86,6 +90,26 @@ class User extends Authenticatable
       [
         'is_active'
       ];
+
+       /**
+     * Get the identifier that will be stored in the subject claim of the JWT.
+     *
+     * @return mixed
+     */
+    public function getJWTIdentifier()
+    {
+        return $this->getKey();
+    }
+
+    /**
+     * Return a key value array, containing any custom claims to be added to the JWT.
+     *
+     * @return array
+     */
+    public function getJWTCustomClaims()
+    {
+        return [];
+    }
 
     /**
      * Returns the full name of user.

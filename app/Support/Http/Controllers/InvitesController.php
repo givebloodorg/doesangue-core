@@ -34,11 +34,11 @@ class InvitesController extends Controller
         );
     }
 
-    public function show($id): JsonResponse
+    public function show($invite): JsonResponse
     {
-        $invite = Invite::find($id);
+        $invite_item = Invite::find($invite);
 
-        return response()->json($invite, 200);
+        return response()->json($invite_item, 200);
     }
 
 }

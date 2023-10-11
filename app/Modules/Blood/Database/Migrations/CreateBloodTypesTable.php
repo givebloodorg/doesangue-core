@@ -31,6 +31,7 @@ class CreateBloodTypesTable extends Migration
                 $table->uuid('id')->unique()->primary();
                 $table->string('description', 20);
                 $table->string('code', 10);
+                $table->softDeletes();
                 $table->timestamps();
             }
         );

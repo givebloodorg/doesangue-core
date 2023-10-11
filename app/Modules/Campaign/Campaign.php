@@ -2,6 +2,8 @@
 
 namespace GiveBlood\Modules\Campaign;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -12,6 +14,7 @@ use GiveBlood\Traits\UuidTrait;
 class Campaign extends Model
 {
 
+    use HasFactory;
     use SoftDeletes;
     use UuidTrait;
     /**

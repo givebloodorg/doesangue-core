@@ -79,12 +79,13 @@ class Api extends Router
                 $auth->group(
                     ['prefix' => 'invitation'], function ($invitation): void {
                         $invitation->post('/', 'InvitationRequestsController@createInvitation');
-                        $invitation->get('/check', 'InvitationRequestsController@checkInvation');
+                        $invitation->get('/check', 'InvitationRequestsController@checkInvitation');
                     }
                 );
             }
         );
 
+        /*
         $this->router->group(
             ['prefix' => 'v1', 'namespace' => '\GiveBlood\Units\Authentication\Http\Controllers\Auth'], function ($auth): void {
                 $auth->post('/auth/login', 'AuthenticateController@authenticate');
@@ -105,6 +106,7 @@ class Api extends Router
                 );
             }
         );
+        */
     }
 
     protected function userRoutes(): void
@@ -170,9 +172,9 @@ class Api extends Router
                         $this->router->get('/', 'BloodTypeController@index');
                     }
                 );
-                /*
+
                 // Invites.
-                Route::group(
+                $this->router->group(
                     ['prefix' => 'invites'], function ($invite) {
                         // Create a new invite.
                         $invite->post('/', 'InvitesController@create');
@@ -182,7 +184,7 @@ class Api extends Router
                         $invite->delete('/{invite}', 'InvitesController@destroy');
                     }
                 );
-                */
+
             }
         );
     }

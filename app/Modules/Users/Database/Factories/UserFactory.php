@@ -2,22 +2,16 @@
 
 namespace GiveBlood\Modules\Users\Database\Factories;
 
-use Str;
+use Illuminate\Support\Str;
 use GiveBlood\Modules\Blood\BloodType;
+use GiveBlood\Modules\Blood\Database\Factories\BloodTypeFactory;
 use GiveBlood\Modules\Users\User;
-use GiveBlood\Support\Database\ModelFactory;
+use GiveBlood\Modules\Users\Country;
+use GiveBlood\Modules\Users\Database\Factories\CountryFactory;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
-/*
-|--------------------------------------------------------------------------
-| User Model Factory
-|--------------------------------------------------------------------------
-|
-| This directory should contain each of the model factory definitions for
-| your application. Factories provide a convenient way to generate new
-| model instances for testing / seeding your application's database.
-|
-*/
-class UserFactory extends ModelFactory
+
+class UserFactory extends Factory
 {
     /**
      * @var class-string<User>
@@ -27,7 +21,7 @@ class UserFactory extends ModelFactory
     /**
      * @return array<string, mixed>
      */
-    protected function fields(): array
+    public function definition(): array
     {
         static $password;
 
@@ -41,8 +35,16 @@ class UserFactory extends ModelFactory
         'phone' => $this->faker->tollFreePhoneNumber,
         'bio' => $this->faker->text($maxNbChars = 100),
         'birthdate' => $this->faker->date,
+
+        'country_id' =>  CountryFactory::new()->create()->id,
+        'blood_type_id' =>  BloodTypeFactory::new()->create()->id,
+            /*
         'country_id' => factory(Country::class)->make()->id,
         'blood_type_id' => factory(BloodType::class)->make()->id,
+        /*
+
+          'country_id' => Country::factory()->create()->id,
+        'blood_type_id' => BloodType::factory()->create()->id,*/
         'password' => $password ?: $password = bcrypt('secret'),
         'remember_token' => Str::random(10),
         ];

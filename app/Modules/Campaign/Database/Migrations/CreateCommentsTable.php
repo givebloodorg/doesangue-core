@@ -32,6 +32,7 @@ class CreateCommentsTable extends Migration
                 $table->string('comment');
                 $table->uuid('campaign_id');
                 $table->uuid('user_id');
+                $table->softDeletes();
                 $table->timestamps();
 
                 // $table->foreign('user_id')->references('id')->on('users')

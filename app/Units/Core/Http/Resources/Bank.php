@@ -2,9 +2,9 @@
 
 namespace GiveBlood\Units\Core\Http\Resources;
 
-use Illuminate\Http\Resources\Json\Resource;
+use Illuminate\Http\Resources\Json\JsonResource;
 
-class Bank extends Resource
+class Bank extends JsonResource
 {
     /**
      * Transform the resource into an array.

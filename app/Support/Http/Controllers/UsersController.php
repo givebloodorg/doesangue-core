@@ -6,6 +6,7 @@ use GiveBlood\Support\Http\Controllers\Controller;
 use GiveBlood\Units\Core\Http\Resources\UserCollection;
 use GiveBlood\Units\Core\Http\Resources\User as UserResource;
 use GiveBlood\Modules\Users\User;
+use Illuminate\Http\JsonResponse;
 
 class UsersController extends Controller
 {
@@ -16,9 +17,20 @@ class UsersController extends Controller
 
     }
 
-    public function show($donor): UserResource
+    public function show($donor): UserResource | JsonResponse
     {
-        return new UserResource(User::find($donor));
+
+        $donor_data =User::find($donor);
+
+        if($donor_data == null){
+            return response()->json(
+                [
+                'No content found. Try to search again!'
+                ], 404
+            );
+        }
+
+        return new UserResource($donor_data);
     }
 
 }

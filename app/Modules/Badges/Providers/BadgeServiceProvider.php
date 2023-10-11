@@ -28,7 +28,7 @@ class BadgeServiceProvider extends ServiceProvider
 
     public function registerFactories(): void
     {
-        //(new BadgeFactory())->define();
+       // (new BadgeFactory())->definition();
     }
 
     public function registerSeeders(): void

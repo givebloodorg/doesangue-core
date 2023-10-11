@@ -41,6 +41,7 @@ class CreateUsersTable extends Migration
                 $table->uuid('blood_type_id');
                 $table->string('password');
                 $table->rememberToken();
+                $table->softDeletes();
                 $table->timestamps();
 
                 //$table->foreign('country_id')->references('id')->on('countries')->onCascade('delete');

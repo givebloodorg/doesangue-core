@@ -4,8 +4,10 @@ namespace GiveBlood\Support\Http\Controllers\User;
 
 use Illuminate\Http\JsonResponse;
 use GiveBlood\Support\Http\Controllers\Controller;
-
+use JWTAuth;
 use GiveBlood\Modules\Campaign\Campaign;
+use Illuminate\Http\Request;;
+use Carbon\Carbon;
 
 class CampaignController extends Controller
 {
@@ -15,7 +17,7 @@ class CampaignController extends Controller
      *
      * @return JsonResponse|void
      */
-    public function all()
+    public function index()
     {
 
         $user = JWTAuth::parseToken()->authenticate();
@@ -25,15 +27,15 @@ class CampaignController extends Controller
             return response()->json([ 'invalid_user' ], 401);
         }
 
-        $user->campaigns()->get();
+       return  $user->campaigns()->get();
     }
 
-    /**
-     * Create a new campaign
-     *
-     * @param  CreateCampaignRequest $request
-     */
-    public function store(CreateCampaignRequest $request): JsonResponse
+    // /**
+    // * Create a new campaign
+    // *
+    // * @param  CreateCampaignRequest $request
+    // */
+    public function store(Request $request): JsonResponse
     {
 
         $user = JWTAuth::parseToken()->authenticate();
@@ -41,7 +43,9 @@ class CampaignController extends Controller
         $campaign = new Campaign();
         $campaign->title = $request[ 'title' ];
         $campaign->description = $request[ 'description' ];
-        $campaign->expires = $request[ 'expires' ];
+        $campaign->due_date=$request['due_date'];
+        $campaign->slug='';
+       // $campaign->expires = $request[ 'expires' ];
         //        $campaign->user_id = $request[ 'user_id' ];
         // use auth guard instead of $request['user_id'].
         $campaign->user_id = $user->id;
@@ -60,18 +64,18 @@ class CampaignController extends Controller
 
     }
 
-    /**
-     * Update details of a campaign
-     *
-     * @param  UpdateCampaignRequest $request
-     */
-    public function update(UpdateCampaignRequest $request, int $id): JsonResponse
+    // /**
+    // * Update details of a campaign
+    // *
+    // * @param  UpdateCampaignRequest $request
+    // */
+    public function update($campaign, Request $request): JsonResponse
     {
-        $campaign = Campaign::find($id);
+        $campaign_data = Campaign::find($campaign);
 
         $user = JWTAuth::parseToken()->authenticate();
 
-        if ($user->id !== $campaign->user_id) {
+        if ($user->id !== $campaign_data->user_id) {
             return response()->json(
                 [
                 'message' => "You haven't permission to update this entry"
@@ -79,13 +83,13 @@ class CampaignController extends Controller
             );
         }
 
-        $campaign->title = $request[ 'title' ];
-        $campaign->expires = $request[ 'expires' ];
-        $campaign->description = $request[ 'description' ];
-        $campaign->updated_at = Carbon::now();
+        $campaign_data->title = $request[ 'title' ];
+        //$campaign_data->expires = $request[ 'expires' ];
+        $campaign_data->description = $request[ 'description' ];
+        $campaign_data->updated_at = Carbon::now();
 
         // Notify error in not found
-        if (!$campaign) {
+        if (!$campaign_data) {
             return response()->json(
                 [
                   'error_code' => '404',
@@ -95,20 +99,20 @@ class CampaignController extends Controller
         }
 
         // If validation pass: update the entry.
-        $campaign->save();
+        $campaign_data->save();
 
         return response()->json(
             [
-            'title' => $campaign->title,
+            'title' => $campaign_data->title,
             'owner' => [
-              'first_name' => $campaign->owner->first_name,
-              'last_name' => $campaign->owner->last_name,
+              'first_name' => $campaign_data->owner->first_name,
+              'last_name' => $campaign_data->owner->last_name,
               // 'email' => $campaign->owner->email,
               // 'username' => $campaign->owner->username
             ],
             'dates' => [
-            'start_at' => $campaign->created_at->format('d-m-Y h:m:s'),
-            'finish_at' => $campaign->expires->format('d-m-Y h:m:s')
+            'start_at' => Carbon::parse($campaign_data->created_at)->format('d-m-Y h:m:s'),
+            //'finish_at' => $campaign_data->expires->format('d-m-Y h:m:s')
             ]
             ], 200
         );
@@ -117,13 +121,13 @@ class CampaignController extends Controller
     /**
      * Delete the campaign from platform.
      */
-    public function destroy(int $id): JsonResponse
+    public function destroy($campaign): JsonResponse
     {
-        $campaign = Campaign::find($id);
+        $campaign_data = Campaign::find($campaign);
 
         $user = JWTAuth::parseToken()->authenticate();
 
-        if ($user->id !== $campaign->user_id) {
+        if ($user->id !== $campaign_data->user_id) {
             return response()->json(
                 [
                 'message' => "You haven't permission to delete this entry"
@@ -132,7 +136,7 @@ class CampaignController extends Controller
         }
 
         // Notify error in not found
-        if (!$campaign) {
+        if (!$campaign_data) {
             return response()->json(
                 [
                   'error_code' => 404,
@@ -141,12 +145,12 @@ class CampaignController extends Controller
             );
         }
 
-        $campaign->delete();
+        $campaign_data->delete();
 
         return response()->json(
             [
             'message' => 'Campaign deleted'
-            ], 204
+            ], 200
         );
     }
 

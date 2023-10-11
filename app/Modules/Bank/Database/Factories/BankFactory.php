@@ -3,9 +3,9 @@
 namespace GiveBlood\Modules\Bank\Database\Factories;
 
 use GiveBlood\Modules\Bank\Bank;
-use GiveBlood\Support\Database\ModelFactory;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
-class BankFactory extends ModelFactory
+class BankFactory extends Factory
 {
     /**
      * @var class-string<Bank>
@@ -15,7 +15,7 @@ class BankFactory extends ModelFactory
     /**
      * @return array<string, string>
      */
-    protected function fields(): array
+    public function definition(): array
     {
         return [
             'id' => $this->faker->uuid,
