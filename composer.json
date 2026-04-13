@@ -15,7 +15,7 @@
         "laravel/framework": "^10.0",
         "laravel/helpers": "^1.6",
         "laravel/legacy-factories": "*",
-        "laravel/tinker": "^2.8",
+        "laravel/tinker": "^3.0",
         "ramsey/uuid": "^4.7",
         "rebing/graphql-laravel": "^9.0",
         "tymon/jwt-auth": "2.0.*"
